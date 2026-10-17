@@ -1,20 +1,52 @@
+
 using System.Globalization;
 using TMPro;
 using UnityEngine;
 
 public class CoinsCounter : MonoBehaviour
 {
-    [SerializeField] TMP_Text coinsText;
-    [SerializeField] int coins = 12450;
+    [SerializeField] private TMP_Text coinsText;
 
-    void Start() => Refresh();
+    private ResourceManager resourceManager;
 
-    public void Add100()
+    private void Start()
     {
-        coins += 100;
+        resourceManager = ResourceManager.Instance;
+
+        if (resourceManager == null)
+        {
+            Debug.LogError("ResourceManager not found!");
+            return;
+        }
+
+        resourceManager.OnResourceChanged += OnResourceChanged;
         Refresh();
     }
 
-    void Refresh() =>
-        coinsText.text = coins.ToString("N0", CultureInfo.InvariantCulture);
+    private void OnDestroy()
+    {
+        if (resourceManager != null)
+            resourceManager.OnResourceChanged -= OnResourceChanged;
+    }
+
+    private void OnResourceChanged(ResourceType type, int amount)
+    {
+        if (type == ResourceType.Coins)
+            Refresh();
+    }
+
+    private void Refresh()
+    {
+        if (coinsText == null || resourceManager == null)
+            return;
+
+        coinsText.text = resourceManager
+            .GetResource(ResourceType.Coins)
+            .ToString("N0", CultureInfo.InvariantCulture);
+    }
+
+    public void Add100()
+    {
+        resourceManager?.AddResource(ResourceType.Coins, 100);
+    }
 }
