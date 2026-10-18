@@ -43,8 +43,3 @@ Paradise Tycoon je mobilná 2D hra vytvorená v hernom engine Unity. Tento repoz
 
 Aplikáciu je možné nainštalovať bez použitia Google Play.
 
-## Obsah skúšobnej verzie
-
-Prvá skúšobná verzia obsahuje jednu 2D scénu, v ktorej sa zobrazuje názov hry Paradise Tycoon.
-
-Táto verzia slúži na overenie správneho fungovania Unity projektu a zostavovania aplikácie pre Android.
