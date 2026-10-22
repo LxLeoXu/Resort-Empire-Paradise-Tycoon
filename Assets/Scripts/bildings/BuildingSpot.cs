@@ -7,6 +7,10 @@ public class BuildingSpot : MonoBehaviour
     [Tooltip("Sem presuň prefaby budov z priečinka Prefabs/buildings")]
     public List<GameObject> buildingPrefabs = new List<GameObject>();
 
+    [Header("Hodnota rezortu")]
+    [Tooltip("O koľko stúpne hodnota rezortu po postavení budovy (dočasné číslo)")]
+    [SerializeField] private int resortValueGain = 100;
+
     [Header("Stav miesta")]
     public bool isOccupied = false;
     private GameObject spawnedBuilding;
@@ -48,6 +52,12 @@ public class BuildingSpot : MonoBehaviour
             // Vytvorí budovu presne na súradniciach tohto miesta
             spawnedBuilding = Instantiate(prefabToBuild, transform.position, Quaternion.identity);
             isOccupied = true;
+
+            // Nová budova zvýši hodnotu rezortu
+            if (ResourceManager.Instance != null)
+                ResourceManager.Instance.AddResource(ResourceType.ResortValue, resortValueGain);
+            else
+                Debug.LogWarning("ResourceManager neexistuje, hodnota rezortu sa nezvýšila.");
 
             // Skryje ikonu '+' (stavenisko)
             gameObject.SetActive(false);
