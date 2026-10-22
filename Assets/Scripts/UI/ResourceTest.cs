@@ -12,4 +12,24 @@ public class ResourceTest : MonoBehaviour
     {
         ResourceManager.Instance.AddResource(ResourceType.Reputation, 5);
     }
+
+
+    public void AddResortValue()
+    {
+        if (ResourceManager.Instance == null)
+        {
+            Debug.LogError("ResourceManager neexistuje!");
+            return;
+        }
+
+        ResourceManager.Instance.AddResource(
+            ResourceType.ResortValue, 100
+        );
+
+        Debug.Log("Aktualna hodnota rezortu: " +
+            ResourceManager.Instance.GetResource(
+                ResourceType.ResortValue));
+    }
+
 }
+
