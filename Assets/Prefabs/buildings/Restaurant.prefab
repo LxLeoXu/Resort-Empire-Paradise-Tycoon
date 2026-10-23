@@ -87,6 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4963443026294697814}
+  - component: {fileID: -7377987648008696603}
   m_Layer: 0
   m_Name: Restaurant
   m_TagString: Untagged
@@ -112,6 +113,22 @@ Transform:
   - {fileID: 5521633709687477023}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-7377987648008696603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3504310821488070627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1ef3ec058d2b84bb105cbff1dfc329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
+  buildingName: Restaurant
+  buildCost: 0
+  isBuilt: 1
+  offeredNeed: 2
 --- !u!1 &3688885714518354449
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,3 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1ef3ec058d2b84bb105cbff1dfc329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  buildingName: 
+  buildCost: 0
+  isBuilt: 1
+  offeredNeed: 0
