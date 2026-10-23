@@ -82,6 +82,10 @@ public class ResourceManager : MonoBehaviour
 
     public bool SpendResource(ResourceType type, int amount)
     {
+        // Hodnota rezortu sa nikdy neznižuje (SCRUM-86), len rastie.
+        if (type == ResourceType.ResortValue)
+            return false;
+
         if (amount <= 0 || GetResource(type) < amount)
             return false;
 
