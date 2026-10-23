@@ -87,6 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4563014380681003485}
+  - component: {fileID: 5834146033373225024}
   m_Layer: 0
   m_Name: Reception
   m_TagString: Untagged
@@ -112,6 +113,22 @@ Transform:
   - {fileID: 6952871536925671199}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5834146033373225024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4840427561668432965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1ef3ec058d2b84bb105cbff1dfc329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
+  buildingName: Reception
+  buildCost: 0
+  isBuilt: 1
+  offeredNeed: 1
 --- !u!1 &6989064622883047600
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1ef3ec058d2b84bb105cbff1dfc329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  buildingName: 
+  buildCost: 0
+  isBuilt: 1
+  offeredNeed: 0
 --- !u!1 &7480192753026857197
 GameObject:
   m_ObjectHideFlags: 0
