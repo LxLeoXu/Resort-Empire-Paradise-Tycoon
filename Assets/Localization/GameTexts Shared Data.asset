@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: GameTexts Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: GameTexts
+  m_TableCollectionNameGuidString: 23233568a84e0114996bb7709574b81f
+  m_Entries:
+  - m_Id: 886018621440
+    m_Key: resort_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 938799742976
+    m_Key: welcome_guests
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1434927185920
+    m_Key: ready_for_guests
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6011100944407986386
+  references:
+    version: 2
+    RefIds:
+    - rid: 6011100944407986386
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1792659378411
