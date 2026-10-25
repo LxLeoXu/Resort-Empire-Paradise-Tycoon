@@ -100,6 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2877491595937102452}
+  - component: {fileID: 3595424008057429409}
   m_Layer: 0
   m_Name: BeachBar
   m_TagString: Untagged
@@ -125,6 +126,22 @@ Transform:
   - {fileID: 3637221248862701136}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3595424008057429409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791795548421113364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1ef3ec058d2b84bb105cbff1dfc329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
+  buildingName: BeachBar
+  buildCost: 0
+  isBuilt: 1
+  offeredNeed: 3
 --- !u!1 &5249551179121265261
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +189,7 @@ MonoBehaviour:
   buildingName: Beach Bar
   buildCost: 0
   isBuilt: 1
+  offeredNeed: 0
 --- !u!1 &5968904713312871847
 GameObject:
   m_ObjectHideFlags: 0
