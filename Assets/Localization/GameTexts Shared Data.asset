@@ -27,6 +27,14 @@ MonoBehaviour:
     m_Key: ready_for_guests
     m_Metadata:
       m_Items: []
+  - m_Id: 1557816541396992
+    m_Key: wave_in_progress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1557816616894464
+    m_Key: all_waves_complete
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
