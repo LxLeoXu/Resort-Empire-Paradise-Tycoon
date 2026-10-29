@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 14ce62f285526f641b69f1097cc75c6d
+guid: 01396e40b4800174dbbd72788828d88c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4808672115366611258
-    second: Tree_Big_0
+      213: 3213463144353284469
+    second: Bungalow_Float2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.48488, y: 0.059501}
+  spritePivot: {x: 0.500506, y: 0.467107}
   spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tree_Big_0
+      name: Bungalow_Float2_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 666
-        height: 531
+        x: 19
+        y: 18
+        width: 129
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a39c0cdbfc5dbb240800000000000000
-      internalID: 4808672115366611258
+      spriteID: 571ccf144b3889c20800000000000000
+      internalID: 3213463144353284469
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tree_Big_0: 4808672115366611258
+      Bungalow_Float2_0: 3213463144353284469
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3710677b70287654d8c6f5b602be1965
+guid: 479b46f0b77a52d4c94cf6546d937e61
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1578016121874128627
-    second: Boat_03_0
+      213: 2877821150370670066
+    second: BeachBar_1_FlameL_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.497175, y: 0.427553}
+  spritePivot: {x: 0.486678, y: 0.221223}
   spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boat_03_0
+      name: BeachBar_1_FlameL_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 175
-        height: 115
+        x: 11
+        y: 9
+        width: 36
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fe952a5d4d36e510800000000000000
-      internalID: 1578016121874128627
+      spriteID: 2f523f2c61310f720800000000000000
+      internalID: 2877821150370670066
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boat_03_0: 1578016121874128627
+      BeachBar_1_FlameL_0: 2877821150370670066
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

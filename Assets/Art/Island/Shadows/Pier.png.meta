@@ -1,0 +1,3328 @@
+fileFormatVersion: 2
+guid: 3c39ef69137a2e943ade1eb913cfa55e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3166566732015771295
+    second: Pier_0
+  - first:
+      213: 6136771744762009855
+    second: Pier_1
+  - first:
+      213: -5852033670587542914
+    second: Pier_2
+  - first:
+      213: 803578758262243066
+    second: Pier_3
+  - first:
+      213: -1348478474994082117
+    second: Pier_4
+  - first:
+      213: -4376691793902914247
+    second: Pier_5
+  - first:
+      213: 3749757400885034495
+    second: Pier_6
+  - first:
+      213: 5778279723372527373
+    second: Pier_7
+  - first:
+      213: -7616626970742898401
+    second: Pier_8
+  - first:
+      213: -485133267508147993
+    second: Pier_9
+  - first:
+      213: 106477188725483581
+    second: Pier_10
+  - first:
+      213: -8981077569695012633
+    second: Pier_11
+  - first:
+      213: -5218783959771219786
+    second: Pier_12
+  - first:
+      213: 1882139228350911978
+    second: Pier_13
+  - first:
+      213: 1954213874927954409
+    second: Pier_14
+  - first:
+      213: -3223156441486914152
+    second: Pier_15
+  - first:
+      213: 8583606482764486792
+    second: Pier_16
+  - first:
+      213: -7242108618109565936
+    second: Pier_17
+  - first:
+      213: -920436984123028865
+    second: Pier_18
+  - first:
+      213: -2567477454126029060
+    second: Pier_19
+  - first:
+      213: 573571341660013172
+    second: Pier_20
+  - first:
+      213: 7900295935225428334
+    second: Pier_21
+  - first:
+      213: 3968599019233343015
+    second: Pier_22
+  - first:
+      213: 1120535198519180268
+    second: Pier_23
+  - first:
+      213: 4072251402087308375
+    second: Pier_24
+  - first:
+      213: 8986609900428785104
+    second: Pier_25
+  - first:
+      213: 3961426278629141888
+    second: Pier_26
+  - first:
+      213: -5657876643072651716
+    second: Pier_27
+  - first:
+      213: 7489239339850429232
+    second: Pier_28
+  - first:
+      213: 7173362755772006884
+    second: Pier_29
+  - first:
+      213: -2136039399403760144
+    second: Pier_30
+  - first:
+      213: 2812109656813453435
+    second: Pier_31
+  - first:
+      213: 7696328412179190903
+    second: Pier_32
+  - first:
+      213: -1520578927678998067
+    second: Pier_33
+  - first:
+      213: -2160578277995810585
+    second: Pier_34
+  - first:
+      213: 8949928899814962077
+    second: Pier_35
+  - first:
+      213: 7055539715707265257
+    second: Pier_36
+  - first:
+      213: -2820092490028098898
+    second: Pier_37
+  - first:
+      213: -6572765061229134478
+    second: Pier_38
+  - first:
+      213: 2616553928731820708
+    second: Pier_39
+  - first:
+      213: 1437466874364211947
+    second: Pier_40
+  - first:
+      213: -3166765641358925494
+    second: Pier_41
+  - first:
+      213: 2165424826230322605
+    second: Pier_42
+  - first:
+      213: 5718635402010578208
+    second: Pier_43
+  - first:
+      213: 2248860028313192243
+    second: Pier_44
+  - first:
+      213: 3415107428024447327
+    second: Pier_45
+  - first:
+      213: 5039185806666068614
+    second: Pier_46
+  - first:
+      213: 6581361066370035169
+    second: Pier_47
+  - first:
+      213: -7836593549141214379
+    second: Pier_48
+  - first:
+      213: -9194075072254535629
+    second: Pier_49
+  - first:
+      213: 6881611524584144632
+    second: Pier_50
+  - first:
+      213: 5126664718467187104
+    second: Pier_51
+  - first:
+      213: -7196069705001152984
+    second: Pier_52
+  - first:
+      213: -5138036994598847102
+    second: Pier_53
+  - first:
+      213: -2820269885368076618
+    second: Pier_54
+  - first:
+      213: 2313269482409623612
+    second: Pier_55
+  - first:
+      213: 2699784808486828423
+    second: Pier_56
+  - first:
+      213: 1841768103906079438
+    second: Pier_57
+  - first:
+      213: 8677996239492277557
+    second: Pier_58
+  - first:
+      213: 4865854678305034409
+    second: Pier_59
+  - first:
+      213: -791223984832359916
+    second: Pier_60
+  - first:
+      213: 5217538464580763070
+    second: Pier_61
+  - first:
+      213: -330035780175506330
+    second: Pier_62
+  - first:
+      213: 760466045380927956
+    second: Pier_63
+  - first:
+      213: -887493202571613723
+    second: Pier_64
+  - first:
+      213: -5484119439684162713
+    second: Pier_65
+  - first:
+      213: -8137334165609028518
+    second: Pier_66
+  - first:
+      213: -8003438040762025760
+    second: Pier_67
+  - first:
+      213: -6894614864950218394
+    second: Pier_68
+  - first:
+      213: -817471063031242847
+    second: Pier_69
+  - first:
+      213: -8306890755432638821
+    second: Pier_70
+  - first:
+      213: 4231790537596320834
+    second: Pier_71
+  - first:
+      213: -1993594654861049507
+    second: Pier_72
+  - first:
+      213: -943615365038508187
+    second: Pier_73
+  - first:
+      213: 8100044188918127197
+    second: Pier_74
+  - first:
+      213: -5790561569847059733
+    second: Pier_75
+  - first:
+      213: 4053917448607746335
+    second: Pier_76
+  - first:
+      213: 5814174444696905467
+    second: Pier_77
+  - first:
+      213: -4122110037925447632
+    second: Pier_78
+  - first:
+      213: -352032483498645549
+    second: Pier_79
+  - first:
+      213: -8252812005087224237
+    second: Pier_80
+  - first:
+      213: -4925665237449393528
+    second: Pier_81
+  - first:
+      213: -4649630787890710610
+    second: Pier_82
+  - first:
+      213: 1456276981578597698
+    second: Pier_83
+  - first:
+      213: -7875477154589351784
+    second: Pier_84
+  - first:
+      213: 133685279522693021
+    second: Pier_85
+  - first:
+      213: -7886641226318872228
+    second: Pier_86
+  - first:
+      213: 1985403373320162039
+    second: Pier_87
+  - first:
+      213: -2503059051365525310
+    second: Pier_88
+  - first:
+      213: 6099715826528020397
+    second: Pier_89
+  - first:
+      213: -1264648302114890836
+    second: Pier_90
+  - first:
+      213: -2363832153391743662
+    second: Pier_91
+  - first:
+      213: 7216889442762531237
+    second: Pier_92
+  - first:
+      213: -292950482803785960
+    second: Pier_93
+  - first:
+      213: -5780555209031942930
+    second: Pier_94
+  - first:
+      213: 8904479822159764423
+    second: Pier_95
+  - first:
+      213: 5404802333950031472
+    second: Pier_96
+  - first:
+      213: 6675442508220686978
+    second: Pier_97
+  - first:
+      213: -760544226185713283
+    second: Pier_98
+  - first:
+      213: -7474705003790463567
+    second: Pier_99
+  - first:
+      213: -8575250454371164482
+    second: Pier_100
+  - first:
+      213: 1887530123971078578
+    second: Pier_101
+  - first:
+      213: -5492715041404469343
+    second: Pier_102
+  - first:
+      213: 3190944865523495532
+    second: Pier_103
+  - first:
+      213: -5175690105738885829
+    second: Pier_104
+  - first:
+      213: -1664107138595246390
+    second: Pier_105
+  - first:
+      213: -3122269857610423395
+    second: Pier_106
+  - first:
+      213: 952950447659903141
+    second: Pier_107
+  - first:
+      213: -4158064906907558799
+    second: Pier_108
+  - first:
+      213: -8547423841823365054
+    second: Pier_109
+  - first:
+      213: -8859340515150077940
+    second: Pier_110
+  - first:
+      213: -8736584158299386812
+    second: Pier_111
+  - first:
+      213: 801005945664757964
+    second: Pier_112
+  - first:
+      213: 7531041688322963446
+    second: Pier_113
+  - first:
+      213: 1599955427479205525
+    second: Pier_114
+  - first:
+      213: -300483328784589041
+    second: Pier_115
+  - first:
+      213: -271349119651377621
+    second: Pier_116
+  - first:
+      213: -4553304527039018377
+    second: Pier_117
+  - first:
+      213: 6481601892091895817
+    second: Pier_118
+  - first:
+      213: -1632658319167158343
+    second: Pier_119
+  - first:
+      213: -7837705185670913851
+    second: Pier_120
+  - first:
+      213: -2703752346205310403
+    second: Pier_121
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.568134, y: 0.528024}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pier_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 317
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9e9e536aa7e1fb20800000000000000
+      internalID: 3166566732015771295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 276
+        width: 10
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff8913a43613a2550800000000000000
+      internalID: 6136771744762009855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 470
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e72110bc16669cea0800000000000000
+      internalID: -5852033670587542914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_3
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 302
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe35438f92e62b00800000000000000
+      internalID: 803578758262243066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_4
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 275
+        width: 337
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbe97b6b8fd394de0800000000000000
+      internalID: -1348478474994082117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_5
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 267
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 935bc0d800ed243c0800000000000000
+      internalID: -4376691793902914247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_6
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 272
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffdf4a13d70d90430800000000000000
+      internalID: 3749757400885034495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_7
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 295
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0f36743bc2903050800000000000000
+      internalID: 5778279723372527373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_8
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 279
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f11c53eef1e4c4690800000000000000
+      internalID: -7616626970742898401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_9
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 305
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e8c3711dd57449f0800000000000000
+      internalID: -485133267508147993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 304
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d382aa260784a7100800000000000000
+      internalID: 106477188725483581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_11
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 315
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e8a91eb88dcc5380800000000000000
+      internalID: -8981077569695012633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_12
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 281
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b8745e83a72397b0800000000000000
+      internalID: -5218783959771219786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_13
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 285
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae51fabf7a3be1a10800000000000000
+      internalID: 1882139228350911978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_14
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 271
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e968365a23ce1b10800000000000000
+      internalID: 1954213874927954409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_15
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 287
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89d09a12b4c0543d0800000000000000
+      internalID: -3223156441486914152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_16
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 284
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 888dae04e981f1770800000000000000
+      internalID: 8583606482764486792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_17
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 309
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 014c8c8059cde7b90800000000000000
+      internalID: -7242108618109565936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_18
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 271
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a073b8073f933f0800000000000000
+      internalID: -920436984123028865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_19
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 269
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf66ef9cbdc7e5cd0800000000000000
+      internalID: -2567477454126029060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_20
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 307
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4724df8a81cb5f700800000000000000
+      internalID: 573571341660013172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_21
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 298
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e69f297ab4d73ad60800000000000000
+      internalID: 7900295935225428334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_22
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 275
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 726fd5d08cb431730800000000000000
+      internalID: 3968599019233343015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_23
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 272
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cebbe0283d0fc8f00800000000000000
+      internalID: 1120535198519180268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_24
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 281
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75c1081131b838830800000000000000
+      internalID: 4072251402087308375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_25
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 302
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d5f012671ad6bc70800000000000000
+      internalID: 8986609900428785104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_26
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 267
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d669d3630d9f630800000000000000
+      internalID: 3961426278629141888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_27
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 279
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3eccaa7b2f2b71b0800000000000000
+      internalID: -5657876643072651716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_28
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 292
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0337aa9ff7f1fe760800000000000000
+      internalID: 7489239339850429232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_29
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 314
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e1cec69b67ec8360800000000000000
+      internalID: 7173362755772006884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_30
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 296
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f5dc44cb734b52e0800000000000000
+      internalID: -2136039399403760144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_31
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 284
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b70cfcb65de960720800000000000000
+      internalID: 2812109656813453435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_32
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 307
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 774dfaaf9e9deca60800000000000000
+      internalID: 7696328412179190903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_33
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 291
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc9bfba8581d5eae0800000000000000
+      internalID: -1520578927678998067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_34
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 274
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e072aed0851402e0800000000000000
+      internalID: -2160578277995810585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_35
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 287
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9339766ae8843c70800000000000000
+      internalID: 8949928899814962077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_36
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 305
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e064655dff4ae160800000000000000
+      internalID: 7055539715707265257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_37
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 273
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaad02262d40dd8d0800000000000000
+      internalID: -2820092490028098898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_38
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 277
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27db6553009d8c4a0800000000000000
+      internalID: -6572765061229134478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_39
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 311
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a286b16feddf4420800000000000000
+      internalID: 2616553928731820708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_40
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 285
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be2bed69188e2f310800000000000000
+      internalID: 1437466874364211947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_41
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 271
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a41a3eb6d636d04d0800000000000000
+      internalID: -3166765641358925494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_42
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 282
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da5354318622d0e10800000000000000
+      internalID: 2165424826230322605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_43
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 278
+        width: 78
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02d40d8799cac5f40800000000000000
+      internalID: 5718635402010578208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_44
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 319
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 337ce21e74e853f10800000000000000
+      internalID: 2248860028313192243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_45
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 278
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f51f13d9c16e46f20800000000000000
+      internalID: 3415107428024447327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_46
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 312
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 682758bdac8cee540800000000000000
+      internalID: 5039185806666068614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_47
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ed62933501b55b50800000000000000
+      internalID: 6581361066370035169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_48
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 328
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55bf156efa3de3390800000000000000
+      internalID: -7836593549141214379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_49
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 284
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3389eff1f65186080800000000000000
+      internalID: -9194075072254535629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_50
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 313
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fe7215a835608f50800000000000000
+      internalID: 6881611524584144632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_51
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 287
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a1c3c23662952740800000000000000
+      internalID: 5126664718467187104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_52
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 302
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ec47ecabc622c90800000000000000
+      internalID: -7196069705001152984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_53
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 272
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28dbe1e639602b8b0800000000000000
+      internalID: -5138036994598847102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_54
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 283
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b677ef4b736cd8d0800000000000000
+      internalID: -2820269885368076618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_55
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 278
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3007c886526a1020800000000000000
+      internalID: 2313269482409623612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_56
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 273
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7897adfaaff877520800000000000000
+      internalID: 2699784808486828423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_57
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 312
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec277f715564f8910800000000000000
+      internalID: 1841768103906079438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_58
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 320
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 535ec111a9f6e6870800000000000000
+      internalID: 8677996239492277557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_59
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 293
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a05b0dac0df68340800000000000000
+      internalID: 4865854678305034409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_60
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 270
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4125c465af10505f0800000000000000
+      internalID: -791223984832359916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_61
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 261
+        width: 58
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebdf54ff69b686840800000000000000
+      internalID: 5217538464580763070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_62
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 330
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 664587fd43a7b6bf0800000000000000
+      internalID: -330035780175506330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_63
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 272
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d12da2d6d7bd8a00800000000000000
+      internalID: 760466045380927956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_64
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 317
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e9252862adfea3f0800000000000000
+      internalID: -887493202571613723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_65
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 297
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76bafcbfc6e74e3b0800000000000000
+      internalID: -5484119439684162713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_66
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 328
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a54693890b1621f80800000000000000
+      internalID: -8137334165609028518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_67
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 327
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e8f78681831ee090800000000000000
+      internalID: -8003438040762025760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_68
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 254
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661b38f3f486150a0800000000000000
+      internalID: -6894614864950218394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_69
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 268
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af9cd93662c7a4f0800000000000000
+      internalID: -817471063031242847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_70
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 236
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b961676aedef7bc80800000000000000
+      internalID: -8306890755432638821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_71
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 310
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24cb94da2175aba30800000000000000
+      internalID: 4231790537596320834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_72
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 262
+        width: 17
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d51c3e259345554e0800000000000000
+      internalID: -1993594654861049507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_73
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 260
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 567774233da97e2f0800000000000000
+      internalID: -943615365038508187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_74
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 328
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5a9e612643296070800000000000000
+      internalID: 8100044188918127197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_75
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 257
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beadc339eeac3afa0800000000000000
+      internalID: -5790561569847059733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_76
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 300
+        width: 9
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f19c501e078624830800000000000000
+      internalID: 4053917448607746335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_77
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 236
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf620564ad810b050800000000000000
+      internalID: 5814174444696905467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_78
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 248
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 038b168a2c25bc6c0800000000000000
+      internalID: -4122110037925447632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_79
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 238
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d72aa742545d1bf0800000000000000
+      internalID: -352032483498645549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_80
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 243
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e52b6e43f187d80800000000000000
+      internalID: -8252812005087224237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_81
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 244
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ab657509584abb0800000000000000
+      internalID: -4925665237449393528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_82
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 199
+        width: 38
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea7fd07ee61397fb0800000000000000
+      internalID: -4649630787890710610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_83
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 235
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2450295f23cb53410800000000000000
+      internalID: 1456276981578597698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_84
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 233
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8906ff3014fa4b290800000000000000
+      internalID: -7875477154589351784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_85
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 211
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9f16adad02fad100800000000000000
+      internalID: 133685279522693021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_86
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 235
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c51005207950d8290800000000000000
+      internalID: -7886641226318872228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_87
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 207
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fa4c9259d19d8b10800000000000000
+      internalID: 1985403373320162039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_88
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 217
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c81887fd09534dd0800000000000000
+      internalID: -2503059051365525310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_89
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 210
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da7e70ff93b86a450800000000000000
+      internalID: 6099715826528020397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_90
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 188
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cab14a2d111137ee0800000000000000
+      internalID: -1264648302114890836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_91
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 198
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25d307c3e2bf13fd0800000000000000
+      internalID: -2363832153391743662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_92
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 185
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a1a02326ba872460800000000000000
+      internalID: 7216889442762531237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_93
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 193
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81f73b7861b3febf0800000000000000
+      internalID: -292950482803785960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_94
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 191
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eecfd110aa757cfa0800000000000000
+      internalID: -5780555209031942930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_95
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 183
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb57756831139b70800000000000000
+      internalID: 8904479822159764423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_96
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 172
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0763b4c3617b10b40800000000000000
+      internalID: 5404802333950031472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_97
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 178
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282690dd79fe3ac50800000000000000
+      internalID: 6675442508220686978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_98
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 170
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d79e93a4e010275f0800000000000000
+      internalID: -760544226185713283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_99
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 156
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bd0c38d663844890800000000000000
+      internalID: -7474705003790463567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_100
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 145
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe133735279ef880800000000000000
+      internalID: -8575250454371164482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_101
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 161
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b9252ea5aad13a10800000000000000
+      internalID: 1887530123971078578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_102
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 155
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af34a085c4f5c3b0800000000000000
+      internalID: -5492715041404469343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_103
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 144
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c627267e273884c20800000000000000
+      internalID: 3190944865523495532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_104
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 144
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b350ee355414c28b0800000000000000
+      internalID: -5175690105738885829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_105
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 146
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acea6dfcf57e7e8e0800000000000000
+      internalID: -1664107138595246390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_106
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 128
+        width: 7
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d93a8346b187ba4d0800000000000000
+      internalID: -3122269857610423395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_107
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 119
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a86159126f893d00800000000000000
+      internalID: 952950447659903141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_108
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 103
+        width: 13
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17cd1ce5ff59b46c0800000000000000
+      internalID: -4158064906907558799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_109
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 100
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 248e9635d43716980800000000000000
+      internalID: -8547423841823365054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_110
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 101
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c00e0428dbc4d0580800000000000000
+      internalID: -8859340515150077940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_111
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 93
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44c82461ffa61c680800000000000000
+      internalID: -8736584158299386812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_112
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 65
+        width: 7
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0e256e9aebd1b00800000000000000
+      internalID: 801005945664757964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_113
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 40
+        width: 27
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f7f52da382a38860800000000000000
+      internalID: 7531041688322963446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_114
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 49
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5963b5ffbfe243610800000000000000
+      internalID: 1599955427479205525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_115
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 0
+        width: 7
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0f1ed6210874dbf0800000000000000
+      internalID: -300483328784589041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_116
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 33
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e8011d969fb3cf0800000000000000
+      internalID: -271349119651377621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_117
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 28
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a49a738a96fc0c0800000000000000
+      internalID: -4553304527039018377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_118
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 36
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90023a1749643f950800000000000000
+      internalID: 6481601892091895817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_119
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 9
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b7847ea8e1a759e0800000000000000
+      internalID: -1632658319167158343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_120
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 13
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c029d9d8a0ea3390800000000000000
+      internalID: -7837705185670913851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pier_121
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 15
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d32bdc3f0975a7ad0800000000000000
+      internalID: -2703752346205310403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pier_0: 3166566732015771295
+      Pier_1: 6136771744762009855
+      Pier_10: 106477188725483581
+      Pier_100: -8575250454371164482
+      Pier_101: 1887530123971078578
+      Pier_102: -5492715041404469343
+      Pier_103: 3190944865523495532
+      Pier_104: -5175690105738885829
+      Pier_105: -1664107138595246390
+      Pier_106: -3122269857610423395
+      Pier_107: 952950447659903141
+      Pier_108: -4158064906907558799
+      Pier_109: -8547423841823365054
+      Pier_11: -8981077569695012633
+      Pier_110: -8859340515150077940
+      Pier_111: -8736584158299386812
+      Pier_112: 801005945664757964
+      Pier_113: 7531041688322963446
+      Pier_114: 1599955427479205525
+      Pier_115: -300483328784589041
+      Pier_116: -271349119651377621
+      Pier_117: -4553304527039018377
+      Pier_118: 6481601892091895817
+      Pier_119: -1632658319167158343
+      Pier_12: -5218783959771219786
+      Pier_120: -7837705185670913851
+      Pier_121: -2703752346205310403
+      Pier_13: 1882139228350911978
+      Pier_14: 1954213874927954409
+      Pier_15: -3223156441486914152
+      Pier_16: 8583606482764486792
+      Pier_17: -7242108618109565936
+      Pier_18: -920436984123028865
+      Pier_19: -2567477454126029060
+      Pier_2: -5852033670587542914
+      Pier_20: 573571341660013172
+      Pier_21: 7900295935225428334
+      Pier_22: 3968599019233343015
+      Pier_23: 1120535198519180268
+      Pier_24: 4072251402087308375
+      Pier_25: 8986609900428785104
+      Pier_26: 3961426278629141888
+      Pier_27: -5657876643072651716
+      Pier_28: 7489239339850429232
+      Pier_29: 7173362755772006884
+      Pier_3: 803578758262243066
+      Pier_30: -2136039399403760144
+      Pier_31: 2812109656813453435
+      Pier_32: 7696328412179190903
+      Pier_33: -1520578927678998067
+      Pier_34: -2160578277995810585
+      Pier_35: 8949928899814962077
+      Pier_36: 7055539715707265257
+      Pier_37: -2820092490028098898
+      Pier_38: -6572765061229134478
+      Pier_39: 2616553928731820708
+      Pier_4: -1348478474994082117
+      Pier_40: 1437466874364211947
+      Pier_41: -3166765641358925494
+      Pier_42: 2165424826230322605
+      Pier_43: 5718635402010578208
+      Pier_44: 2248860028313192243
+      Pier_45: 3415107428024447327
+      Pier_46: 5039185806666068614
+      Pier_47: 6581361066370035169
+      Pier_48: -7836593549141214379
+      Pier_49: -9194075072254535629
+      Pier_5: -4376691793902914247
+      Pier_50: 6881611524584144632
+      Pier_51: 5126664718467187104
+      Pier_52: -7196069705001152984
+      Pier_53: -5138036994598847102
+      Pier_54: -2820269885368076618
+      Pier_55: 2313269482409623612
+      Pier_56: 2699784808486828423
+      Pier_57: 1841768103906079438
+      Pier_58: 8677996239492277557
+      Pier_59: 4865854678305034409
+      Pier_6: 3749757400885034495
+      Pier_60: -791223984832359916
+      Pier_61: 5217538464580763070
+      Pier_62: -330035780175506330
+      Pier_63: 760466045380927956
+      Pier_64: -887493202571613723
+      Pier_65: -5484119439684162713
+      Pier_66: -8137334165609028518
+      Pier_67: -8003438040762025760
+      Pier_68: -6894614864950218394
+      Pier_69: -817471063031242847
+      Pier_7: 5778279723372527373
+      Pier_70: -8306890755432638821
+      Pier_71: 4231790537596320834
+      Pier_72: -1993594654861049507
+      Pier_73: -943615365038508187
+      Pier_74: 8100044188918127197
+      Pier_75: -5790561569847059733
+      Pier_76: 4053917448607746335
+      Pier_77: 5814174444696905467
+      Pier_78: -4122110037925447632
+      Pier_79: -352032483498645549
+      Pier_8: -7616626970742898401
+      Pier_80: -8252812005087224237
+      Pier_81: -4925665237449393528
+      Pier_82: -4649630787890710610
+      Pier_83: 1456276981578597698
+      Pier_84: -7875477154589351784
+      Pier_85: 133685279522693021
+      Pier_86: -7886641226318872228
+      Pier_87: 1985403373320162039
+      Pier_88: -2503059051365525310
+      Pier_89: 6099715826528020397
+      Pier_9: -485133267508147993
+      Pier_90: -1264648302114890836
+      Pier_91: -2363832153391743662
+      Pier_92: 7216889442762531237
+      Pier_93: -292950482803785960
+      Pier_94: -5780555209031942930
+      Pier_95: 8904479822159764423
+      Pier_96: 5404802333950031472
+      Pier_97: 6675442508220686978
+      Pier_98: -760544226185713283
+      Pier_99: -7474705003790463567
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
