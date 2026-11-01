@@ -249,8 +249,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
   buildingName: Reception
-  buildCost: 0
+  buildingIcon: {fileID: 0}
   isBuilt: 1
+  hasWorker: 0
+  currentLevel: 1
   offeredNeed: 1
 --- !u!1 &6769665623615592398
 GameObject:
@@ -348,8 +350,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   buildingName: 
-  buildCost: 0
+  buildingIcon: {fileID: 0}
   isBuilt: 1
+  hasWorker: 0
+  currentLevel: 1
   offeredNeed: 0
 --- !u!1 &7480192753026857197
 GameObject:

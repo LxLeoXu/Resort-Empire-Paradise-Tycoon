@@ -158,8 +158,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
   buildingName: BeachBar
-  buildCost: 0
+  buildingIcon: {fileID: 0}
   isBuilt: 1
+  hasWorker: 0
+  currentLevel: 1
   offeredNeed: 3
 --- !u!1 &2300478201740544311
 GameObject:
@@ -526,8 +528,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
   buildingName: Beach Bar
-  buildCost: 0
+  buildingIcon: {fileID: 0}
   isBuilt: 1
+  hasWorker: 0
+  currentLevel: 1
   offeredNeed: 0
 --- !u!1 &5968904713312871847
 GameObject:

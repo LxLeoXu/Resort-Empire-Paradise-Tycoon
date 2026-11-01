@@ -280,8 +280,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
   buildingName: Restaurant
-  buildCost: 0
+  buildingIcon: {fileID: 0}
   isBuilt: 1
+  hasWorker: 0
+  currentLevel: 1
   offeredNeed: 2
 --- !u!1 &3688885714518354449
 GameObject:
@@ -502,6 +504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   buildingName: 
-  buildCost: 0
+  buildingIcon: {fileID: 0}
   isBuilt: 1
+  hasWorker: 0
+  currentLevel: 1
   offeredNeed: 0

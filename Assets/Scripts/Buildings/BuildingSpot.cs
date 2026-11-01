@@ -8,28 +8,83 @@ public class BuildingSpot : MonoBehaviour
     public List<GameObject> buildingPrefabs = new List<GameObject>();
 
     [Header("Hodnota rezortu")]
-    [Tooltip("O koľko stúpne hodnota rezortu po postavení budovy (dočasné číslo)")]
+    [Tooltip("O koľko stúpne hodnota rezortu po postavení budovy")]
     [SerializeField] private int resortValueGain = 100;
 
     [Header("Stav miesta")]
     public bool isOccupied = false;
     private GameObject spawnedBuilding;
 
-    // Zachované pre kliknutie myšou priamo na objekt v scéne
-    private void OnMouseDown()
+    private WaveManager waveManager;
+    private Renderer[] allRenderers;
+    private Collider2D[] allColliders;
+
+    private void Awake()
     {
-        BuildBuilding(0); // Postaví predvolenú budovu (index 0)
+        allRenderers = GetComponentsInChildren<Renderer>(true);
+        allColliders = GetComponentsInChildren<Collider2D>(true);
     }
 
-    /// <summary>
-    /// Hlavná metóda na postavenie budovy podľa zadaného indexu.
-    /// Túto metódu môžeš priradiť priamo do UI tlačidla On Click().
-    /// </summary>
+    private void Start()
+    {
+        waveManager = FindObjectOfType<WaveManager>();
+        if (waveManager != null && waveManager.Session != null)
+        {
+            waveManager.Session.WaveStarted += OnWaveStarted;
+            waveManager.Session.WaveEnded += OnWaveEnded;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (waveManager != null && waveManager.Session != null)
+        {
+            waveManager.Session.WaveStarted -= OnWaveStarted;
+            waveManager.Session.WaveEnded -= OnWaveEnded;
+        }
+    }
+
+    // Počas vlny sa nestavia (pravidlo WR6) -> skryjeme stavenisko
+    private void OnWaveStarted(int waveNumber)
+    {
+        SetSpotActive(false);
+    }
+
+    // Po skončení vlny sa neobsadené stavenisko opäť zobrazí
+    private void OnWaveEnded(int waveNumber)
+    {
+        if (!isOccupied)
+        {
+            SetSpotActive(true);
+        }
+    }
+
+    private void SetSpotActive(bool active)
+    {
+        foreach (var r in allRenderers)
+            if (r != null) r.enabled = active;
+
+        foreach (var c in allColliders)
+            if (c != null) c.enabled = active;
+    }
+
+    private void OnMouseDown()
+    {
+        // Ak beží vlna, nedovolíme stavať
+        if (waveManager != null && waveManager.Session != null && waveManager.Session.State == WaveState.Running)
+        {
+            Debug.LogWarning("Počas bežiacej vlny sa nedá stavať!");
+            return;
+        }
+
+        BuildBuilding(0);
+    }
+
     public void BuildBuilding(int buildingIndex)
     {
         if (isOccupied)
         {
-            Debug.LogWarning("Toto miesto je už obsadené, nedá sa tu stavať!");
+            Debug.LogWarning("Toto miesto je už obsadené!");
             return;
         }
 
@@ -41,7 +96,7 @@ public class BuildingSpot : MonoBehaviour
 
         if (buildingIndex < 0 || buildingIndex >= buildingPrefabs.Count)
         {
-            Debug.LogError($"Index {buildingIndex} je mimo rozsahu zoznamu prefabs!");
+            Debug.LogError($"Index {buildingIndex} je mimo rozsahu!");
             return;
         }
 
@@ -49,24 +104,19 @@ public class BuildingSpot : MonoBehaviour
 
         if (prefabToBuild != null)
         {
-            // Vytvorí budovu presne na súradniciach tohto miesta
             spawnedBuilding = Instantiate(prefabToBuild, transform.position, Quaternion.identity);
             isOccupied = true;
 
-            // Nová budova zvýši hodnotu rezortu
             if (ResourceManager.Instance != null)
                 ResourceManager.Instance.AddResource(ResourceType.ResortValue, resortValueGain);
-            else
-                Debug.LogWarning("ResourceManager neexistuje, hodnota rezortu sa nezvýšila.");
 
-            // Skryje ikonu '+' (stavenisko)
+            // Úplne deaktivujeme stavenisko po postavení
             gameObject.SetActive(false);
 
-            Debug.Log($"Budova '{prefabToBuild.name}' bola úspešne postavená na stavenisku.");
+            Debug.Log($"Budova '{prefabToBuild.name}' bola úspešne postavená.");
         }
     }
 
-    // Pomocné metódy pre UI tlačidlá (môžeš ich ľahko vybrať v On Click zozname):
     public void BuildFirstBuilding() { BuildBuilding(0); }
     public void BuildSecondBuilding() { BuildBuilding(1); }
     public void BuildThirdBuilding() { BuildBuilding(2); }
