@@ -58,4 +58,19 @@ public class BuildingInfo : MonoBehaviour
         currentLevel++;
         Debug.Log($"<color=green>[UPGRADE]</color> {buildingName} bola vylepšená na Level {currentLevel}! Nová kapacita: {CurrentCapacity}");
     }
+    //private void OnMouseDown()
+    //{
+    //    // Ignorujeme kliknutie, ak hráč práve klikol na nejaké UI tlačidlo
+    //    if (UnityEngine.EventSystems.EventSystem.current != null &&
+    //        UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+    //    {
+    //        return;
+    //    }
+
+    //    // Ak budova stojí, otvoríme menu akcií
+    //    if (isBuilt && BuildingActionMenuUI.Instance != null)
+    //    {
+    //        BuildingActionMenuUI.Instance.Open(this);
+    //    }
+    //}
 }
