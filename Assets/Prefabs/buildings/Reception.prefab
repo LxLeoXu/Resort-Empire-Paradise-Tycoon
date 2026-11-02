@@ -210,6 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4563014380681003485}
   - component: {fileID: 5834146033373225024}
+  - component: {fileID: -5598220663492207136}
   m_Layer: 0
   m_Name: Reception
   m_TagString: Untagged
@@ -252,6 +253,23 @@ MonoBehaviour:
   buildCost: 0
   isBuilt: 1
   offeredNeed: 1
+--- !u!114 &-5598220663492207136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4840427561668432965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4d8529e26c39b4da36f5a85b737f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingService
+  serviceDuration: 4
+  noWorkerSpeed: 0.33333334
+  hasWorker: 1
+  workerVisual: {fileID: 0}
+  logEvents: 0
 --- !u!1 &6769665623615592398
 GameObject:
   m_ObjectHideFlags: 0

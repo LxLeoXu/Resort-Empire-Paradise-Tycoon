@@ -241,6 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2336597034469837857}
   - component: {fileID: 8230310998004662230}
+  - component: {fileID: -8673387271363492660}
   m_Layer: 0
   m_Name: Pool
   m_TagString: Untagged
@@ -283,6 +284,23 @@ MonoBehaviour:
   buildCost: 0
   isBuilt: 1
   offeredNeed: 4
+--- !u!114 &-8673387271363492660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2203950422363828308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4d8529e26c39b4da36f5a85b737f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingService
+  serviceDuration: 4
+  noWorkerSpeed: 0.33333334
+  hasWorker: 1
+  workerVisual: {fileID: 0}
+  logEvents: 0
 --- !u!1 &3739308349636310463
 GameObject:
   m_ObjectHideFlags: 0
