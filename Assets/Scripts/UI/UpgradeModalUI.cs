@@ -5,142 +5,135 @@ using UnityEngine.UI;
 [RequireComponent(typeof(ModalWindow))]
 public class UpgradeModalUI : MonoBehaviour
 {
-	[Header("BuildingCard")]
-	[Tooltip("Window -> BuildingCard -> Icon")]
-	[SerializeField] private Image buildingIcon;
+    [Header("BuildingCard")]
+    [SerializeField] private Image buildingIcon;
+    [SerializeField] private TextMeshProUGUI buildingTitle;
+    [SerializeField] private TextMeshProUGUI buildingDescription;
 
-	[Tooltip("Window -> BuildingCard -> Title")]
-	[SerializeField] private TextMeshProUGUI buildingTitle;
+    [Header("Capacity")]
+    [SerializeField] private TextMeshProUGUI capacityLabel;
+    [SerializeField] private TextMeshProUGUI capacityBefore;
+    [SerializeField] private TextMeshProUGUI capacityAfter;
 
-	[Tooltip("Window -> BuildingCard -> Text")]
-	[SerializeField] private TextMeshProUGUI buildingDescription;
+    [Header("Quality")]
+    [SerializeField] private TextMeshProUGUI qualityLabel;
+    [SerializeField] private TextMeshProUGUI qualityBefore;
+    [SerializeField] private TextMeshProUGUI qualityAfter;
 
-	[Header("Capacity")]
-	[Tooltip("Window -> Description -> Capacity -> LeftSide")]
-	[SerializeField] private TextMeshProUGUI capacityLabel;
+    [Header("Resources")]
+    [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private TextMeshProUGUI resortValueText;
 
-	[Tooltip("Window -> Description -> Capacity -> RightSide -> Before")]
-	[SerializeField] private TextMeshProUGUI capacityBefore;
+    [Header("Buttons")]
+    [SerializeField] private Button upgradeButton;
+    [SerializeField] private Button laterButton;
 
-	[Tooltip("Window -> Description -> Capacity -> RightSide -> After")]
-	[SerializeField] private TextMeshProUGUI capacityAfter;
+    private ModalWindow modalWindow;
+    private BuildingInfo targetBuilding;
 
-	[Header("Quality")]
-	[Tooltip("Window -> Description -> Quality -> LeftSide")]
-	[SerializeField] private TextMeshProUGUI qualityLabel;
+    private void Awake()
+    {
+        modalWindow = GetComponent<ModalWindow>();
 
-	[Tooltip("Window -> Description -> Quality -> RightSide -> Before")]
-	[SerializeField] private TextMeshProUGUI qualityBefore;
+        if (laterButton != null)
+            laterButton.onClick.AddListener(OnLaterClicked);
 
-	[Tooltip("Window -> Description -> Quality -> RightSide -> After")]
-	[SerializeField] private TextMeshProUGUI qualityAfter;
+        if (upgradeButton != null)
+            upgradeButton.onClick.AddListener(OnUpgradeClicked);
+    }
 
-	[Header("Resources")]
-	[Tooltip("Window -> Description -> Resources -> LeftSide -> Text")]
-	[SerializeField] private TextMeshProUGUI costText;
+    /// <summary>
+    /// Otvorí S5 a naplní ho skutočnými informáciami z kliknutej budovy
+    /// </summary>
+    public void OpenForBuilding(BuildingInfo building)
+    {
+        if (building == null) return;
 
-	[Tooltip("Window -> Description -> Resources -> RightSide -> Text")]
-	[SerializeField] private TextMeshProUGUI resortValueText;
+        targetBuilding = building;
 
-	[Header("Buttons")]
-	[Tooltip("Window -> Buttons -> UpgradeButton")]
-	[SerializeField] private Button upgradeButton;
+        if (targetBuilding.currentLevel >= BuildingInfo.MaxLevel)
+        {
+            Debug.Log($"{building.buildingName} už je na maximálnej úrovni 3!");
+            return;
+        }
 
-	[Tooltip("Window -> Buttons -> LaterButton")]
-	[SerializeField] private Button laterButton;
+        // 1. Hlavička budovy
+        string bName = string.IsNullOrEmpty(building.buildingName) ? building.gameObject.name : building.buildingName;
+        if (buildingTitle != null) buildingTitle.text = bName;
+        if (buildingIcon != null && building.buildingIcon != null) buildingIcon.sprite = building.buildingIcon;
+        if (buildingDescription != null)
+            buildingDescription.text = $"Level up to unlock more {building.offeredNeed.ToString().ToLower()} seats!";
 
-	private ModalWindow modalWindow;
-	private BuildingInfo targetBuilding;
+        // 2. Kapacita (Ľavá strana = číslo, Šípka je v UI, Pravá strana = číslo)
+        if (capacityLabel != null) capacityLabel.text = $"{bName} Seats";
+        if (capacityBefore != null) capacityBefore.text = $"{building.CurrentCapacity}";
+        if (capacityAfter != null) capacityAfter.text = $"{building.NextCapacity}";
 
-	private void Awake()
-	{
-		modalWindow = GetComponent<ModalWindow>();
+        // 3. Kvalita (Ľavá strana = slovo, Šípka je v UI, Pravá strana = slovo)
+        if (qualityLabel != null) qualityLabel.text = $"{building.offeredNeed} Quality";
+        if (qualityBefore != null) qualityBefore.text = building.currentLevel == 1 ? "Basic" : "Improved";
+        if (qualityAfter != null) qualityAfter.text = building.currentLevel == 1 ? "Improved" : "Premium";
 
-		if (laterButton != null)
-			laterButton.onClick.AddListener(OnLaterClicked);
+        // 4. Cena a hodnota rezortu
+        int cost = building.UpgradeCost;
+        int gain = targetBuilding.ResortValueGain;
 
-		if (upgradeButton != null)
-			upgradeButton.onClick.AddListener(OnUpgradeClicked);
-	}
+        if (costText != null) costText.text = $"{cost}";
+        if (resortValueText != null) resortValueText.text = $"+{gain} Resort Value";
 
-	/// <summary>
-	/// Otvorí okno a naplní ho dátami z budovy
-	/// </summary>
-	public void OpenForBuilding(BuildingInfo building)
-	{
-		if (building == null || !building.CanUpgrade) return;
+        // 5. Kontrola mincí cez HasEnough z ResourceManager
+        bool hasEnoughCoins = true;
+        if (ResourceManager.Instance != null)
+        {
+            hasEnoughCoins = ResourceManager.Instance.HasEnough(ResourceType.Coins, cost);
+        }
 
-		targetBuilding = building;
+        if (upgradeButton != null)
+            upgradeButton.interactable = hasEnoughCoins;
 
-		// 1. BuildingCard
-		if (buildingTitle != null) buildingTitle.text = building.buildingName;
-		if (buildingIcon != null && building.buildingIcon != null)
-			buildingIcon.sprite = building.buildingIcon;
-		if (buildingDescription != null)
-			buildingDescription.text = $"Level up to unlock more {building.offeredNeed.ToString().ToLower()}!";
+        // Otvorenie modálneho okna
+        if (modalWindow != null)
+            modalWindow.Open();
+        else
+            gameObject.SetActive(true);
 
-		// 2. Capacity (Before -> After)
-		if (capacityLabel != null)
-			capacityLabel.text = $"{building.offeredNeed} Capacity";
-		if (capacityBefore != null)
-			capacityBefore.text = $"{building.CurrentCapacity} → ";
-		if (capacityAfter != null)
-			capacityAfter.text = $"{building.NextCapacity}";
+        Debug.Log($"<color=cyan>[S5 OKNO]</color> Vylepšenie pre: {bName}. Kapacita: {building.CurrentCapacity} → {building.NextCapacity}, Kvalita: {(building.currentLevel == 1 ? "Basic → Improved" : "Improved → Premium")}");
+    }
 
-		// 3. Quality (Before -> After)
-		if (qualityLabel != null)
-			qualityLabel.text = $"{building.offeredNeed} Quality";
-		if (qualityBefore != null)
-			qualityBefore.text = building.currentLevel == 1 ? "Basic → " : "Improved → ";
-		if (qualityAfter != null)
-			qualityAfter.text = building.currentLevel == 1 ? "Improved" : "Premium";
+    private void OnUpgradeClicked()
+    {
+        if (targetBuilding == null || !targetBuilding.CanUpgrade) return;
 
-		// 4. Resources
-		int cost = building.UpgradeCost;
-		if (costText != null)
-			costText.text = $"{cost}";
+        int cost = targetBuilding.UpgradeCost;
+        int gain = targetBuilding.ResortValueGain;
 
-		if (resortValueText != null)
-			resortValueText.text = $"+{building.ResortValueGain} Resort Value";
+        // 1. Minutie mincí cez SpendResource a pridanie hodnoty rezortu cez AddResource
+        if (ResourceManager.Instance != null)
+        {
+            if (!ResourceManager.Instance.SpendResource(ResourceType.Coins, cost))
+            {
+                Debug.LogWarning("Nemáš dosť mincí na tento upgrade!");
+                return;
+            }
 
-		// 5. Kontrola mincí
-		bool hasEnough = ResourceManager.Instance != null &&
-						 ResourceManager.Instance.HasEnough(ResourceType.Coins, cost);
+            ResourceManager.Instance.AddResource(ResourceType.ResortValue, gain);
+        }
 
-		if (upgradeButton != null)
-			upgradeButton.interactable = hasEnough;
+        // 2. Budova sa hneď vylepší (bez čakania)
+        targetBuilding.ApplyUpgrade();
 
-		// Zobrazenie okna
-		modalWindow.Open();
-	}
+        // 3. Zatvorenie okna S5
+        if (modalWindow != null)
+            modalWindow.Close();
+        else
+            gameObject.SetActive(false);
+    }
 
-	private void OnUpgradeClicked()
-	{
-		if (targetBuilding == null || !targetBuilding.CanUpgrade) return;
-
-		int cost = targetBuilding.UpgradeCost;
-		int gain = targetBuilding.ResortValueGain;
-
-		if (ResourceManager.Instance != null)
-		{
-			if (!ResourceManager.Instance.SpendResource(ResourceType.Coins, cost))
-			{
-				Debug.LogWarning("Nedostatok mincí na vylepšenie!");
-				return;
-			}
-
-			ResourceManager.Instance.AddResource(ResourceType.ResortValue, gain);
-		}
-
-		// Zvýši úroveň budovy
-		targetBuilding.ApplyUpgrade();
-
-		// Zavrie okno
-		modalWindow.Close();
-	}
-
-	private void OnLaterClicked()
-	{
-		modalWindow.Close();
-	}
+    private void OnLaterClicked()
+    {
+        if (modalWindow != null)
+            modalWindow.Close();
+        else
+            gameObject.SetActive(false);
+    }
 }

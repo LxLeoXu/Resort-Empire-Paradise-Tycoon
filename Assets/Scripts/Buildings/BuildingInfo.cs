@@ -44,8 +44,8 @@ public class BuildingInfo : MonoBehaviour
     // Zisk hodnoty rezortu
     public int ResortValueGain => currentLevel switch
     {
-        1 => 20,
-        2 => 30,
+        1 => 100,
+        2 => 100,
         _ => 0
     };
 
@@ -58,19 +58,19 @@ public class BuildingInfo : MonoBehaviour
         currentLevel++;
         Debug.Log($"<color=green>[UPGRADE]</color> {buildingName} bola vylepšená na Level {currentLevel}! Nová kapacita: {CurrentCapacity}");
     }
-    //private void OnMouseDown()
-    //{
-    //    // Ignorujeme kliknutie, ak hráč práve klikol na nejaké UI tlačidlo
-    //    if (UnityEngine.EventSystems.EventSystem.current != null &&
-    //        UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
-    //    {
-    //        return;
-    //    }
+    private void OnMouseDown()
+    {
+        // Ignorujeme kliknutie, ak hráč práve klikol na nejaké UI tlačidlo
+        if (UnityEngine.EventSystems.EventSystem.current != null &&
+            UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
 
-    //    // Ak budova stojí, otvoríme menu akcií
-    //    if (isBuilt && BuildingActionMenuUI.Instance != null)
-    //    {
-    //        BuildingActionMenuUI.Instance.Open(this);
-    //    }
-    //}
+        // Ak budova stojí, otvoríme menu akcií
+        if (isBuilt && BuildingActionMenuUI.Instance != null)
+        {
+            BuildingActionMenuUI.Instance.Open(this);
+        }
+    }
 }

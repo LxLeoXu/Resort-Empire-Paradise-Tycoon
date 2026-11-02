@@ -114,15 +114,13 @@ public class WaveNeedsPanel : MonoBehaviour
         totalServedNeeds = 0;
         totalWaveNeeds = 0;
 
-        BuildingInfo[] buildings = FindObjectsOfType<BuildingInfo>();
-
-        // Zmapujeme si, ktoré budovy stoja a či majú workera
+        BuildingService[] services = FindObjectsOfType<BuildingService>();
         Dictionary<NeedType, bool> builtNeeds = new();
-        foreach (var b in buildings)
+        foreach (var s in services)
         {
-            if (b.isBuilt && b.offeredNeed != NeedType.None)
+            if (s.Need != NeedType.None)
             {
-                builtNeeds[b.offeredNeed] = b.hasWorker;
+                builtNeeds[s.Need] = s.HasWorker;
             }
         }
 
