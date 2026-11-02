@@ -173,6 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2484519020342951211}
   - component: {fileID: -556619509498783566}
+  - component: {fileID: -6181086076158128263}
   m_Layer: 0
   m_Name: Bungalow
   m_TagString: Untagged
@@ -219,6 +220,23 @@ MonoBehaviour:
   hasWorker: 0
   currentLevel: 1
   offeredNeed: 5
+--- !u!114 &-6181086076158128263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292173044317233473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4d8529e26c39b4da36f5a85b737f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingService
+  serviceDuration: 4
+  noWorkerSpeed: 0.33333334
+  hasWorker: 1
+  workerVisual: {fileID: 0}
+  logEvents: 0
 --- !u!1 &4358096689256643459
 GameObject:
   m_ObjectHideFlags: 0
