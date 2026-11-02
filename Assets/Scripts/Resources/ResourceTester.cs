@@ -48,7 +48,9 @@ public class ResourceTester : MonoBehaviour
         TestSpend(ResourceType.Wood, 10);
         TestSpend(ResourceType.Stone, 5);
         TestSpend(ResourceType.Gems, 1);
-        TestSpend(ResourceType.ResortValue, 50);
+
+        // Hodnota rezortu sa nesmie dať znížiť
+        TestSpendRefused(ResourceType.ResortValue, 50);
 
         // Test nedostatku zdrojov
         Debug.Log("--- NEDOSTATOK ZDROJOV ---");
@@ -104,6 +106,23 @@ public class ResourceTester : MonoBehaviour
         Debug.Log(
             $"{(passed ? "PASS" : "FAIL")} " +
             $"{type}: -{amount}, " +
+            $"Pred={before}, Po={after}"
+        );
+    }
+
+    private void TestSpendRefused(ResourceType type, int amount)
+    {
+        int before = manager.GetResource(type);
+
+        bool success = manager.SpendResource(type, amount);
+
+        int after = manager.GetResource(type);
+
+        bool passed = !success && after == before;
+
+        Debug.Log(
+            $"{(passed ? "PASS" : "FAIL")} " +
+            $"{type}: -{amount} zamietnuté, " +
             $"Pred={before}, Po={after}"
         );
     }

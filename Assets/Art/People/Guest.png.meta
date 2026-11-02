@@ -1,0 +1,1508 @@
+fileFormatVersion: 2
+guid: aa3f3dce8ab130e489dada935d59c9a1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3930229224564223468
+    second: Guest_0
+  - first:
+      213: 4712662913654932303
+    second: Guest_1
+  - first:
+      213: 1715481440996095525
+    second: Guest_2
+  - first:
+      213: -986437308582512081
+    second: Guest_3
+  - first:
+      213: -4775848452210552564
+    second: Guest_4
+  - first:
+      213: 5276946919793577186
+    second: Guest_5
+  - first:
+      213: -8354139440208468699
+    second: Guest_6
+  - first:
+      213: 8566243814249520164
+    second: Guest_7
+  - first:
+      213: -1404033142970651286
+    second: Guest_8
+  - first:
+      213: 9219972692894227959
+    second: Guest_9
+  - first:
+      213: 332877844717001323
+    second: Guest_10
+  - first:
+      213: 7695603469640934735
+    second: Guest_11
+  - first:
+      213: 2396867067330224492
+    second: Guest_12
+  - first:
+      213: -1692674878799134079
+    second: Guest_13
+  - first:
+      213: 7050460691926738711
+    second: Guest_14
+  - first:
+      213: 7594634007820123672
+    second: Guest_15
+  - first:
+      213: 7115678736348895470
+    second: Guest_16
+  - first:
+      213: 7861830834997197663
+    second: Guest_17
+  - first:
+      213: -1580263791573218115
+    second: Guest_18
+  - first:
+      213: 1136674230400627397
+    second: Guest_19
+  - first:
+      213: -3385416367125130435
+    second: Guest_20
+  - first:
+      213: -7520246733697837252
+    second: Guest_21
+  - first:
+      213: -1103695700454888744
+    second: Guest_22
+  - first:
+      213: 6448111889624615189
+    second: Guest_23
+  - first:
+      213: -2302412961255580946
+    second: Guest_24
+  - first:
+      213: 2946273089229643362
+    second: Guest_25
+  - first:
+      213: 4523490672977764903
+    second: Guest_26
+  - first:
+      213: 4962161502025819330
+    second: Guest_27
+  - first:
+      213: 8830405053542847045
+    second: Guest_28
+  - first:
+      213: -7987664822607736325
+    second: Guest_29
+  - first:
+      213: 4348561416534869195
+    second: Guest_30
+  - first:
+      213: -2060223957720463470
+    second: Guest_31
+  - first:
+      213: -4368964454934241416
+    second: Guest_32
+  - first:
+      213: 3301799911085326011
+    second: Guest_33
+  - first:
+      213: 6014164652775009333
+    second: Guest_34
+  - first:
+      213: 720928097430705029
+    second: Guest_35
+  - first:
+      213: 4570492762696137580
+    second: Guest_36
+  - first:
+      213: -4618483006284165942
+    second: Guest_37
+  - first:
+      213: -8052376235769012109
+    second: Guest_38
+  - first:
+      213: 5581245195878539024
+    second: Guest_39
+  - first:
+      213: 692467937540994899
+    second: Guest_40
+  - first:
+      213: -4638633199482342691
+    second: Guest_41
+  - first:
+      213: -1721062266909686133
+    second: Guest_42
+  - first:
+      213: 2062795905898753783
+    second: Guest_43
+  - first:
+      213: -4113091080256295204
+    second: Guest_44
+  - first:
+      213: 1473768817765724784
+    second: Guest_45
+  - first:
+      213: -6934378734763356951
+    second: Guest_46
+  - first:
+      213: -8822490088697993923
+    second: Guest_47
+  - first:
+      213: -570560743858914337
+    second: Guest_48
+  - first:
+      213: 5438665515135358740
+    second: Guest_49
+  - first:
+      213: 4343359563308264552
+    second: Guest_50
+  - first:
+      213: 7388883587704445379
+    second: Guest_51
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.493805, y: 0.267753}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Guest_front_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c31781ea843a94784c12e05ce32f8c
+      internalID: 103881854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17473d448fe55b947a15a8affbc3ef51
+      internalID: 1288287569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0f1182d47f5e3439907468f3e721f5
+      internalID: 808243709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6b743b18eab86641a9f16993de2cc40
+      internalID: -828574392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df71a5fa9d9b9c74c8e5cb365a440bab
+      internalID: -2082933703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c538a88a50fa5a1439f8615e34ace005
+      internalID: 1846014093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9f0f3513f744b42a7fcf2d41e80bae
+      internalID: 1522461498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a1f376a240bb04e943f766deefdac4
+      internalID: -89647729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 584530f3ff64a254185db668248146e1
+      internalID: 630486841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746ffc5737d95cd4eaf3165f0d3caba5
+      internalID: -1010724226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb97fef746b8cf742965867cc937b47f
+      internalID: -414649483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8e512444570ebb428363cc674561b7d
+      internalID: 1187632491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a75cd2a5374dc004ca27e58e8c6994bf
+      internalID: 890285221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b92ee42f84ffb84d95cb0e52acdd48e
+      internalID: 597461315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bea26d938b0bdf4a83bb8a8b5584f10
+      internalID: 1537612769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 289d678e0b0bc9a49b35444ea5efaf9d
+      internalID: -1123079675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e595697db4a4fb24bb6bd6d1c836f933
+      internalID: 1083336806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3fcfb7820f563f4ca2224505c7601e3
+      internalID: -865633518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d663a0938d6f941b09a128e13e3cfe
+      internalID: -1406620991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f78af42e9e15924eabe7426c590189e
+      internalID: 1714016298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 482b83f2d63a7bb4ca44cf2546f1c994
+      internalID: -1308647439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cf7d4a52cecce1488f4f8ced2abc15b
+      internalID: 1221864937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1cac289ec352c04a953ec4de374941c
+      internalID: 1273199269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8fa039a8472fd6499ab0c9fc409b6c1
+      internalID: 570844661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dfc5aa6cafaa4e4e90baa00b333b973
+      internalID: 1130075729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5eb27edc57cb984da31e4889e07571b
+      internalID: -1349494410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395ed2cf230ec964d9bc6233349f689a
+      internalID: 1153177647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa63211da3b187244aced1148b324bec
+      internalID: 1086113748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab0d18d723d90a46b7e851093e1a2dc
+      internalID: 939571766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e59389a9e559b43b6e22e0148fd882
+      internalID: -620173993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7a343ffcdd7dff479fc8390c2ac1569
+      internalID: -1015658975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf656db05f9dd2429ee54ed02598abe
+      internalID: 1913598762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 988545cb3b7c70145b503fb744c4bb89
+      internalID: -533598021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d34f3895173ac4597331dfb0de89d1
+      internalID: -237591962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8450bf32280e57f43bd1f681f2f9df55
+      internalID: 1392092146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89d10896c95bb5f45a9b4a08a8c8afa9
+      internalID: 2047227063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace18c1ea81a63f47a330ac0f661ba97
+      internalID: -1706969428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c1e23fa114c45499e32ed895e92897
+      internalID: -1846042261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_back_left_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a73d2a8035fb64fad592e6bf741ca1
+      internalID: 1371635657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e2e9d49ec284514f96ce6abc5141f17
+      internalID: 1937257333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a997484c12c8d724a95d119f67541ac0
+      internalID: 1111521311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9678d6b08f7cef349a46b2775c7e40d7
+      internalID: 1967565861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e86571f1fedfd408e5238027afad95
+      internalID: 1090568107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7aa3148cb4295343832751c1308cb78
+      internalID: 301974182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6baa809338cf8614887a90de71e9202f
+      internalID: -147053366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21322476cc5250443a15e12d96235192
+      internalID: 23501056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c938dffe4ded84098f85b9e9cfcec0
+      internalID: 288326494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44427e93efc3af94b9dfa8fea5b31cf2
+      internalID: -1181759457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92f009a77970e8f41b001537d677c3bf
+      internalID: 1661471298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7688ead14412947b23ad0695819287
+      internalID: -363218583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd642643a6d35944abd057f62f7a3e17
+      internalID: -1334827946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_front_left_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faeb9cbfab21ca247a274567ca16cca5
+      internalID: 712308758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 206f9ebc77673d5498c8ad726b9df58c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Guest_back_idle: -1349494410
+      Guest_back_left_idle: 1371635657
+      Guest_back_left_walk00: 1153177647
+      Guest_back_left_walk01: 1086113748
+      Guest_back_left_walk02: 939571766
+      Guest_back_left_walk03: -620173993
+      Guest_back_left_walk04: -1015658975
+      Guest_back_left_walk05: 1913598762
+      Guest_back_left_walk06: -533598021
+      Guest_back_left_walk07: -237591962
+      Guest_back_left_walk08: 1392092146
+      Guest_back_left_walk09: 2047227063
+      Guest_back_left_walk10: -1706969428
+      Guest_back_left_walk11: -1846042261
+      Guest_back_walk00: 597461315
+      Guest_back_walk01: 1537612769
+      Guest_back_walk02: -1123079675
+      Guest_back_walk03: 1083336806
+      Guest_back_walk04: -865633518
+      Guest_back_walk05: -1406620991
+      Guest_back_walk06: 1714016298
+      Guest_back_walk07: -1308647439
+      Guest_back_walk08: 1221864937
+      Guest_back_walk09: 1273199269
+      Guest_back_walk10: 570844661
+      Guest_back_walk11: 1130075729
+      Guest_front_idle: 890285221
+      Guest_front_left_idle: 712308758
+      Guest_front_left_walk00: 1937257333
+      Guest_front_left_walk01: 1111521311
+      Guest_front_left_walk02: 1967565861
+      Guest_front_left_walk03: 1090568107
+      Guest_front_left_walk04: 301974182
+      Guest_front_left_walk05: -147053366
+      Guest_front_left_walk06: 23501056
+      Guest_front_left_walk07: 288326494
+      Guest_front_left_walk08: -1181759457
+      Guest_front_left_walk09: 1661471298
+      Guest_front_left_walk10: -363218583
+      Guest_front_left_walk11: -1334827946
+      Guest_front_walk00: 103881854
+      Guest_front_walk01: 1288287569
+      Guest_front_walk02: 808243709
+      Guest_front_walk03: -828574392
+      Guest_front_walk04: -2082933703
+      Guest_front_walk05: 1846014093
+      Guest_front_walk06: 1522461498
+      Guest_front_walk07: -89647729
+      Guest_front_walk08: 630486841
+      Guest_front_walk09: -1010724226
+      Guest_front_walk10: -414649483
+      Guest_front_walk11: 1187632491
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
