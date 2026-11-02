@@ -1,12 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public sealed class WaveManager : MonoBehaviour
 {
     [SerializeField] private WaveCatalog catalog;
-    [Min(0.01f)] [SerializeField] private float arrivalDuration = 90f;
+    [Min(0.01f)][SerializeField] private float arrivalDuration = 90f;
     [Tooltip("SCRUM-235: connect S4 to this event. Argument: completed wave number (1-based).")]
     [SerializeField] private UnityEvent<int> onWaveEnded = new();
+
+    [Header("SCRUM-25 Testovanie")]
+    [Tooltip("Zaškrtni, ak chceš manuálne testovať konkrétnu vlnu.")]
+    [SerializeField] private bool useTestWave = true;
+    [Tooltip("Nastav na 4 pre testovanie Bazéna / Relax.")]
+    [Range(1, 8)][SerializeField] private int testWaveNumber = 4;
 
     public WaveSession Session { get; private set; }
     public UnityEvent<int> OnWaveEnded => onWaveEnded;
@@ -27,7 +34,48 @@ public sealed class WaveManager : MonoBehaviour
 
     public void StartWave()
     {
-        Session?.StartWave(arrivalDuration);
+        if (Session == null) return;
+
+        // Ak testujeme, nastavíme vlnu na požadovanú (testWaveNumber 4 = index 3 v katalógu)
+        if (useTestWave)
+        {
+            Session.SetWaveIndex(testWaveNumber - 1);
+        }
+
+        HashSet<NeedType> availableNeeds = GetBuiltBuildingNeeds();
+        Session.StartWave(arrivalDuration, availableNeeds);
+    }
+
+    private HashSet<NeedType> GetBuiltBuildingNeeds()
+    {
+        HashSet<NeedType> availableNeeds = new HashSet<NeedType>();
+        BuildingInfo[] allBuildings = FindObjectsOfType<BuildingInfo>();
+
+        foreach (BuildingInfo building in allBuildings)
+        {
+            if (building != null && building.gameObject.activeInHierarchy && building.isBuilt)
+            {
+                if (building.offeredNeed != NeedType.None)
+                {
+                    availableNeeds.Add(building.offeredNeed);
+                }
+            }
+        }
+
+        return availableNeeds;
+    }
+
+    /// <summary>
+    /// Umožní reštartovať vlnu priamo z Unity editora kliknutím pravým tlačidlom na komponent
+    /// </summary>
+    [ContextMenu("Reset Wave to Waiting")]
+    public void ResetWave()
+    {
+        if (Session != null)
+        {
+            Session.SetWaveIndex(testWaveNumber - 1);
+            Debug.Log("<color=yellow>Vlna bola resetovaná do stavu Waiting.</color>");
+        }
     }
 
     public bool ResolveNeed(int id) => Session != null && Session.ResolveNeed(id);

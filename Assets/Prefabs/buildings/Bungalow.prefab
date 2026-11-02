@@ -107,8 +107,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   buildingName: 
-  buildCost: 0
+  buildingIcon: {fileID: 0}
   isBuilt: 1
+  hasWorker: 0
+  currentLevel: 1
   offeredNeed: 0
 --- !u!1 &1698117588918946529
 GameObject:
@@ -213,8 +215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
   buildingName: Bungalow
-  buildCost: 0
+  buildingIcon: {fileID: 0}
   isBuilt: 1
+  hasWorker: 0
+  currentLevel: 1
   offeredNeed: 5
 --- !u!114 &-6181086076158128263
 MonoBehaviour:

@@ -281,8 +281,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
   buildingName: Pool
-  buildCost: 0
+  buildingIcon: {fileID: 0}
   isBuilt: 1
+  hasWorker: 0
+  currentLevel: 1
   offeredNeed: 4
 --- !u!114 &-8673387271363492660
 MonoBehaviour:
@@ -535,8 +537,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   buildingName: 
-  buildCost: 0
+  buildingIcon: {fileID: 0}
   isBuilt: 1
+  hasWorker: 0
+  currentLevel: 1
   offeredNeed: 0
 --- !u!1 &7854605743813727079
 GameObject:
