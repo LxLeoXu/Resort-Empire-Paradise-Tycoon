@@ -3,7 +3,7 @@ using TMPro;
 
 public class S4ResultsUI : MonoBehaviour
 {
-    [Header("Performance")]
+   [Header("Performance")]
     [SerializeField] private TMP_Text guestsText;
     [SerializeField] private TMP_Text satisfactionText;
     [SerializeField] private TMP_Text statusLine1Text;
