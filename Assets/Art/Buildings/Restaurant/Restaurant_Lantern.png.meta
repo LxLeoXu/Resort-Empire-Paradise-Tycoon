@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8f0ac443eae6c9943b299a4616d968f5
+guid: 9fa7d2ded1b4a0042b3c264307120078
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3938663359730654017
-    second: Restaurant_Meshy_Shadow_0
+      213: 2773867131925329494
+    second: Restaurant_Lantern_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,8 +50,8 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.330794, y: 0.34512}
-  spritePixelsToUnits: 100
+  spritePivot: {x: 0.493023, y: 0.781683}
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Restaurant_Meshy_Shadow_0
+      name: Restaurant_Lantern_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 588
-        height: 463
+        x: 9
+        y: 7
+        width: 24
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb46861da8e0759c0800000000000000
-      internalID: -3938663359730654017
+      spriteID: 6567a8cb571ce7620800000000000000
+      internalID: 2773867131925329494
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Restaurant_Meshy_Shadow_0: -3938663359730654017
+      Restaurant_Lantern_0: 2773867131925329494
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
