@@ -335,6 +335,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &334090969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 334090971}
+  - component: {fileID: 334090970}
+  m_Layer: 0
+  m_Name: WaveRewardsTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &334090970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334090969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390570257ec7e334a971120043a694b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveRewardsTest
+  claimRewards: {fileID: 6382556794569369737}
+  testWaveId: 1
+  testGuests: 12
+  testSatisfaction: 88
+--- !u!4 &334090971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334090969}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 528.31885, y: 470.1084, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &336743563
 GameObject:
   m_ObjectHideFlags: 0
@@ -2718,6 +2766,54 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1983935017152472640, guid: 30ec50657029e034280f3a0759e40d69, type: 3}
   m_PrefabInstance: {fileID: 8630525993923422776}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1528015694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1528015696}
+  - component: {fileID: 1528015695}
+  m_Layer: 0
+  m_Name: WaveS4Connecto
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1528015695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528015694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd590b7975726bd47bd28501094b3e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveS4Connector
+  waveManager: {fileID: 2005698306}
+  resultsUI: {fileID: 6382556794569369738}
+  useTestSatisfaction: 0
+  testSatisfaction: 88
+--- !u!4 &1528015696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528015694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 528.31885, y: 470.1084, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1530505882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2925,6 +3021,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3422544462770873680, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
   m_PrefabInstance: {fileID: 724108342}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2005698306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6635645978588655382, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
+  m_PrefabInstance: {fileID: 724108342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005698299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25f2bfdc0f8c18b49bf372bc6f4dd297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveManager
 --- !u!1 &2105094603 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4432119908054374654, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
@@ -3314,6 +3421,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4000315233292102629, guid: a46d63a125a03fe4a8d6ef97aaf9a92d, type: 3}
   m_PrefabInstance: {fileID: 6382556794569369735}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6382556794569369737 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6350187512631330721, guid: a46d63a125a03fe4a8d6ef97aaf9a92d, type: 3}
+  m_PrefabInstance: {fileID: 6382556794569369735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184d248db041fc3418a901f82a335a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClaimRewards
+--- !u!114 &6382556794569369738 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5617429491955521953, guid: a46d63a125a03fe4a8d6ef97aaf9a92d, type: 3}
+  m_PrefabInstance: {fileID: 6382556794569369735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660ec931cb47ed74e9d21f6be6474cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S4FigmaResultsUI
 --- !u!1001 &8105984201621003155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3483,3 +3612,5 @@ SceneRoots:
   - {fileID: 336743565}
   - {fileID: 724108342}
   - {fileID: 537577239}
+  - {fileID: 334090971}
+  - {fileID: 1528015696}
