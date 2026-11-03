@@ -17,6 +17,13 @@ public class GuestPlaces : MonoBehaviour
 
     public Vector3 GetPosition(int index) => places[index].position;
 
+    /// <summary>Hands out other places: BuildingLevels gives the places of the building's current level.</summary>
+    public void SetPlaces(Transform[] newPlaces)
+    {
+        places.Clear();
+        places.AddRange(newPlaces);
+    }
+
     /// <summary>The need the building serves (BuildingInfo on the building's root).</summary>
     public NeedType Need
     {
