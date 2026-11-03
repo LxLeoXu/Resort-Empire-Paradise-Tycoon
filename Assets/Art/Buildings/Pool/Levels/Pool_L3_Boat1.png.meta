@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec7d2388853f0c9448b2570f9417ffdf
+guid: 07677026d4c11da40b0ba37b30cec53f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1148915259043982065
-    second: Pool_Meshy_Shadow_0
+      213: 6883644479099620469
+    second: Pool_L3_Boat1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,8 +50,8 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.394214, y: 0.407339}
-  spritePixelsToUnits: 100
+  spritePivot: {x: 0.474695, y: 0.492773}
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pool_Meshy_Shadow_0
+      name: Pool_L3_Boat1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 439
-        height: 307
+        x: 27
+        y: 43
+        width: 131
+        height: 139
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1faa7544754c1ff00800000000000000
-      internalID: 1148915259043982065
+      spriteID: 57ccfc0ce2e978f50800000000000000
+      internalID: 6883644479099620469
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pool_Meshy_Shadow_0: 1148915259043982065
+      Pool_L3_Boat1_0: 6883644479099620469
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
