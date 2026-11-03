@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e5c5fe443ce05104f8b5da23321e2c56
+guid: 975d5545c07889943b7ac3036ab8adf7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6007552484396202892
-    second: BeachBar_Meshy_Shadow_0
+      213: 6934817711625879761
+    second: BeachBar_Globe1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,8 +50,8 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.34932, y: 0.39031}
-  spritePixelsToUnits: 100
+  spritePivot: {x: 0.502381, y: 0.590775}
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BeachBar_Meshy_Shadow_0
+      name: BeachBar_Globe1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 439
-        height: 336
+        x: 9
+        y: 10
+        width: 25
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8b73f9b72d1f5350800000000000000
-      internalID: 6007552484396202892
+      spriteID: 1d04c8b67fb6d3060800000000000000
+      internalID: 6934817711625879761
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BeachBar_Meshy_Shadow_0: 6007552484396202892
+      BeachBar_Globe1_0: 6934817711625879761
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
