@@ -1,6 +1,6 @@
-using UnityEngine;
+using System;
 
-[System.Serializable]
+[Serializable]
 public class WaveRewardsData
 {
     public int coins;
@@ -9,8 +9,8 @@ public class WaveRewardsData
 
     public WaveRewardsData(int coins, int energy, int resortValue)
     {
-        this.coins = coins;
-        this.energy = energy;
-        this.resortValue = resortValue;
+        this.coins = Math.Max(0, coins);
+        this.energy = Math.Max(0, energy);
+        this.resortValue = Math.Max(0, resortValue);
     }
 }
