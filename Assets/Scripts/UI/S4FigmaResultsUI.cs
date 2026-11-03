@@ -1,11 +1,8 @@
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Runtime controller for the S4 screen created by S4FigmaUIBuilder.
-/// Requires the team's WaveRewardCalculator.CalculateRewards and ClaimRewards.SetRewards.
-/// </summary>
 public class S4FigmaResultsUI : MonoBehaviour
 {
     [Header("Performance")]
@@ -21,8 +18,14 @@ public class S4FigmaResultsUI : MonoBehaviour
 
     [Header("Stars")]
     [SerializeField] private Image[] starImages;
-    [SerializeField] private Color activeStarColor = new Color(1f, 0.75f, 0.10f);
-    [SerializeField] private Color inactiveStarColor = new Color(0.62f, 0.65f, 0.68f);
+
+    [SerializeField]
+    private Color activeStarColor =
+        new Color(1f, 0.75f, 0.10f);
+
+    [SerializeField]
+    private Color inactiveStarColor =
+        new Color(0.62f, 0.65f, 0.68f);
 
     [Header("Claim")]
     [SerializeField] private ClaimRewards claimRewards;
@@ -30,68 +33,194 @@ public class S4FigmaResultsUI : MonoBehaviour
 
     private bool resultsShown;
 
+    private void OnEnable()
+    {
+        if (claimRewards != null)
+        {
+            claimRewards.OnClaimed -= HideResults;
+            claimRewards.OnClaimed += HideResults;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (claimRewards != null)
+            claimRewards.OnClaimed -= HideResults;
+    }
+
     private void Start()
     {
-        // Keep S4 out of the way until the wave actually ends.
         if (hideOnStart && !resultsShown)
             gameObject.SetActive(false);
     }
 
-    // Compatible with callers providing only the number of served guests.
-    public void ShowResults(int servedGuests, int satisfactionPercent)
+    // Kompatibilita s povodnym testovacim UI.
+    // Wave ID 0 pouzivame iba na nahlad.
+    public void ShowResults(
+        int servedGuests,
+        int satisfactionPercent)
     {
-        ShowResults(servedGuests, -1, satisfactionPercent);
+        ShowResults(
+            servedGuests,
+            -1,
+            satisfactionPercent);
     }
 
-    // Use totalGuests when available for the "12/12" presentation in Figma.
-    public void ShowResults(int servedGuests, int totalGuests, int satisfactionPercent)
+    public void ShowResults(
+        int servedGuests,
+        int totalGuests,
+        int satisfactionPercent)
     {
+        ShowWaveResults(
+            0,
+            servedGuests,
+            totalGuests,
+            satisfactionPercent);
+    }
+
+    // Skutocna vlna: waveId je cislo ukoncenej vlny.
+    public bool ShowWaveResults(
+        int waveId,
+        int servedGuests,
+        int totalGuests,
+        int satisfactionPercent,
+        string positiveFeedback = null,
+        string negativeFeedback = null)
+    {
+        if (waveId < 0)
+            return false;
+
+        if (claimRewards == null)
+        {
+            Debug.LogError(
+                "S4: ClaimRewards nie je priradeny!",
+                this);
+            return false;
+        }
+
+        ResourceManager manager = ResourceManager.Instance;
+
+        if (manager == null)
+        {
+            Debug.LogError(
+                "S4: ResourceManager neexistuje!",
+                this);
+            return false;
+        }
+
         int guests = Mathf.Max(0, servedGuests);
-        int satisfaction = Mathf.Clamp(satisfactionPercent, 0, 100);
 
-        // Uses the existing game calculator; these formulas are NOT defined by this UI.
-        WaveRewardsData rewards = WaveRewardCalculator.CalculateRewards(guests, satisfaction);
+        int satisfaction = Mathf.Clamp(
+            satisfactionPercent, 0, 100);
 
+        // Vypocitaj odmeny iba raz.
+        WaveRewardsData calculated =
+            WaveRewardCalculator.CalculateRewards(
+                guests,
+                satisfaction);
+
+        // Energia moze mat maximum 50.
+        int currentEnergy =
+            manager.GetResource(ResourceType.Energy);
+
+        int energySpace = Mathf.Max(
+            0,
+            ResourceManager.MaxEnergy - currentEnergy);
+
+        WaveRewardsData rewards = new WaveRewardsData(
+            Mathf.Max(0, calculated.coins),
+            Mathf.Clamp(calculated.energy, 0, energySpace),
+            Mathf.Max(0, calculated.resortValue));
+
+        // Iba nova vlna moze pripravit novu odmenu.
+        if (!claimRewards.SetRewardsForWave(waveId, rewards))
+        {
+            Debug.LogWarning(
+                "S4: Odmena pre tuto vlnu sa " +
+                "neda znova pripravit.");
+            return false;
+        }
+
+        // Zobraz realny pocet hosti.
         if (guestsText != null)
-            guestsText.text = totalGuests > 0 ? guests + "/" + totalGuests : guests.ToString();
+        {
+            guestsText.text = totalGuests > 0
+                ? guests + "/" + totalGuests
+                : guests.ToString();
+        }
+
         if (satisfactionText != null)
             satisfactionText.text = satisfaction + "%";
 
-        // Figma mockup copy: replace after your team supplies real capacity feedback.
-        if (statusLine1Text != null)
-            statusLine1Text.text = "Rooms & drinks went great!";
-        if (statusLine2Text != null)
-            statusLine2Text.text = "Food capacity needs improvement";
+        // Ziadne vymyslene spravy z Figmy.
+        SetFeedback(statusLine1Text, positiveFeedback);
+        SetFeedback(statusLine2Text, negativeFeedback);
 
+        // Presne tie odmeny, ktore sme pripravili.
         if (coinsRewardText != null)
-            coinsRewardText.text = "+" + rewards.coins + " Coins";
-        if (energyRewardText != null)
-            energyRewardText.text = "+" + rewards.energy + " Energy";
-        if (resortValueRewardText != null)
-            resortValueRewardText.text = "+" + rewards.resortValue + " Resort Value";
+            coinsRewardText.text =
+                "+" + rewards.coins + " Coins";
 
+        if (energyRewardText != null)
+            energyRewardText.text =
+                "+" + rewards.energy + " Energy";
+
+        if (resortValueRewardText != null)
+            resortValueRewardText.text =
+                "+" + rewards.resortValue + " Resort Value";
+
+        UpdateStars(satisfaction);
+
+        resultsShown = true;
+        gameObject.SetActive(true);
+
+        Debug.Log(
+            $"S4 Wave {waveId}: Guests={guests}, " +
+            $"Satisfaction={satisfaction}%, " +
+            $"Coins={rewards.coins}, " +
+            $"Energy={rewards.energy}, " +
+            $"ResortValue={rewards.resortValue}");
+
+        return true;
+    }
+
+    private void UpdateStars(int satisfaction)
+    {
         int stars = satisfaction >= 90 ? 5 :
                     satisfaction >= 80 ? 4 :
                     satisfaction >= 70 ? 3 :
                     satisfaction >= 55 ? 2 :
                     satisfaction >= 40 ? 1 : 0;
-        if (starImages != null)
+
+        if (starImages == null)
+            return;
+
+        for (int i = 0; i < starImages.Length; i++)
         {
-            for (int i = 0; i < starImages.Length; i++)
+            if (starImages[i] != null)
             {
-                if (starImages[i] != null)
-                    starImages[i].color = i < stars ? activeStarColor : inactiveStarColor;
+                starImages[i].color =
+                    i < stars
+                        ? activeStarColor
+                        : inactiveStarColor;
             }
         }
+    }
 
-        // Prepare; never credit resources merely by opening S4.
-        if (claimRewards != null)
-            claimRewards.SetRewards(rewards);
-        else
-            Debug.LogError("S4: ClaimRewards component not assigned.", this);
+    private void SetFeedback(
+        TMP_Text textField,
+        string message)
+    {
+        if (textField == null)
+            return;
 
-        resultsShown = true;
-        gameObject.SetActive(true);
+        bool hasMessage =
+            !string.IsNullOrWhiteSpace(message);
+
+        textField.gameObject.SetActive(hasMessage);
+
+        if (hasMessage)
+            textField.text = message;
     }
 
     public void HideResults()
@@ -101,11 +230,16 @@ public class S4FigmaResultsUI : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    // Used only by the editor generator to connect all created UI elements.
     public void EditorBind(
-        TMP_Text guests, TMP_Text satisfaction, TMP_Text status1, TMP_Text status2,
-        TMP_Text coins, TMP_Text energy, TMP_Text resort,
-        Image[] stars, ClaimRewards claim)
+        TMP_Text guests,
+        TMP_Text satisfaction,
+        TMP_Text status1,
+        TMP_Text status2,
+        TMP_Text coins,
+        TMP_Text energy,
+        TMP_Text resort,
+        Image[] stars,
+        ClaimRewards claim)
     {
         guestsText = guests;
         satisfactionText = satisfaction;
