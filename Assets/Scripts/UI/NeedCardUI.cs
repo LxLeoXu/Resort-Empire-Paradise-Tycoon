@@ -20,8 +20,8 @@ public class NeedCardUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI warningText;
 
     [Header("Dynamická výška karty")]
-    [SerializeField] private float normalHeight = 100f;  // Výška bez varovania
-    [SerializeField] private float warningHeight = 160f; // Výška pri varovaní
+    [SerializeField] private float normalHeight = 100f;
+    [SerializeField] private float warningHeight = 160f;
 
     [Header("Farby stavov")]
     [SerializeField] private Color normalColor = Color.black;
@@ -39,7 +39,6 @@ public class NeedCardUI : MonoBehaviour
         }
 
         layoutElement = GetComponent<LayoutElement>();
-        // Nastavíme štartovaciu kompaktnú výšku
         SetCardHeight(normalHeight);
     }
 
@@ -68,9 +67,6 @@ public class NeedCardUI : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Zobrazí / skryje varovanie a automaticky zmení výšku karty (100px <-> 160px)
-    /// </summary>
     public void SetWarning(bool isBottleneck, string message = "")
     {
         if (warningBox != null)
@@ -82,7 +78,6 @@ public class NeedCardUI : MonoBehaviour
         if (countText != null)
             countText.color = isBottleneck ? bottleneckColor : normalColor;
 
-        // Dynamická zmena výšky podľa stavu:
         SetCardHeight(isBottleneck ? warningHeight : normalHeight);
     }
 
@@ -92,7 +87,6 @@ public class NeedCardUI : MonoBehaviour
         {
             layoutElement.preferredHeight = height;
             layoutElement.minHeight = height;
-
         }
     }
 
@@ -104,6 +98,10 @@ public class NeedCardUI : MonoBehaviour
 
     private void OnCardClicked()
     {
-        Debug.Log($"[S2 -> S3] Klikol si na potrebu: {needType}. Tu sa otvorí S3 Worker Allocation.");
+        WorkerAssignUI ui = FindFirstObjectByType<WorkerAssignUI>(FindObjectsInactive.Include);
+        if (ui != null)
+            ui.OpenForNeed(needType);
+        else
+            Debug.LogError("Nepodarilo sa nájsť WorkerAssignUI (S3) v scéne!");
     }
 }

@@ -411,6 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingActionMenuUI
   waveManager: {fileID: 0}
   upgradeModal: {fileID: 0}
+  workerAssign: {fileID: 0}
   menuRoot: {fileID: 2904491299301160449}
   titleText: {fileID: 7356508361329211746}
   upgradeButton: {fileID: 2351063348007871356}

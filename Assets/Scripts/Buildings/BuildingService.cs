@@ -8,7 +8,7 @@ public sealed class BuildingService : MonoBehaviour
     {
         public bool Occupied;
         public WaveNeed Need;
-        public float Progress;   // 0..1
+        public float Progress;
     }
 
     [Header("Obsluha")]
@@ -18,7 +18,8 @@ public sealed class BuildingService : MonoBehaviour
     [Range(0.05f, 1f)] [SerializeField] private float noWorkerSpeed = 1f / 3f;
 
     [Header("Pracovník")]
-    [SerializeField] private bool hasWorker = true;
+    [Tooltip("Rýchlosť podľa počtu pracovníkov: 1 = 1x, 2 = 1,5x, 3 = 2x (0 = noWorkerSpeed).")]
+    [SerializeField] private float[] speedByWorkers = { 1f, 1.5f, 2f };
     [Tooltip("Voliteľné: objekt pracovníka. Skryje sa, keď budova pracovníka nemá.")]
     [SerializeField] private GameObject workerVisual;
 
@@ -31,12 +32,15 @@ public sealed class BuildingService : MonoBehaviour
     private GuestPlaces places;
     private Seat[] seats = Array.Empty<Seat>();
     private readonly Queue<(WaveNeed need, float queuedAt)> queue = new();
+    private int workers;
 
     public NeedType Need => info != null ? info.offeredNeed : NeedType.None;
     public int Seats => places != null ? places.Count : 0;
     public int QueueCount => queue.Count;
-    public bool HasWorker => hasWorker;
-    public float Speed => hasWorker ? 1f : noWorkerSpeed;
+    public int Workers => workers;
+    public bool HasWorker => workers > 0;
+    public float Speed => workers <= 0 ? noWorkerSpeed
+        : speedByWorkers[Mathf.Min(workers, speedByWorkers.Length) - 1];
     public Vector3 SeatPosition(int index) => places.GetPosition(index);
 
     public int OccupiedSeats
@@ -50,17 +54,15 @@ public sealed class BuildingService : MonoBehaviour
         }
     }
 
-    /// <summary>A guest sat down: need, seat index, seconds spent waiting in the queue (service time not included).</summary>
     public event Action<WaveNeed, int, float> Seated;
-    /// <summary>Service finished and the seat is already free. Fired just before the need is resolved in the wave.</summary>
     public event Action<WaveNeed, int> ServiceCompleted;
-    /// <summary>Queue, seats or worker changed (for UI).</summary>
     public event Action Changed;
 
-    public void SetWorker(bool value)
+    public void SetWorkers(int value)
     {
-        if (hasWorker == value) return;
-        hasWorker = value;
+        value = Mathf.Clamp(value, 0, WorkerRoster.MaxPerBuilding);
+        if (workers == value) return;
+        workers = value;
         Changed?.Invoke();
     }
 
@@ -75,7 +77,6 @@ public sealed class BuildingService : MonoBehaviour
         }
     }
 
-    // Start (not Awake): WaveManager creates its Session in Awake. Also works for buildings built during play.
     private void Start()
     {
         manager = FindFirstObjectByType<WaveManager>();
@@ -99,8 +100,8 @@ public sealed class BuildingService : MonoBehaviour
 
     private void Update()
     {
-        if (workerVisual != null && workerVisual.activeSelf != hasWorker)
-            workerVisual.SetActive(hasWorker);
+        if (workerVisual != null && workerVisual.activeSelf != HasWorker)
+            workerVisual.SetActive(HasWorker);
 
         EnsureSeats();
         float step = Time.deltaTime * Speed / serviceDuration;
@@ -121,7 +122,6 @@ public sealed class BuildingService : MonoBehaviour
         Changed?.Invoke();
     }
 
-    // StartWave clears pending needs in the session, so the building starts clean as well.
     private void OnWaveStarted(int wave)
     {
         queue.Clear();
@@ -151,7 +151,7 @@ public sealed class BuildingService : MonoBehaviour
             int free = FindFreeSeat();
             if (free < 0) return;
             var (need, queuedAt) = queue.Dequeue();
-            if (!manager.BeginService(need.Id)) continue;   // invalid need (e.g. wave restarted): skip it
+            if (!manager.BeginService(need.Id)) continue;
 
             seats[free].Occupied = true;
             seats[free].Need = need;
@@ -169,8 +169,8 @@ public sealed class BuildingService : MonoBehaviour
         seats[index].Occupied = false;
         seats[index].Progress = 0f;
         Log($"{name}: need {need.Id} served on {index + 1}");
-        ServiceCompleted?.Invoke(need, index);   // first the guest / place is tidied up...
-        manager.ResolveNeed(need.Id);            // ...then the wave hears it is done
+        ServiceCompleted?.Invoke(need, index);
+        manager.ResolveNeed(need.Id);
         Changed?.Invoke();
     }
 

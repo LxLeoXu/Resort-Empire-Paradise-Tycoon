@@ -12,23 +12,23 @@ public class WaveNeedsPanel : MonoBehaviour
     [Header("Kartičky potrieb v paneli")]
     [SerializeField] private List<NeedCardUI> needCards = new List<NeedCardUI>();
 
-    // Interné sledovanie stavu každej potreby
     private class NeedState
     {
         public int totalNeeded;
         public int arrivedCount;
         public int servedCount;
-        public float timeAboveThreshold; // Čas, koľko je rad > 4
+        public float timeAboveThreshold;
         public bool isWarningActive;
     }
 
     private readonly Dictionary<NeedType, NeedState> states = new();
     private CanvasGroup canvasGroup;
+    private WorkerRoster roster;
     private int totalWaveNeeds;
     private int totalServedNeeds;
 
-    private const int BottleneckThreshold = 4;      // Rad nad 4 hostí
-    private const float BottleneckHysteresis = 3.0f; // Musí trvať aspoň 3 sekundy
+    private const int BottleneckThreshold = 4;
+    private const float BottleneckHysteresis = 3.0f;
 
     private void Awake()
     {
@@ -56,6 +56,10 @@ public class WaveNeedsPanel : MonoBehaviour
             waveManager.Session.NeedServed -= OnNeedServed;
             waveManager.Session.NeedServed += OnNeedServed;
         }
+
+        roster = WorkerRoster.Instance;
+        roster.Changed -= RefreshWorkers;
+        roster.Changed += RefreshWorkers;
     }
 
     private void OnDestroy()
@@ -67,11 +71,13 @@ public class WaveNeedsPanel : MonoBehaviour
             waveManager.Session.NeedArrived -= OnNeedArrived;
             waveManager.Session.NeedServed -= OnNeedServed;
         }
+
+        if (roster != null)
+            roster.Changed -= RefreshWorkers;
     }
 
     private void Update()
     {
-        // Kontrola rastu radu a časovača 3 sekundy pre varovanie
         if (waveManager == null || waveManager.Session == null || waveManager.Session.State != WaveState.Running)
             return;
 
@@ -109,7 +115,7 @@ public class WaveNeedsPanel : MonoBehaviour
     private void OnWaveStarted(int waveNumber)
     {
         SetPanelVisible(true);
-        SetBuildingSpotsVisible(false); // <-- SKRYJE PLUSKÁ POČAS VLNY
+        SetBuildingSpotsVisible(false);
         states.Clear();
         totalServedNeeds = 0;
         totalWaveNeeds = 0;
@@ -150,13 +156,24 @@ public class WaveNeedsPanel : MonoBehaviour
                 card.UpdateProgress(0, countForThisWave);
                 card.SetWarning(false);
 
-                // Nastavenie prítomnosti workera podľa budovy
                 bool hasWorker = builtNeeds[card.needType];
                 card.SetWorkerPresent(hasWorker);
             }
         }
 
         UpdateGuestsBadge();
+    }
+
+    private void RefreshWorkers()
+    {
+        BuildingService[] services = FindObjectsOfType<BuildingService>();
+        foreach (var s in services)
+        {
+            if (s.Need == NeedType.None) continue;
+            NeedCardUI card = GetCard(s.Need);
+            if (card != null)
+                card.SetWorkerPresent(s.HasWorker);
+        }
     }
 
     private void OnNeedArrived(WaveNeed need)
@@ -192,7 +209,7 @@ public class WaveNeedsPanel : MonoBehaviour
     private void OnWaveEnded(int waveNumber)
     {
         SetPanelVisible(false);
-        SetBuildingSpotsVisible(true); // <-- ZNOVA ZOBRAZÍ PLUSKÁ PO VLNE
+        SetBuildingSpotsVisible(true);
     }
 
     private void UpdateGuestsBadge()
@@ -236,19 +253,16 @@ public class WaveNeedsPanel : MonoBehaviour
             OnNeedServed(new WaveNeed(999, 1, NeedType.Food, 0));
         }
     }
+
     private void SetBuildingSpotsVisible(bool visible)
     {
-        // Nájde všetky staveniská na ostrove
         BuildingSpot[] spots = FindObjectsOfType<BuildingSpot>(true);
         foreach (var spot in spots)
         {
-            // Vypne alebo zapne len tie, kde ešte nestojí budova
             if (spot != null && !spot.isOccupied)
             {
                 spot.gameObject.SetActive(visible);
             }
         }
     }
-
-
 }
