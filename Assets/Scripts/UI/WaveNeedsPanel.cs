@@ -46,8 +46,8 @@ public class WaveNeedsPanel : MonoBehaviour
     private int totalWaveNeeds;
     private int totalServedNeeds;
 
-    private const int BottleneckThreshold = 4;
-    private const float BottleneckHysteresis = 3.0f;
+    private const int BottleneckThreshold = 2;
+    private const float BottleneckHysteresis = 1.0f;
 
     private void Awake()
     {

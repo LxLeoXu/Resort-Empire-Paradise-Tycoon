@@ -418,11 +418,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &368013889 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1625845852611282949, guid: afcc02b8d3c068a48997cd11568ac94d, type: 3}
-  m_PrefabInstance: {fileID: 7351158203351880268}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &472668772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -886,11 +881,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1667101374}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 400}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 80, y: 1080}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &552245690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2081,11 +2076,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6635645978588655382, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
       propertyPath: useTestWave
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6635645978588655382, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
       propertyPath: testWaveNumber
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6642528010195743344, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2323,6 +2318,12 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 7426347435967838477, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3422544462770873680, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 899461806}
+    - targetCorrespondingSourceObject: {fileID: 3422544462770873680, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1667101374}
     - targetCorrespondingSourceObject: {fileID: 3422544462770873680, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1379506794}
@@ -2573,12 +2574,12 @@ GameObject:
   - component: {fileID: 899461808}
   - component: {fileID: 899461807}
   m_Layer: 5
-  m_Name: Overlay
+  m_Name: S2_ToggleTab_Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &899461806
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2591,12 +2592,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1935304981}
+  m_Father: {fileID: 2005698304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -780, y: 0}
-  m_SizeDelta: {x: 1560, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &899461807
 MonoBehaviour:
@@ -3350,12 +3351,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 552245689}
-  m_Father: {fileID: 368013889}
+  m_Father: {fileID: 2005698304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 358.5, y: -749}
-  m_SizeDelta: {x: 80, y: 10}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 80, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1667101375
 MonoBehaviour:
@@ -4489,6 +4490,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: S2_WaveNeedsPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 8895666351422058908, guid: afcc02b8d3c068a48997cd11568ac94d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9011865087694572175, guid: afcc02b8d3c068a48997cd11568ac94d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4523,13 +4528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1645304247283815770, guid: afcc02b8d3c068a48997cd11568ac94d, type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 899461806}
-    - targetCorrespondingSourceObject: {fileID: 1625845852611282949, guid: afcc02b8d3c068a48997cd11568ac94d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1667101374}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afcc02b8d3c068a48997cd11568ac94d, type: 3}
 --- !u!1001 &8105984201621003155
