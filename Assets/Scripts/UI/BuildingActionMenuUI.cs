@@ -9,7 +9,8 @@ public class BuildingActionMenuUI : MonoBehaviour
     [Header("Referencie")]
     [SerializeField] private WaveManager waveManager;
     [SerializeField] private UpgradeModalUI upgradeModal;
-    [SerializeField] private GameObject menuRoot; // Objekt, ktorý sa zapína/vypína
+    [SerializeField] private WorkerAssignUI workerAssign;
+    [SerializeField] private GameObject menuRoot;
 
     [Header("UI Prvky")]
     [SerializeField] private TextMeshProUGUI titleText;
@@ -31,9 +32,6 @@ public class BuildingActionMenuUI : MonoBehaviour
         if (closeButton != null) closeButton.onClick.AddListener(Close);
     }
 
-    /// <summary>
-    /// Otvorí menu možností pre kliknutú budovu
-    /// </summary>
     public void Open(BuildingInfo building)
     {
         if (building == null || !building.isBuilt) return;
@@ -43,18 +41,15 @@ public class BuildingActionMenuUI : MonoBehaviour
         if (titleText != null)
             titleText.text = $"{building.buildingName} (Lv. {building.currentLevel})";
 
-        // Kontrola: Beží vlna?
         bool isWaveRunning = waveManager != null &&
                              waveManager.Session != null &&
                              waveManager.Session.State == WaveState.Running;
 
-        // Pravidlo hry: Upgrade je dostupný LEN medzi vlnami, počas vlny sa nezobrazuje!
         if (upgradeButton != null)
         {
             upgradeButton.gameObject.SetActive(!isWaveRunning && building.CanUpgrade);
         }
 
-        // Presun workera je povolený vždy
         if (moveWorkerButton != null)
         {
             moveWorkerButton.gameObject.SetActive(true);
@@ -78,7 +73,6 @@ public class BuildingActionMenuUI : MonoBehaviour
     {
         Close();
 
-        // Nájde okno S5 aj vtedy, ak je v Hierarchy deaktivované
         if (upgradeModal == null)
             upgradeModal = FindObjectOfType<UpgradeModalUI>(true);
 
@@ -95,7 +89,17 @@ public class BuildingActionMenuUI : MonoBehaviour
     private void OnMoveWorkerClicked()
     {
         Close();
-        // S3 zatiaľ neexistuje, preto len log
-        Debug.Log($"<color=cyan>[S3 Worker Allocation]</color> Otváram Erikovu S3 pre budovu: <b>{selectedBuilding.buildingName}</b>.");
+
+        if (workerAssign == null)
+            workerAssign = FindFirstObjectByType<WorkerAssignUI>(FindObjectsInactive.Include);
+
+        if (workerAssign != null && selectedBuilding != null)
+        {
+            workerAssign.Open(selectedBuilding);
+        }
+        else
+        {
+            Debug.LogError("Nepodarilo sa nájsť WorkerAssignUI (S3) v scéne!");
+        }
     }
 }
