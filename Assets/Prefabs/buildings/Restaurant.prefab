@@ -27537,6 +27537,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!1 &2767381723110507488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7540633301782854004}
+  m_Layer: 0
+  m_Name: Stairs_Middle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7540633301782854004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767381723110507488}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7900009, y: -2.5350935, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6708037221881622900}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2919678043860021818
 GameObject:
   m_ObjectHideFlags: 0
@@ -27980,6 +28011,37 @@ MonoBehaviour:
   amount: 0.22
   sizeAmount: 0.05
   speed: 1.3
+--- !u!1 &3313258579742883651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8342357997917254067}
+  m_Layer: 0
+  m_Name: Stairs_Top
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8342357997917254067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3313258579742883651}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.585001, y: -2.2850935, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6708037221881622900}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3361945584714953433
 GameObject:
   m_ObjectHideFlags: 0
@@ -28218,6 +28280,8 @@ Transform:
   - {fileID: 5458764756369178409}
   - {fileID: 2366207849473154180}
   - {fileID: 3361404940872558438}
+  - {fileID: 6708037221881622900}
+  - {fileID: 4308070677687871596}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-7377987648008696603
@@ -28235,7 +28299,6 @@ MonoBehaviour:
   buildingName: Restaurant
   buildingIcon: {fileID: 0}
   isBuilt: 1
-  hasWorker: 0
   currentLevel: 1
   offeredNeed: 2
 --- !u!114 &1809972255909580434
@@ -28252,8 +28315,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingService
   serviceDuration: 4
   noWorkerSpeed: 0.33333334
-  hasWorker: 1
+  speedByWorkers:
+  - 1
+  - 1.5
+  - 2
   workerVisual: {fileID: 0}
+  serviceApproach:
+  - {fileID: 3616734428425322095}
+  - {fileID: 7540633301782854004}
+  - {fileID: 8342357997917254067}
+  - {fileID: 716686253953119357}
+  queueStep: {x: 0.28, y: -0.01}
+  queueRowStep: {x: 0, y: -0.24}
   logEvents: 0
 --- !u!114 &4391204562028529547
 MonoBehaviour:
@@ -41979,6 +42052,37 @@ MonoBehaviour:
   amount: 0.22
   sizeAmount: 0.05
   speed: 1.3
+--- !u!1 &5442954762761064529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 716686253953119357}
+  m_Layer: 0
+  m_Name: Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &716686253953119357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5442954762761064529}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5150013, y: -2.1700935, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6708037221881622900}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5659607784501554872
 GameObject:
   m_ObjectHideFlags: 0
@@ -42137,6 +42241,37 @@ MonoBehaviour:
   - {fileID: 241947444787117143}
   - {fileID: 358290374512613438}
   - {fileID: 1632286557065012475}
+--- !u!1 &5718184302316955057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4308070677687871596}
+  m_Layer: 0
+  m_Name: GuestQueue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4308070677687871596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5718184302316955057}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0750008, y: -2.9450936, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4963443026294697814}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5734909507660850055
 GameObject:
   m_ObjectHideFlags: 0
@@ -60808,7 +60943,6 @@ MonoBehaviour:
   buildingName: 
   buildingIcon: {fileID: 0}
   isBuilt: 1
-  hasWorker: 0
   currentLevel: 1
   offeredNeed: 0
 --- !u!1 &7959180082983865819
@@ -76977,6 +77111,37 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!1 &8838075180000799716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3616734428425322095}
+  m_Layer: 0
+  m_Name: Stairs_Bottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3616734428425322095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8838075180000799716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9700012, y: -2.8050935, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6708037221881622900}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8890631062715655352
 GameObject:
   m_ObjectHideFlags: 0
@@ -77512,6 +77677,41 @@ MonoBehaviour:
   amount: 0.22
   sizeAmount: 0.05
   speed: 1.3
+--- !u!1 &9074821578358870341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6708037221881622900}
+  m_Layer: 0
+  m_Name: GuestAccess
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6708037221881622900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074821578358870341}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3616734428425322095}
+  - {fileID: 7540633301782854004}
+  - {fileID: 8342357997917254067}
+  - {fileID: 716686253953119357}
+  m_Father: {fileID: 4963443026294697814}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9110118415014699292
 GameObject:
   m_ObjectHideFlags: 0
