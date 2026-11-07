@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class WaveNeedsPanel : MonoBehaviour
+public class WaveNeedsPanel1 : MonoBehaviour
 {
     [Header("Referencie")]
     [SerializeField] private WaveManager waveManager;
