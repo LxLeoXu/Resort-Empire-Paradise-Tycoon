@@ -38,7 +38,7 @@ public sealed class BuildingService : MonoBehaviour
     private GuestPlaces places;
     private Seat[] seats = Array.Empty<Seat>();
     private readonly Queue<(WaveNeed need, float queuedAt)> queue = new();
-    private readonly Queue<(WaveNeed need, float queuedAt)> approaching = new();
+    private readonly Queue<WaveNeed> approaching = new();
     private int workers;
 
     public NeedType Need => info != null ? info.offeredNeed : NeedType.None;
@@ -56,7 +56,7 @@ public sealed class BuildingService : MonoBehaviour
     }
     public IEnumerable<WaveNeed> ApproachingNeeds
     {
-        get { foreach (var entry in approaching) yield return entry.need; }
+        get { foreach (var need in approaching) yield return need; }
     }
     public Vector3 QueuePosition(int index)
     {
@@ -154,7 +154,7 @@ public sealed class BuildingService : MonoBehaviour
         if (manager.Guests != null && manager.Guests.enabled)
         {
             if (!session.MarkInTransit(need.Id)) return;
-            approaching.Enqueue((need, Time.time));
+            approaching.Enqueue(need);
             return;
         }
         queue.Enqueue((need, Time.time));
@@ -189,13 +189,13 @@ public sealed class BuildingService : MonoBehaviour
     {
         while (approaching.Count > 0)
         {
-            var entry = approaching.Peek();
+            var need = approaching.Peek();
             if (manager.Guests != null && manager.Guests.enabled &&
-                !manager.Guests.IsAtQueuePosition(entry.need.Id, QueuePosition(queue.Count))) return;
-            if (!session.JoinQueue(entry.need.Id)) return;
+                !manager.Guests.IsAtQueuePosition(need.Id, QueuePosition(queue.Count))) return;
+            if (!session.JoinQueue(need.Id)) return;
             approaching.Dequeue();
-            queue.Enqueue(entry);
-            if (manager.Guests != null && manager.Guests.enabled) manager.Guests.JoinQueue(entry.need.Id);
+            queue.Enqueue((need, Time.time));
+            if (manager.Guests != null && manager.Guests.enabled) manager.Guests.JoinQueue(need.Id);
             Changed?.Invoke();
         }
     }
