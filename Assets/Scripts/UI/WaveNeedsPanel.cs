@@ -55,6 +55,7 @@ public class WaveNeedsPanel : MonoBehaviour
 
             waveManager.Session.NeedServed -= OnNeedServed;
             waveManager.Session.NeedServed += OnNeedServed;
+            waveManager.Session.ArrivalEnded += OnArrivalEnded;
         }
 
         roster = WorkerRoster.Instance;
@@ -70,6 +71,7 @@ public class WaveNeedsPanel : MonoBehaviour
             waveManager.Session.WaveEnded -= OnWaveEnded;
             waveManager.Session.NeedArrived -= OnNeedArrived;
             waveManager.Session.NeedServed -= OnNeedServed;
+            waveManager.Session.ArrivalEnded -= OnArrivalEnded;
         }
 
         if (roster != null)
@@ -88,7 +90,7 @@ public class WaveNeedsPanel : MonoBehaviour
             NeedCardUI card = GetCard(type);
             if (card == null || !card.gameObject.activeSelf) continue;
 
-            int queue = state.arrivedCount - state.servedCount;
+            int queue = waveManager.Session.GetQueueCount(type);
 
             if (queue > BottleneckThreshold)
             {
@@ -216,9 +218,12 @@ public class WaveNeedsPanel : MonoBehaviour
     {
         if (guestsBadgeText != null)
         {
-            guestsBadgeText.text = $"GUESTS: {totalServedNeeds}/{totalWaveNeeds}";
+            string status = waveManager.Session.ArrivalsEnded ? "All guests arrived" : "Guests arriving...";
+            guestsBadgeText.text = $"{status}\nGUESTS: {totalServedNeeds}/{totalWaveNeeds}";
         }
     }
+
+    private void OnArrivalEnded(int waveNumber) => UpdateGuestsBadge();
 
     private NeedCardUI GetCard(NeedType type)
     {
