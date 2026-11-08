@@ -58,7 +58,17 @@ public sealed class WaveManager : MonoBehaviour
         Session.StartWave(arrivalDuration, availableNeeds);
     }
 
-    private HashSet<NeedType> GetBuiltBuildingNeeds()
+    public WaveDefinition GetUpcomingWave()
+    {
+        if (Session == null || catalog == null) return null;
+
+        int index = useTestWave ? testWaveNumber - 1 : Session.WaveNumber;
+        if (index < 0 || index >= catalog.Count) return null;
+
+        return catalog.GetWave(index);
+    }
+
+    public HashSet<NeedType> GetBuiltBuildingNeeds()
     {
         HashSet<NeedType> availableNeeds = new HashSet<NeedType>();
         BuildingInfo[] allBuildings = FindObjectsOfType<BuildingInfo>();
