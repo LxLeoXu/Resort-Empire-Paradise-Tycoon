@@ -4392,6 +4392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: S5_UpgradeModal
       objectReference: {fileID: 0}
+    - target: {fileID: 2904491299301160449, guid: 2811ca0ba07b25c428c88fe35bf682d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3139696439728866617, guid: 2811ca0ba07b25c428c88fe35bf682d1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
