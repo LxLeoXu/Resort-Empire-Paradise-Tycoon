@@ -302,15 +302,6 @@ public class WaveNeedsPanel : MonoBehaviour
         UpdateGuestsBadge();
     }
 
-    private void OnWaveEnded(int waveNumber)
-    {
-        SetPanelVisible(false);
-        SetBuildingSpotsVisible(true);
-        if (overlayButton != null) overlayButton.gameObject.SetActive(false);
-        if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
-        isCollapsed = false;
-    }
-
     public void CollapsePanel()
     {
         if (waveManager == null || waveManager.Session == null || waveManager.Session.State != WaveState.Running)
@@ -434,15 +425,13 @@ public class WaveNeedsPanel : MonoBehaviour
     {
         Debug.Log($"S2: Wave {waveNumber} ended.");
 
-        // S2 sa skryje.
+        // S2 sa skryje a jej ovladanie sa vypne.
         SetPanelVisible(false);
         if (overlayButton != null)
-    overlayButton.gameObject.SetActive(false);
-
-if (toggleTabButton != null)
-    toggleTabButton.gameObject.SetActive(false);
-
-isCollapsed = false;
+            overlayButton.gameObject.SetActive(false);
+        if (toggleTabButton != null)
+            toggleTabButton.gameObject.SetActive(false);
+        isCollapsed = false;
 
         // S4 otvara existujuci WaveS4Connector.
         if (claimRewards != null && resultsUI != null)
