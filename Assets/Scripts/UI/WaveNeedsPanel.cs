@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class WaveNeedsPanel : MonoBehaviour
@@ -11,6 +13,16 @@ public class WaveNeedsPanel : MonoBehaviour
 
     [Header("Kartičky potrieb v paneli")]
     [SerializeField] private List<NeedCardUI> needCards = new List<NeedCardUI>();
+
+    [Header("Zasúvanie a Animácia")]
+    [Tooltip("Priehľadný overlay za panelom na kliknutie mimo")]
+    [SerializeField] private Button overlayButton;
+
+    [Tooltip("Modrý pásik na pravej hrane obrazovky na opätovné otvorenie")]
+    [SerializeField] private Button toggleTabButton;
+
+    [Tooltip("Rýchlosť zasunutia v sekundách")]
+    [SerializeField] private float slideDuration = 0.25f;
 
     private class NeedState
     {
@@ -23,21 +35,41 @@ public class WaveNeedsPanel : MonoBehaviour
 
     private readonly Dictionary<NeedType, NeedState> states = new();
     private CanvasGroup canvasGroup;
+    private RectTransform panelRect;
     private WorkerRoster roster;
+    private Coroutine slideCoroutine;
+
+    private Vector2 openedPosition;
+    private Vector2 closedPosition;
+    private bool isCollapsed = false;
+
     private int totalWaveNeeds;
     private int totalServedNeeds;
 
-    private const int BottleneckThreshold = 4;
-    private const float BottleneckHysteresis = 3.0f;
+    private const int BottleneckThreshold = 2;
+    private const float BottleneckHysteresis = 1.0f;
 
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+        panelRect = GetComponent<RectTransform>();
 
         if (waveManager == null)
             waveManager = FindObjectOfType<WaveManager>();
 
+        openedPosition = panelRect.anchoredPosition;
+        float panelWidth = panelRect.rect.width > 0 ? panelRect.rect.width : 550f;
+        closedPosition = new Vector2(openedPosition.x + panelWidth + 50f, openedPosition.y);
+
+        if (overlayButton != null)
+            overlayButton.onClick.AddListener(CollapsePanel);
+
+        if (toggleTabButton != null)
+            toggleTabButton.onClick.AddListener(ExpandPanel);
+
         SetPanelVisible(false);
+        if (overlayButton != null) overlayButton.gameObject.SetActive(false);
+        if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -55,12 +87,16 @@ public class WaveNeedsPanel : MonoBehaviour
 
             waveManager.Session.NeedServed -= OnNeedServed;
             waveManager.Session.NeedServed += OnNeedServed;
+            waveManager.Session.ArrivalEnded -= OnArrivalEnded;
             waveManager.Session.ArrivalEnded += OnArrivalEnded;
         }
 
         roster = WorkerRoster.Instance;
-        roster.Changed -= RefreshWorkers;
-        roster.Changed += RefreshWorkers;
+        if (roster != null)
+        {
+            roster.Changed -= RefreshWorkers;
+            roster.Changed += RefreshWorkers;
+        }
     }
 
     private void OnDestroy()
@@ -122,6 +158,11 @@ public class WaveNeedsPanel : MonoBehaviour
         totalServedNeeds = 0;
         totalWaveNeeds = 0;
 
+        panelRect.anchoredPosition = openedPosition;
+        isCollapsed = false;
+        if (overlayButton != null) overlayButton.gameObject.SetActive(true);
+        if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
+
         BuildingService[] services = FindObjectsOfType<BuildingService>();
         Dictionary<NeedType, bool> builtNeeds = new();
         foreach (var s in services)
@@ -166,7 +207,68 @@ public class WaveNeedsPanel : MonoBehaviour
         UpdateGuestsBadge();
     }
 
-    private void RefreshWorkers()
+    private void OnWaveEnded(int waveNumber)
+    {
+        SetPanelVisible(false);
+        SetBuildingSpotsVisible(true);
+        if (overlayButton != null) overlayButton.gameObject.SetActive(false);
+        if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
+        isCollapsed = false;
+    }
+
+    public void CollapsePanel()
+    {
+        if (waveManager == null || waveManager.Session == null || waveManager.Session.State != WaveState.Running)
+            return;
+
+        if (isCollapsed) return;
+        isCollapsed = true;
+
+        if (overlayButton != null) overlayButton.gameObject.SetActive(false);
+        if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
+
+        if (slideCoroutine != null) StopCoroutine(slideCoroutine);
+        slideCoroutine = StartCoroutine(AnimateSlide(closedPosition, true));
+    }
+
+    public void ExpandPanel()
+    {
+        if (!isCollapsed) return;
+        isCollapsed = false;
+
+        if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
+
+        if (slideCoroutine != null) StopCoroutine(slideCoroutine);
+        slideCoroutine = StartCoroutine(AnimateSlide(openedPosition, false));
+    }
+
+    private IEnumerator AnimateSlide(Vector2 targetPos, bool collapsing)
+    {
+        Vector2 startPos = panelRect.anchoredPosition;
+        float elapsed = 0f;
+
+        while (elapsed < slideDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / slideDuration);
+            t = Mathf.SmoothStep(0f, 1f, t);
+            panelRect.anchoredPosition = Vector2.Lerp(startPos, targetPos, t);
+            yield return null;
+        }
+
+        panelRect.anchoredPosition = targetPos;
+
+        if (collapsing)
+        {
+            if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            if (overlayButton != null) overlayButton.gameObject.SetActive(true);
+        }
+    }
+
+    public void RefreshWorkers()
     {
         BuildingService[] services = FindObjectsOfType<BuildingService>();
         foreach (var s in services)
@@ -208,17 +310,13 @@ public class WaveNeedsPanel : MonoBehaviour
         }
     }
 
-    private void OnWaveEnded(int waveNumber)
-    {
-        SetPanelVisible(false);
-        SetBuildingSpotsVisible(true);
-    }
-
     private void UpdateGuestsBadge()
     {
         if (guestsBadgeText != null)
         {
-            string status = waveManager.Session.ArrivalsEnded ? "All guests arrived" : "Guests arriving...";
+            string status = (waveManager != null && waveManager.Session != null && waveManager.Session.ArrivalsEnded)
+                ? "All guests arrived"
+                : "Guests arriving...";
             guestsBadgeText.text = $"{status}\nGUESTS: {totalServedNeeds}/{totalWaveNeeds}";
         }
     }
