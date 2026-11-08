@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class WaveNeedsPanel : MonoBehaviour
@@ -17,6 +19,16 @@ public class WaveNeedsPanel : MonoBehaviour
     [SerializeField]
     private List<NeedCardUI> needCards = new List<NeedCardUI>();
 
+    [Header("Zasúvanie a Animácia")]
+    [Tooltip("Priehľadný overlay za panelom na kliknutie mimo")]
+    [SerializeField] private Button overlayButton;
+
+    [Tooltip("Modrý pásik na pravej hrane obrazovky na opätovné otvorenie")]
+    [SerializeField] private Button toggleTabButton;
+
+    [Tooltip("Rýchlosť zasunutia v sekundách")]
+    [SerializeField] private float slideDuration = 0.25f;
+
     private class NeedState
     {
         public int totalNeeded;
@@ -29,7 +41,13 @@ public class WaveNeedsPanel : MonoBehaviour
     private readonly Dictionary<NeedType, NeedState> states = new();
 
     private CanvasGroup canvasGroup;
+    private RectTransform panelRect;
     private WorkerRoster roster;
+    private Coroutine slideCoroutine;
+
+    private Vector2 openedPosition;
+    private Vector2 closedPosition;
+    private bool isCollapsed = false;
 
     private int totalWaveNeeds;
     private int totalServedNeeds;
@@ -44,6 +62,7 @@ public class WaveNeedsPanel : MonoBehaviour
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+        panelRect = GetComponent<RectTransform>();
 
         if (waveManager == null)
             waveManager = FindFirstObjectByType<WaveManager>();
@@ -55,7 +74,19 @@ public class WaveNeedsPanel : MonoBehaviour
         if (claimRewards == null && resultsUI != null)
             claimRewards = resultsUI.GetComponent<ClaimRewards>();
 
+        openedPosition = panelRect.anchoredPosition;
+        float panelWidth = panelRect.rect.width > 0 ? panelRect.rect.width : 550f;
+        closedPosition = new Vector2(openedPosition.x + panelWidth + 50f, openedPosition.y);
+
+        if (overlayButton != null)
+            overlayButton.onClick.AddListener(CollapsePanel);
+
+        if (toggleTabButton != null)
+            toggleTabButton.onClick.AddListener(ExpandPanel);
+
         SetPanelVisible(false);
+        if (overlayButton != null) overlayButton.gameObject.SetActive(false);
+        if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -214,10 +245,12 @@ public class WaveNeedsPanel : MonoBehaviour
         totalServedNeeds = 0;
         totalWaveNeeds = 0;
 
-        BuildingService[] services =
-            FindObjectsByType<BuildingService>(
-                FindObjectsSortMode.None);
+        panelRect.anchoredPosition = openedPosition;
+        isCollapsed = false;
+        if (overlayButton != null) overlayButton.gameObject.SetActive(true);
+        if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
 
+        BuildingService[] services = FindObjectsOfType<BuildingService>();
         Dictionary<NeedType, bool> builtNeeds = new();
 
         foreach (var s in services)
@@ -269,11 +302,68 @@ public class WaveNeedsPanel : MonoBehaviour
         UpdateGuestsBadge();
     }
 
-    // =====================================
-    // WORKER ROSTER - KOLEGOVA LOGIKA
-    // =====================================
+    private void OnWaveEnded(int waveNumber)
+    {
+        SetPanelVisible(false);
+        SetBuildingSpotsVisible(true);
+        if (overlayButton != null) overlayButton.gameObject.SetActive(false);
+        if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
+        isCollapsed = false;
+    }
 
-    private void RefreshWorkers()
+    public void CollapsePanel()
+    {
+        if (waveManager == null || waveManager.Session == null || waveManager.Session.State != WaveState.Running)
+            return;
+
+        if (isCollapsed) return;
+        isCollapsed = true;
+
+        if (overlayButton != null) overlayButton.gameObject.SetActive(false);
+        if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
+
+        if (slideCoroutine != null) StopCoroutine(slideCoroutine);
+        slideCoroutine = StartCoroutine(AnimateSlide(closedPosition, true));
+    }
+
+    public void ExpandPanel()
+    {
+        if (!isCollapsed) return;
+        isCollapsed = false;
+
+        if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
+
+        if (slideCoroutine != null) StopCoroutine(slideCoroutine);
+        slideCoroutine = StartCoroutine(AnimateSlide(openedPosition, false));
+    }
+
+    private IEnumerator AnimateSlide(Vector2 targetPos, bool collapsing)
+    {
+        Vector2 startPos = panelRect.anchoredPosition;
+        float elapsed = 0f;
+
+        while (elapsed < slideDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / slideDuration);
+            t = Mathf.SmoothStep(0f, 1f, t);
+            panelRect.anchoredPosition = Vector2.Lerp(startPos, targetPos, t);
+            yield return null;
+        }
+
+        panelRect.anchoredPosition = targetPos;
+
+        if (collapsing)
+        {
+            if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            if (overlayButton != null) overlayButton.gameObject.SetActive(true);
+        }
+    }
+
+    public void RefreshWorkers()
     {
         BuildingService[] services =
             FindObjectsByType<BuildingService>(
@@ -346,6 +436,13 @@ public class WaveNeedsPanel : MonoBehaviour
 
         // S2 sa skryje.
         SetPanelVisible(false);
+        if (overlayButton != null)
+    overlayButton.gameObject.SetActive(false);
+
+if (toggleTabButton != null)
+    toggleTabButton.gameObject.SetActive(false);
+
+isCollapsed = false;
 
         // S4 otvara existujuci WaveS4Connector.
         if (claimRewards != null && resultsUI != null)
