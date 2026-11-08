@@ -29,8 +29,10 @@ public sealed class WaveSession
     private readonly List<NeedType> arrivals = new();
     private readonly Dictionary<int, WaveNeed> pending = new();
     private readonly HashSet<int> inService = new();
+    private readonly HashSet<int> inTransit = new();
     private int nextId;
     private bool endingArrivals;
+    private bool guestReturnPending;
 
     public WaveState State { get; private set; } = WaveState.Waiting;
     public int WaveNumber { get; private set; }
@@ -41,9 +43,13 @@ public sealed class WaveSession
     public bool ArrivalsEnded { get; private set; }
     public int EmittedCount { get; private set; }
     public int PendingCount => pending.Count;
-    public int QueuedCount => pending.Count - inService.Count;
+    public int QueuedCount => pending.Count - inService.Count - inTransit.Count;
+    public int InTransitCount => inTransit.Count;
     public int InServiceCount => inService.Count;
     public int ServedCount { get; private set; }
+    public int ScheduledCount => arrivals.Count;
+    // The presentation holds the arrival phase open until the last guest leaves the pier.
+    public bool HoldArrivalsOpen { get; set; }
     public IEnumerable<WaveNeed> PendingNeeds => pending.Values;
     public event Action<WaveNeed> NeedServed; // Udalosť pri obslúžení potreby
 
@@ -63,6 +69,7 @@ public sealed class WaveSession
     /// </summary>
     public void SetWaveIndex(int index)
     {
+        if (State == WaveState.Running) return;
         if (index >= 0 && index < catalog.Count)
         {
             WaveNumber = index;
@@ -84,7 +91,9 @@ public sealed class WaveSession
         ArrivalsEnded = false;
         pending.Clear();
         inService.Clear();
+        inTransit.Clear();
         ServedCount = 0;
+        guestReturnPending = false;
         State = WaveState.Running;
         StateChanged?.Invoke();
         WaveStarted?.Invoke(WaveNumber);
@@ -156,7 +165,7 @@ public sealed class WaveSession
 
         Elapsed = Math.Min(ArrivalDuration, Elapsed + deltaTime);
 
-        if (arrivals.Count == 0 && Elapsed >= ArrivalDuration)
+        if (arrivals.Count == 0 && Elapsed >= ArrivalDuration && !HoldArrivalsOpen)
         {
             ArrivalsEnded = true;
             endingArrivals = true;
@@ -178,7 +187,7 @@ public sealed class WaveSession
             Debug.Log($"--> Prichádza: {need.Type} (Vlna {need.WaveNumber})");
         }
 
-        if (Elapsed >= ArrivalDuration)
+        if (Elapsed >= ArrivalDuration && !HoldArrivalsOpen)
         {
             ArrivalsEnded = true;
             endingArrivals = true;
@@ -190,7 +199,20 @@ public sealed class WaveSession
 
     public bool BeginService(int id)
     {
-        return State == WaveState.Running && pending.ContainsKey(id) && inService.Add(id);
+        return State == WaveState.Running && pending.ContainsKey(id) && !inTransit.Contains(id) && inService.Add(id);
+    }
+
+    public bool MarkInTransit(int id) => State == WaveState.Running && pending.ContainsKey(id)
+        && !inService.Contains(id) && inTransit.Add(id);
+
+    public bool JoinQueue(int id) => State == WaveState.Running && inTransit.Remove(id);
+
+    public int GetQueueCount(NeedType type)
+    {
+        int count = 0;
+        foreach (var need in pending.Values)
+            if (need.Type == type && !inTransit.Contains(need.Id) && !inService.Contains(need.Id)) count++;
+        return count;
     }
 
 
@@ -210,9 +232,15 @@ public sealed class WaveSession
         return false;
     }
 
+    public void SetGuestReturnPending(bool value)
+    {
+        guestReturnPending = value;
+        if (!value) TryFinishWave();
+    }
+
     private void TryFinishWave()
     {
-        if (State != WaveState.Running || !ArrivalsEnded || endingArrivals || QueuedCount != 0 || InServiceCount != 0) return;
+        if (State != WaveState.Running || !ArrivalsEnded || endingArrivals || guestReturnPending || pending.Count != 0) return;
         State = WaveState.Result;
         int completedWave = WaveNumber;
         WaveEnded?.Invoke(completedWave);

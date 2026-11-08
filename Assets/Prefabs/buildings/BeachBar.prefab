@@ -1670,6 +1670,7 @@ Transform:
   - {fileID: 1023811996011893021}
   - {fileID: 162722563490753954}
   - {fileID: 3664864114930119353}
+  - {fileID: 6291240403422944291}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3595424008057429409
@@ -1687,7 +1688,6 @@ MonoBehaviour:
   buildingName: BeachBar
   buildingIcon: {fileID: 0}
   isBuilt: 1
-  hasWorker: 0
   currentLevel: 1
   offeredNeed: 3
 --- !u!114 &-3686731284702736235
@@ -1704,8 +1704,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingService
   serviceDuration: 4
   noWorkerSpeed: 0.33333334
-  hasWorker: 1
+  speedByWorkers:
+  - 1
+  - 1.5
+  - 2
   workerVisual: {fileID: 0}
+  serviceApproach: []
+  queueStep: {x: -0.28, y: 0}
+  queueRowStep: {x: 0, y: -0.24}
   logEvents: 0
 --- !u!114 &7873263070581251106
 MonoBehaviour:
@@ -2528,6 +2534,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &2840563173924354977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6291240403422944291}
+  m_Layer: 0
+  m_Name: GuestQueue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6291240403422944291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2840563173924354977}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.629941, y: 0.66775095, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2877491595937102452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2864787797814378888
 GameObject:
   m_ObjectHideFlags: 0
@@ -4861,7 +4898,6 @@ MonoBehaviour:
   buildingName: Beach Bar
   buildingIcon: {fileID: 0}
   isBuilt: 1
-  hasWorker: 0
   currentLevel: 1
   offeredNeed: 0
 --- !u!1 &5286045093693037980

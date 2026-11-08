@@ -8,7 +8,6 @@ public class BuildingInfo : MonoBehaviour
 
     [Header("Building Status")]
     public bool isBuilt = true;
-    public bool hasWorker = false;
 
     [Header("Level & Capacity (Prototype: Lv 1-3)")]
     [Range(1, 3)] public int currentLevel = 1;

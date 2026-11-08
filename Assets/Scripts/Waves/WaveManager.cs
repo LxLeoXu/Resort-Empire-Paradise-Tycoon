@@ -16,6 +16,7 @@ public sealed class WaveManager : MonoBehaviour
     [Range(1, 8)][SerializeField] private int testWaveNumber = 4;
 
     public WaveSession Session { get; private set; }
+    public GuestWavePresentation Guests { get; private set; }
     public UnityEvent<int> OnWaveEnded => onWaveEnded;
 
     private void Awake()
@@ -28,13 +29,24 @@ public sealed class WaveManager : MonoBehaviour
         }
         Session = new WaveSession(catalog);
         Session.WaveEnded += NotifyWaveEnded;
+        Guests = GetComponent<GuestWavePresentation>();
     }
 
-    private void Update() => Session?.Tick(Time.deltaTime);
+    private void Update()
+    {
+        if (Session == null) return;
+        if (Guests != null && Guests.enabled)
+        {
+            if (!Guests.BoatDocked) return;
+            Session.HoldArrivalsOpen = !Guests.AllGuestsDisembarked;
+        }
+        Session.Tick(Time.deltaTime);
+    }
 
     public void StartWave()
     {
-        if (Session == null) return;
+        if (Session == null || Session.State == WaveState.Running) return;
+        if (Guests != null && Guests.enabled && Guests.TripInProgress) return;
 
         // Ak testujeme, nastavíme vlnu na požadovanú (testWaveNumber 4 = index 3 v katalógu)
         if (useTestWave)
@@ -71,7 +83,7 @@ public sealed class WaveManager : MonoBehaviour
     [ContextMenu("Reset Wave to Waiting")]
     public void ResetWave()
     {
-        if (Session != null)
+        if (Session != null && Session.State != WaveState.Running)
         {
             Session.SetWaveIndex(testWaveNumber - 1);
             Debug.Log("<color=yellow>Vlna bola resetovaná do stavu Waiting.</color>");
