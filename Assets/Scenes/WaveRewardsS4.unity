@@ -949,7 +949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -81.93404, y: -65.40731}
+  m_AnchoredPosition: {x: -83.21755, y: -66.43197}
   m_SizeDelta: {x: 144, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &716705887
@@ -2192,7 +2192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 286.20065, y: -50.979237}
+  m_AnchoredPosition: {x: 290.68417, y: -51.77786}
   m_SizeDelta: {x: 144, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &734408858
@@ -2797,8 +2797,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveS4Connector
   waveManager: {fileID: 2005698306}
   resultsUI: {fileID: 6382556794569369738}
-  useTestSatisfaction: 0
-  testSatisfaction: 88
+  useTestSatisfaction: 1
+  testSatisfaction: 19
 --- !u!4 &1528015696
 Transform:
   m_ObjectHideFlags: 0

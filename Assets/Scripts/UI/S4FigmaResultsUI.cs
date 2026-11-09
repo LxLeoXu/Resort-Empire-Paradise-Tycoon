@@ -186,11 +186,7 @@ public class S4FigmaResultsUI : MonoBehaviour
 
     private void UpdateStars(int satisfaction)
     {
-        int stars = satisfaction >= 90 ? 5 :
-                    satisfaction >= 80 ? 4 :
-                    satisfaction >= 70 ? 3 :
-                    satisfaction >= 55 ? 2 :
-                    satisfaction >= 40 ? 1 : 0;
+        int stars = WaveRewardCalculator.GetStarRating(satisfaction);
 
         if (starImages == null)
             return;
