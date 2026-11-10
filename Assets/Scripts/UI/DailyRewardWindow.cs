@@ -126,6 +126,12 @@ public sealed class DailyRewardWindow : MonoBehaviour, IPointerClickHandler
         if (phase == Phase.Opening) time = IntroLength;
     }
 
+    [ContextMenu("Ukážka (len v Play mode)")]
+    private void Preview()
+    {
+        if (Application.isPlaying) Show(rewardIcon.sprite, 50, rewardName.text);
+    }
+
     private void Awake()
     {
         Capture();
