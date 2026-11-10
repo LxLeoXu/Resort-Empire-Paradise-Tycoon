@@ -46,7 +46,7 @@ public class WaveNeedsPanel : MonoBehaviour
     private Coroutine slideCoroutine;
 
     private Vector2 openedPosition;
-    private Vector2 closedPosition;
+    private Vector2 ClosedPosition => new Vector2(openedPosition.x + panelRect.rect.width + 50f, openedPosition.y);
     private bool isCollapsed = false;
 
     private int totalWaveNeeds;
@@ -75,8 +75,6 @@ public class WaveNeedsPanel : MonoBehaviour
             claimRewards = resultsUI.GetComponent<ClaimRewards>();
 
         openedPosition = panelRect.anchoredPosition;
-        float panelWidth = panelRect.rect.width > 0 ? panelRect.rect.width : 550f;
-        closedPosition = new Vector2(openedPosition.x + panelWidth + 50f, openedPosition.y);
 
         if (overlayButton != null)
             overlayButton.onClick.AddListener(CollapsePanel);
@@ -314,7 +312,7 @@ public class WaveNeedsPanel : MonoBehaviour
         if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
 
         if (slideCoroutine != null) StopCoroutine(slideCoroutine);
-        slideCoroutine = StartCoroutine(AnimateSlide(closedPosition, true));
+        slideCoroutine = StartCoroutine(AnimateSlide(ClosedPosition, true));
     }
 
     public void ExpandPanel()
