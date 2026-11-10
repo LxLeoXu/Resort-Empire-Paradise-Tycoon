@@ -198,6 +198,97 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &373320539423209730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5837216335739505287}
+  - component: {fileID: 8065167056747113250}
+  m_Layer: 0
+  m_Name: NoWorkerMarker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5837216335739505287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373320539423209730}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.16, y: 0.18977392, z: 0}
+  m_LocalScale: {x: 0.15076755, y: 0.15076755, z: 0.15076755}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4563014380681003485}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &8065167056747113250
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373320539423209730}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 1786573602
+  m_SortingLayer: 1
+  m_SortingOrder: 10
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 5630b23617a5bb94e8b13df550dba1dc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 3.84, y: 3.84}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &392847450335750157
 GameObject:
   m_ObjectHideFlags: 0
@@ -17863,6 +17954,7 @@ GameObject:
   - component: {fileID: 5834146033373225024}
   - component: {fileID: -5598220663492207136}
   - component: {fileID: 84725543600496286}
+  - component: {fileID: 5994068067328340306}
   m_Layer: 0
   m_Name: Reception
   m_TagString: Untagged
@@ -17891,6 +17983,7 @@ Transform:
   - {fileID: 9011061835621717209}
   - {fileID: 6868654861261387040}
   - {fileID: 4142441034022985313}
+  - {fileID: 5837216335739505287}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5834146033373225024
@@ -17908,7 +18001,6 @@ MonoBehaviour:
   buildingName: Reception
   buildingIcon: {fileID: 0}
   isBuilt: 1
-  hasWorker: 0
   currentLevel: 1
   offeredNeed: 1
 --- !u!114 &-5598220663492207136
@@ -17925,8 +18017,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingService
   serviceDuration: 4
   noWorkerSpeed: 0.33333334
-  hasWorker: 1
+  speedByWorkers:
+  - 1
+  - 1.5
+  - 2
   workerVisual: {fileID: 0}
+  serviceApproach: []
+  queueStep: {x: -0.24, y: -0.12}
+  queueRowStep: {x: 0.15, y: -0.28}
   logEvents: 0
 --- !u!114 &84725543600496286
 MonoBehaviour:
@@ -17976,6 +18074,23 @@ MonoBehaviour:
     selectionSize: {x: 1.716, y: 2.852}
   selection: {fileID: 3643325876090787453}
   islandChanges: []
+--- !u!114 &5994068067328340306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4840427561668432965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba56d4a6ad285043b4373ff13195753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NoWorkerMarker
+  marker: {fileID: 5837216335739505287}
+  popDuration: 0.25
+  popStartScale: 0.6
+  bobHeight: 0.025
+  bobPeriod: 2.4
 --- !u!1 &5019880584825405598
 GameObject:
   m_ObjectHideFlags: 0
@@ -19251,7 +19366,6 @@ MonoBehaviour:
   buildingName: 
   buildingIcon: {fileID: 0}
   isBuilt: 1
-  hasWorker: 0
   currentLevel: 1
   offeredNeed: 0
 --- !u!1 &7057665229573388293
