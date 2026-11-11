@@ -106,17 +106,23 @@ public sealed class WaveManager : MonoBehaviour
             return baseWave;
         }
 
-        // Mäkký debut bazéna (Relax)
+        // --- MÄKKÝ DEBUT BAZÉNA (Relax) ---
         if (isRelaxDebut)
         {
-            if (waveIndex == 3 && !useTestWave)
+            // 4. VLNA (waveIndex 3): Už v tabuľke má nastavených presne 8 ks! 
+            // Nesmieme to znova deliť 0.5, použijeme priamo hodnotu z tabuľky:
+            if (waveIndex <= 3)
             {
                 if (logDetails)
-                    Debug.Log("<color=green>[DEBUT NAČAS]</color> Relax debutuje vo 4. vlne podľa tabuľky.");
+                    Debug.Log("<color=green>[DEBUT NAČAS]</color> Relax debutuje vo 4. vlne presne podľa tabuľky (8 ks).");
                 return baseWave;
             }
 
+            // NESKORÁ KÚPA BAZÉNA (až vo vlne 5, 6...):
+            // Vtedy vezmeme plný objem danej vlny (napr. vo vlne 5 je to 16) a dáme mu 50 % (= 8 ks)
             int relaxCount = Mathf.Max(1, Mathf.RoundToInt(baseWave.relax * newNeedDebutRatio));
+
+            // Pravidlo 3: Ostatné potreby nerastú - držia hodnoty z predošlej vlny
             int rooms = prevWave.rooms;
             int drinks = prevWave.drinks;
             int food = prevWave.food;
@@ -126,19 +132,20 @@ public sealed class WaveManager : MonoBehaviour
 
             if (logDetails)
             {
-                Debug.Log($"<color=yellow>[MÄKKÝ DEBUT BAZÉNA - Vlna {waveIndex + 1}]</color> Relax: {relaxCount} ks (50%). Ostatné potreby zmrazené z predošlej vlny (Rooms: {rooms}, Drinks: {drinks}, Food: {food}).");
+                Debug.Log($"<color=yellow>[MÄKKÝ DEBUT BAZÉNA - Vlna {waveIndex + 1}]</color> Relax: {relaxCount} ks. Ostatné potreby zmrazené z predošlej vlny (Rooms: {rooms}, Drinks: {drinks}, Food: {food}).");
             }
 
             return new WaveDefinition(guests, rooms, drinks, food, relaxCount, oceanView);
         }
 
-        // Mäkký debut bungalovy (Ocean View)
+        // --- MÄKKÝ DEBUT BUNGALOVY (Ocean View) ---
         if (isOceanViewDebut)
         {
-            if (waveIndex == 6 && !useTestWave)
+            // 7. VLNA (waveIndex 6): Už v tabuľke má nastavených presne 10 ks!
+            if (waveIndex <= 6)
             {
                 if (logDetails)
-                    Debug.Log("<color=green>[DEBUT NAČAS]</color> Ocean View debutuje v 7. vlne podľa tabuľky.");
+                    Debug.Log("<color=green>[DEBUT NAČAS]</color> Ocean View debutuje v 7. vlne presne podľa tabuľky (10 ks).");
                 return baseWave;
             }
 
