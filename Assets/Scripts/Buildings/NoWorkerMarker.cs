@@ -26,6 +26,8 @@ public sealed class NoWorkerMarker : MonoBehaviour
 
     public bool IsShown => marker != null && marker.gameObject.activeSelf;
 
+    public Vector3 BadgePosition => marker != null ? marker.position : transform.position;
+
     private void Awake()
     {
         service = GetComponent<BuildingService>();
