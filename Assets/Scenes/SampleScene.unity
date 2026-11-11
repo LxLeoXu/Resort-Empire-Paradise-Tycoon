@@ -822,6 +822,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5d529072fbe1c478c7a4b6c863cf8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSpot
+  s9Window: {fileID: 1906991239}
+  areaTitle: Bungalow
+  areaPreview: {fileID: -3443023224149160462, guid: 328224e1b15ee23408035af9560a9138, type: 3}
+  demandAdded: Ocean View Demand
+  unlockCost: 2500
+  requiredWave: 6
   buildingPrefabs:
   - {fileID: 2292173044317233473, guid: 9f8a85a589c162b4c980015a0de09601, type: 3}
   - {fileID: 2292173044317233473, guid: 9f8a85a589c162b4c980015a0de09601, type: 3}
@@ -1139,7 +1145,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1968484532}
         m_TargetAssemblyTypeName: BuildingSpot, Assembly-CSharp
-        m_MethodName: BuildFirstBuilding
+        m_MethodName: OpenS9
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1983,7 +1989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6635645978588655382, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
       propertyPath: useTestWave
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6635645978588655382, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
       propertyPath: testWaveNumber
@@ -2422,7 +2428,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 532731289}
         m_TargetAssemblyTypeName: BuildingSpot, Assembly-CSharp
-        m_MethodName: BuildFirstBuilding
+        m_MethodName: OpenS9
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2688,6 +2694,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!1 &1012722499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9083451829043301710, guid: a46d63a125a03fe4a8d6ef97aaf9a92d, type: 3}
+  m_PrefabInstance: {fileID: 1772336764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1021734395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4963443026294697814, guid: ad5441006404425449c5bea085681717, type: 3}
@@ -3593,6 +3604,14 @@ PrefabInstance:
       propertyPath: m_TextStyleHashCode
       value: -1183493901
       objectReference: {fileID: 0}
+    - target: {fileID: 6350187512631330721, guid: a46d63a125a03fe4a8d6ef97aaf9a92d, type: 3}
+      propertyPath: s4Root
+      value: 
+      objectReference: {fileID: 1012722499}
+    - target: {fileID: 6350187512631330721, guid: a46d63a125a03fe4a8d6ef97aaf9a92d, type: 3}
+      propertyPath: upgradeModal
+      value: 
+      objectReference: {fileID: 1441799212}
     - target: {fileID: 6609115144549113171, guid: a46d63a125a03fe4a8d6ef97aaf9a92d, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4280711605
@@ -3639,7 +3658,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5617429491955521953, guid: a46d63a125a03fe4a8d6ef97aaf9a92d, type: 3}
   m_PrefabInstance: {fileID: 1772336764}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1012722499}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 660ec931cb47ed74e9d21f6be6474cb1, type: 3}
@@ -4101,6 +4120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5d529072fbe1c478c7a4b6c863cf8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSpot
+  s9Window: {fileID: 1906991239}
+  areaTitle: Pool
+  areaPreview: {fileID: -3443023224149160462, guid: 328224e1b15ee23408035af9560a9138, type: 3}
+  demandAdded: Relax Demand
+  unlockCost: 1200
+  requiredWave: 3
   buildingPrefabs:
   - {fileID: 2203950422363828308, guid: 4ac39664077fa034a90b8033e1477b11, type: 3}
   - {fileID: 2203950422363828308, guid: 4ac39664077fa034a90b8033e1477b11, type: 3}
@@ -4820,6 +4845,18 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4198068237831912499, guid: 2811ca0ba07b25c428c88fe35bf682d1, type: 3}
+      propertyPath: poolSpot
+      value: 
+      objectReference: {fileID: 1968484532}
+    - target: {fileID: 4198068237831912499, guid: 2811ca0ba07b25c428c88fe35bf682d1, type: 3}
+      propertyPath: waveManager
+      value: 
+      objectReference: {fileID: 2005698306}
+    - target: {fileID: 4198068237831912499, guid: 2811ca0ba07b25c428c88fe35bf682d1, type: 3}
+      propertyPath: bungalowsSpot
+      value: 
+      objectReference: {fileID: 532731289}
     - target: {fileID: 4351790753578481212, guid: 2811ca0ba07b25c428c88fe35bf682d1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 13.7

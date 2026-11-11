@@ -9,15 +9,33 @@ public sealed class WaveManager : MonoBehaviour
     [Tooltip("SCRUM-235: connect S4 to this event. Argument: completed wave number (1-based).")]
     [SerializeField] private UnityEvent<int> onWaveEnded = new();
 
-    [Header("SCRUM-25 Testovanie")]
+    [Header("SCRUM-25 & Progresia")]
+    [Tooltip("Pomer nového needu pri mäkkom debute (Build dok §4.8: 0.50)")]
+    [Range(0.1f, 1f)][SerializeField] private float newNeedDebutRatio = 0.5f;
+
+    [Header("Testovanie vĺn")]
     [Tooltip("Zaškrtni, ak chceš manuálne testovať konkrétnu vlnu.")]
-    [SerializeField] private bool useTestWave = true;
-    [Tooltip("Nastav na 4 pre testovanie Bazéna / Relax.")]
-    [Range(1, 8)][SerializeField] private int testWaveNumber = 4;
+    [SerializeField] private bool useTestWave = false;
+    [Tooltip("Číslo vlny na testovanie (1 - 8).")]
+    [Range(1, 8)][SerializeField] private int testWaveNumber = 1;
+
+    [Tooltip("TEST KRITÉRIA: Zaškrtni, ak testuješ neskorú kúpu bazéna (Relax debutuje až v tejto testovanej vlne).")]
+    [SerializeField] private bool testLatePoolDebut = false;
+
+    // Sledovanie debutov
+    private bool hasRelaxDebuted = false;
+    private bool hasOceanViewDebuted = false;
+
+    private WaveDefinition lastExecutedWave = null;
 
     public WaveSession Session { get; private set; }
     public GuestWavePresentation Guests { get; private set; }
     public UnityEvent<int> OnWaveEnded => onWaveEnded;
+
+    // Vlastnosti pre ostatné skripty (BuildingSpot, S5)
+    public bool UseTestWave => useTestWave;
+    public int TestWaveNumber => testWaveNumber;
+    public int EffectiveWaveNumber => useTestWave ? testWaveNumber : (Session != null ? Session.WaveNumber : 1);
 
     private void Awake()
     {
@@ -27,9 +45,18 @@ public sealed class WaveManager : MonoBehaviour
             enabled = false;
             return;
         }
+
         Session = new WaveSession(catalog);
-        Session.WaveEnded += NotifyWaveEnded;
+        Session.WaveEnded += OnWaveFinishedInternal;
         Guests = GetComponent<GuestWavePresentation>();
+
+        // Inicializácia testovacej vlny hneď pri štarte hry
+        if (useTestWave)
+        {
+            Session.SetWaveIndex(testWaveNumber - 1);
+            SyncDebutsForTestWave(testWaveNumber);
+            Debug.Log($"<color=cyan>[TESTOVACÍ REŽIM]</color> Inicializovaná testovacia vlna č. {testWaveNumber}");
+        }
     }
 
     private void Update()
@@ -48,14 +75,90 @@ public sealed class WaveManager : MonoBehaviour
         if (Session == null || Session.State == WaveState.Running) return;
         if (Guests != null && Guests.enabled && Guests.TripInProgress) return;
 
-        // Ak testujeme, nastavíme vlnu na požadovanú (testWaveNumber 4 = index 3 v katalógu)
+        int waveIndex = Session.WaveNumber;
         if (useTestWave)
         {
-            Session.SetWaveIndex(testWaveNumber - 1);
+            waveIndex = testWaveNumber - 1;
+            Session.SetWaveIndex(waveIndex);
+            SyncDebutsForTestWave(testWaveNumber);
         }
 
         HashSet<NeedType> availableNeeds = GetBuiltBuildingNeeds();
-        Session.StartWave(arrivalDuration, availableNeeds);
+
+        WaveDefinition waveToRun = CalculateAdaptedWave(waveIndex, availableNeeds, logDetails: true);
+        lastExecutedWave = waveToRun;
+
+        Session.StartWave(arrivalDuration, availableNeeds, waveToRun);
+    }
+
+    public WaveDefinition CalculateAdaptedWave(int waveIndex, HashSet<NeedType> availableNeeds, bool logDetails = false)
+    {
+        if (catalog == null || waveIndex < 0 || waveIndex >= catalog.Count) return null;
+
+        WaveDefinition baseWave = catalog.GetWave(waveIndex);
+        WaveDefinition prevWave = waveIndex > 0 ? (lastExecutedWave ?? catalog.GetWave(waveIndex - 1)) : null;
+
+        bool isRelaxDebut = availableNeeds.Contains(NeedType.Relax) && !hasRelaxDebuted;
+        bool isOceanViewDebut = availableNeeds.Contains(NeedType.OceanView) && !hasOceanViewDebuted;
+
+        if ((!isRelaxDebut && !isOceanViewDebut) || prevWave == null)
+        {
+            return baseWave;
+        }
+
+        // Mäkký debut bazéna (Relax)
+        if (isRelaxDebut)
+        {
+            if (waveIndex == 3 && !useTestWave)
+            {
+                if (logDetails)
+                    Debug.Log("<color=green>[DEBUT NAČAS]</color> Relax debutuje vo 4. vlne podľa tabuľky.");
+                return baseWave;
+            }
+
+            int relaxCount = Mathf.Max(1, Mathf.RoundToInt(baseWave.relax * newNeedDebutRatio));
+            int rooms = prevWave.rooms;
+            int drinks = prevWave.drinks;
+            int food = prevWave.food;
+            int oceanView = availableNeeds.Contains(NeedType.OceanView) ? prevWave.oceanView : 0;
+            int totalNeeds = rooms + drinks + food + relaxCount + oceanView;
+            int guests = Mathf.Max(1, Mathf.RoundToInt(totalNeeds / 2.0f));
+
+            if (logDetails)
+            {
+                Debug.Log($"<color=yellow>[MÄKKÝ DEBUT BAZÉNA - Vlna {waveIndex + 1}]</color> Relax: {relaxCount} ks (50%). Ostatné potreby zmrazené z predošlej vlny (Rooms: {rooms}, Drinks: {drinks}, Food: {food}).");
+            }
+
+            return new WaveDefinition(guests, rooms, drinks, food, relaxCount, oceanView);
+        }
+
+        // Mäkký debut bungalovy (Ocean View)
+        if (isOceanViewDebut)
+        {
+            if (waveIndex == 6 && !useTestWave)
+            {
+                if (logDetails)
+                    Debug.Log("<color=green>[DEBUT NAČAS]</color> Ocean View debutuje v 7. vlne podľa tabuľky.");
+                return baseWave;
+            }
+
+            int oceanViewCount = Mathf.Max(1, Mathf.RoundToInt(baseWave.oceanView * newNeedDebutRatio));
+            int rooms = prevWave.rooms;
+            int drinks = prevWave.drinks;
+            int food = prevWave.food;
+            int relax = prevWave.relax;
+            int totalNeeds = rooms + drinks + food + relax + oceanViewCount;
+            int guests = Mathf.Max(1, Mathf.RoundToInt(totalNeeds / 2.0f));
+
+            if (logDetails)
+            {
+                Debug.Log($"<color=yellow>[MÄKKÝ DEBUT BUNGALOVY - Vlna {waveIndex + 1}]</color> Ocean View: {oceanViewCount} ks. Ostatné zmrazené.");
+            }
+
+            return new WaveDefinition(guests, rooms, drinks, food, relax, oceanViewCount);
+        }
+
+        return baseWave;
     }
 
     public WaveDefinition GetUpcomingWave()
@@ -65,7 +168,43 @@ public sealed class WaveManager : MonoBehaviour
         int index = useTestWave ? testWaveNumber - 1 : Session.WaveNumber;
         if (index < 0 || index >= catalog.Count) return null;
 
-        return catalog.GetWave(index);
+        HashSet<NeedType> availableNeeds = GetBuiltBuildingNeeds();
+        return CalculateAdaptedWave(index, availableNeeds, logDetails: false);
+    }
+
+    private void OnWaveFinishedInternal(int waveNumber)
+    {
+        HashSet<NeedType> availableNeeds = GetBuiltBuildingNeeds();
+        if (availableNeeds.Contains(NeedType.Relax)) hasRelaxDebuted = true;
+        if (availableNeeds.Contains(NeedType.OceanView)) hasOceanViewDebuted = true;
+
+        NotifyWaveEnded(waveNumber);
+    }
+
+    private void SyncDebutsForTestWave(int waveNum)
+    {
+        if (testLatePoolDebut)
+        {
+            hasRelaxDebuted = false;
+            hasOceanViewDebuted = false;
+            return;
+        }
+
+        if (waveNum <= 3)
+        {
+            hasRelaxDebuted = false;
+            hasOceanViewDebuted = false;
+        }
+        else if (waveNum >= 4 && waveNum <= 6)
+        {
+            hasRelaxDebuted = (waveNum > 4);
+            hasOceanViewDebuted = false;
+        }
+        else if (waveNum >= 7)
+        {
+            hasRelaxDebuted = true;
+            hasOceanViewDebuted = (waveNum > 7);
+        }
     }
 
     public HashSet<NeedType> GetBuiltBuildingNeeds()
@@ -87,15 +226,15 @@ public sealed class WaveManager : MonoBehaviour
         return availableNeeds;
     }
 
-    /// <summary>
-    /// Umožní reštartovať vlnu priamo z Unity editora kliknutím pravým tlačidlom na komponent
-    /// </summary>
     [ContextMenu("Reset Wave to Waiting")]
     public void ResetWave()
     {
         if (Session != null && Session.State != WaveState.Running)
         {
             Session.SetWaveIndex(testWaveNumber - 1);
+            hasRelaxDebuted = false;
+            hasOceanViewDebuted = false;
+            lastExecutedWave = null;
             Debug.Log("<color=yellow>Vlna bola resetovaná do stavu Waiting.</color>");
         }
     }
@@ -107,6 +246,6 @@ public sealed class WaveManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (Session != null) Session.WaveEnded -= NotifyWaveEnded;
+        if (Session != null) Session.WaveEnded -= OnWaveFinishedInternal;
     }
 }
