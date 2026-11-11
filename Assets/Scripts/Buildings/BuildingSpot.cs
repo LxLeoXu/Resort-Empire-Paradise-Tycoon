@@ -56,9 +56,6 @@ public class BuildingSpot : MonoBehaviour
             waveManager.Session.WaveStarted -= OnWaveStarted;
             waveManager.Session.WaveEnded -= OnWaveEnded;
         }
-
-        if (areaUnlockUI != null)
-            areaUnlockUI.OnUnlockClicked -= HandleBuyAndBuild;
     }
 
     private void OnWaveStarted(int waveNumber)
@@ -98,7 +95,6 @@ public class BuildingSpot : MonoBehaviour
 
         if (isOccupied) return;
 
-        // Otvoríme o 1 frame neskôr, aby kliknutie mimo S5 nezatvorilo S9
         if (gameObject.activeInHierarchy)
         {
             StartCoroutine(OpenS9Routine());
@@ -111,7 +107,7 @@ public class BuildingSpot : MonoBehaviour
 
     private IEnumerator OpenS9Routine()
     {
-        yield return null; // Počkáme 1 frame na dokončenie predchádzajúceho kliknutia
+        yield return null;
         DoOpenS9();
     }
 
@@ -125,20 +121,13 @@ public class BuildingSpot : MonoBehaviour
             if (areaUnlockUI != null)
             {
                 int coins = ResourceManager.Instance != null ? ResourceManager.Instance.GetResource(ResourceType.Coins) : 0;
-                
-                // Zistíme aktuálnu vlnu (aj v testovacom režime)
                 int activeWave = waveManager != null ? waveManager.EffectiveWaveNumber : 0;
-                
-                // Budova je sprístupnená (Eligible):
-                // 1. Ak je aktuálna vlna vyššia ako požadovaná (napr. vo vlne 4 je bazén odomknutý, vo vlne 7 sú bungalovy odomknuté)
-                // 2. ALEBO ak sme práve dokončili vlnu 3 / 6 a sme vo výsledkoch
+
                 bool isWaveEnded = waveManager != null && waveManager.Session != null && waveManager.Session.State == WaveState.Result;
                 bool isEligible = (activeWave > requiredWave) || (activeWave == requiredWave && isWaveEnded);
 
-                areaUnlockUI.Setup(areaTitle, areaPreview, demandAdded, unlockCost, isOccupied, isEligible, coins);
-
-                areaUnlockUI.OnUnlockClicked -= HandleBuyAndBuild;
-                areaUnlockUI.OnUnlockClicked += HandleBuyAndBuild;
+                // Odovzdávame akciu HandleBuyAndBuild priamo do Setupu
+                areaUnlockUI.Setup(areaTitle, areaPreview, demandAdded, unlockCost, isOccupied, isEligible, coins, HandleBuyAndBuild);
             }
 
             ModalWindow modal = s9Window.GetComponent<ModalWindow>();
@@ -147,7 +136,7 @@ public class BuildingSpot : MonoBehaviour
             else
                 s9Window.SetActive(true);
 
-            Debug.Log($"<color=green>[S9 OTVORENÉ]</color> Otvorené S9 pre {areaTitle} (Požadovaná vlna: {requiredWave}, Aktuálna vlna: {(waveManager != null ? waveManager.EffectiveWaveNumber : 0)})");
+            Debug.Log($"<color=green>[S9 OTVORENÉ]</color> Otvorené S9 pre {areaTitle}");
         }
         else
         {
@@ -198,11 +187,8 @@ public class BuildingSpot : MonoBehaviour
             if (ResourceManager.Instance != null)
                 ResourceManager.Instance.AddResource(ResourceType.ResortValue, resortValueGain);
 
-            if (areaUnlockUI != null)
-                areaUnlockUI.OnUnlockClicked -= HandleBuyAndBuild;
-
             gameObject.SetActive(false);
-            Debug.Log($"<color=green>[POSTAVENÉ]</color> {prefabToBuild.name} úspešne postavená!");
+            Debug.Log($"<color=green>[POSTAVENÉ]</color> {prefabToBuild.name} bola úspešne postavená!");
         }
     }
 

@@ -2144,19 +2144,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6635645978588655382, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
       propertyPath: useTestWave
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6635645978588655382, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
       propertyPath: testWaveNumber
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6635645978588655382, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
       propertyPath: arrivalDuration
-      value: 0.01
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6635645978588655382, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
       propertyPath: testLatePoolDebut
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6642528010195743344, guid: 47f98d5c3bccc8f42ac5f9a7ead07b16, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4225,8 +4225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6f1dfdef1bfc846b1266fc683eb742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AreaUnlockUI
+  headerBadgeText: {fileID: 0}
   titleText: {fileID: 49951536}
   demandText: {fileID: 1418781926}
+  satisfactionText: {fileID: 0}
+  workerText: {fileID: 0}
   priceText: {fileID: 996441473}
   previewImage: {fileID: 589360360}
   unlockButton: {fileID: 1315422825}
