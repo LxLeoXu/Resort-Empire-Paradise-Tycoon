@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [DisallowMultipleComponent]
-public class ClaimRewards : MonoBehaviour
+public partial class ClaimRewards : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private Button claimButton;
@@ -105,6 +105,7 @@ public class ClaimRewards : MonoBehaviour
         Debug.Log($"<color=green>[CLAIM]</color> Pripísané: +{coins} Coins, +{energyToAdd} Energy, +{resort} Resort Value");
 
         OnClaimed?.Invoke();
+        GamePersistence.Instance?.SaveNow();
 
         // 1. ZAVRIEME OKNO S4
         if (s4Root != null)

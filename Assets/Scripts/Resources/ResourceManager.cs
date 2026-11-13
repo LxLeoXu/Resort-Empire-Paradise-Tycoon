@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceManager : MonoBehaviour
+public partial class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance { get; private set; }
 

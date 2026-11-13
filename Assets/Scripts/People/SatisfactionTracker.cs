@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class SatisfactionTracker : MonoBehaviour
+public sealed partial class SatisfactionTracker : MonoBehaviour
 {
     private const float FullSatisfactionSeconds = 10f;
     private const float ZeroSatisfactionSeconds = 40f;
@@ -13,7 +13,7 @@ public sealed class SatisfactionTracker : MonoBehaviour
     private int count;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-    private static void Create()
+    public static void EnsureExists()
     {
         if (FindFirstObjectByType<SatisfactionTracker>() == null)
             new GameObject("SatisfactionTracker").AddComponent<SatisfactionTracker>();

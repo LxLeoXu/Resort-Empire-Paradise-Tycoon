@@ -94,6 +94,7 @@ public class WaveNeedsPanel : MonoBehaviour
         {
             waveManager.Session.WaveStarted -= OnWaveStarted;
             waveManager.Session.WaveStarted += OnWaveStarted;
+            waveManager.Session.StateRestored += OnStateRestored;
 
             waveManager.Session.WaveEnded -= OnWaveEnded;
             waveManager.Session.WaveEnded += OnWaveEnded;
@@ -150,6 +151,7 @@ public class WaveNeedsPanel : MonoBehaviour
         if (waveManager != null && waveManager.Session != null)
         {
             waveManager.Session.WaveStarted -= OnWaveStarted;
+            waveManager.Session.StateRestored -= OnStateRestored;
             waveManager.Session.WaveEnded -= OnWaveEnded;
             waveManager.Session.NeedArrived -= OnNeedArrived;
             waveManager.Session.NeedServed -= OnNeedServed;
@@ -228,6 +230,27 @@ public class WaveNeedsPanel : MonoBehaviour
     // =====================================
     // ZACIATOK VLNY
     // =====================================
+
+    private void OnStateRestored()
+    {
+        var session = waveManager.Session;
+        if (session.State != WaveState.Running)
+        {
+            if (session.State == WaveState.Result && claimRewards != null && claimRewards.HasPendingReward) OnWaveEnded(session.WaveNumber);
+            else OnRewardsClaimed();
+            return;
+        }
+        OnWaveStarted(session.WaveNumber);
+        totalServedNeeds = session.ServedCount;
+        foreach (var entry in states)
+        {
+            entry.Value.servedCount = session.GetServedCount(entry.Key);
+            entry.Value.arrivedCount = entry.Value.servedCount;
+            foreach (var need in session.PendingNeeds) if (need.Type == entry.Key) entry.Value.arrivedCount++;
+            GetCard(entry.Key)?.UpdateProgress(entry.Value.servedCount, entry.Value.totalNeeded);
+        }
+        UpdateGuestsBadge();
+    }
 
     private void OnWaveStarted(int waveNumber)
     {

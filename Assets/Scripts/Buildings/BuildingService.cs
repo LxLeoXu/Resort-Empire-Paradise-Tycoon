@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class BuildingService : MonoBehaviour
+public sealed partial class BuildingService : MonoBehaviour
 {
     private sealed class Seat
     {
@@ -133,7 +133,7 @@ public sealed class BuildingService : MonoBehaviour
     {
         if (workerVisual != null && workerVisual.activeSelf != HasWorker)
             workerVisual.SetActive(HasWorker);
-        if (session == null || session.State != WaveState.Running) return;
+        if (Time.deltaTime <= 0 || GamePersistence.IsRestoring || session == null || session.State != WaveState.Running) return;
 
         EnsureSeats();
         float step = Time.deltaTime * Speed / Mathf.Max(0.1f, serviceDuration);

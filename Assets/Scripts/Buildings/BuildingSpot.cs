@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingSpot : MonoBehaviour
+public partial class BuildingSpot : MonoBehaviour
 {
     [Header("UI Okno S9")]
     [Tooltip("Sem pretiahni objekt S9_AreaUnlock z Canvasu")]
@@ -182,6 +182,7 @@ public class BuildingSpot : MonoBehaviour
         if (prefabToBuild != null)
         {
             spawnedBuilding = Instantiate(prefabToBuild, transform.position, Quaternion.identity);
+            builtPrefabIndex = buildingIndex;
             isOccupied = true;
 
             if (ResourceManager.Instance != null)

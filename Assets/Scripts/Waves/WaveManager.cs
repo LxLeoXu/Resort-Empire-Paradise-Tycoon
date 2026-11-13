@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public sealed class WaveManager : MonoBehaviour
+public sealed partial class WaveManager : MonoBehaviour
 {
     [SerializeField] private WaveCatalog catalog;
     [Min(0.01f)][SerializeField] private float arrivalDuration = 90f;
@@ -49,6 +49,8 @@ public sealed class WaveManager : MonoBehaviour
         Session = new WaveSession(catalog);
         Session.WaveEnded += OnWaveFinishedInternal;
         Guests = GetComponent<GuestWavePresentation>();
+        GamePersistence.Ensure(this);
+        SatisfactionTracker.EnsureExists();
 
         // Inicializácia testovacej vlny hneď pri štarte hry
         if (useTestWave)
@@ -61,6 +63,7 @@ public sealed class WaveManager : MonoBehaviour
 
     private void Update()
     {
+        if (Time.deltaTime <= 0 || GamePersistence.IsRestoring) return;
         if (Session == null) return;
         if (Guests != null && Guests.enabled)
         {
@@ -72,6 +75,7 @@ public sealed class WaveManager : MonoBehaviour
 
     public void StartWave()
     {
+        if (GamePersistence.IsRestoring || GamePersistence.IsPaused) return;
         if (Session == null || Session.State == WaveState.Running) return;
         if (Guests != null && Guests.enabled && Guests.TripInProgress) return;
 

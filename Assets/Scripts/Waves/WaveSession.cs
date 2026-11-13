@@ -20,7 +20,7 @@ public readonly struct WaveNeed
     }
 }
 
-public sealed class WaveSession
+public sealed partial class WaveSession
 {
     private static readonly NeedType[] Types =
         { NeedType.Rooms, NeedType.Drinks, NeedType.Food, NeedType.Relax, NeedType.OceanView };
@@ -98,6 +98,7 @@ public sealed class WaveSession
         inService.Clear();
         inTransit.Clear();
         ServedCount = 0;
+        servedByType.Clear();
         guestReturnPending = false;
         State = WaveState.Running;
         StateChanged?.Invoke();
@@ -214,6 +215,8 @@ public sealed class WaveSession
             {
                 pending.Remove(id);
                 ServedCount++;
+                servedByType.TryGetValue(need.Type, out int served);
+                servedByType[need.Type] = served + 1;
                 NeedServed?.Invoke(need);
                 TryFinishWave();
                 return true;
