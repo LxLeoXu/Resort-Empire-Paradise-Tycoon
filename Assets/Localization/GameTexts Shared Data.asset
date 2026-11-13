@@ -27,6 +27,46 @@ MonoBehaviour:
     m_Key: ready_for_guests
     m_Metadata:
       m_Items: []
+  - m_Id: 1557816541396992
+    m_Key: wave_in_progress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1557816616894464
+    m_Key: all_waves_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458929146679296
+    m_Key: s9_badge_available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458949111566336
+    m_Key: s9_badge_locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458958330646528
+    m_Key: s9_feature_satisfaction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458959081426944
+    m_Key: s9_feature_worker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458959781875712
+    m_Key: s9_btn_unlock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458960528461824
+    m_Key: s9_btn_missing_coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458961329573888
+    m_Key: s9_btn_locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458962042605568
+    m_Key: s9_btn_already_built
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

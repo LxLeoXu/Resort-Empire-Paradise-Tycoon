@@ -1,0 +1,1508 @@
+fileFormatVersion: 2
+guid: 7d73676078841ab49829a55e192590cf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1977547213100517089
+    second: Worker_0
+  - first:
+      213: -6981079685087412847
+    second: Worker_1
+  - first:
+      213: 5903269953620929653
+    second: Worker_2
+  - first:
+      213: -6162413074305063286
+    second: Worker_3
+  - first:
+      213: 292661774786584040
+    second: Worker_4
+  - first:
+      213: -3419571910714914653
+    second: Worker_5
+  - first:
+      213: 8836954391771599631
+    second: Worker_6
+  - first:
+      213: -6245191976798024487
+    second: Worker_7
+  - first:
+      213: -3923078299123974034
+    second: Worker_8
+  - first:
+      213: 552732172811337872
+    second: Worker_9
+  - first:
+      213: 2195139955671168756
+    second: Worker_10
+  - first:
+      213: 1734770524966690546
+    second: Worker_11
+  - first:
+      213: 2406681157563127028
+    second: Worker_12
+  - first:
+      213: -7370190036037459483
+    second: Worker_13
+  - first:
+      213: 1826569716377415021
+    second: Worker_14
+  - first:
+      213: -6427533456688271114
+    second: Worker_15
+  - first:
+      213: 1049339059532762888
+    second: Worker_16
+  - first:
+      213: -1435784855717342157
+    second: Worker_17
+  - first:
+      213: 4864502114328627226
+    second: Worker_18
+  - first:
+      213: 7112180226817255760
+    second: Worker_19
+  - first:
+      213: 6377903513729818937
+    second: Worker_20
+  - first:
+      213: 3871720360367260973
+    second: Worker_21
+  - first:
+      213: 1547517986447139742
+    second: Worker_22
+  - first:
+      213: 7668414495684565669
+    second: Worker_23
+  - first:
+      213: -2829599575263246611
+    second: Worker_24
+  - first:
+      213: 3636335544249544639
+    second: Worker_25
+  - first:
+      213: 3035141661429091588
+    second: Worker_26
+  - first:
+      213: 2934075152391819804
+    second: Worker_27
+  - first:
+      213: -4788291090156214972
+    second: Worker_28
+  - first:
+      213: -5770276829024287450
+    second: Worker_29
+  - first:
+      213: -6082132306830441300
+    second: Worker_30
+  - first:
+      213: -6324403003808647086
+    second: Worker_31
+  - first:
+      213: -9068716357027168308
+    second: Worker_32
+  - first:
+      213: -3563318265151415416
+    second: Worker_33
+  - first:
+      213: -9124876092056923679
+    second: Worker_34
+  - first:
+      213: 2177831380295490176
+    second: Worker_35
+  - first:
+      213: 1219224199725481751
+    second: Worker_36
+  - first:
+      213: -8112687668682188149
+    second: Worker_37
+  - first:
+      213: -4607379428402186336
+    second: Worker_38
+  - first:
+      213: 2527137032203330571
+    second: Worker_39
+  - first:
+      213: 605857523001823225
+    second: Worker_40
+  - first:
+      213: -8991679212211803236
+    second: Worker_41
+  - first:
+      213: 1422905157204746567
+    second: Worker_42
+  - first:
+      213: -555984634019094079
+    second: Worker_43
+  - first:
+      213: 3213340056413840442
+    second: Worker_44
+  - first:
+      213: -389926363168912369
+    second: Worker_45
+  - first:
+      213: 6220903277627991444
+    second: Worker_46
+  - first:
+      213: -2854022309045638692
+    second: Worker_47
+  - first:
+      213: 3584560523932135505
+    second: Worker_48
+  - first:
+      213: -4483169943379213992
+    second: Worker_49
+  - first:
+      213: 8185443452700869966
+    second: Worker_50
+  - first:
+      213: -4406300575680326092
+    second: Worker_51
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.493805, y: 0.267753}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Worker_front_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3196cc9f865b64d4b8563127f052c041
+      internalID: -308976457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a76b222755000f44ac647f3f4c683cb
+      internalID: 162258884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5529bdab704326748aaec09478636fb9
+      internalID: 1718132345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 795e1cee51644b34bbadb13d2ed32be8
+      internalID: 1255626651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b40867342d50144a06920183e4d16f
+      internalID: -1585596900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7ab86a79fb52ce4588a6bdc34ae8149
+      internalID: 694860834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e66aebd4d3c0e14a8241c333a33655a
+      internalID: -1238687263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f570257736300cd409ce2b383edaf6c3
+      internalID: 2136875907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dcd9a28feaae2249923fc3f356eff67
+      internalID: 652584090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd8269940dd3890478a03941b2dfb232
+      internalID: -705688220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 032b0d0b31c18b142ae0cfc5f82e5329
+      internalID: -718315794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b9ca41abeefaa24fb3bf556f03747d6
+      internalID: 383886873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c34fc1f61a2ee134ead9270de2a4390f
+      internalID: 1925879317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e05f7d7cd767c429b3512740d31126
+      internalID: 1960280870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30eb7f6748c99e2459833776f59765c7
+      internalID: 407099637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0f980d4f0727b941b7fca9a9b3a9c97
+      internalID: 965435370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59dcad9ca866e3468f045755a13aa9f
+      internalID: 18648683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c7b12ce217c3e946887477159902109
+      internalID: 2106350147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 271cbac5995b3ec4bbc616ccf54b1c78
+      internalID: -842255677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5033f595c3c0cac4daea6e6712f79ca0
+      internalID: -1135683259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c5cfbb472a4fce47a0f80ed5bb48d39
+      internalID: -1823196390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a26adc5fbf85530469c644660c480a81
+      internalID: 1151397047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dede475f5346d646b811b907149c20d
+      internalID: -1872533181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 655570cfdcf7f2346a121f2d8dfd89ee
+      internalID: -410034875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50b744d184369d41815045eb728038a
+      internalID: 774050336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fa33ca2b36bcc40b14fe8459ae06bd
+      internalID: 1831362270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e34be66285153409cfd1ab7e156e6e
+      internalID: 294492423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58e5b8e4a870c064b9af876c40ebb1c6
+      internalID: 2030235456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae10c4b6041d14428b06791963c72fe
+      internalID: -1238202890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7a12e0098b018c4f855f2cc8b5ce20a
+      internalID: -1153931256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beaa29d6daff10c4f841b76c5a6548a3
+      internalID: 1535347316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fc0069439a4abc468f1fbfb9cf7da00
+      internalID: 436976773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5311cb56468e0348be58fd6b087b5de
+      internalID: -1312652729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18926435950a446419b7b4b7be673d12
+      internalID: -225108806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4a74395be2c57c42aa42ea28acac1d1
+      internalID: -1929180048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c1fd02202e813499cb00902e5b77ce
+      internalID: -1391389972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dca94ae66be2894681336a8b72060e3
+      internalID: 1828086333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 359a8eb82f001044eb4df11359e2c5bc
+      internalID: 447389350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_back_left_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afaa94ca8f0b76942a44834b61341b6a
+      internalID: -1605866250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d31e90c140dd3249b9032e74778ec5b
+      internalID: -82491104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 659ed47f225876b4fb6757289a48bbf3
+      internalID: -1917477506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 719b3374be105ca429eef4c7cd202237
+      internalID: -23101066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68ea7261a5071cb4c866cec5043b6202
+      internalID: -1129730264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a0a9687b537a84cb9cf05f747a7f19
+      internalID: 2072524266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c7719f80a486148a039e22880ddd30
+      internalID: 572074845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33feb987f9bfd284196f0f5d7327afb1
+      internalID: 345295506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b36fea4124e8064eafbbc5b1b05a41d
+      internalID: 770384419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab889ab7143d184489f7f0dc6f96cc7
+      internalID: -1887813922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 482f661eaf9ba8b45b730df04bd7094b
+      internalID: 542973523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 494c813fcf710b3429a37ec12da4529c
+      internalID: -221900080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a298a152e24a90b479d7c0dfbee44e0d
+      internalID: 284578020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_front_left_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde530de9f1a76e49986c101e4034edc
+      internalID: -23173941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2120a5652221b944f84625cf962c8218
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Worker_back_idle: 1831362270
+      Worker_back_left_idle: -1605866250
+      Worker_back_left_walk00: 294492423
+      Worker_back_left_walk01: 2030235456
+      Worker_back_left_walk02: -1238202890
+      Worker_back_left_walk03: -1153931256
+      Worker_back_left_walk04: 1535347316
+      Worker_back_left_walk05: 436976773
+      Worker_back_left_walk06: -1312652729
+      Worker_back_left_walk07: -225108806
+      Worker_back_left_walk08: -1929180048
+      Worker_back_left_walk09: -1391389972
+      Worker_back_left_walk10: 1828086333
+      Worker_back_left_walk11: 447389350
+      Worker_back_walk00: 1960280870
+      Worker_back_walk01: 407099637
+      Worker_back_walk02: 965435370
+      Worker_back_walk03: 18648683
+      Worker_back_walk04: 2106350147
+      Worker_back_walk05: -842255677
+      Worker_back_walk06: -1135683259
+      Worker_back_walk07: -1823196390
+      Worker_back_walk08: 1151397047
+      Worker_back_walk09: -1872533181
+      Worker_back_walk10: -410034875
+      Worker_back_walk11: 774050336
+      Worker_front_idle: 1925879317
+      Worker_front_left_idle: -23173941
+      Worker_front_left_walk00: -82491104
+      Worker_front_left_walk01: -1917477506
+      Worker_front_left_walk02: -23101066
+      Worker_front_left_walk03: -1129730264
+      Worker_front_left_walk04: 2072524266
+      Worker_front_left_walk05: 572074845
+      Worker_front_left_walk06: 345295506
+      Worker_front_left_walk07: 770384419
+      Worker_front_left_walk08: -1887813922
+      Worker_front_left_walk09: 542973523
+      Worker_front_left_walk10: -221900080
+      Worker_front_left_walk11: 284578020
+      Worker_front_walk00: -308976457
+      Worker_front_walk01: 162258884
+      Worker_front_walk02: 1718132345
+      Worker_front_walk03: 1255626651
+      Worker_front_walk04: -1585596900
+      Worker_front_walk05: 694860834
+      Worker_front_walk06: -1238687263
+      Worker_front_walk07: 2136875907
+      Worker_front_walk08: 652584090
+      Worker_front_walk09: -705688220
+      Worker_front_walk10: -718315794
+      Worker_front_walk11: 383886873
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

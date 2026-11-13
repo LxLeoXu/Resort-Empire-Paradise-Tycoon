@@ -1,0 +1,1955 @@
+fileFormatVersion: 2
+guid: 18b658ca8899ad047b4c3e9024b3ce42
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5090427747281096620
+    second: Worker_Shadow_0
+  - first:
+      213: 4701809967724263459
+    second: Worker_Shadow_1
+  - first:
+      213: -5908038280555515359
+    second: Worker_Shadow_2
+  - first:
+      213: -6294587603978425359
+    second: Worker_Shadow_3
+  - first:
+      213: -8349388459063741653
+    second: Worker_Shadow_4
+  - first:
+      213: -8101904594660950368
+    second: Worker_Shadow_5
+  - first:
+      213: -1692568605810097897
+    second: Worker_Shadow_6
+  - first:
+      213: 7220886767048524402
+    second: Worker_Shadow_7
+  - first:
+      213: 4722957483296770926
+    second: Worker_Shadow_8
+  - first:
+      213: -750740537923307429
+    second: Worker_Shadow_9
+  - first:
+      213: -13646764133969911
+    second: Worker_Shadow_10
+  - first:
+      213: 6241138780086904261
+    second: Worker_Shadow_11
+  - first:
+      213: 7560114178652842619
+    second: Worker_Shadow_12
+  - first:
+      213: 2915173272444141565
+    second: Worker_Shadow_13
+  - first:
+      213: -2990171993749656357
+    second: Worker_Shadow_14
+  - first:
+      213: -7104089109081457384
+    second: Worker_Shadow_15
+  - first:
+      213: 7717744647631546003
+    second: Worker_Shadow_16
+  - first:
+      213: 5073741521687395424
+    second: Worker_Shadow_17
+  - first:
+      213: -3468783470325011963
+    second: Worker_Shadow_18
+  - first:
+      213: -909855019724755437
+    second: Worker_Shadow_19
+  - first:
+      213: 1012575730751992698
+    second: Worker_Shadow_20
+  - first:
+      213: -2121789523908828039
+    second: Worker_Shadow_21
+  - first:
+      213: -8665847050881440599
+    second: Worker_Shadow_22
+  - first:
+      213: 5282987668351725619
+    second: Worker_Shadow_23
+  - first:
+      213: 6531121714544826291
+    second: Worker_Shadow_24
+  - first:
+      213: -1442155366277107287
+    second: Worker_Shadow_25
+  - first:
+      213: -3444473338499936323
+    second: Worker_Shadow_26
+  - first:
+      213: -7894404008960621097
+    second: Worker_Shadow_27
+  - first:
+      213: 1547208020858173169
+    second: Worker_Shadow_28
+  - first:
+      213: 4556057699942939497
+    second: Worker_Shadow_29
+  - first:
+      213: 1906116128014614191
+    second: Worker_Shadow_30
+  - first:
+      213: -5413328663070689576
+    second: Worker_Shadow_31
+  - first:
+      213: 4190042401766305372
+    second: Worker_Shadow_32
+  - first:
+      213: 63053538318348364
+    second: Worker_Shadow_33
+  - first:
+      213: -6981299664591700916
+    second: Worker_Shadow_34
+  - first:
+      213: -7085668824326009412
+    second: Worker_Shadow_35
+  - first:
+      213: 4918054285754979296
+    second: Worker_Shadow_36
+  - first:
+      213: 4353151477947781093
+    second: Worker_Shadow_37
+  - first:
+      213: 3114438254716066525
+    second: Worker_Shadow_38
+  - first:
+      213: 6786016618788407321
+    second: Worker_Shadow_39
+  - first:
+      213: -3529443177468091829
+    second: Worker_Shadow_40
+  - first:
+      213: 7848496536881072901
+    second: Worker_Shadow_41
+  - first:
+      213: -1669709174704114498
+    second: Worker_Shadow_42
+  - first:
+      213: 2538507440133071645
+    second: Worker_Shadow_43
+  - first:
+      213: -2454337661795822770
+    second: Worker_Shadow_44
+  - first:
+      213: -3579639382255452705
+    second: Worker_Shadow_45
+  - first:
+      213: -2463252399491686211
+    second: Worker_Shadow_46
+  - first:
+      213: -5684578220013956535
+    second: Worker_Shadow_47
+  - first:
+      213: 4719822404288024727
+    second: Worker_Shadow_48
+  - first:
+      213: -5360412343337121131
+    second: Worker_Shadow_49
+  - first:
+      213: 1658818759967476157
+    second: Worker_Shadow_50
+  - first:
+      213: -6520868062972674550
+    second: Worker_Shadow_51
+  - first:
+      213: 8991656772643624736
+    second: Worker_Shadow_52
+  - first:
+      213: 8927609841360852531
+    second: Worker_Shadow_53
+  - first:
+      213: 5506999443726160351
+    second: Worker_Shadow_54
+  - first:
+      213: 4000490687061026522
+    second: Worker_Shadow_55
+  - first:
+      213: 5691452719756002100
+    second: Worker_Shadow_56
+  - first:
+      213: 936011838138317258
+    second: Worker_Shadow_57
+  - first:
+      213: -1789350559575754950
+    second: Worker_Shadow_58
+  - first:
+      213: 6423805912288587612
+    second: Worker_Shadow_59
+  - first:
+      213: 5645358979540399732
+    second: Worker_Shadow_60
+  - first:
+      213: -1794623274813100111
+    second: Worker_Shadow_61
+  - first:
+      213: 2030532089768753910
+    second: Worker_Shadow_62
+  - first:
+      213: -8918545718142577918
+    second: Worker_Shadow_63
+  - first:
+      213: -6128529516830368288
+    second: Worker_Shadow_64
+  - first:
+      213: 4006034454295746171
+    second: Worker_Shadow_65
+  - first:
+      213: -1908725711908104654
+    second: Worker_Shadow_66
+  - first:
+      213: 5288555344095719402
+    second: Worker_Shadow_67
+  - first:
+      213: -8923754894946174198
+    second: Worker_Shadow_68
+  - first:
+      213: 1523916591422357095
+    second: Worker_Shadow_69
+  - first:
+      213: -5798511801836707763
+    second: Worker_Shadow_70
+  - first:
+      213: 1376518929484842798
+    second: Worker_Shadow_71
+  - first:
+      213: -4510970429723570367
+    second: Worker_Shadow_72
+  - first:
+      213: 52708158470370871
+    second: Worker_Shadow_73
+  - first:
+      213: -3906870089967920389
+    second: Worker_Shadow_74
+  - first:
+      213: 1898254421237095642
+    second: Worker_Shadow_75
+  - first:
+      213: 2358900293925031275
+    second: Worker_Shadow_76
+  - first:
+      213: 3730700965333065567
+    second: Worker_Shadow_77
+  - first:
+      213: -3744877780577878082
+    second: Worker_Shadow_78
+  - first:
+      213: -6725737787549254163
+    second: Worker_Shadow_79
+  - first:
+      213: -5219058851009331289
+    second: Worker_Shadow_80
+  - first:
+      213: -1723039487157520571
+    second: Worker_Shadow_81
+  - first:
+      213: -3593397616353614301
+    second: Worker_Shadow_82
+  - first:
+      213: 2805952299548353176
+    second: Worker_Shadow_83
+  - first:
+      213: 2280146475676034315
+    second: Worker_Shadow_84
+  - first:
+      213: -2453343090536151488
+    second: Worker_Shadow_85
+  - first:
+      213: -3670155774092871375
+    second: Worker_Shadow_86
+  - first:
+      213: -1749280919011303492
+    second: Worker_Shadow_87
+  - first:
+      213: -7176516332949132620
+    second: Worker_Shadow_88
+  - first:
+      213: 5369534452038817773
+    second: Worker_Shadow_89
+  - first:
+      213: -1710387517381351096
+    second: Worker_Shadow_90
+  - first:
+      213: 4990551265690438890
+    second: Worker_Shadow_91
+  - first:
+      213: 4130394619162934356
+    second: Worker_Shadow_92
+  - first:
+      213: -7719399056924655617
+    second: Worker_Shadow_93
+  - first:
+      213: -4198692085613465229
+    second: Worker_Shadow_94
+  - first:
+      213: -712449015732327870
+    second: Worker_Shadow_95
+  - first:
+      213: -2139232731109808808
+    second: Worker_Shadow_96
+  - first:
+      213: -2763435082414647667
+    second: Worker_Shadow_97
+  - first:
+      213: -9034499646168672662
+    second: Worker_Shadow_98
+  - first:
+      213: 3706158350014583814
+    second: Worker_Shadow_99
+  - first:
+      213: -1636983454617528270
+    second: Worker_Shadow_100
+  - first:
+      213: -8904080793523574363
+    second: Worker_Shadow_101
+  - first:
+      213: 5029321235689427257
+    second: Worker_Shadow_102
+  - first:
+      213: 3560302500738909960
+    second: Worker_Shadow_103
+  - first:
+      213: 3947815314350064904
+    second: Worker_Shadow_104
+  - first:
+      213: 296163628228471256
+    second: Worker_Shadow_105
+  - first:
+      213: -7057178643577588317
+    second: Worker_Shadow_106
+  - first:
+      213: 6807727300935585753
+    second: Worker_Shadow_107
+  - first:
+      213: 4999050788674517500
+    second: Worker_Shadow_108
+  - first:
+      213: -8072294496528451565
+    second: Worker_Shadow_109
+  - first:
+      213: 5949171901978815805
+    second: Worker_Shadow_110
+  - first:
+      213: 1503947883097862438
+    second: Worker_Shadow_111
+  - first:
+      213: -6457702439747475234
+    second: Worker_Shadow_112
+  - first:
+      213: -4698397586301987068
+    second: Worker_Shadow_113
+  - first:
+      213: -4196240034511980754
+    second: Worker_Shadow_114
+  - first:
+      213: 4885406081543851778
+    second: Worker_Shadow_115
+  - first:
+      213: -1071353153497040882
+    second: Worker_Shadow_116
+  - first:
+      213: 5134950082121202492
+    second: Worker_Shadow_117
+  - first:
+      213: -7852966093810290104
+    second: Worker_Shadow_118
+  - first:
+      213: 5484516431961973761
+    second: Worker_Shadow_119
+  - first:
+      213: -9157743628146215878
+    second: Worker_Shadow_120
+  - first:
+      213: -2663398173241668177
+    second: Worker_Shadow_121
+  - first:
+      213: 663338520216128096
+    second: Worker_Shadow_122
+  - first:
+      213: -6957855923821136097
+    second: Worker_Shadow_123
+  - first:
+      213: -5866875054715028782
+    second: Worker_Shadow_124
+  - first:
+      213: 3431324964713296639
+    second: Worker_Shadow_125
+  - first:
+      213: 3524051952390486825
+    second: Worker_Shadow_126
+  - first:
+      213: 3601167431172231011
+    second: Worker_Shadow_127
+  - first:
+      213: -3276360436497385687
+    second: Worker_Shadow_128
+  - first:
+      213: 1117183212717333
+    second: Worker_Shadow_129
+  - first:
+      213: -3836467462411509527
+    second: Worker_Shadow_130
+  - first:
+      213: 680142255461067453
+    second: Worker_Shadow_131
+  - first:
+      213: -1425795413239869972
+    second: Worker_Shadow_132
+  - first:
+      213: 1263442092901269180
+    second: Worker_Shadow_133
+  - first:
+      213: 5016818522773150303
+    second: Worker_Shadow_134
+  - first:
+      213: -2719768413835716456
+    second: Worker_Shadow_135
+  - first:
+      213: 4342915184295115475
+    second: Worker_Shadow_136
+  - first:
+      213: 7604024666906545540
+    second: Worker_Shadow_137
+  - first:
+      213: 2826627078449096334
+    second: Worker_Shadow_138
+  - first:
+      213: -1732341823295610461
+    second: Worker_Shadow_139
+  - first:
+      213: -1802571935160674644
+    second: Worker_Shadow_140
+  - first:
+      213: -5919625459458781650
+    second: Worker_Shadow_141
+  - first:
+      213: 3782596219443346973
+    second: Worker_Shadow_142
+  - first:
+      213: 473617844055791776
+    second: Worker_Shadow_143
+  - first:
+      213: 2114049478887461558
+    second: Worker_Shadow_144
+  - first:
+      213: -244260856631505711
+    second: Worker_Shadow_145
+  - first:
+      213: 3150942578308824856
+    second: Worker_Shadow_146
+  - first:
+      213: 1959909337384965789
+    second: Worker_Shadow_147
+  - first:
+      213: -136649214616843731
+    second: Worker_Shadow_148
+  - first:
+      213: 3713920787421121149
+    second: Worker_Shadow_149
+  - first:
+      213: 8692909214067158061
+    second: Worker_Shadow_150
+  - first:
+      213: 524038509816615562
+    second: Worker_Shadow_151
+  - first:
+      213: 3708354283396433917
+    second: Worker_Shadow_152
+  - first:
+      213: 5763273775441111081
+    second: Worker_Shadow_153
+  - first:
+      213: 632796340015367028
+    second: Worker_Shadow_154
+  - first:
+      213: 2596613318376161185
+    second: Worker_Shadow_155
+  - first:
+      213: -8035905720172125641
+    second: Worker_Shadow_156
+  - first:
+      213: -578667351312746832
+    second: Worker_Shadow_157
+  - first:
+      213: 5789651405133488112
+    second: Worker_Shadow_158
+  - first:
+      213: -5278871739936063719
+    second: Worker_Shadow_159
+  - first:
+      213: -6798412459029002826
+    second: Worker_Shadow_160
+  - first:
+      213: 3370599692041792998
+    second: Worker_Shadow_161
+  - first:
+      213: 2552070462008648814
+    second: Worker_Shadow_162
+  - first:
+      213: -1369519217176907535
+    second: Worker_Shadow_163
+  - first:
+      213: 5139736344602791344
+    second: Worker_Shadow_164
+  - first:
+      213: 5773975983951216835
+    second: Worker_Shadow_165
+  - first:
+      213: -968262182324348961
+    second: Worker_Shadow_166
+  - first:
+      213: -4905071814796588301
+    second: Worker_Shadow_167
+  - first:
+      213: -8373553193578331806
+    second: Worker_Shadow_168
+  - first:
+      213: -6926233044275900650
+    second: Worker_Shadow_169
+  - first:
+      213: -8214966779240977827
+    second: Worker_Shadow_170
+  - first:
+      213: -10165081683610958
+    second: Worker_Shadow_171
+  - first:
+      213: 1849945400301578622
+    second: Worker_Shadow_172
+  - first:
+      213: -4330792000584940197
+    second: Worker_Shadow_173
+  - first:
+      213: -2226969979746977123
+    second: Worker_Shadow_174
+  - first:
+      213: -2764682023458527350
+    second: Worker_Shadow_175
+  - first:
+      213: 6807006677620772591
+    second: Worker_Shadow_176
+  - first:
+      213: -8665738787546920894
+    second: Worker_Shadow_177
+  - first:
+      213: -6053085519755891798
+    second: Worker_Shadow_178
+  - first:
+      213: 4611693678285136588
+    second: Worker_Shadow_179
+  - first:
+      213: -863005697839349742
+    second: Worker_Shadow_180
+  - first:
+      213: -7503839314821198729
+    second: Worker_Shadow_181
+  - first:
+      213: 3232116301849199156
+    second: Worker_Shadow_182
+  - first:
+      213: -4466952489167845570
+    second: Worker_Shadow_183
+  - first:
+      213: -3571825486397663265
+    second: Worker_Shadow_184
+  - first:
+      213: -8848064926369064034
+    second: Worker_Shadow_185
+  - first:
+      213: 4913881118833973964
+    second: Worker_Shadow_186
+  - first:
+      213: 6852044458306110619
+    second: Worker_Shadow_187
+  - first:
+      213: 4602177086777860852
+    second: Worker_Shadow_188
+  - first:
+      213: 8558447740079613553
+    second: Worker_Shadow_189
+  - first:
+      213: -3033565203636273554
+    second: Worker_Shadow_190
+  - first:
+      213: -6691700397689100635
+    second: Worker_Shadow_191
+  - first:
+      213: 967483871066955343
+    second: Worker_Shadow_192
+  - first:
+      213: 3598442368114083538
+    second: Worker_Shadow_193
+  - first:
+      213: -7672773000141437418
+    second: Worker_Shadow_194
+  - first:
+      213: -4813933198622782042
+    second: Worker_Shadow_195
+  - first:
+      213: -1702091900821846982
+    second: Worker_Shadow_196
+  - first:
+      213: 2882131726742207441
+    second: Worker_Shadow_197
+  - first:
+      213: 7963165941688580420
+    second: Worker_Shadow_198
+  - first:
+      213: -1240254686715325800
+    second: Worker_Shadow_199
+  - first:
+      213: 1641030781070213399
+    second: Worker_Shadow_200
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.37971, y: 0.44615}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Worker_Shadow_front_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6acf1746851a8c249bbf9271442a62fc
+      internalID: -309064545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09cea62126cc98b43a68ba3fa4ac122e
+      internalID: -1765052449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ca9f6c9cc70c24cabafe95420d9611
+      internalID: 1444035462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d466610381c7e834f8d6373b23db5efa
+      internalID: 1391895608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7263e3737a3f1641a3127597f1cad21
+      internalID: -1910575989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 846b0aefa6e6f2543b83484dabcda252
+      internalID: -1068036753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e4f88ad08d2ae4c9ee253abd5b11a4
+      internalID: -1664893185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df30d0bca905cca46b80013d6b9f6ede
+      internalID: 689905835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 577eaf38548cff34385d5543d37df39f
+      internalID: 907821638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b56929052d33cc4198a5b2b799d0845
+      internalID: 578798598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c555a39d950829248a1a287ef40f95a9
+      internalID: 740678986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292591d6d891ca34fbf437a8564b4134
+      internalID: -1983147823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: babaccfb8d0e02341a59cb51170601f2
+      internalID: 1498014163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb50c65c362548498f4296b74a83e4b
+      internalID: 1694921884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df717925b1d17c74a8cbc4340e76763c
+      internalID: 423634288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 592cbc170dc9c24418c60171eab6a56f
+      internalID: 844156914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a64e6612a18133459c929f697049e0e
+      internalID: 310423474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5c0d6d9c66baf41b9bc496875fcbd2
+      internalID: -1854463322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c9b9266d1629a4293c4c34e62d16c7
+      internalID: -1357861204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c1a28ed3f0e66459080817678e0e58
+      internalID: 1577767078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51c8cdf29a28beb45bed4f60fae73ea0
+      internalID: 582884774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be012c30b7d0a154688e8ab01fe7dc89
+      internalID: -160410773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b53fc00b71b7b44aae2e73121aeaa56
+      internalID: -756168137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c194d816f8787ba4a8e4014a0ec50e7a
+      internalID: -2020903095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c4bc0135b53f14b8074da027db376c
+      internalID: -334751465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 871bbf18a44e92744a28650e2ea6a4ab
+      internalID: 707521236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28cd1383dbc43f14f95a02d375e3ede9
+      internalID: 454306755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2046552891d28dd4d8978ea2562c0b12
+      internalID: 1516226119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ddef8484bf92714aa0ff9eebf285b3e
+      internalID: -740437859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db988b077c19a6a4aae537ec8ceef536
+      internalID: -314557388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bee445d6cf8792942a902b5a99ba11b8
+      internalID: 1494885448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bf7ff770faa654abb93f23616ddd1f
+      internalID: 566516639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab8f1f3a147770040b7478ba5ae6bef3
+      internalID: 145096030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0310eacbffb50654ea5a050d31f7d901
+      internalID: 577645082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88a916dc614f8c84b89616bb9f1bd7b2
+      internalID: 1814653168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3358b99d626b404abd82452e3e8bd73
+      internalID: -1059467656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1226ff7ae4d28344b8397631eae2fbfd
+      internalID: 1359002162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f5cb00384139c48a166eb9d1dc3ad4
+      internalID: 43441345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_back_left_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3534f02341034ac499cc8d33a0c7b1ca
+      internalID: -1086964532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f46ed741530c04690a810f10c44ebd
+      internalID: -260438468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9282bf991e95b914c9e3b05be9574475
+      internalID: -1901207418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 529eb16409c7e074a9723f7c4925ab11
+      internalID: 1650894575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e725abcddd5e13b44958746cb04110be
+      internalID: 1528059364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aeac80f86ee4dc4e879f8a0a7ceae3c
+      internalID: -273142304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff8d17261fcc9a046b896b35a002d103
+      internalID: -2005718986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 765f5cd967f8fc047b435910430e10e0
+      internalID: 1861240306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c6ad83f9032c98489114b36dcf7e53f
+      internalID: 459761450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4ae503d3ba874b4bafd32d89363e144
+      internalID: 1581792423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9498ce4900258041803732d2ea1d902
+      internalID: 2114351672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098139e7a8ce95245a71bfc4d76d887e
+      internalID: -271237194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c8caf62937f92448eb0916c25600e9
+      internalID: -1295379450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Shadow_front_left_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9b0f1b58749e14ba3cad2c0f4cb785
+      internalID: 1663237582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0bd4c4c588b6c1f43b14c1979b61ffd9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Worker_Shadow_back_idle: 707521236
+      Worker_Shadow_back_left_idle: -1086964532
+      Worker_Shadow_back_left_walk00: 454306755
+      Worker_Shadow_back_left_walk01: 1516226119
+      Worker_Shadow_back_left_walk02: -740437859
+      Worker_Shadow_back_left_walk03: -314557388
+      Worker_Shadow_back_left_walk04: 1494885448
+      Worker_Shadow_back_left_walk05: 566516639
+      Worker_Shadow_back_left_walk06: 145096030
+      Worker_Shadow_back_left_walk07: 577645082
+      Worker_Shadow_back_left_walk08: 1814653168
+      Worker_Shadow_back_left_walk09: -1059467656
+      Worker_Shadow_back_left_walk10: 1359002162
+      Worker_Shadow_back_left_walk11: 43441345
+      Worker_Shadow_back_walk00: 1694921884
+      Worker_Shadow_back_walk01: 423634288
+      Worker_Shadow_back_walk02: 844156914
+      Worker_Shadow_back_walk03: 310423474
+      Worker_Shadow_back_walk04: -1854463322
+      Worker_Shadow_back_walk05: -1357861204
+      Worker_Shadow_back_walk06: 1577767078
+      Worker_Shadow_back_walk07: 582884774
+      Worker_Shadow_back_walk08: -160410773
+      Worker_Shadow_back_walk09: -756168137
+      Worker_Shadow_back_walk10: -2020903095
+      Worker_Shadow_back_walk11: -334751465
+      Worker_Shadow_front_idle: 1498014163
+      Worker_Shadow_front_left_idle: 1663237582
+      Worker_Shadow_front_left_walk00: -260438468
+      Worker_Shadow_front_left_walk01: -1901207418
+      Worker_Shadow_front_left_walk02: 1650894575
+      Worker_Shadow_front_left_walk03: 1528059364
+      Worker_Shadow_front_left_walk04: -273142304
+      Worker_Shadow_front_left_walk05: -2005718986
+      Worker_Shadow_front_left_walk06: 1861240306
+      Worker_Shadow_front_left_walk07: 459761450
+      Worker_Shadow_front_left_walk08: 1581792423
+      Worker_Shadow_front_left_walk09: 2114351672
+      Worker_Shadow_front_left_walk10: -271237194
+      Worker_Shadow_front_left_walk11: -1295379450
+      Worker_Shadow_front_walk00: -309064545
+      Worker_Shadow_front_walk01: -1765052449
+      Worker_Shadow_front_walk02: 1444035462
+      Worker_Shadow_front_walk03: 1391895608
+      Worker_Shadow_front_walk04: -1910575989
+      Worker_Shadow_front_walk05: -1068036753
+      Worker_Shadow_front_walk06: -1664893185
+      Worker_Shadow_front_walk07: 689905835
+      Worker_Shadow_front_walk08: 907821638
+      Worker_Shadow_front_walk09: 578798598
+      Worker_Shadow_front_walk10: 740678986
+      Worker_Shadow_front_walk11: -1983147823
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

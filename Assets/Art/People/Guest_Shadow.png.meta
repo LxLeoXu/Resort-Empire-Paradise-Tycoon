@@ -1,0 +1,1961 @@
+fileFormatVersion: 2
+guid: a942486eb9e7df149a8d24e66c375744
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4406888936885491386
+    second: Guest_Shadow_0
+  - first:
+      213: -3846827829603608727
+    second: Guest_Shadow_1
+  - first:
+      213: -8968547667148089310
+    second: Guest_Shadow_2
+  - first:
+      213: 4561247139677139865
+    second: Guest_Shadow_3
+  - first:
+      213: -8593054896710502951
+    second: Guest_Shadow_4
+  - first:
+      213: 2608707463877191327
+    second: Guest_Shadow_5
+  - first:
+      213: 4089408096418219410
+    second: Guest_Shadow_6
+  - first:
+      213: -7792394268172673820
+    second: Guest_Shadow_7
+  - first:
+      213: 6991553738469998634
+    second: Guest_Shadow_8
+  - first:
+      213: 1306569397861554325
+    second: Guest_Shadow_9
+  - first:
+      213: -8451266149088326610
+    second: Guest_Shadow_10
+  - first:
+      213: -7540763760156797318
+    second: Guest_Shadow_11
+  - first:
+      213: 3665647125142531677
+    second: Guest_Shadow_12
+  - first:
+      213: 102518594510643797
+    second: Guest_Shadow_13
+  - first:
+      213: -3639207284737215366
+    second: Guest_Shadow_14
+  - first:
+      213: 488888303067906874
+    second: Guest_Shadow_15
+  - first:
+      213: -834827895266927862
+    second: Guest_Shadow_16
+  - first:
+      213: 6164610224868856259
+    second: Guest_Shadow_17
+  - first:
+      213: -5371251641735256921
+    second: Guest_Shadow_18
+  - first:
+      213: -3841029999603713435
+    second: Guest_Shadow_19
+  - first:
+      213: -4454654709651856349
+    second: Guest_Shadow_20
+  - first:
+      213: -3352951696261465184
+    second: Guest_Shadow_21
+  - first:
+      213: -6641960061745679550
+    second: Guest_Shadow_22
+  - first:
+      213: -4429767155827739947
+    second: Guest_Shadow_23
+  - first:
+      213: 6193316243257619707
+    second: Guest_Shadow_24
+  - first:
+      213: 638516512006257911
+    second: Guest_Shadow_25
+  - first:
+      213: 7127232033373976742
+    second: Guest_Shadow_26
+  - first:
+      213: 5013340028540421766
+    second: Guest_Shadow_27
+  - first:
+      213: 5399132567632872371
+    second: Guest_Shadow_28
+  - first:
+      213: -6206330485000655756
+    second: Guest_Shadow_29
+  - first:
+      213: -1408831414372209092
+    second: Guest_Shadow_30
+  - first:
+      213: 2775421691586943597
+    second: Guest_Shadow_31
+  - first:
+      213: 8565331777386330827
+    second: Guest_Shadow_32
+  - first:
+      213: -6513731816208653564
+    second: Guest_Shadow_33
+  - first:
+      213: 8654591309946266406
+    second: Guest_Shadow_34
+  - first:
+      213: 2168507742382430358
+    second: Guest_Shadow_35
+  - first:
+      213: -7953635385843911322
+    second: Guest_Shadow_36
+  - first:
+      213: 2297522820152866300
+    second: Guest_Shadow_37
+  - first:
+      213: 1829739766037500960
+    second: Guest_Shadow_38
+  - first:
+      213: 4506897366711110304
+    second: Guest_Shadow_39
+  - first:
+      213: 1871150833748541135
+    second: Guest_Shadow_40
+  - first:
+      213: -2521389859049175119
+    second: Guest_Shadow_41
+  - first:
+      213: -4886529515000961180
+    second: Guest_Shadow_42
+  - first:
+      213: -2899294669475010238
+    second: Guest_Shadow_43
+  - first:
+      213: 3264247909538962621
+    second: Guest_Shadow_44
+  - first:
+      213: 6687503146483455133
+    second: Guest_Shadow_45
+  - first:
+      213: 431113505730909468
+    second: Guest_Shadow_46
+  - first:
+      213: 996818541524862617
+    second: Guest_Shadow_47
+  - first:
+      213: -1648162957352952660
+    second: Guest_Shadow_48
+  - first:
+      213: 8616412953346130854
+    second: Guest_Shadow_49
+  - first:
+      213: -4569338667485728200
+    second: Guest_Shadow_50
+  - first:
+      213: -1721908738499430300
+    second: Guest_Shadow_51
+  - first:
+      213: 8277843036585676430
+    second: Guest_Shadow_52
+  - first:
+      213: 4118596428691798982
+    second: Guest_Shadow_53
+  - first:
+      213: 601345100999121044
+    second: Guest_Shadow_54
+  - first:
+      213: 7097279702768543845
+    second: Guest_Shadow_55
+  - first:
+      213: 5808674517745544503
+    second: Guest_Shadow_56
+  - first:
+      213: 3502939565588084621
+    second: Guest_Shadow_57
+  - first:
+      213: -5899601871687204923
+    second: Guest_Shadow_58
+  - first:
+      213: -1026877297454493214
+    second: Guest_Shadow_59
+  - first:
+      213: 123601948819129664
+    second: Guest_Shadow_60
+  - first:
+      213: 285081909237504662
+    second: Guest_Shadow_61
+  - first:
+      213: 1460874690496065908
+    second: Guest_Shadow_62
+  - first:
+      213: 3253444138706722465
+    second: Guest_Shadow_63
+  - first:
+      213: -7289710146615114108
+    second: Guest_Shadow_64
+  - first:
+      213: -4394128490468277292
+    second: Guest_Shadow_65
+  - first:
+      213: 6070965107255190383
+    second: Guest_Shadow_66
+  - first:
+      213: -9055675367490607557
+    second: Guest_Shadow_67
+  - first:
+      213: -6283199631026899860
+    second: Guest_Shadow_68
+  - first:
+      213: -2741602573367117367
+    second: Guest_Shadow_69
+  - first:
+      213: -6992140381086136895
+    second: Guest_Shadow_70
+  - first:
+      213: -2075346957687976241
+    second: Guest_Shadow_71
+  - first:
+      213: 5228466880231561814
+    second: Guest_Shadow_72
+  - first:
+      213: -2162115111393341092
+    second: Guest_Shadow_73
+  - first:
+      213: 7970976260899858400
+    second: Guest_Shadow_74
+  - first:
+      213: -8985028417192087925
+    second: Guest_Shadow_75
+  - first:
+      213: -4259969296797578199
+    second: Guest_Shadow_76
+  - first:
+      213: 2328092490519814110
+    second: Guest_Shadow_77
+  - first:
+      213: -8758711041502410909
+    second: Guest_Shadow_78
+  - first:
+      213: -6829510255646894391
+    second: Guest_Shadow_79
+  - first:
+      213: -1040129510360524984
+    second: Guest_Shadow_80
+  - first:
+      213: 4745174158886812250
+    second: Guest_Shadow_81
+  - first:
+      213: -3962395051857200468
+    second: Guest_Shadow_82
+  - first:
+      213: -1987567124368632024
+    second: Guest_Shadow_83
+  - first:
+      213: 1925058938743377732
+    second: Guest_Shadow_84
+  - first:
+      213: 3494864295613500153
+    second: Guest_Shadow_85
+  - first:
+      213: -821344464109864275
+    second: Guest_Shadow_86
+  - first:
+      213: 8047822336107993599
+    second: Guest_Shadow_87
+  - first:
+      213: -5072570315118628108
+    second: Guest_Shadow_88
+  - first:
+      213: 944518645596192756
+    second: Guest_Shadow_89
+  - first:
+      213: 8214589394882797783
+    second: Guest_Shadow_90
+  - first:
+      213: -3600013743857771963
+    second: Guest_Shadow_91
+  - first:
+      213: -4061783710510412471
+    second: Guest_Shadow_92
+  - first:
+      213: 452971272518499791
+    second: Guest_Shadow_93
+  - first:
+      213: -4747237413243345805
+    second: Guest_Shadow_94
+  - first:
+      213: 3073143161956005130
+    second: Guest_Shadow_95
+  - first:
+      213: 7686686593649860933
+    second: Guest_Shadow_96
+  - first:
+      213: -8009713254075362689
+    second: Guest_Shadow_97
+  - first:
+      213: -3765387452212305209
+    second: Guest_Shadow_98
+  - first:
+      213: 5697234746874111371
+    second: Guest_Shadow_99
+  - first:
+      213: -1237326965121547183
+    second: Guest_Shadow_100
+  - first:
+      213: -5961172515677684667
+    second: Guest_Shadow_101
+  - first:
+      213: 5126547155659408840
+    second: Guest_Shadow_102
+  - first:
+      213: 6671736953530172861
+    second: Guest_Shadow_103
+  - first:
+      213: -5410524498753616399
+    second: Guest_Shadow_104
+  - first:
+      213: 1917855475722228934
+    second: Guest_Shadow_105
+  - first:
+      213: 6505572748415690580
+    second: Guest_Shadow_106
+  - first:
+      213: 2444400184594096522
+    second: Guest_Shadow_107
+  - first:
+      213: -883800136921374928
+    second: Guest_Shadow_108
+  - first:
+      213: -3007297158203389454
+    second: Guest_Shadow_109
+  - first:
+      213: 8305391224369759637
+    second: Guest_Shadow_110
+  - first:
+      213: -8833479460242896529
+    second: Guest_Shadow_111
+  - first:
+      213: -1471304981275969680
+    second: Guest_Shadow_112
+  - first:
+      213: -6435333143866586683
+    second: Guest_Shadow_113
+  - first:
+      213: -3503655518692945449
+    second: Guest_Shadow_114
+  - first:
+      213: -7115698060679674666
+    second: Guest_Shadow_115
+  - first:
+      213: -4932345044542629817
+    second: Guest_Shadow_116
+  - first:
+      213: 9157391547992076178
+    second: Guest_Shadow_117
+  - first:
+      213: -3397209074956903313
+    second: Guest_Shadow_118
+  - first:
+      213: 7092190842036717323
+    second: Guest_Shadow_119
+  - first:
+      213: 6344521063387462913
+    second: Guest_Shadow_120
+  - first:
+      213: 576934017153653247
+    second: Guest_Shadow_121
+  - first:
+      213: -4241993801280300082
+    second: Guest_Shadow_122
+  - first:
+      213: 6226389441581690821
+    second: Guest_Shadow_123
+  - first:
+      213: 6780958063038018016
+    second: Guest_Shadow_124
+  - first:
+      213: -180673383713575425
+    second: Guest_Shadow_125
+  - first:
+      213: -6482056453671107820
+    second: Guest_Shadow_126
+  - first:
+      213: -8245426798361506856
+    second: Guest_Shadow_127
+  - first:
+      213: -4113591848515148029
+    second: Guest_Shadow_128
+  - first:
+      213: 6884743204950327295
+    second: Guest_Shadow_129
+  - first:
+      213: 2333538620984265418
+    second: Guest_Shadow_130
+  - first:
+      213: -7457834687019186660
+    second: Guest_Shadow_131
+  - first:
+      213: 2029378280178198354
+    second: Guest_Shadow_132
+  - first:
+      213: -2770131199426652150
+    second: Guest_Shadow_133
+  - first:
+      213: 6080771886674831926
+    second: Guest_Shadow_134
+  - first:
+      213: 4792516514242289218
+    second: Guest_Shadow_135
+  - first:
+      213: 162925741487697146
+    second: Guest_Shadow_136
+  - first:
+      213: 3828890718319798683
+    second: Guest_Shadow_137
+  - first:
+      213: 697671809290543180
+    second: Guest_Shadow_138
+  - first:
+      213: 82635863525119197
+    second: Guest_Shadow_139
+  - first:
+      213: 4080578901989495362
+    second: Guest_Shadow_140
+  - first:
+      213: -6313994004372432047
+    second: Guest_Shadow_141
+  - first:
+      213: -231119583074372220
+    second: Guest_Shadow_142
+  - first:
+      213: 4863377754877347135
+    second: Guest_Shadow_143
+  - first:
+      213: -684143773321898251
+    second: Guest_Shadow_144
+  - first:
+      213: 6202447337004868526
+    second: Guest_Shadow_145
+  - first:
+      213: 2169918714178784213
+    second: Guest_Shadow_146
+  - first:
+      213: 81867748766755559
+    second: Guest_Shadow_147
+  - first:
+      213: 6332148480514842074
+    second: Guest_Shadow_148
+  - first:
+      213: -5134067042834950221
+    second: Guest_Shadow_149
+  - first:
+      213: 4132987252033255770
+    second: Guest_Shadow_150
+  - first:
+      213: 7490992113406673713
+    second: Guest_Shadow_151
+  - first:
+      213: 3347485652805880909
+    second: Guest_Shadow_152
+  - first:
+      213: -7745252858525814967
+    second: Guest_Shadow_153
+  - first:
+      213: 6289744926645648440
+    second: Guest_Shadow_154
+  - first:
+      213: 8388806416189120352
+    second: Guest_Shadow_155
+  - first:
+      213: -363068501368421096
+    second: Guest_Shadow_156
+  - first:
+      213: -4016764990246269757
+    second: Guest_Shadow_157
+  - first:
+      213: 1588343866651844914
+    second: Guest_Shadow_158
+  - first:
+      213: -5515483888187654210
+    second: Guest_Shadow_159
+  - first:
+      213: -2426822368151846273
+    second: Guest_Shadow_160
+  - first:
+      213: -6606699894455376195
+    second: Guest_Shadow_161
+  - first:
+      213: 9208955476577934776
+    second: Guest_Shadow_162
+  - first:
+      213: 5090516832694637939
+    second: Guest_Shadow_163
+  - first:
+      213: -3384104795751153576
+    second: Guest_Shadow_164
+  - first:
+      213: -3011489706582399966
+    second: Guest_Shadow_165
+  - first:
+      213: 4814928127245124417
+    second: Guest_Shadow_166
+  - first:
+      213: -2020285993769764735
+    second: Guest_Shadow_167
+  - first:
+      213: -7308217133323900769
+    second: Guest_Shadow_168
+  - first:
+      213: -6084012133890383244
+    second: Guest_Shadow_169
+  - first:
+      213: -6355150442556275683
+    second: Guest_Shadow_170
+  - first:
+      213: -8510181659171171565
+    second: Guest_Shadow_171
+  - first:
+      213: -4678372786187680310
+    second: Guest_Shadow_172
+  - first:
+      213: 4206682115984689447
+    second: Guest_Shadow_173
+  - first:
+      213: -4036827885452076160
+    second: Guest_Shadow_174
+  - first:
+      213: 5887747941364725685
+    second: Guest_Shadow_175
+  - first:
+      213: -519911052777570356
+    second: Guest_Shadow_176
+  - first:
+      213: -948224066912613012
+    second: Guest_Shadow_177
+  - first:
+      213: 956325087957906701
+    second: Guest_Shadow_178
+  - first:
+      213: -3670637369845540610
+    second: Guest_Shadow_179
+  - first:
+      213: -5895296211774560770
+    second: Guest_Shadow_180
+  - first:
+      213: 1953110731859071521
+    second: Guest_Shadow_181
+  - first:
+      213: 2745220754509339570
+    second: Guest_Shadow_182
+  - first:
+      213: 6445667265847752116
+    second: Guest_Shadow_183
+  - first:
+      213: 4552554153024058910
+    second: Guest_Shadow_184
+  - first:
+      213: -8031465763191255749
+    second: Guest_Shadow_185
+  - first:
+      213: 9220811476070660791
+    second: Guest_Shadow_186
+  - first:
+      213: -2197347962848234525
+    second: Guest_Shadow_187
+  - first:
+      213: 6820617710885689541
+    second: Guest_Shadow_188
+  - first:
+      213: 7585338068660590461
+    second: Guest_Shadow_189
+  - first:
+      213: -4812307980967065707
+    second: Guest_Shadow_190
+  - first:
+      213: 4271925058661048826
+    second: Guest_Shadow_191
+  - first:
+      213: 5028502101074335034
+    second: Guest_Shadow_192
+  - first:
+      213: -8323518328543489224
+    second: Guest_Shadow_193
+  - first:
+      213: -1377119107479469848
+    second: Guest_Shadow_194
+  - first:
+      213: -5991010213823154225
+    second: Guest_Shadow_195
+  - first:
+      213: -2406009506866987822
+    second: Guest_Shadow_196
+  - first:
+      213: -8333516477423380476
+    second: Guest_Shadow_197
+  - first:
+      213: -3237155558962235173
+    second: Guest_Shadow_198
+  - first:
+      213: 5232134347437573184
+    second: Guest_Shadow_199
+  - first:
+      213: 5776177526379080453
+    second: Guest_Shadow_200
+  - first:
+      213: -8506919327112662650
+    second: Guest_Shadow_201
+  - first:
+      213: 4927934910557638124
+    second: Guest_Shadow_202
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.37971, y: 0.44615}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Guest_Shadow_front_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022a90c77bb2bfa49865c8cfc83adba3
+      internalID: -1182415306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70a934422e657754089d927428096524
+      internalID: 1164384931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281a7a039da40b64c980477eebf017ce
+      internalID: -326077951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c4223e58dd9ec4d89ac93681a83e02
+      internalID: 1711955562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24dac015ada98e642a089930f9602800
+      internalID: -1958364891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf79af0893cfae4e9e127f2b71a89d3
+      internalID: -429568062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c75f432ca3aa1048a49f3157d38f011
+      internalID: -1527836230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a597e58e174a2c747bebd370e7de4691
+      internalID: -1525723250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fecfa2071d1d5c5489fb58d4bce6a698
+      internalID: -963701279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d2a4fd937da8649bfc841411b09e91
+      internalID: -843053821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dec0e37ddb5a8e944ac4eb901c529c73
+      internalID: 1765492673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ae3dac29862904993e3ab26faf30c1
+      internalID: 1791996147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 537
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52966d5cb520c644eb879b0af509c473
+      internalID: -1629909373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b1016c7aaeafd408e2fd5387c9497a
+      internalID: 1511596178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a1842d89e955046bd5c800e6ae40bb
+      internalID: 284989310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f252970d5eb25547b03764114d3ded8
+      internalID: 1185984034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 705af6f5f2ccfa1429f32e6ef7d96796
+      internalID: -1122491903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9c396f614c24f4998499234cb8ad61
+      internalID: 684600966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01f723e3dc9bda248a588bb6fdb7a323
+      internalID: 1626238786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc3191d9083ec44f8efbf862b926043
+      internalID: -1243787581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21eb7530e3b370489af946d3f6ab92f
+      internalID: 1738985280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7df9c60f82444e47866cbe6d7a8ad0a
+      internalID: -689625608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d7fc6ce77b23a34a8af88bd134e3222
+      internalID: -109443343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a76a654e80f225641a3a7063d51554e6
+      internalID: -2093512726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a709fc1ce6bab6a478f8492119a2a602
+      internalID: 870429502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 358
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f272357592787a84aaa6f6c7a89d1fd2
+      internalID: -260908222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56866dc6afb38694faaee119e973390c
+      internalID: 824517998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2728215ad4e55e48a4b311bab88ed75
+      internalID: -8621997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bb4f4faef6ed154790d01135a8dd957
+      internalID: -687460124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cac31ba422ef69c4cb9e5856b392bdca
+      internalID: -14922423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f0b60128516174f9770f7f46ad6930
+      internalID: 44314821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b2f044db968724282f0231a6cbc8a8
+      internalID: -20990434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e32ef4f218703e4ba96718b7d2ddc74
+      internalID: 1867949520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8db38e398e8b8459de0db2041cec49
+      internalID: 1024678240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9017c27e1ffba94ea7458913e611049
+      internalID: 2058207076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8b0ce0ea7dc1c4ab31dee6bf813777
+      internalID: -1914356860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9a0b7ebfa497b54dbd0c077c0b5c42a
+      internalID: -426396258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02def2f9777641743b0d08bf23de497c
+      internalID: 1424998858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_back_left_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 179
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 894ec99af40eec948a14d7280fb61949
+      internalID: -1294739401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_walk00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6de1d9a1a80ed754ca5395495954e30e
+      internalID: -1772721059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_walk01
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ab02c60f6348f545b4d9cf767f0698b
+      internalID: -664439500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_walk02
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de1ed88a67dfc4e4f92c2408d53204ec
+      internalID: 1991064737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_walk03
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c7c99cb234f5f34fac0d05f30755f2a
+      internalID: -434420121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_walk04
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9b35c29972a204da1f5e84b105a57d
+      internalID: 2033744239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_walk05
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f383042eaea0843ac68f906ed699d6
+      internalID: -837652581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_walk06
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dbd5986d13376d4a88ce33dbb0aeb5c
+      internalID: -13660622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_walk07
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9077bf004aab9b44fb4dad048c537181
+      internalID: 1560940146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_walk08
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42a0bbd5f11d11d4f88f06f228ea7ee5
+      internalID: -420922430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_walk09
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea5dd42898846ae488a6f6dfb3e9ca7d
+      internalID: 477588644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_walk10
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31639a2de608c3f4d9f558cc32f50902
+      internalID: -939752101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_walk11
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eac9163f167bb845b949ea7adcbcab8
+      internalID: 2135460574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_Shadow_front_left_idle
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 280
+        height: 179
+      alignment: 9
+      pivot: {x: 0.332, y: 0.25643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a7ebf07bf964164da95edaadf328a20
+      internalID: 401614516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 37dc4630feeeba949a11f3e3cb222ce8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Guest_Shadow_back_idle: -260908222
+      Guest_Shadow_back_left_idle: -1294739401
+      Guest_Shadow_back_left_walk00: 824517998
+      Guest_Shadow_back_left_walk01: -8621997
+      Guest_Shadow_back_left_walk02: -687460124
+      Guest_Shadow_back_left_walk03: -14922423
+      Guest_Shadow_back_left_walk04: 44314821
+      Guest_Shadow_back_left_walk05: -20990434
+      Guest_Shadow_back_left_walk06: 1867949520
+      Guest_Shadow_back_left_walk07: 1024678240
+      Guest_Shadow_back_left_walk08: 2058207076
+      Guest_Shadow_back_left_walk09: -1914356860
+      Guest_Shadow_back_left_walk10: -426396258
+      Guest_Shadow_back_left_walk11: 1424998858
+      Guest_Shadow_back_walk00: 1511596178
+      Guest_Shadow_back_walk01: 284989310
+      Guest_Shadow_back_walk02: 1185984034
+      Guest_Shadow_back_walk03: -1122491903
+      Guest_Shadow_back_walk04: 684600966
+      Guest_Shadow_back_walk05: 1626238786
+      Guest_Shadow_back_walk06: -1243787581
+      Guest_Shadow_back_walk07: 1738985280
+      Guest_Shadow_back_walk08: -689625608
+      Guest_Shadow_back_walk09: -109443343
+      Guest_Shadow_back_walk10: -2093512726
+      Guest_Shadow_back_walk11: 870429502
+      Guest_Shadow_front_idle: -1629909373
+      Guest_Shadow_front_left_idle: 401614516
+      Guest_Shadow_front_left_walk00: -1772721059
+      Guest_Shadow_front_left_walk01: -664439500
+      Guest_Shadow_front_left_walk02: 1991064737
+      Guest_Shadow_front_left_walk03: -434420121
+      Guest_Shadow_front_left_walk04: 2033744239
+      Guest_Shadow_front_left_walk05: -837652581
+      Guest_Shadow_front_left_walk06: -13660622
+      Guest_Shadow_front_left_walk07: 1560940146
+      Guest_Shadow_front_left_walk08: -420922430
+      Guest_Shadow_front_left_walk09: 477588644
+      Guest_Shadow_front_left_walk10: -939752101
+      Guest_Shadow_front_left_walk11: 2135460574
+      Guest_Shadow_front_walk00: -1182415306
+      Guest_Shadow_front_walk01: 1164384931
+      Guest_Shadow_front_walk02: -326077951
+      Guest_Shadow_front_walk03: 1711955562
+      Guest_Shadow_front_walk04: -1958364891
+      Guest_Shadow_front_walk05: -429568062
+      Guest_Shadow_front_walk06: -1527836230
+      Guest_Shadow_front_walk07: -1525723250
+      Guest_Shadow_front_walk08: -963701279
+      Guest_Shadow_front_walk09: -843053821
+      Guest_Shadow_front_walk10: 1765492673
+      Guest_Shadow_front_walk11: 1791996147
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -32,6 +32,46 @@ MonoBehaviour:
     m_Localized: READY FOR GUESTS
     m_Metadata:
       m_Items: []
+  - m_Id: 1557816541396992
+    m_Localized: WAVE IN PROGRESS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1557816616894464
+    m_Localized: ALL WAVES COMPLETE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458929146679296
+    m_Localized: NEW AREA AVAILABLE !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458949111566336
+    m_Localized: AREA LOCKED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458958330646528
+    m_Localized: Higher satisfaction potential
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458959081426944
+    m_Localized: 'Includes: 1 Worker'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458959781875712
+    m_Localized: UNLOCK & EXPAND
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458960528461824
+    m_Localized: 'MISSING: {0:N0} COINS'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458961329573888
+    m_Localized: LOCKED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7458962042605568
+    m_Localized: ALREADY BUILT
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
