@@ -6,7 +6,7 @@ using UnityEngine;
 public sealed class GameState
 {
     public string format = "ParadiseTycoon2D";
-    public int version = 1;
+    public int version = 2;
     public float timeScale = 1f;
     public List<ResourceSave> resources = new();
     public List<BuildingSave> buildings = new();
@@ -20,9 +20,38 @@ public sealed class GameState
     public RewardSave reward;
     public List<SaveExtension> extensions = new();
 
+    // Permanent progress can be recovered even when transient wave data is no longer compatible.
+    public bool IsProgressValid()
+    {
+        if (format != "ParadiseTycoon2D" || (version != 1 && version != 2) || wave == null || wave.number < 0 ||
+            resources == null || resources.Count != Enum.GetValues(typeof(ResourceType)).Length ||
+            buildings == null || workers == null || extensions == null) return false;
+        var types = new HashSet<ResourceType>();
+        foreach (var r in resources)
+            if (r == null || !Enum.IsDefined(typeof(ResourceType), r.type) || !types.Add(r.type) || r.amount < 0 ||
+                (r.type == ResourceType.Energy && r.amount > ResourceManager.MaxEnergy)) return false;
+        var buildingIds = new HashSet<string>();
+        foreach (var b in buildings)
+            if (b == null || string.IsNullOrEmpty(b.id) || !buildingIds.Add(b.id) || !ValidNeed(b.need) ||
+                b.level < 1 || b.level > BuildingInfo.MaxLevel) return false;
+        var assigned = new Dictionary<string, int>();
+        foreach (var w in workers)
+        {
+            if (w == null || w.stars < 0 || w.stars > 5) return false;
+            if (string.IsNullOrEmpty(w.buildingId)) continue;
+            if (!buildingIds.Contains(w.buildingId)) return false;
+            assigned.TryGetValue(w.buildingId, out int count);
+            if (count >= WorkerRoster.MaxPerBuilding) return false;
+            assigned[w.buildingId] = count + 1;
+        }
+        var keys = new HashSet<string>();
+        foreach (var e in extensions) if (e == null || string.IsNullOrEmpty(e.key) || !keys.Add(e.key)) return false;
+        return true;
+    }
+
     public bool IsValid()
     {
-        if (format != "ParadiseTycoon2D" || version != 1 || wave == null || resources == null ||
+        if (!IsProgressValid() || wave == null || resources == null ||
             resources.Count != Enum.GetValues(typeof(ResourceType)).Length || buildings == null || workers == null ||
             !Finite(timeScale) || timeScale < 0 || wave.number < 0 || !Enum.IsDefined(typeof(WaveState), wave.state) ||
             wave.arrivals == null || wave.pending == null || wave.inService == null || wave.inTransit == null ||
@@ -61,7 +90,7 @@ public sealed class GameState
         var placed = new HashSet<int>();
         foreach (var b in buildings)
         {
-            if (b == null || string.IsNullOrEmpty(b.id) || !buildingIds.Add(b.id) || b.level < 1 || b.level > 3 ||
+            if (b == null || string.IsNullOrEmpty(b.id) || !buildingIds.Add(b.id) || b.level < 1 || b.level > BuildingInfo.MaxLevel ||
                 b.queue == null || b.approaching == null || b.seats == null || !ValidNeed(b.need)) return false;
             foreach (var q in b.queue)
                 if (q == null || !ids.Contains(q.id) || service.Contains(q.id) || transit.Contains(q.id) ||
@@ -69,7 +98,7 @@ public sealed class GameState
             foreach (int id in b.approaching) if (!transit.Contains(id) || !placed.Add(id) || needs[id] != b.need) return false;
             var seatIndices = new HashSet<int>();
             foreach (var seat in b.seats)
-                if (seat == null || seat.index < 0 || seat.index >= 7 || !service.Contains(seat.id) ||
+                if (seat == null || seat.index < 0 || !service.Contains(seat.id) ||
                     !seatIndices.Add(seat.index) || !placed.Add(seat.id) || needs[seat.id] != b.need ||
                     !Finite(seat.progress) || seat.progress < 0 || seat.progress > 1) return false;
             if (b.boost != null && (!Finite(b.boost.duration) || !Finite(b.boost.remaining) || !Finite(b.boost.time) ||

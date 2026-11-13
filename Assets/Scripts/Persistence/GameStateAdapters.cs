@@ -41,12 +41,35 @@ public sealed partial class WaveManager
         data.wave = Session.CaptureState(); data.relaxDebuted = hasRelaxDebuted;
         data.oceanViewDebuted = hasOceanViewDebuted; data.lastExecutedWave = lastExecutedWave;
     }
-    public void RestoreProgress(GameState data)
+    public void RestoreProgress(GameState data, bool restoreWave = true)
     {
         useTestWave = false; hasRelaxDebuted = data.relaxDebuted; hasOceanViewDebuted = data.oceanViewDebuted;
-        lastExecutedWave = data.lastExecutedWave; Session.RestoreState(data.wave);
+        lastExecutedWave = data.lastExecutedWave;
+        if (restoreWave) Session.RestoreState(data.wave);
     }
-    public void StartFreshProgress() { useTestWave = false; Session.SetWaveIndex(0); }
+    public void StartFreshProgress()
+    {
+        useTestWave = false; hasRelaxDebuted = hasOceanViewDebuted = false; lastExecutedWave = null;
+        Session.RestoreState(new WaveSave());
+    }
+    public void RestartSavedWave(WaveSave saved)
+    {
+        int number = Mathf.Clamp(saved.number, 1, catalog.Count);
+        Session.RestoreState(new WaveSave { number = number - 1 });
+        var definition = saved.definition;
+        if (definition == null || definition.guests < 1 || definition.rooms < 0 || definition.drinks < 0 ||
+            definition.food < 0 || definition.relax < 0 || definition.oceanView < 0 || definition.TotalNeeds < 1 || definition.TotalNeeds > 10000)
+            definition = catalog.GetWave(number - 1);
+        double duration = saved.duration > 0 && !double.IsNaN(saved.duration) && !double.IsInfinity(saved.duration)
+            ? saved.duration : arrivalDuration;
+        lastExecutedWave = definition;
+        Session.StartWave(duration, GetBuiltBuildingNeeds(), definition);
+    }
+    public void RestoreIdleProgress(WaveSave saved)
+    {
+        Session.RestoreState(new WaveSave { number = Mathf.Clamp(saved.number, 0, catalog.Count),
+            state = saved.state == WaveState.Result ? WaveState.Result : WaveState.Waiting });
+    }
 }
 
 public partial class ResourceManager
@@ -114,6 +137,12 @@ public partial class BuildingSpot
         spawnedBuilding = Instantiate(buildingPrefabs[index], transform.position, Quaternion.identity);
         builtPrefabIndex = index; isOccupied = true; gameObject.SetActive(false);
         return spawnedBuilding; // Loading neither charges coins nor grants ResortValue a second time.
+    }
+    public void ResetRestoredBuilding()
+    {
+        if (spawnedBuilding != null) { spawnedBuilding.SetActive(false); Destroy(spawnedBuilding); }
+        spawnedBuilding = null; builtPrefabIndex = -1; isOccupied = false;
+        gameObject.SetActive(true); SetSpotActive(true);
     }
 }
 

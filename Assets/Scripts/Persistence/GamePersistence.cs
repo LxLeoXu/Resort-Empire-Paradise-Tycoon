@@ -18,6 +18,7 @@ public sealed class GamePersistence : MonoBehaviour
     public bool IsReady { get; private set; }
     public string LastError { get; private set; }
     public bool LoadedBackup => store != null && store.LoadedBackup;
+    public string RecoveryMessage { get; private set; }
     private WaveManager manager;
     private GameSaveStore store;
     private float resumeScale = 1f;
@@ -73,52 +74,81 @@ public sealed class GamePersistence : MonoBehaviour
         if (!string.IsNullOrEmpty(SaveDirectoryOverride)) directory = SaveDirectoryOverride;
 #endif
         store = new GameSaveStore(directory);
+        var initial = CaptureWorldState();
+        initial.resources = ResourceManager.Instance.CaptureStartingResources();
+        initial.wave = new WaveSave();
+        initial.relaxDebuted = initial.oceanViewDebuted = false; initial.lastExecutedWave = null;
         if (store.TryLoad(out var state))
         {
-            var restore = RestoreState(state);
-            bool advancing = true;
-            while (advancing)
-            {
-                object current = null;
-                try { advancing = restore.MoveNext(); if (advancing) current = restore.Current; }
-                catch (Exception error) { LastError = error.Message; advancing = false; }
-                if (advancing) yield return current;
-            }
-            (restore as IDisposable)?.Dispose();
+            yield return TryRestore(state);
+            if (!string.IsNullOrEmpty(LastError) && !store.LoadedBackup && store.TryLoadBackup(out var backup))
+                yield return TryRestore(backup);
             if (!string.IsNullOrEmpty(LastError))
             {
-                IsRestoring = false;
-                Debug.LogWarning("Could not restore game: " + LastError + ". Automatic saving is disabled to preserve your save.", this);
-                yield break;
+                SetRecoveryMessage("Uložený postup sa nepodarilo obnoviť. Začína nová hra; pôvodné uloženie bolo odložené.");
+                ArchiveBrokenSaves();
+                foreach (var spot in FindObjectsByType<BuildingSpot>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                    if (spot.SpawnedBuilding != null) spot.ResetRestoredBuilding();
+                yield return TryRestore(initial);
             }
         }
         else
         {
+            if (!string.IsNullOrEmpty(store.LastError))
+            {
+                SetRecoveryMessage("Uloženie ani záloha sa nedajú načítať. Začína nová hra; poškodené súbory boli odložené.");
+                ArchiveBrokenSaves();
+            }
             manager.StartFreshProgress();
+            ResourceManager.Instance.RestoreResources(initial.resources);
             manager.Session.NotifyStateRestored();
-            if (!string.IsNullOrEmpty(store.LastError)) Debug.LogWarning("Save could not be read; starting a new game. " + store.LastError, this);
         }
         IsRestoring = false;
         IsReady = true;
         manager.Session.WaveEnded += OnWaveEnded;
+        if (!string.IsNullOrEmpty(RecoveryMessage)) SaveRecoveryNotice.Show(RecoveryMessage);
     }
+
+    private IEnumerator TryRestore(GameState data)
+    {
+        LastError = null;
+        var restore = RestoreState(data);
+        bool advancing = true;
+        while (advancing)
+        {
+            object current = null;
+            try { advancing = restore.MoveNext(); if (advancing) current = restore.Current; }
+            catch (Exception error) { LastError = error.Message; advancing = false; }
+            if (advancing) yield return current;
+        }
+        (restore as IDisposable)?.Dispose();
+    }
+
+    private void ArchiveBrokenSaves()
+    {
+        if (!store.ArchiveBrokenSaves()) Debug.LogWarning("Could not archive save: " + store.LastError, this);
+    }
+    private void SetRecoveryMessage(string message) { RecoveryMessage = message; Debug.LogWarning(message, this); }
 
     public GameState CaptureState()
     {
         if (!IsReady || IsRestoring) throw new InvalidOperationException("Game is not ready to save.");
+        return CaptureWorldState();
+    }
+
+    private GameState CaptureWorldState()
+    {
         var data = new GameState { resources = ResourceManager.Instance.CaptureResources(), timeScale = IsPaused ? resumeScale : Time.timeScale };
         manager.CaptureProgress(data);
-        var spots = FindObjectsByType<BuildingSpot>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         var ids = new Dictionary<BuildingService, string>();
         foreach (var building in FindObjectsByType<BuildingService>(FindObjectsSortMode.None))
         {
             var info = building.GetComponentInChildren<BuildingInfo>(true);
             if (info == null || !info.isBuilt) continue;
-            var spot = spots.FirstOrDefault(s => s.SpawnedBuilding != null && s.SpawnedBuilding.GetComponentInChildren<BuildingService>() == building);
-            string id = spot != null ? "spot:" + SceneId(spot.transform) : "building:" + SceneId(building.transform);
+            string id = info.SaveKey;
+            if (string.IsNullOrWhiteSpace(id) || ids.ContainsValue(id)) throw new InvalidOperationException("Missing or duplicate building SaveKey: " + id);
             ids.Add(building, id);
             var saved = building.CaptureState(id);
-            if (spot != null) { saved.spotId = SceneId(spot.transform); saved.prefabIndex = spot.BuiltPrefabIndex; }
             data.buildings.Add(saved);
         }
         data.workers = WorkerRoster.Instance.CaptureState(ids);
@@ -157,17 +187,41 @@ public sealed class GamePersistence : MonoBehaviour
 
     public IEnumerator RestoreState(GameState data)
     {
-        if (data == null || !data.IsValid()) { LastError = "Invalid save state."; yield break; }
-        var spots = FindObjectsByType<BuildingSpot>(FindObjectsInactive.Include, FindObjectsSortMode.None).ToDictionary(s => SceneId(s.transform));
-        var buildings = FindObjectsByType<BuildingService>(FindObjectsSortMode.None).ToDictionary(b => "building:" + SceneId(b.transform));
-        // Validate scene references before touching any live state.
-        foreach (var b in data.buildings)
+        if (data == null || !data.IsProgressValid()) { LastError = "Invalid save progress."; yield break; }
+        // Clone before migrating v1 so callers and the original archived data remain unchanged.
+        data = JsonUtility.FromJson<GameState>(JsonUtility.ToJson(data));
+        var spots = FindObjectsByType<BuildingSpot>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        var buildings = FindObjectsByType<BuildingService>(FindObjectsSortMode.None)
+            .ToDictionary(b => b.GetComponentInChildren<BuildingInfo>(true).SaveKey);
+        var spawn = new Dictionary<string, (BuildingSpot spot, int index)>();
+        foreach (var spot in spots)
+            for (int i = 0; i < spot.buildingPrefabs.Count; i++)
+            {
+                var info = spot.buildingPrefabs[i] != null ? spot.buildingPrefabs[i].GetComponentInChildren<BuildingInfo>(true) : null;
+                if (info != null && !string.IsNullOrEmpty(info.SaveKey) && !spawn.ContainsKey(info.SaveKey)) spawn.Add(info.SaveKey, (spot, i));
+            }
+        if (data.version == 1)
         {
-            if (string.IsNullOrEmpty(b.spotId))
-            { if (!buildings.ContainsKey(b.id)) { LastError = "Saved building no longer exists: " + b.id; yield break; } }
-            else if (!spots.TryGetValue(b.spotId, out var spot) || b.prefabIndex < 0 || b.prefabIndex >= spot.buildingPrefabs.Count)
-            { LastError = "Saved building spot/prefab no longer exists."; yield break; }
+            var allInfos = buildings.Values.Select(b => b.GetComponentInChildren<BuildingInfo>(true))
+                .Concat(spawn.Values.Select(s => s.spot.buildingPrefabs[s.index].GetComponentInChildren<BuildingInfo>(true)));
+            var keysByNeed = allInfos.GroupBy(i => i.offeredNeed).ToDictionary(g => g.Key, g => g.First().SaveKey);
+            var migrated = new Dictionary<string, string>();
+            foreach (var saved in data.buildings)
+            {
+                if (!keysByNeed.TryGetValue(saved.need, out var key)) { LastError = "Cannot migrate saved building: " + saved.id; yield break; }
+                migrated.Add(saved.id, key); saved.id = key;
+            }
+            foreach (var w in data.workers) if (!string.IsNullOrEmpty(w.buildingId)) w.buildingId = migrated[w.buildingId];
+            data.version = 2;
         }
+        // Permanent identities, not object names, hierarchy paths, spot paths or prefab list order.
+        var selectedSpots = new HashSet<BuildingSpot>();
+        foreach (var b in data.buildings)
+            if (!buildings.ContainsKey(b.id))
+            {
+                if (!spawn.TryGetValue(b.id, out var target) || target.spot.SpawnedBuilding != null || !selectedSpots.Add(target.spot))
+                { LastError = "Saved building prefab is unavailable: " + b.id; yield break; }
+            }
         IsRestoring = true;
         float oldScale = Time.timeScale;
         bool restored = false;
@@ -176,21 +230,56 @@ public sealed class GamePersistence : MonoBehaviour
         {
             foreach (var b in data.buildings)
             {
-                if (!string.IsNullOrEmpty(b.spotId)) buildings[b.id] = spots[b.spotId].RestoreBuilding(b.prefabIndex).GetComponentInChildren<BuildingService>();
+                if (!buildings.ContainsKey(b.id))
+                {
+                    var target = spawn[b.id];
+                    buildings[b.id] = target.spot.RestoreBuilding(target.index).GetComponentInChildren<BuildingService>();
+                }
                 var info = buildings[b.id].GetComponentInChildren<BuildingInfo>(true);
-                info.currentLevel = b.level; info.isBuilt = true;
+                info.currentLevel = Mathf.Clamp(b.level, 1, BuildingInfo.MaxLevel); info.isBuilt = true;
                 buildings[b.id].GetComponentInChildren<BuildingLevels>(true)?.RefreshAfterLoad();
             }
             yield return null; // Starts bind freshly restored BuildingServices to the existing WaveSession.
-            manager.RestoreProgress(data);
-            foreach (var b in data.buildings) buildings[b.id].RestoreState(b);
             WorkerRoster.Instance.RestoreState(data.workers, buildings);
             ResourceManager.Instance.RestoreResources(data.resources);
-            if (data.presentation != null) manager.Guests?.RestoreState(data.presentation);
             var satisfaction = FindFirstObjectByType<SatisfactionTracker>();
-            satisfaction?.RestoreState(data);
             var claim = FindFirstObjectByType<ClaimRewards>(FindObjectsInactive.Include);
-            if (data.reward != null && claim != null) claim.RestoreState(data.reward);
+            bool resumed = false;
+            string waveError = null;
+            try
+            {
+                if (!data.IsValid()) throw new InvalidOperationException("Incompatible saved wave data.");
+                if (data.wave.state == WaveState.Running && manager.Guests != null && manager.Guests.enabled && data.presentation == null)
+                    throw new InvalidOperationException("Saved guest presentation is missing.");
+                manager.RestoreProgress(data);
+                foreach (var b in data.buildings) buildings[b.id].RestoreState(b);
+                if (data.presentation != null) manager.Guests?.RestoreState(data.presentation);
+                satisfaction?.RestoreState(data);
+                if (data.reward != null && claim != null) claim.RestoreState(data.reward);
+                resumed = true;
+            }
+            catch (Exception error) { waveError = error.Message; }
+            if (!resumed)
+            {
+                manager.RestoreProgress(data, restoreWave: false);
+                manager.RestoreIdleProgress(data.wave);
+                foreach (var building in buildings.Values)
+                {
+                    building.RestoreState(new BuildingSave());
+                    building.GetComponent<SpeedBoostEffect>()?.Stop();
+                }
+                manager.Guests?.RestoreState(new GuestPresentationSave { docked = true });
+                satisfaction?.RestoreState(new GameState());
+                if (claim != null) claim.RestoreState(data.wave.state == WaveState.Running ? new RewardSave { waveId = data.wave.number - 1 } :
+                    (data.reward != null && data.reward.rewards != null && data.reward.rewards.coins >= 0 && data.reward.rewards.energy >= 0 && data.reward.rewards.resortValue >= 0 ? data.reward : new RewardSave()));
+                if (data.wave.state == WaveState.Running)
+                {
+                    manager.RestartSavedWave(data.wave);
+                    SetRecoveryMessage("Rozbehnutú vlnu sa nepodarilo obnoviť. Tá istá vlna začína odznova; meny, budovy a pracovníci zostali zachovaní.");
+                }
+                else SetRecoveryMessage("Postup bol obnovený; nekompatibilné údaje hostí boli vyčistené.");
+                Debug.LogWarning("Wave recovery: " + waveError, this);
+            }
             retainedExtensions = data.extensions ?? new List<SaveExtension>();
             foreach (var participant in Participants())
             {
@@ -204,7 +293,7 @@ public sealed class GamePersistence : MonoBehaviour
                 FindFirstObjectByType<S4FigmaResultsUI>(FindObjectsInactive.Include)?.ShowWaveResults(manager.Session.WaveNumber,
                     manager.Session.ServedCount, manager.Session.EmittedCount, satisfaction != null ? satisfaction.CurrentPercent : 100,
                     restoreExistingReward: true);
-            resumeScale = data.timeScale;
+            resumeScale = !float.IsNaN(data.timeScale) && !float.IsInfinity(data.timeScale) && data.timeScale >= 0 ? data.timeScale : 1f;
             LastError = null;
             restored = true;
         }
@@ -239,10 +328,4 @@ public sealed class GamePersistence : MonoBehaviour
     }
     private static IEnumerable<IGameSaveParticipant> Participants() => FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include,
         FindObjectsSortMode.None).OfType<IGameSaveParticipant>();
-    public static string SceneId(Transform item)
-    {
-        string path = item.name;
-        while (item.parent != null) { item = item.parent; path = item.name + "/" + path; }
-        return item.gameObject.scene.name + "/" + path;
-    }
 }

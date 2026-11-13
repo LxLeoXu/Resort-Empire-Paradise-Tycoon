@@ -11,6 +11,7 @@ public sealed class GameSaveStore
     public string SavePath { get; }
     public string BackupPath => SavePath + ".bak";
     public string TemporaryPath => SavePath + ".tmp";
+    public string BrokenPath => Path.Combine(Path.GetDirectoryName(SavePath), "game-save.broken.json");
     public string LastError { get; private set; }
     public bool LoadedBackup { get; private set; }
 
@@ -63,6 +64,33 @@ public sealed class GameSaveStore
         return false;
     }
 
+    public bool TryLoadBackup(out GameState state)
+    {
+        if (!TryRead(BackupPath, out state)) return false;
+        LoadedBackup = true;
+        LastError = null;
+        return true;
+    }
+
+    // Keep forensic copies; never overwrite a previously archived save.
+    public bool ArchiveBrokenSaves()
+    {
+        try
+        {
+            Archive(SavePath, BrokenPath);
+            Archive(BackupPath, Path.Combine(Path.GetDirectoryName(SavePath), "game-save.backup.broken.json"));
+            return true;
+        }
+        catch (Exception error) { LastError = error.Message; return false; }
+    }
+
+    private static void Archive(string source, string destination)
+    {
+        if (!File.Exists(source)) return;
+        if (File.Exists(destination)) destination += "." + Guid.NewGuid().ToString("N");
+        File.Move(source, destination);
+    }
+
     private bool TryRead(string path, out GameState state)
     {
         state = null;
@@ -74,7 +102,7 @@ public sealed class GameSaveStore
             if (envelope == null || string.IsNullOrEmpty(envelope.json) || envelope.checksum != Hash(envelope.json))
                 throw new InvalidDataException("Save checksum does not match.");
             var candidate = JsonUtility.FromJson<GameState>(envelope.json);
-            if (candidate == null || !candidate.IsValid()) throw new InvalidDataException("Invalid or unsupported save data.");
+            if (candidate == null || !candidate.IsProgressValid()) throw new InvalidDataException("Invalid or unsupported save progress.");
             state = candidate;
             return true;
         }
