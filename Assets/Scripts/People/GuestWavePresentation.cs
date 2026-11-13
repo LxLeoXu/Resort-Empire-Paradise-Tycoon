@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>Boat arrival and guest visuals driven by the authoritative building queues.</summary>
 [RequireComponent(typeof(WaveManager))]
-public sealed class GuestWavePresentation : MonoBehaviour
+public sealed partial class GuestWavePresentation : MonoBehaviour
 {
     [SerializeField] private GameObject guestPrefab;
     [SerializeField] private GameObject boatPrefab;
@@ -75,6 +75,7 @@ public sealed class GuestWavePresentation : MonoBehaviour
     {
         foreach (Transform child in visualRoot) Destroy(child.gameObject);
         guests.Clear();
+        guestTypes.Clear();
         session.SetGuestReturnPending(true);
         UnsubscribeServices();
         foreach (var service in FindObjectsByType<BuildingService>(FindObjectsSortMode.None))
@@ -92,6 +93,7 @@ public sealed class GuestWavePresentation : MonoBehaviour
 
     private void Update()
     {
+        if (Time.deltaTime <= 0 || GamePersistence.IsRestoring) return;
         if (boat == null) return;
         if (!departing && BoatDocked && session.ArrivalsEnded && session.PendingCount == 0 && AllGuestsBoarded)
         {
@@ -112,6 +114,7 @@ public sealed class GuestWavePresentation : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (Time.deltaTime <= 0 || GamePersistence.IsRestoring) return;
         foreach (var service in services)
         {
             if (service == null || service.Seats == 0) continue;
@@ -141,6 +144,7 @@ public sealed class GuestWavePresentation : MonoBehaviour
         guest.Disembark(guestExit.position, pierEntrance.position,
             islandPaths != null ? islandPaths.GetRoute(need.Type) : null);
         guests.Add(need.Id, guest);
+        guestTypes.Add(need.Id, need.Type);
     }
 
     private void OnSeated(WaveNeed need, int seat, float waited)

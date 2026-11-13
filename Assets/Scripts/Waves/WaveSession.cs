@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine; // Potrebné pre Debug.Log
+using UnityEngine;
 
 public enum WaveState { Waiting, Running, Result }
 
@@ -17,11 +17,10 @@ public readonly struct WaveNeed
         WaveNumber = waveNumber;
         Type = type;
         ArrivalTime = arrivalTime;
-
     }
 }
 
-public sealed class WaveSession
+public sealed partial class WaveSession
 {
     private static readonly NeedType[] Types =
         { NeedType.Rooms, NeedType.Drinks, NeedType.Food, NeedType.Relax, NeedType.OceanView };
@@ -48,11 +47,11 @@ public sealed class WaveSession
     public int InServiceCount => inService.Count;
     public int ServedCount { get; private set; }
     public int ScheduledCount => arrivals.Count;
-    // The presentation holds the arrival phase open until the last guest leaves the pier.
     public bool HoldArrivalsOpen { get; set; }
     public IEnumerable<WaveNeed> PendingNeeds => pending.Values;
-    public event Action<WaveNeed> NeedServed; // Udalosť pri obslúžení potreby
+    public WaveDefinition CurrentWave { get; private set; }
 
+    public event Action<WaveNeed> NeedServed;
     public event Action StateChanged;
     public event Action<int> WaveStarted;
     public event Action<WaveNeed> NeedArrived;
@@ -64,9 +63,6 @@ public sealed class WaveSession
         this.catalog = catalog != null ? catalog : throw new ArgumentNullException(nameof(catalog));
     }
 
-    /// <summary>
-    /// SCRUM-25 DEBUG: Umožní priamo skočiť na vlnu (index od 0, napr. 3 = Vlna 4)
-    /// </summary>
     public void SetWaveIndex(int index)
     {
         if (State == WaveState.Running) return;
@@ -77,13 +73,22 @@ public sealed class WaveSession
         }
     }
 
+    // 1. Verzia s 2 parametrami pre spätnú kompatibilitu
     public bool StartWave(double duration, ICollection<NeedType> allowedNeeds = null)
+    {
+        return StartWave(duration, allowedNeeds, null);
+    }
+
+    // 2. Verzia s 3 parametrami pre adaptívny mäkký debut
+    public bool StartWave(double duration, ICollection<NeedType> allowedNeeds, WaveDefinition waveOverride)
     {
         if (!CanStartWave) return false;
         if (double.IsNaN(duration) || double.IsInfinity(duration) || duration <= 0)
             throw new ArgumentOutOfRangeException(nameof(duration));
 
-        BuildSchedule(catalog.GetWave(WaveNumber), allowedNeeds);
+        CurrentWave = waveOverride ?? catalog.GetWave(WaveNumber);
+
+        BuildSchedule(CurrentWave, allowedNeeds);
         WaveNumber++;
         ArrivalDuration = duration;
         Elapsed = 0;
@@ -93,6 +98,7 @@ public sealed class WaveSession
         inService.Clear();
         inTransit.Clear();
         ServedCount = 0;
+        servedByType.Clear();
         guestReturnPending = false;
         State = WaveState.Running;
         StateChanged?.Invoke();
@@ -107,8 +113,6 @@ public sealed class WaveSession
         var counts = new int[Types.Length];
         int activeTotalNeeds = 0;
 
-        Debug.Log($"<color=cyan>--- ŠTART VLNY {WaveNumber + 1} (Kontrola budov a potrieb) ---</color>");
-
         for (int i = 0; i < Types.Length; i++)
         {
             NeedType type = Types[i];
@@ -117,27 +121,18 @@ public sealed class WaveSession
 
             if (!isAllowed && catalogCount > 0)
             {
-                // Budova nie je postavená, potreba sa vynechá (Pravidlo WR9)
                 counts[i] = 0;
-                Debug.LogWarning($"[WR9 FILTER] Potreba <color=orange>{type}</color> ({catalogCount} ks) bola VYRADENÁ, lebo budova nestojí!");
             }
             else
             {
                 counts[i] = catalogCount;
-                if (counts[i] > 0)
-                {
-                    Debug.Log($"[POVOLENÉ] Potreba <b>{type}</b>: do vlny vstúpi {counts[i]} ks.");
-                }
             }
 
             activeTotalNeeds += counts[i];
         }
 
-        Debug.Log($"<color=cyan>Celkový počet potrieb pre túto vlnu: {activeTotalNeeds}</color>");
-
         if (activeTotalNeeds == 0) return;
 
-        // Distribúcia v čase
         for (int slot = 0; slot < activeTotalNeeds; slot++)
         {
             int best = -1;
@@ -182,9 +177,6 @@ public sealed class WaveSession
             var need = new WaveNeed(++nextId, WaveNumber, arrivals[EmittedCount++], due);
             pending.Add(need.Id, need);
             NeedArrived?.Invoke(need);
-
-            // Výpis každej prichádzajúcej potreby v reálnom čase
-            Debug.Log($"--> Prichádza: {need.Type} (Vlna {need.WaveNumber})");
         }
 
         if (Elapsed >= ArrivalDuration && !HoldArrivalsOpen)
@@ -215,20 +207,21 @@ public sealed class WaveSession
         return count;
     }
 
-
     public bool ResolveNeed(int id)
     {
-        if (State != WaveState.Running || !inService.Remove(id)) return false;
-
-        if (pending.TryGetValue(id, out var need))
+        if (State == WaveState.Running && inService.Remove(id))
         {
-            pending.Remove(id);
-            ServedCount++;
-            NeedServed?.Invoke(need); // <-- TOTO SEM PRIDAJ
-            TryFinishWave();
-            return true;
+            if (pending.TryGetValue(id, out var need))
+            {
+                pending.Remove(id);
+                ServedCount++;
+                servedByType.TryGetValue(need.Type, out int served);
+                servedByType[need.Type] = served + 1;
+                NeedServed?.Invoke(need);
+                TryFinishWave();
+                return true;
+            }
         }
-
         return false;
     }
 
@@ -246,8 +239,10 @@ public sealed class WaveSession
         WaveEnded?.Invoke(completedWave);
         StateChanged?.Invoke();
     }
+
     public WaveDefinition GetCurrentWaveDefinition()
     {
+        if (CurrentWave != null) return CurrentWave;
         int index = Math.Clamp(WaveNumber - 1, 0, catalog.Count - 1);
         return catalog.GetWave(index);
     }

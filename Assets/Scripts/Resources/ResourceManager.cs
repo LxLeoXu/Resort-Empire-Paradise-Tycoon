@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceManager : MonoBehaviour
+public partial class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance { get; private set; }
 
@@ -33,15 +33,19 @@ public class ResourceManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        resources[ResourceType.Coins] = Mathf.Max(0, startingCoins);
-        resources[ResourceType.Energy] =
-            Mathf.Clamp(startingEnergy, 0, MaxEnergy);
-        resources[ResourceType.Reputation] = Mathf.Max(0, startingReputation);
-        resources[ResourceType.Wood] = Mathf.Max(0, startingWood);
-        resources[ResourceType.Stone] = Mathf.Max(0, startingStone);
-        resources[ResourceType.Gems] = Mathf.Max(0, startingGems);
-        resources[ResourceType.ResortValue] = Mathf.Max(0, startingResortValue);
+        RestoreResources(CaptureStartingResources());
     }
+
+    public List<ResourceSave> CaptureStartingResources() => new()
+    {
+        new ResourceSave { type = ResourceType.Coins, amount = Mathf.Max(0, startingCoins) },
+        new ResourceSave { type = ResourceType.Energy, amount = Mathf.Clamp(startingEnergy, 0, MaxEnergy) },
+        new ResourceSave { type = ResourceType.Reputation, amount = Mathf.Max(0, startingReputation) },
+        new ResourceSave { type = ResourceType.Wood, amount = Mathf.Max(0, startingWood) },
+        new ResourceSave { type = ResourceType.Stone, amount = Mathf.Max(0, startingStone) },
+        new ResourceSave { type = ResourceType.Gems, amount = Mathf.Max(0, startingGems) },
+        new ResourceSave { type = ResourceType.ResortValue, amount = Mathf.Max(0, startingResortValue) }
+    };
 
     public int GetResource(ResourceType type)
     {

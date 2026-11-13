@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>Autonomous visual for one queued need. No input handlers or colliders.</summary>
-public sealed class GuestAgent : MonoBehaviour
+public sealed partial class GuestAgent : MonoBehaviour
 {
     [Min(0.1f)] [SerializeField] private float speed = 1.8f;
     private readonly Queue<Vector3> waypoints = new();
@@ -69,6 +69,7 @@ public sealed class GuestAgent : MonoBehaviour
 
     private void Update()
     {
+        if (Time.deltaTime <= 0 || GamePersistence.IsRestoring) return;
         Vector3 target = waypoints.Count > 0 ? waypoints.Peek() : destination;
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
         if (Vector3.Distance(transform.position, target) > 0.01f) return;

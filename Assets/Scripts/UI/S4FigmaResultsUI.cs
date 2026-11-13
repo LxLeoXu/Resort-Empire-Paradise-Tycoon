@@ -85,7 +85,8 @@ public class S4FigmaResultsUI : MonoBehaviour
         int totalGuests,
         int satisfactionPercent,
         string positiveFeedback = null,
-        string negativeFeedback = null)
+        string negativeFeedback = null,
+        bool restoreExistingReward = false)
     {
         if (waveId < 0)
             return false;
@@ -133,7 +134,9 @@ public class S4FigmaResultsUI : MonoBehaviour
             Mathf.Max(0, calculated.resortValue));
 
         // Iba nova vlna moze pripravit novu odmenu.
-        if (!claimRewards.SetRewardsForWave(waveId, rewards))
+        bool alreadyPrepared = restoreExistingReward && claimRewards.HasPendingReward && claimRewards.CaptureState().waveId == waveId;
+        if (alreadyPrepared) rewards = claimRewards.CaptureState().rewards;
+        if (!alreadyPrepared && !claimRewards.SetRewardsForWave(waveId, rewards))
         {
             Debug.LogWarning(
                 "S4: Odmena pre tuto vlnu sa " +

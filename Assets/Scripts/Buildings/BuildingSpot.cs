@@ -1,14 +1,24 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingSpot : MonoBehaviour
+public partial class BuildingSpot : MonoBehaviour
 {
+    [Header("UI Okno S9")]
+    [Tooltip("Sem pretiahni objekt S9_AreaUnlock z Canvasu")]
+    [SerializeField] private GameObject s9Window;
+
+    [Header("Nastavenia budovy pre S9")]
+    [SerializeField] private string areaTitle = "The Luxury Pool";
+    [SerializeField] private Sprite areaPreview;
+    [SerializeField] private string demandAdded = "Relax Demand";
+    [SerializeField] private int unlockCost = 1200;
+    [SerializeField] private int requiredWave = 3;
+
     [Header("Zoznam dostupných budov (Prefaby)")]
-    [Tooltip("Sem presuň prefaby budov z priečinka Prefabs/buildings")]
     public List<GameObject> buildingPrefabs = new List<GameObject>();
 
     [Header("Hodnota rezortu")]
-    [Tooltip("O koľko stúpne hodnota rezortu po postavení budovy")]
     [SerializeField] private int resortValueGain = 100;
 
     [Header("Stav miesta")]
@@ -18,11 +28,15 @@ public class BuildingSpot : MonoBehaviour
     private WaveManager waveManager;
     private Renderer[] allRenderers;
     private Collider2D[] allColliders;
+    private AreaUnlockUI areaUnlockUI;
 
     private void Awake()
     {
         allRenderers = GetComponentsInChildren<Renderer>(true);
         allColliders = GetComponentsInChildren<Collider2D>(true);
+
+        if (s9Window != null)
+            areaUnlockUI = s9Window.GetComponent<AreaUnlockUI>();
     }
 
     private void Start()
@@ -44,13 +58,11 @@ public class BuildingSpot : MonoBehaviour
         }
     }
 
-    // Počas vlny sa nestavia (pravidlo WR6) -> skryjeme stavenisko
     private void OnWaveStarted(int waveNumber)
     {
         SetSpotActive(false);
     }
 
-    // Po skončení vlny sa neobsadené stavenisko opäť zobrazí
     private void OnWaveEnded(int waveNumber)
     {
         if (!isOccupied)
@@ -70,33 +82,98 @@ public class BuildingSpot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Ak beží vlna, nedovolíme stavať
+        OpenS9();
+    }
+
+    public void OpenS9()
+    {
         if (waveManager != null && waveManager.Session != null && waveManager.Session.State == WaveState.Running)
         {
             Debug.LogWarning("Počas bežiacej vlny sa nedá stavať!");
             return;
         }
 
-        BuildBuilding(0);
+        if (isOccupied) return;
+
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(OpenS9Routine());
+        }
+        else
+        {
+            DoOpenS9();
+        }
+    }
+
+    private IEnumerator OpenS9Routine()
+    {
+        yield return null;
+        DoOpenS9();
+    }
+
+    private void DoOpenS9()
+    {
+        if (s9Window != null)
+        {
+            if (areaUnlockUI == null)
+                areaUnlockUI = s9Window.GetComponent<AreaUnlockUI>();
+
+            if (areaUnlockUI != null)
+            {
+                int coins = ResourceManager.Instance != null ? ResourceManager.Instance.GetResource(ResourceType.Coins) : 0;
+                int activeWave = waveManager != null ? waveManager.EffectiveWaveNumber : 0;
+
+                bool isWaveEnded = waveManager != null && waveManager.Session != null && waveManager.Session.State == WaveState.Result;
+                bool isEligible = (activeWave > requiredWave) || (activeWave == requiredWave && isWaveEnded);
+
+                // Odovzdávame akciu HandleBuyAndBuild priamo do Setupu
+                areaUnlockUI.Setup(areaTitle, areaPreview, demandAdded, unlockCost, isOccupied, isEligible, coins, HandleBuyAndBuild);
+            }
+
+            ModalWindow modal = s9Window.GetComponent<ModalWindow>();
+            if (modal != null)
+                modal.Open();
+            else
+                s9Window.SetActive(true);
+
+            Debug.Log($"<color=green>[S9 OTVORENÉ]</color> Otvorené S9 pre {areaTitle}");
+        }
+        else
+        {
+            Debug.LogError("BuildingSpot nemá priradené s9Window!", this);
+        }
+    }
+
+    private void HandleBuyAndBuild()
+    {
+        if (isOccupied) return;
+
+        if (ResourceManager.Instance != null)
+        {
+            if (!ResourceManager.Instance.SpendResource(ResourceType.Coins, unlockCost))
+            {
+                Debug.LogWarning("Nemáš dosť mincí na odomknutie!");
+                return;
+            }
+        }
+
+        BuildFirstBuilding();
+
+        if (s9Window != null)
+        {
+            ModalWindow modal = s9Window.GetComponent<ModalWindow>();
+            if (modal != null) modal.Close();
+            else s9Window.SetActive(false);
+        }
     }
 
     public void BuildBuilding(int buildingIndex)
     {
-        if (isOccupied)
-        {
-            Debug.LogWarning("Toto miesto je už obsadené!");
-            return;
-        }
+        if (isOccupied) return;
 
-        if (buildingPrefabs == null || buildingPrefabs.Count == 0)
+        if (buildingPrefabs == null || buildingPrefabs.Count == 0 || buildingIndex >= buildingPrefabs.Count)
         {
-            Debug.LogError("V zozname Building Prefabs nie sú priradené žiadne prefaby!");
-            return;
-        }
-
-        if (buildingIndex < 0 || buildingIndex >= buildingPrefabs.Count)
-        {
-            Debug.LogError($"Index {buildingIndex} je mimo rozsahu!");
+            Debug.LogError("Chýba prefab budovy!", this);
             return;
         }
 
@@ -105,15 +182,14 @@ public class BuildingSpot : MonoBehaviour
         if (prefabToBuild != null)
         {
             spawnedBuilding = Instantiate(prefabToBuild, transform.position, Quaternion.identity);
+            builtPrefabIndex = buildingIndex;
             isOccupied = true;
 
             if (ResourceManager.Instance != null)
                 ResourceManager.Instance.AddResource(ResourceType.ResortValue, resortValueGain);
 
-            // Úplne deaktivujeme stavenisko po postavení
             gameObject.SetActive(false);
-
-            Debug.Log($"Budova '{prefabToBuild.name}' bola úspešne postavená.");
+            Debug.Log($"<color=green>[POSTAVENÉ]</color> {prefabToBuild.name} bola úspešne postavená!");
         }
     }
 

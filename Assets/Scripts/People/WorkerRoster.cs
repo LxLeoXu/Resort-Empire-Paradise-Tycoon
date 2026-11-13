@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class WorkerRoster : MonoBehaviour
+public sealed partial class WorkerRoster : MonoBehaviour
 {
     public const int MaxPerBuilding = 3;
 
