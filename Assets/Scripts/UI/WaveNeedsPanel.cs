@@ -56,8 +56,9 @@ public class WaveNeedsPanel : MonoBehaviour
     private bool waitingForClaim;
     private bool? buildingSpotsVisible;
 
-    private const int BottleneckThreshold = 4;
-    private const float BottleneckHysteresis = 3.0f;
+    [Header("Tuning Bottlenecku (Čas čakania)")]
+    public float warningWaitTimeThreshold = 3.0f;
+    public float warningDelay = 1.5f;
 
     private void Awake()
     {
@@ -172,33 +173,37 @@ public class WaveNeedsPanel : MonoBehaviour
             waveManager.Session.State != WaveState.Running)
             return;
 
+        BuildingService[] services = FindObjectsByType<BuildingService>(FindObjectsSortMode.None);
+
         foreach (var kvp in states)
         {
             NeedType type = kvp.Key;
             NeedState state = kvp.Value;
 
             NeedCardUI card = GetCard(type);
-
             if (card == null || !card.gameObject.activeSelf)
                 continue;
 
-            // Zachovavame kolegov skutocny pocet cakajucich.
-            int queue = waveManager.Session.GetQueueCount(type);
+            BuildingService service = null;
+            foreach (var s in services)
+            {
+                if (s.Need == type) { service = s; break; }
+            }
 
-            if (queue > BottleneckThreshold)
+            // Zistíme čas čakania najdlhšie čakajúceho hosťa
+            float maxWait = service != null ? service.MaxWaitTime : 0f;
+
+            // Ak hociaký hosť čaká 5 a viac sekúnd
+            if (maxWait >= warningWaitTimeThreshold)
             {
                 state.timeAboveThreshold += Time.deltaTime;
 
-                if (state.timeAboveThreshold >= BottleneckHysteresis &&
-                    !state.isWarningActive)
+                // Varovanie vyskočí až vtedy, keď tento stav trvá aspoň 2 sekundy (warningDelay)
+                if (state.timeAboveThreshold >= warningDelay && !state.isWarningActive)
                 {
                     state.isWarningActive = true;
-
                     string buildingName = GetBuildingDisplayName(type);
-
-                    card.SetWarning(
-                        true,
-                        $"{buildingName} Queue Growing");
+                    card.SetWarning(true, $"{buildingName} Waiting Too Long");
                 }
             }
             else

@@ -11,6 +11,7 @@ public sealed class GamePersistence : MonoBehaviour
     public static GamePersistence Instance { get; private set; }
     public static bool IsRestoring { get; private set; }
     public static bool IsPaused { get; private set; }
+    public static bool DisableSaving = false;
 #if UNITY_EDITOR
     public static string SaveDirectoryOverride;
 #endif
@@ -169,6 +170,11 @@ public sealed class GamePersistence : MonoBehaviour
 
     public bool SaveNow()
     {
+      if (DisableSaving) return false;
+
+#if UNITY_EDITOR || SAVE_RECOVERY_TEST
+      if (RecoveryTestArmed) return false;
+#endif
 #if UNITY_EDITOR || SAVE_RECOVERY_TEST
         if (RecoveryTestArmed) return false;
 #endif
@@ -328,4 +334,22 @@ public sealed class GamePersistence : MonoBehaviour
     }
     private static IEnumerable<IGameSaveParticipant> Participants() => FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include,
         FindObjectsSortMode.None).OfType<IGameSaveParticipant>();
+    
+    public static void DeleteSaveFiles()
+    {
+        try
+        {
+            string dir = Application.persistentDataPath;
+            string[] files = System.IO.Directory.GetFiles(dir, "*save*");
+            foreach (var f in files)
+            {
+                System.IO.File.Delete(f);
+            }
+            Debug.Log("<color=yellow>[SAVE]</color> Všetky save súbory boli úspešne zmazané.");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Chyba pri mazaní save súborov: " + e.Message);
+        }
+    }
 }

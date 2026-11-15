@@ -14,8 +14,9 @@ public sealed partial class BuildingService : MonoBehaviour
     [Header("Obsluha")]
     [Tooltip("Ako dlho trvá obsluha jedného hosťa s pracovníkom (sekundy). Číslo na ladenie.")]
     [Min(0.1f)] [SerializeField] private float serviceDuration = 4f;
+
     [Tooltip("Rýchlosť budovy bez pracovníka voči normálnej (asi tretina). Nikdy 0.")]
-    [Range(0.05f, 1f)] [SerializeField] private float noWorkerSpeed = 1f / 3f;
+    [Range(0.05f, 1f)] [SerializeField] private float noWorkerSpeed = 0.33f;
 
     [Header("Pracovník")]
     [Tooltip("Rýchlosť podľa počtu pracovníkov: 1 = 1x, 2 = 1,5x, 3 = 2x (0 = noWorkerSpeed).")]
@@ -45,6 +46,7 @@ public sealed partial class BuildingService : MonoBehaviour
     private GuestPlaces places;
     private Seat[] seats = Array.Empty<Seat>();
     private readonly Queue<(WaveNeed need, float queuedAt)> queue = new();
+    public float MaxWaitTime => queue.Count > 0 ? (Time.time - queue.Peek().queuedAt) : 0f;
     private readonly Queue<WaveNeed> approaching = new();
     private int workers;
     private SpeedBoostEffect speedBoost;

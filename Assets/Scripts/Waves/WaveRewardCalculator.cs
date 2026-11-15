@@ -29,7 +29,7 @@ public static class WaveRewardCalculator
 
         int stars = GetStarRating(satisfaction);
 
-        const int coinsPerGuest = 10;
+        const int coinsPerGuest = 16;
 
         // Pri 1 hviezdicke je nasobok 0.4
         // Pri ostatnych ponechame povodny vypocet.
