@@ -199,6 +199,21 @@ public sealed partial class WaveSession
 
     public bool JoinQueue(int id) => State == WaveState.Running && inTransit.Remove(id);
 
+    /// <summary>SCRUM-22: sudden rush. `count` extra needs of one type arrive right now, on top of the schedule.
+    /// They are inserted into the schedule so saving, S2 totals and the wave end all stay consistent.</summary>
+    public int EmitRush(NeedType type, int count)
+    {
+        if (State != WaveState.Running || ArrivalsEnded || count <= 0 || type == NeedType.None) return 0;
+        for (int i = 0; i < count; i++)
+        {
+            arrivals.Insert(EmittedCount, type);
+            var need = new WaveNeed(++nextId, WaveNumber, arrivals[EmittedCount++], Elapsed);
+            pending.Add(need.Id, need);
+            NeedArrived?.Invoke(need);
+        }
+        return count;
+    }
+
     public int GetQueueCount(NeedType type)
     {
         int count = 0;
