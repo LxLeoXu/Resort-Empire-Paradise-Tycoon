@@ -162,6 +162,7 @@ public sealed class GameState
     public string id, spotId; public int prefabIndex, level; public NeedType need;
     public List<QueueSave> queue = new(); public List<int> approaching = new(); public List<SeatSave> seats = new();
     public BoostSave boost;
+    public bool boostUsed;
 }
 [Serializable] public sealed class WorkerSave { public string name, buildingId; public int stars; }
 [Serializable] public sealed class WaveSave

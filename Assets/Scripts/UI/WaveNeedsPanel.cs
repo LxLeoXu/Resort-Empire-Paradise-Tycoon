@@ -247,6 +247,11 @@ public class WaveNeedsPanel : MonoBehaviour
             entry.Value.servedCount = session.GetServedCount(entry.Key);
             entry.Value.arrivedCount = entry.Value.servedCount;
             foreach (var need in session.PendingNeeds) if (need.Type == entry.Key) entry.Value.arrivedCount++;
+            if (entry.Value.arrivedCount > entry.Value.totalNeeded)
+            {
+                totalWaveNeeds += entry.Value.arrivedCount - entry.Value.totalNeeded;
+                entry.Value.totalNeeded = entry.Value.arrivedCount;
+            }
             GetCard(entry.Key)?.UpdateProgress(entry.Value.servedCount, entry.Value.totalNeeded);
         }
         UpdateGuestsBadge();
@@ -402,6 +407,14 @@ public class WaveNeedsPanel : MonoBehaviour
         if (states.TryGetValue(need.Type, out var state))
         {
             state.arrivedCount++;
+
+            // SCRUM-22: a sudden rush brings more guests than the wave table says.
+            if (state.arrivedCount > state.totalNeeded)
+            {
+                totalWaveNeeds += state.arrivedCount - state.totalNeeded;
+                state.totalNeeded = state.arrivedCount;
+                UpdateGuestsBadge();
+            }
 
             NeedCardUI card = GetCard(need.Type);
 
@@ -579,10 +592,6 @@ public class WaveNeedsPanel : MonoBehaviour
             }
         }
     }
-
-    // =====================================
-    // TESTOVANIE
-    // =====================================
 
     [ContextMenu("Test Simulate Serving 1 Food")]
     public void TestServeFood()
