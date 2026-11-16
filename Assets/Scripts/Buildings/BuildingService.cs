@@ -23,6 +23,13 @@ public sealed partial class BuildingService : MonoBehaviour
     [Tooltip("Voliteľné: objekt pracovníka. Skryje sa, keď budova pracovníka nemá.")]
     [SerializeField] private GameObject workerVisual;
 
+    [Header("Zrýchlenie (energia)")]
+    [Tooltip("Násobok rýchlosti počas zrýchlenia.")]
+    [SerializeField] private float boostMultiplier = 2f;
+    [Tooltip("Ako dlho zrýchlenie trvá (sekundy).")]
+    [SerializeField] private float boostDuration = 15f;
+    public const int BoostEnergyCost = 3;
+
     [Header("Prístup hostí")]
     [Tooltip("Body od radu po vstup do budovy, napríklad schody. Pri návrate ich hosť prejde opačne.")]
     [SerializeField] private Transform[] serviceApproach = Array.Empty<Transform>();
@@ -40,6 +47,8 @@ public sealed partial class BuildingService : MonoBehaviour
     private readonly Queue<(WaveNeed need, float queuedAt)> queue = new();
     private readonly Queue<WaveNeed> approaching = new();
     private int workers;
+    private SpeedBoostEffect speedBoost;
+    private bool boostUsedThisWave;
 
     public NeedType Need => info != null ? info.offeredNeed : NeedType.None;
     public int Seats => places != null ? places.Count : 0;
@@ -47,8 +56,33 @@ public sealed partial class BuildingService : MonoBehaviour
     public int ApproachingCount => approaching.Count;
     public int Workers => workers;
     public bool HasWorker => workers > 0;
-    public float Speed => Mathf.Max(0.05f, workers <= 0 || speedByWorkers == null || speedByWorkers.Length == 0
-        ? noWorkerSpeed : speedByWorkers[Mathf.Min(workers, speedByWorkers.Length) - 1]);
+    public bool IsBoosted => speedBoost != null && speedBoost.IsPlaying;
+    public bool BoostUsedThisWave => boostUsedThisWave;
+    // Energy is checked in TryBoost, so the Speed Up button stays visible even with < 3 energy.
+    public bool CanBoost => speedBoost != null && info != null && info.isBuilt && !boostUsedThisWave
+        && session != null && session.State == WaveState.Running;
+
+    /// <summary>SCRUM-87: spends 3 energy, the building serves 2x faster for boostDuration. Once per building per wave.
+    /// False = nothing happened and nothing was spent.</summary>
+    public bool TryBoost()
+    {
+        if (!CanBoost) return false;
+        var resources = ResourceManager.Instance;
+        if (resources == null || !resources.SpendResource(ResourceType.Energy, BoostEnergyCost)) return false;
+        boostUsedThisWave = true;
+        speedBoost.Play(boostDuration);
+        Changed?.Invoke();
+        return true;
+    }
+    public float Speed
+    {
+        get
+        {
+            float baseSpeed = workers <= 0 || speedByWorkers == null || speedByWorkers.Length == 0
+                ? noWorkerSpeed : speedByWorkers[Mathf.Min(workers, speedByWorkers.Length) - 1];
+            return Mathf.Max(0.05f, baseSpeed * (IsBoosted ? boostMultiplier : 1f));
+        }
+    }
     public Vector3 SeatPosition(int index) => places.GetPosition(index);
     public IEnumerable<WaveNeed> QueuedNeeds
     {
@@ -101,6 +135,7 @@ public sealed partial class BuildingService : MonoBehaviour
     {
         info = GetComponentInChildren<BuildingInfo>(true);
         places = GetComponentInChildren<GuestPlaces>(true);
+        speedBoost = GetComponent<SpeedBoostEffect>();
         if (info == null || places == null)
         {
             Debug.LogError("BuildingService: BuildingInfo or GuestPlaces missing on this building.", this);
@@ -164,6 +199,8 @@ public sealed partial class BuildingService : MonoBehaviour
 
     private void OnWaveStarted(int wave)
     {
+        boostUsedThisWave = false;
+        if (speedBoost != null) speedBoost.Stop();
         queue.Clear();
         approaching.Clear();
         foreach (var s in seats) { s.Occupied = false; s.Progress = 0f; }

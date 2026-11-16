@@ -27,8 +27,19 @@ public class NeedCardUI : MonoBehaviour
     [SerializeField] private Color normalColor = Color.black;
     [SerializeField] private Color bottleneckColor = new Color(0.9f, 0.2f, 0.2f);
 
+    [Header("Speed Up")]
+    [Tooltip("Tlačidlo Speed Up ⚡3. Ukáže sa len pri preťaženej budove, ktorá ešte nemala zrýchlenie v tejto vlne.")]
+    [SerializeField] private Button speedUpButton;
+    [Tooltip("Hláška pri < 3 energiách (nesmie byť dieťaťom tlačidla). Vypína sa sama.")]
+    [SerializeField] private TextMeshProUGUI speedUpHint;
+    [SerializeField] private string speedUpHintMessage = "Not enough energy.";
+    [SerializeField] private float speedUpHintSeconds = 2.5f;
+
     private Button cardButton;
     private LayoutElement layoutElement;
+    private BuildingService service;
+    private bool warning;
+    private float hintUntil;
 
     private void Awake()
     {
@@ -40,11 +51,64 @@ public class NeedCardUI : MonoBehaviour
 
         layoutElement = GetComponent<LayoutElement>();
         SetCardHeight(normalHeight);
+
+        if (speedUpButton != null)
+        {
+            speedUpButton.onClick.AddListener(OnSpeedUpClicked);
+            speedUpButton.gameObject.SetActive(false);
+        }
+        if (speedUpHint != null)
+        {
+            speedUpHint.text = speedUpHintMessage;
+            speedUpHint.gameObject.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (speedUpButton != null)
+        {
+            BuildingService s = warning ? FindService() : null;
+            bool show = s != null && s.CanBoost;
+            if (speedUpButton.gameObject.activeSelf != show) speedUpButton.gameObject.SetActive(show);
+        }
+        if (speedUpHint != null)
+        {
+            bool showHint = Time.unscaledTime < hintUntil;
+            if (speedUpHint.gameObject.activeSelf != showHint) speedUpHint.gameObject.SetActive(showHint);
+        }
+    }
+
+    private BuildingService FindService()
+    {
+        if (service != null) return service;
+        foreach (BuildingService s in FindObjectsByType<BuildingService>(FindObjectsSortMode.None))
+        {
+            if (s.Need != needType) continue;
+            service = s;
+            break;
+        }
+        return service;
+    }
+
+    private void OnSpeedUpClicked()
+    {
+        BuildingService s = FindService();
+        if (s == null || !s.CanBoost) return;
+
+        ResourceManager resources = ResourceManager.Instance;
+        if (resources == null || !resources.HasEnough(ResourceType.Energy, BuildingService.BoostEnergyCost))
+        {
+            hintUntil = Time.unscaledTime + speedUpHintSeconds;   // tap costs nothing, just explains where energy comes from
+            return;
+        }
+        s.TryBoost();
     }
 
     public void Setup(NeedType type, string displayName, Sprite icon)
     {
         needType = type;
+        service = null;
         if (titleText != null) titleText.text = displayName;
         if (iconImage != null && icon != null) iconImage.sprite = icon;
 
@@ -69,6 +133,8 @@ public class NeedCardUI : MonoBehaviour
 
     public void SetWarning(bool isBottleneck, string message = "")
     {
+        warning = isBottleneck;
+
         if (warningBox != null)
             warningBox.SetActive(isBottleneck);
 

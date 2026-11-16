@@ -104,6 +104,7 @@ public sealed partial class BuildingService
             if (seats[i].Occupied) data.seats.Add(new SeatSave { index = i, id = seats[i].Need.Id, progress = seats[i].Progress });
         var boost = GetComponent<SpeedBoostEffect>();
         if (boost != null) data.boost = boost.CaptureState();
+        data.boostUsed = boostUsedThisWave;
         return data;
     }
     public void RestoreState(BuildingSave data)
@@ -125,6 +126,7 @@ public sealed partial class BuildingService
             if (saved.index >= Seats || !session.TryGetNeed(saved.id, out var need)) throw new InvalidOperationException("Saved seat is unavailable.");
             seats[saved.index].Occupied = true; seats[saved.index].Need = need; seats[saved.index].Progress = saved.progress;
         }
+        boostUsedThisWave = data.boostUsed;
         if (data.boost != null) GetComponent<SpeedBoostEffect>()?.RestoreState(data.boost);
         Changed?.Invoke();
     }
