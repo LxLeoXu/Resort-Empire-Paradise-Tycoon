@@ -861,6 +861,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6549049494974580185}
   - component: {fileID: 6523084956983660687}
+  - component: {fileID: 4924908141082671162}
   m_Layer: 0
   m_Name: SelectionArea
   m_TagString: Untagged
@@ -929,6 +930,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.793333, y: 3.3999999}
   m_EdgeRadius: 0
+--- !u!114 &4924908141082671162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733388058062008330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12c35c5741dff8438adab37f2a34279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingClickHandler
 --- !u!1 &776428810279928145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,6 +2136,8 @@ MonoBehaviour:
   - 1.5
   - 2
   workerVisual: {fileID: 0}
+  boostMultiplier: 2
+  boostDuration: 15
   serviceApproach:
   - {fileID: 8017636032329967902}
   - {fileID: 2160045969173553765}

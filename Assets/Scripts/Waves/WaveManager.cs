@@ -21,6 +21,8 @@ public sealed partial class WaveManager : MonoBehaviour
 
     [Tooltip("TEST KRITÉRIA: Zaškrtni, ak testuješ neskorú kúpu bazéna (Relax debutuje až v tejto testovanej vlne).")]
     [SerializeField] private bool testLatePoolDebut = false;
+    [Header("Dynamické škálovanie (Tuning)")]
+    public float waveScaleMultiplier = 1.0f;
 
     // Sledovanie debutov
     private bool hasRelaxDebuted = false;
@@ -90,7 +92,21 @@ public sealed partial class WaveManager : MonoBehaviour
         HashSet<NeedType> availableNeeds = GetBuiltBuildingNeeds();
 
         WaveDefinition waveToRun = CalculateAdaptedWave(waveIndex, availableNeeds, logDetails: true);
+
+        // Automatický násobič: 1. a 2. vlna 1.5x, každá ďalšia +0.25x (vynásobený prípadným tuningom)
+        float currentMult = GetWaveMultiplier(waveIndex + 1) * waveScaleMultiplier;
+
+        int sGuests = Mathf.Max(1, Mathf.RoundToInt(waveToRun.guests * currentMult));
+        int sRooms = waveToRun.rooms > 0 ? Mathf.Max(1, Mathf.RoundToInt(waveToRun.rooms * currentMult)) : 0;
+        int sDrinks = waveToRun.drinks > 0 ? Mathf.Max(1, Mathf.RoundToInt(waveToRun.drinks * currentMult)) : 0;
+        int sFood = waveToRun.food > 0 ? Mathf.Max(1, Mathf.RoundToInt(waveToRun.food * currentMult)) : 0;
+        int sRelax = waveToRun.relax > 0 ? Mathf.Max(1, Mathf.RoundToInt(waveToRun.relax * currentMult)) : 0;
+        int sOcean = waveToRun.oceanView > 0 ? Mathf.Max(1, Mathf.RoundToInt(waveToRun.oceanView * currentMult)) : 0;
+
+        waveToRun = new WaveDefinition(sGuests, sRooms, sDrinks, sFood, sRelax, sOcean);
         lastExecutedWave = waveToRun;
+
+        Debug.Log($"<color=cyan>[ŠTART VLNY {waveIndex + 1}]</color> Násobič vlny: {currentMult:0.00}× | Hostia: {waveToRun.guests} | Izby: {waveToRun.rooms}, Drinky: {waveToRun.drinks}, Jedlo: {waveToRun.food}");
 
         Session.StartWave(arrivalDuration, availableNeeds, waveToRun);
     }
@@ -258,5 +274,13 @@ public sealed partial class WaveManager : MonoBehaviour
     private void OnDestroy()
     {
         if (Session != null) Session.WaveEnded -= OnWaveFinishedInternal;
+    }
+    /// <summary>
+    /// Vráti násobič vlny: 1. a 2. vlna = 1.5x, každá ďalšia +0.25x
+    /// </summary>
+    public float GetWaveMultiplier(int waveNum)
+    {
+        if (waveNum <= 2) return 1.50f;
+        return 1.50f + (waveNum - 2) * 0.25f;
     }
 }

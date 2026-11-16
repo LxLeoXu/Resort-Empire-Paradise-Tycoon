@@ -50,7 +50,8 @@ public static class WaveRewardCalculator
 
         int stars = GetStarRating(satisfaction);
 
-        const int coinsPerGuest = 10;
+        // Tvoja hodnota 16 mincí za hosťa
+        const int coinsPerGuest = 16;
 
         // Povodny vypocet Coins
         float coinMultiplier = stars == 1
