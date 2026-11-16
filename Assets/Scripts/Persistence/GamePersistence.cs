@@ -187,9 +187,11 @@ public sealed class GamePersistence : MonoBehaviour
 
     public IEnumerator RestoreState(GameState data)
     {
-        if (data == null || !data.IsProgressValid()) { LastError = "Invalid save progress."; yield break; }
-        // Clone before migrating v1 so callers and the original archived data remain unchanged.
+        if (data == null) { LastError = "Invalid save progress."; yield break; }
+        // Clone before migrations so callers and the original saved data remain unchanged.
         data = JsonUtility.FromJson<GameState>(JsonUtility.ToJson(data));
+        data.MigrateLegacyResources();
+        if (!data.IsProgressValid()) { LastError = "Invalid save progress."; yield break; }
         var spots = FindObjectsByType<BuildingSpot>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         var buildings = FindObjectsByType<BuildingService>(FindObjectsSortMode.None)
             .ToDictionary(b => b.GetComponentInChildren<BuildingInfo>(true).SaveKey);
@@ -271,7 +273,8 @@ public sealed class GamePersistence : MonoBehaviour
                 manager.Guests?.RestoreState(new GuestPresentationSave { docked = true });
                 satisfaction?.RestoreState(new GameState());
                 if (claim != null) claim.RestoreState(data.wave.state == WaveState.Running ? new RewardSave { waveId = data.wave.number - 1 } :
-                    (data.reward != null && data.reward.rewards != null && data.reward.rewards.coins >= 0 && data.reward.rewards.energy >= 0 && data.reward.rewards.resortValue >= 0 ? data.reward : new RewardSave()));
+                    (data.reward != null && data.reward.IsValid() ? data.reward :
+                        new RewardSave { waveId = data.wave.number, claimed = true }));
                 if (data.wave.state == WaveState.Running)
                 {
                     manager.RestartSavedWave(data.wave);
@@ -290,9 +293,14 @@ public sealed class GamePersistence : MonoBehaviour
             }
             manager.Session.NotifyStateRestored();
             if (manager.Session.State == WaveState.Result && claim != null && claim.HasPendingReward)
+            {
+                var connector = FindFirstObjectByType<WaveS4Connector>(FindObjectsInactive.Include);
+                WaveS4Connector.BuildFeedback(manager.Session, connector != null ? connector.QueueDelayThresholdSeconds : 8f,
+                    out string positiveFeedback, out string negativeFeedback);
                 FindFirstObjectByType<S4FigmaResultsUI>(FindObjectsInactive.Include)?.ShowWaveResults(manager.Session.WaveNumber,
                     manager.Session.ServedCount, manager.Session.EmittedCount, satisfaction != null ? satisfaction.CurrentPercent : 100,
-                    restoreExistingReward: true);
+                    positiveFeedback: positiveFeedback, negativeFeedback: negativeFeedback, restoreExistingReward: true);
+            }
             resumeScale = !float.IsNaN(data.timeScale) && !float.IsInfinity(data.timeScale) && data.timeScale >= 0 ? data.timeScale : 1f;
             LastError = null;
             restored = true;

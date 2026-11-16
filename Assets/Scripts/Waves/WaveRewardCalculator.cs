@@ -1,9 +1,8 @@
-
 using UnityEngine;
 
 public static class WaveRewardCalculator
 {
-    // SCRUM-306: Minimalne 1 hviezdicka
+    // Minimalne 1 hviezdicka
     public static int GetStarRating(int satisfactionPercent)
     {
         int satisfaction = Mathf.Clamp(
@@ -17,7 +16,29 @@ public static class WaveRewardCalculator
         return 1;
     }
 
-    // SCRUM-307: Minimalna odmena pri 1 hviezdicke
+    // SCRUM-438: Materialy za 4 a 5 hviezdiciek
+    public static int CalculateMaterials(int satisfactionPercent)
+    {
+        int satisfaction = Mathf.Clamp(
+            satisfactionPercent, 0, 100);
+
+        int stars = GetStarRating(satisfaction);
+
+        // Za 1 az 3 hviezdicky ziadne materialy
+        if (stars < 4)
+            return 0;
+
+        // 5 hviezdiciek
+        if (stars == 5)
+            return 3;
+
+        // 4 hviezdicky
+        if (satisfaction >= 85)
+            return 2;
+
+        return 1;
+    }
+
     public static WaveRewardsData CalculateRewards(
         int servedGuests,
         int satisfactionPercent)
@@ -31,8 +52,7 @@ public static class WaveRewardCalculator
 
         const int coinsPerGuest = 10;
 
-        // Pri 1 hviezdicke je nasobok 0.4
-        // Pri ostatnych ponechame povodny vypocet.
+        // Povodny vypocet Coins
         float coinMultiplier = stars == 1
             ? 0.4f
             : satisfaction / 100f;
@@ -40,18 +60,22 @@ public static class WaveRewardCalculator
         int coins = Mathf.RoundToInt(
             guests * coinsPerGuest * coinMultiplier);
 
-        // Povodny vypocet energie
+        // Povodny vypocet Energy
         int energy = Mathf.Clamp(
             Mathf.RoundToInt(satisfaction / 20f),
             0, 5);
 
-        // Povodny vypocet hodnoty rezortu
+        // Povodny vypocet Resort Value
         int resortValue = Mathf.RoundToInt(
             guests * 1.25f);
+
+        // SCRUM-438: Materialy
+        int materials = CalculateMaterials(satisfaction);
 
         return new WaveRewardsData(
             coins,
             energy,
-            resortValue);
+            resortValue,
+            materials);
     }
 }

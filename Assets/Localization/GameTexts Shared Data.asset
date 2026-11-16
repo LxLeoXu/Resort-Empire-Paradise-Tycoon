@@ -67,6 +67,22 @@ MonoBehaviour:
     m_Key: s9_btn_already_built
     m_Metadata:
       m_Items: []
+  - m_Id: 8884259719741440
+    m_Key: WaveFeedback_Positive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8884266468376576
+    m_Key: WaveFeedback_Improvement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8884269475692544
+    m_Key: WaveFeedback_Smooth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8884271480569856
+    m_Key: WaveFeedback_NoData
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

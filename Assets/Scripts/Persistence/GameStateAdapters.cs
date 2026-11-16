@@ -11,17 +11,22 @@ public sealed partial class WaveSession
     public WaveSave CaptureState()
     {
         var data = new WaveSave { state = State, number = WaveNumber, nextId = nextId, emitted = EmittedCount,
-            served = ServedCount, duration = ArrivalDuration, elapsed = Elapsed, arrivalsEnded = ArrivalsEnded,
+            served = ServedCount, vipServed = VipServedCount, vipEveryNthGuest = VipEveryNthGuest, hasVipState = true,
+            duration = ArrivalDuration, elapsed = Elapsed, arrivalsEnded = ArrivalsEnded,
             holdArrivals = HoldArrivalsOpen, guestReturnPending = guestReturnPending, definition = CurrentWave,
             arrivals = new List<NeedType>(arrivals), inService = new List<int>(inService), inTransit = new List<int>(inTransit) };
         foreach (var need in pending.Values) data.pending.Add(new NeedSave(need));
         foreach (var entry in servedByType) data.servedByType.Add(new CountSave { type = entry.Key, count = entry.Value });
+        // SCRUM-395: Ulozenie statistik cakania
+data.queueWaits = CaptureQueueWaitStatistics();
         return data;
     }
     public void RestoreState(WaveSave data)
     {
         if (data.number > catalog.Count) throw new InvalidOperationException("Saved wave is not in the catalog.");
         State = data.state; WaveNumber = data.number; nextId = data.nextId; EmittedCount = data.emitted;
+        VipServedCount = data.vipServed;
+        VipEveryNthGuest = data.hasVipState ? data.vipEveryNthGuest : 5;
         ServedCount = data.served; ArrivalDuration = data.duration; Elapsed = data.elapsed; ArrivalsEnded = data.arrivalsEnded;
         HoldArrivalsOpen = data.holdArrivals; guestReturnPending = data.guestReturnPending; CurrentWave = data.definition;
         arrivals.Clear(); arrivals.AddRange(data.arrivals);
@@ -30,6 +35,7 @@ public sealed partial class WaveSession
         inTransit.Clear(); foreach (int id in data.inTransit) inTransit.Add(id);
         servedByType.Clear(); foreach (var count in data.servedByType) servedByType.Add(count.type, count.count);
         endingArrivals = false;
+        RestoreQueueWaitStatistics(data.queueWaits);
     }
     public void NotifyStateRestored() { StateChanged?.Invoke(); StateRestored?.Invoke(); }
 }
@@ -212,7 +218,8 @@ public sealed partial class GuestWavePresentation
         foreach (var saved in data.guests)
         {
             var instance = Instantiate(guestPrefab, saved.position, Quaternion.identity, visualRoot);
-            instance.name = $"Guest_{saved.id}_{saved.need}";
+            bool isVip = session != null && session.TryGetNeed(saved.id, out var need) && need.IsVip;
+            instance.name = isVip ? $"VIP_Guest_{saved.id}_{saved.need}" : $"Guest_{saved.id}_{saved.need}";
             var guest = instance.GetComponent<GuestAgent>(); guest.RestoreState(saved);
             guests.Add(saved.id, guest); guestTypes.Add(saved.id, saved.need);
         }
@@ -237,6 +244,8 @@ public partial class ClaimRewards
     public RewardSave CaptureState() => new() { prepared = rewardPrepared, claimed = claimed, waveId = lastWaveId, rewards = pendingRewards };
     public void RestoreState(RewardSave data)
     {
+        if (data == null || !data.IsValid())
+            throw new InvalidOperationException("Invalid saved reward.");
         pendingRewards = data.rewards; rewardPrepared = data.prepared; claimed = data.claimed; lastWaveId = data.waveId; RefreshButton();
     }
 }

@@ -11,12 +11,21 @@ public readonly struct WaveNeed
     public NeedType Type { get; }
     public double ArrivalTime { get; }
 
-    public WaveNeed(int id, int waveNumber, NeedType type, double arrivalTime)
+    // SCRUM-474: VIP host
+    public bool IsVip { get; }
+
+    public WaveNeed(
+        int id,
+        int waveNumber,
+        NeedType type,
+        double arrivalTime,
+        bool isVip = false)
     {
         Id = id;
         WaveNumber = waveNumber;
         Type = type;
         ArrivalTime = arrivalTime;
+        IsVip = isVip;
     }
 }
 
@@ -46,12 +55,19 @@ public sealed partial class WaveSession
     public int InTransitCount => inTransit.Count;
     public int InServiceCount => inService.Count;
     public int ServedCount { get; private set; }
+    // SCRUM-474: Pocet uspesne obsluzenych VIP hosti
+public int VipServedCount { get; private set; }
+
+    // Docasne pravidlo pre testovanie: kazdy piaty host je VIP
+    public int VipEveryNthGuest { get; set; } = 5;
     public int ScheduledCount => arrivals.Count;
     public bool HoldArrivalsOpen { get; set; }
     public IEnumerable<WaveNeed> PendingNeeds => pending.Values;
     public WaveDefinition CurrentWave { get; private set; }
 
     public event Action<WaveNeed> NeedServed;
+    // SCRUM-474: Uspesne obsluzenie VIP potreby
+    public event Action<WaveNeed> VipNeedServed;
     public event Action StateChanged;
     public event Action<int> WaveStarted;
     public event Action<WaveNeed> NeedArrived;
@@ -98,6 +114,8 @@ public sealed partial class WaveSession
         inService.Clear();
         inTransit.Clear();
         ServedCount = 0;
+        ResetQueueWaitStatistics();
+        VipServedCount = 0;
         servedByType.Clear();
         guestReturnPending = false;
         State = WaveState.Running;
@@ -174,9 +192,22 @@ public sealed partial class WaveSession
         {
             double due = (EmittedCount + 0.5) * ArrivalDuration / arrivals.Count;
             if (due > Elapsed) break;
-            var need = new WaveNeed(++nextId, WaveNumber, arrivals[EmittedCount++], due);
-            pending.Add(need.Id, need);
-            NeedArrived?.Invoke(need);
+// SCRUM-474: VIP identifikacia pri prichode hosta
+int arrivalIndex = EmittedCount++;
+
+bool isVip = VipEveryNthGuest > 0 &&
+    (arrivalIndex + 1) % VipEveryNthGuest == 0;
+
+var need = new WaveNeed(
+    ++nextId,
+    WaveNumber,
+    arrivals[arrivalIndex],
+    due,
+    isVip
+);
+
+pending.Add(need.Id, need);
+NeedArrived?.Invoke(need);
         }
 
         if (Elapsed >= ArrivalDuration && !HoldArrivalsOpen)
@@ -222,23 +253,47 @@ public sealed partial class WaveSession
         return count;
     }
 
-    public bool ResolveNeed(int id)
+public bool ResolveNeed(int id)
+{
+    if (State == WaveState.Running && inService.Remove(id))
     {
-        if (State == WaveState.Running && inService.Remove(id))
+        if (pending.TryGetValue(id, out var need))
         {
-            if (pending.TryGetValue(id, out var need))
+            pending.Remove(id);
+
+            ServedCount++;
+
+            servedByType.TryGetValue(
+                need.Type,
+                out int served
+            );
+
+            servedByType[need.Type] = served + 1;
+
+            // Povodna udalost obsluhy
+            NeedServed?.Invoke(need);
+
+            // SCRUM-474: VIP odmena
+            if (need.IsVip)
             {
-                pending.Remove(id);
-                ServedCount++;
-                servedByType.TryGetValue(need.Type, out int served);
-                servedByType[need.Type] = served + 1;
-                NeedServed?.Invoke(need);
-                TryFinishWave();
-                return true;
+                VipServedCount++;
+
+                Debug.Log(
+                    $"[VIP] Host {need.Id} obsluzeny. " +
+                    $"VIP odmeny v tejto vlne: {VipServedCount}"
+                );
+
+                // Ak si uz pridal udalost VipNeedServed,
+                // ponechaj jej vyvolanie tu.
             }
+
+            TryFinishWave();
+            return true;
         }
-        return false;
     }
+
+    return false;
+}
 
     public void SetGuestReturnPending(bool value)
     {

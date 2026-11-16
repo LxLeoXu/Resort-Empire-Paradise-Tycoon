@@ -251,10 +251,15 @@ public sealed partial class BuildingService : MonoBehaviour
             seats[free].Occupied = true;
             seats[free].Need = need;
             seats[free].Progress = 0f;
-            float waited = Time.time - queuedAt;
-            Log($"{name}: need {need.Id} seated on {free + 1}, waited {waited:0.0}s");
-            Seated?.Invoke(need, free, waited);
-            Changed?.Invoke();
+float waited = Time.time - queuedAt;
+
+// SCRUM-395: Zaznamenanie cakania hosta.
+session.RecordQueueWait(need.Type, waited);
+
+Log($"{name}: need {need.Id} seated on {free + 1}, waited {waited:0.0}s");
+
+Seated?.Invoke(need, free, waited);
+Changed?.Invoke();
         }
     }
 

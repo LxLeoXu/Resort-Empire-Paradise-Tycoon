@@ -134,18 +134,37 @@ public sealed partial class GuestWavePresentation : MonoBehaviour
         }
     }
 
-    private void OnNeedArrived(WaveNeed need)
-    {
-        // Tick can emit the final need and try ending arrivals in the same frame.
-        session.HoldArrivalsOpen = true;
-        var instance = Instantiate(guestPrefab, boatDock.position, Quaternion.identity, visualRoot);
-        instance.name = $"Guest_{need.Id}_{need.Type}";
-        var guest = instance.GetComponent<GuestAgent>();
-        guest.Disembark(guestExit.position, pierEntrance.position,
-            islandPaths != null ? islandPaths.GetRoute(need.Type) : null);
-        guests.Add(need.Id, guest);
-        guestTypes.Add(need.Id, need.Type);
-    }
+private void OnNeedArrived(WaveNeed need)
+{
+    // Tick moze vytvorit posledneho hosta
+    // a ukoncit prichody v rovnakom frame.
+    session.HoldArrivalsOpen = true;
+
+    var instance = Instantiate(
+        guestPrefab,
+        boatDock.position,
+        Quaternion.identity,
+        visualRoot
+    );
+
+    // SCRUM-474: Rozlisenie VIP hosti
+    instance.name = need.IsVip
+        ? $"VIP_Guest_{need.Id}_{need.Type}"
+        : $"Guest_{need.Id}_{need.Type}";
+
+    var guest = instance.GetComponent<GuestAgent>();
+
+    guest.Disembark(
+        guestExit.position,
+        pierEntrance.position,
+        islandPaths != null
+            ? islandPaths.GetRoute(need.Type)
+            : null
+    );
+
+    guests.Add(need.Id, guest);
+    guestTypes.Add(need.Id, need.Type);
+}
 
     private void OnSeated(WaveNeed need, int seat, float waited)
     {

@@ -72,6 +72,22 @@ MonoBehaviour:
     m_Localized: ALREADY BUILT
     m_Metadata:
       m_Items: []
+  - m_Id: 8884259719741440
+    m_Localized: '{0} went great!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8884266468376576
+    m_Localized: '{0} capacity needs improvement'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8884269475692544
+    m_Localized: Everything ran smoothly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8884271480569856
+    m_Localized: Not enough data yet
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

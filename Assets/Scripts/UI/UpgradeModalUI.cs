@@ -20,9 +20,10 @@ public class UpgradeModalUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI qualityBefore;
     [SerializeField] private TextMeshProUGUI qualityAfter;
 
-    [Header("Resources")]
-    [SerializeField] private TextMeshProUGUI costText;
-    [SerializeField] private TextMeshProUGUI resortValueText;
+[Header("Resources")]
+[SerializeField] private TextMeshProUGUI costText;
+[SerializeField] private TextMeshProUGUI resortValueText;
+[SerializeField] private TextMeshProUGUI missingCoinsText;
 
     [Header("Buttons")]
     [SerializeField] private Button upgradeButton;
@@ -33,6 +34,8 @@ public class UpgradeModalUI : MonoBehaviour
     [SerializeField] private BuildingSpot poolSpot;
     [SerializeField] private BuildingSpot bungalowsSpot;
 
+    private bool purchaseInProgress, purchaseCompleted;
+    private ResourceManager observedResources;
     private ModalWindow modalWindow;
     private BuildingInfo targetBuilding;
     private BuildingSpot spotToOpenAfterClose = null;
@@ -68,8 +71,23 @@ public class UpgradeModalUI : MonoBehaviour
     /// <summary>
     /// Spustí sa VŽDY, keď sa S5 zatvorí (Upgrade, Later, alebo klik mimo okna)
     /// </summary>
+    private void OnEnable()
+    {
+        observedResources = ResourceManager.Instance;
+        if (observedResources != null) observedResources.OnResourceChanged += OnCoinsChanged;
+        RefreshAffordability();
+    }
+
+    private void OnCoinsChanged(ResourceType type, int amount)
+    {
+        if (type == ResourceType.Coins) RefreshAffordability();
+    }
+
     private void OnDisable()
     {
+        if (observedResources != null) observedResources.OnResourceChanged -= OnCoinsChanged;
+        observedResources = null;
+        targetBuilding = null;
         if (spotToOpenAfterClose != null)
         {
             BuildingSpot target = spotToOpenAfterClose;
@@ -139,7 +157,8 @@ public class UpgradeModalUI : MonoBehaviour
 
     public void OpenForBuilding(BuildingInfo building)
     {
-        if (building == null) return;
+        if (building == null || purchaseInProgress) return;
+        purchaseCompleted = false;
         targetBuilding = building;
 
         string bName = string.IsNullOrEmpty(building.buildingName) ? building.gameObject.name : building.buildingName;
@@ -162,14 +181,7 @@ public class UpgradeModalUI : MonoBehaviour
         if (costText != null) costText.text = $"{cost}";
         if (resortValueText != null) resortValueText.text = $"+{gain} Resort Value";
 
-        bool hasEnoughCoins = true;
-        if (ResourceManager.Instance != null)
-        {
-            hasEnoughCoins = ResourceManager.Instance.HasEnough(ResourceType.Coins, cost);
-        }
-
-        if (upgradeButton != null)
-            upgradeButton.interactable = hasEnoughCoins;
+        RefreshAffordability();
 
         if (modalWindow != null)
             modalWindow.Open();
@@ -177,25 +189,48 @@ public class UpgradeModalUI : MonoBehaviour
             gameObject.SetActive(true);
     }
 
+    private void RefreshAffordability()
+    {
+        if (targetBuilding == null) return;
+        var resources = ResourceManager.Instance;
+        int cost = targetBuilding.UpgradeCost;
+        int coins = resources != null ? resources.GetResource(ResourceType.Coins) : 0;
+        int missing = Mathf.Max(0, cost - coins);
+        if (upgradeButton != null)
+            upgradeButton.interactable = !purchaseInProgress && !purchaseCompleted &&
+                targetBuilding.CanUpgrade && cost > 0 && resources != null && missing == 0;
+        if (missingCoinsText != null)
+        {
+            bool showMissing = resources != null && targetBuilding.CanUpgrade && missing > 0;
+            missingCoinsText.gameObject.SetActive(showMissing);
+            if (showMissing) missingCoinsText.text = $"Missing: {missing} Coins";
+        }
+    }
+
     private void OnUpgradeClicked()
     {
-        if (targetBuilding != null && targetBuilding.CanUpgrade)
+        if (purchaseInProgress || purchaseCompleted || targetBuilding == null || !targetBuilding.CanUpgrade)
+            return;
+        var resources = ResourceManager.Instance;
+        if (resources == null) return;
+        var building = targetBuilding;
+        int cost = building.UpgradeCost;
+        int gain = building.ResortValueGain;
+        purchaseInProgress = true; // SpendResource invokes listeners synchronously.
+        try
         {
-            int cost = targetBuilding.UpgradeCost;
-            int gain = targetBuilding.ResortValueGain;
-
-            if (ResourceManager.Instance != null)
-            {
-                if (!ResourceManager.Instance.SpendResource(ResourceType.Coins, cost))
-                    return;
-
-                ResourceManager.Instance.AddResource(ResourceType.ResortValue, gain);
-            }
-
-            targetBuilding.ApplyUpgrade();
+            if (!resources.SpendResource(ResourceType.Coins, cost)) return;
+            building.ApplyUpgrade();
+            purchaseCompleted = true;
+            resources.AddResource(ResourceType.ResortValue, gain);
+            GamePersistence.Instance?.SaveNow();
+            CloseWindow();
         }
-
-        CloseWindow();
+        finally
+        {
+            purchaseInProgress = false;
+            RefreshAffordability();
+        }
     }
 
     private void OnLaterClicked()
