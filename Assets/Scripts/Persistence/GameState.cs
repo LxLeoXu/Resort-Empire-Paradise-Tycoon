@@ -20,6 +20,20 @@ public sealed class GameState
     public RewardSave reward;
     public List<SaveExtension> extensions = new();
 
+    // Older saves may omit Materials entirely. Do not repair other missing/invalid resources.
+    // Called on a deserialized copy, after verifying the original save checksum.
+    public void MigrateLegacyResources()
+    {
+        if (format != "ParadiseTycoon2D" || (version != 1 && version != 2) || resources == null ||
+            resources.Count != Enum.GetValues(typeof(ResourceType)).Length - 1) return;
+        var types = new HashSet<ResourceType>();
+        foreach (var resource in resources)
+            if (resource == null || !Enum.IsDefined(typeof(ResourceType), resource.type) ||
+                !types.Add(resource.type)) return;
+        if (!types.Contains(ResourceType.Materials))
+            resources.Add(new ResourceSave { type = ResourceType.Materials, amount = 0 });
+    }
+
     // Permanent progress can be recovered even when transient wave data is no longer compatible.
     public bool IsProgressValid()
     {
@@ -56,9 +70,10 @@ public sealed class GameState
             !Finite(timeScale) || timeScale < 0 || wave.number < 0 || !Enum.IsDefined(typeof(WaveState), wave.state) ||
             wave.arrivals == null || wave.pending == null || wave.inService == null || wave.inTransit == null ||
             wave.servedByType == null || wave.emitted < 0 || wave.emitted > wave.arrivals.Count || wave.served < 0 ||
-            wave.served + wave.pending.Count != wave.emitted || !Finite(wave.elapsed) || !Finite(wave.duration) ||
+            wave.served + wave.pending.Count != wave.emitted || wave.vipServed < 0 || wave.vipServed > wave.served || !Finite(wave.elapsed) || !Finite(wave.duration) ||
             wave.elapsed < 0 || wave.duration < 0 || wave.elapsed > wave.duration ||
             !Finite(satisfactionTotal) || satisfactionTotal < 0 || satisfactionCount < 0) return false;
+        if (!QueueWaitSave.AreValid(wave.queueWaits)) return false;
         var resourceTypes = new HashSet<ResourceType>();
         foreach (var r in resources)
             if (r == null || !Enum.IsDefined(typeof(ResourceType), r.type) || r.amount < 0 || !resourceTypes.Add(r.type) ||
@@ -116,8 +131,7 @@ public sealed class GameState
             assigned[w.buildingId] = count + 1;
         }
         if (wave.state == WaveState.Running && (wave.number == 0 || wave.duration <= 0 || wave.definition == null)) return false;
-        if (reward != null && (reward.rewards != null && (reward.rewards.coins < 0 || reward.rewards.energy < 0 || reward.rewards.resortValue < 0))) return false;
-        if (reward != null && reward.prepared && (reward.claimed || reward.rewards == null)) return false;
+        if (reward != null && !reward.IsValid()) return false;
         if (extensions == null) return false;
         var extensionKeys = new HashSet<string>();
         foreach (var extension in extensions)
@@ -147,16 +161,44 @@ public sealed class GameState
 }
 
 [Serializable] public sealed class ResourceSave { public ResourceType type; public int amount; }
+[Serializable]
+public sealed class CountSave
+{
+    public NeedType type;
+    public int count;
+}
 [Serializable] public sealed class NeedSave
 {
-    public int id, wave; public NeedType type; public double arrival;
+    public int id, wave; public NeedType type; public double arrival; public bool isVip;
     public NeedSave() { }
-    public NeedSave(WaveNeed need) { id = need.Id; wave = need.WaveNumber; type = need.Type; arrival = need.ArrivalTime; }
-    public WaveNeed ToNeed() => new(id, wave, type, arrival);
+    public NeedSave(WaveNeed need) { id = need.Id; wave = need.WaveNumber; type = need.Type; arrival = need.ArrivalTime; isVip = need.IsVip; }
+    public WaveNeed ToNeed() => new(id, wave, type, arrival, isVip);
 }
 [Serializable] public sealed class QueueSave { public int id; public float waited; }
 [Serializable] public sealed class SeatSave { public int index, id; public float progress; }
-[Serializable] public sealed class CountSave { public NeedType type; public int count; }
+[Serializable]
+public sealed class QueueWaitSave
+{
+    public NeedType type;
+    public float longestWait;
+    public float totalWait;
+    public int count;
+
+    public static bool AreValid(List<QueueWaitSave> entries)
+    {
+        if (entries == null) return true; // Legacy saves have no measured waits.
+        var types = new HashSet<NeedType>();
+        foreach (var entry in entries)
+            if (entry == null || entry.type == NeedType.None || !Enum.IsDefined(typeof(NeedType), entry.type) ||
+                !types.Add(entry.type) || entry.count <= 0 ||
+                float.IsNaN(entry.longestWait) || float.IsInfinity(entry.longestWait) ||
+                float.IsNaN(entry.totalWait) || float.IsInfinity(entry.totalWait) ||
+                entry.longestWait < 0f || entry.totalWait < entry.longestWait ||
+                entry.totalWait > (double)entry.longestWait * entry.count + Math.Max(0.001, entry.totalWait * 0.00001))
+                return false;
+        return true;
+    }
+}
 [Serializable] public sealed class BuildingSave
 {
     public string id, spotId; public int prefabIndex, level; public NeedType need;
@@ -167,9 +209,13 @@ public sealed class GameState
 [Serializable] public sealed class WaveSave
 {
     public WaveState state; public int number, nextId, emitted, served;
+    public int vipServed, vipEveryNthGuest;
+    public bool hasVipState; // Missing in legacy saves; keep the existing default cadence for those.
     public double duration, elapsed; public bool arrivalsEnded, holdArrivals, guestReturnPending;
     public WaveDefinition definition;
     public List<NeedType> arrivals = new(); public List<NeedSave> pending = new();
+    // SCRUM-395: Cakacie casy jednotlivych potrieb
+public List<QueueWaitSave> queueWaits = new();
     public List<int> inService = new(), inTransit = new(); public List<CountSave> servedByType = new();
 }
 [Serializable] public sealed class GuestSave
@@ -183,7 +229,14 @@ public sealed class GameState
     public bool boatExists, docked, departing; public Vector3 boatPosition; public List<GuestSave> guests = new();
 }
 [Serializable] public sealed class BoostSave { public float duration, remaining, time, ending, clock, shift; public bool active; }
-[Serializable] public sealed class RewardSave { public bool prepared, claimed; public int waveId; public WaveRewardsData rewards; }
+[Serializable] public sealed class RewardSave
+{
+    public bool prepared, claimed; public int waveId; public WaveRewardsData rewards;
+    public bool IsValid() => waveId >= -1 &&
+        (!prepared || (!claimed && rewards != null)) &&
+        (rewards == null || (rewards.coins >= 0 && rewards.energy >= 0 &&
+            rewards.resortValue >= 0 && rewards.materials >= 0));
+}
 [Serializable] public sealed class SaveExtension { public string key, json; }
 
 /// <summary>Optional modules (VIP, daily rewards, etc.) own their JSON under a stable unique key.</summary>

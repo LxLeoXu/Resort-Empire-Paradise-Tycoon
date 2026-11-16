@@ -31,6 +31,25 @@ public class AreaUnlockUI : MonoBehaviour
 
     // Uložená akcia VÝHRADNE pre aktuálne otvorené stavenisko
     private Action currentUnlockAction = null;
+    private bool purchaseInProgress, currentBuilt, currentEligible;
+    private int currentCost;
+    private ResourceManager observedResources;
+
+    private void OnEnable()
+    {
+        observedResources = ResourceManager.Instance;
+        if (observedResources != null)
+        {
+            observedResources.OnResourceChanged += OnCoinsChanged;
+            OnCoinsChanged(ResourceType.Coins, observedResources.GetResource(ResourceType.Coins));
+        }
+    }
+
+    private void OnCoinsChanged(ResourceType type, int amount)
+    {
+        if (type == ResourceType.Coins && currentUnlockAction != null)
+            RefreshState(currentCost, currentBuilt, currentEligible, amount);
+    }
 
     private void Awake()
     {
@@ -45,16 +64,17 @@ public class AreaUnlockUI : MonoBehaviour
     {
         // Po zatvorení okna okamžite zmažeme prepojenie na stavenisko
         currentUnlockAction = null;
+        if (observedResources != null) observedResources.OnResourceChanged -= OnCoinsChanged;
+        observedResources = null;
     }
 
     private void OnButtonClicked()
     {
-        if (currentUnlockAction != null)
-        {
-            Action actionToExecute = currentUnlockAction;
-            currentUnlockAction = null; // Ochrana pred dvojitým klikom
-            actionToExecute.Invoke();
-        }
+        if (purchaseInProgress || currentUnlockAction == null || unlockButton == null || !unlockButton.interactable) return;
+        purchaseInProgress = true;
+        try { currentUnlockAction.Invoke(); }
+        finally { purchaseInProgress = false; }
+        // OnDisable clears successful purchases; failed purchases remain retryable.
     }
 
     /// <summary>
@@ -64,6 +84,7 @@ public class AreaUnlockUI : MonoBehaviour
     {
         // Nastavíme callback len pre túto konkrétnu budovu
         currentUnlockAction = onConfirmAction;
+        currentCost = cost; currentBuilt = isBuilt; currentEligible = isEligible;
 
         if (titleText != null) titleText.text = title;
         if (previewImage != null && preview != null) previewImage.sprite = preview;
@@ -78,6 +99,12 @@ public class AreaUnlockUI : MonoBehaviour
         if (workerText != null)
             workerText.text = $"✔ {GetLocalized("s9_feature_worker", "Includes: 1 Worker")}";
 
+        RefreshState(cost, isBuilt, isEligible, playerCoins);
+    }
+
+    private void RefreshState(int cost, bool isBuilt, bool isEligible, int playerCoins)
+    {
+        if (unlockButton == null || unlockButtonText == null) return;
         if (isBuilt)
         {
             unlockButton.interactable = false;
@@ -85,7 +112,7 @@ public class AreaUnlockUI : MonoBehaviour
             if (headerBadgeText != null) 
                 headerBadgeText.text = GetLocalized("s9_badge_available", "NEW AREA AVAILABLE !");
         }
-        else if (!isEligible)
+        else if (!isEligible || cost <= 0 || ResourceManager.Instance == null)
         {
             unlockButton.interactable = false;
             unlockButtonText.text = GetLocalized("s9_btn_locked", "LOCKED");

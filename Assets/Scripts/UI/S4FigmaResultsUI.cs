@@ -11,10 +11,13 @@ public class S4FigmaResultsUI : MonoBehaviour
     [SerializeField] private TMP_Text statusLine1Text;
     [SerializeField] private TMP_Text statusLine2Text;
 
-    [Header("Rewards")]
-    [SerializeField] private TMP_Text coinsRewardText;
-    [SerializeField] private TMP_Text energyRewardText;
-    [SerializeField] private TMP_Text resortValueRewardText;
+[Header("Rewards")]
+[SerializeField] private TMP_Text coinsRewardText;
+[SerializeField] private TMP_Text energyRewardText;
+[SerializeField] private TMP_Text resortValueRewardText;
+
+// SCRUM-503: Zobrazenie ziskanych materialov
+[SerializeField] private TMP_Text materialsRewardText;
 
     [Header("Stars")]
     [SerializeField] private Image[] starImages;
@@ -86,7 +89,8 @@ public class S4FigmaResultsUI : MonoBehaviour
         int satisfactionPercent,
         string positiveFeedback = null,
         string negativeFeedback = null,
-        bool restoreExistingReward = false)
+        bool restoreExistingReward = false,
+        int vipServed = 0)
     {
         if (waveId < 0)
             return false;
@@ -128,10 +132,20 @@ public class S4FigmaResultsUI : MonoBehaviour
             0,
             ResourceManager.MaxEnergy - currentEnergy);
 
-        WaveRewardsData rewards = new WaveRewardsData(
-            Mathf.Max(0, calculated.coins),
-            Mathf.Clamp(calculated.energy, 0, energySpace),
-            Mathf.Max(0, calculated.resortValue));
+        // SCRUM-474: Materialy za VIP hosti
+int vipMaterials = Mathf.Max(0, vipServed);
+
+// SCRUM-438: Materialy za 4 a 5 hviezdiciek
+int waveMaterials = Mathf.Max(0, calculated.materials);
+
+// Celkova odmena
+int totalMaterials = waveMaterials + vipMaterials;
+
+WaveRewardsData rewards = new WaveRewardsData(
+    Mathf.Max(0, calculated.coins),
+    Mathf.Clamp(calculated.energy, 0, energySpace),
+    Mathf.Max(0, calculated.resortValue),
+    totalMaterials);
 
         // Iba nova vlna moze pripravit novu odmenu.
         bool alreadyPrepared = restoreExistingReward && claimRewards.HasPendingReward && claimRewards.CaptureState().waveId == waveId;
@@ -172,17 +186,27 @@ public class S4FigmaResultsUI : MonoBehaviour
             resortValueRewardText.text =
                 "+" + rewards.resortValue + " Resort Value";
 
+        // SCRUM-503: Materialy v S4
+if (materialsRewardText != null)
+{
+    materialsRewardText.text =
+        "+" + rewards.materials + " Materials";
+}
+
         UpdateStars(satisfaction);
 
         resultsShown = true;
         gameObject.SetActive(true);
 
-        Debug.Log(
-            $"S4 Wave {waveId}: Guests={guests}, " +
-            $"Satisfaction={satisfaction}%, " +
-            $"Coins={rewards.coins}, " +
-            $"Energy={rewards.energy}, " +
-            $"ResortValue={rewards.resortValue}");
+Debug.Log(
+    $"[S4 REWARDS] Wave {waveId}: " +
+    $"Guests={guests}, " +
+    $"Satisfaction={satisfaction}%, " +
+    $"Coins={rewards.coins}, " +
+    $"Energy={rewards.energy}, " +
+    $"ResortValue={rewards.resortValue}, " +
+    $"Materials={rewards.materials}, " +
+    $"VIP Served={vipServed}");
 
         return true;
     }

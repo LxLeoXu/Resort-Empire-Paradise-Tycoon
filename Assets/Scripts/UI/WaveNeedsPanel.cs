@@ -236,9 +236,20 @@ public class WaveNeedsPanel : MonoBehaviour
         var session = waveManager.Session;
         if (session.State != WaveState.Running)
         {
-            if (session.State == WaveState.Result && claimRewards != null && claimRewards.HasPendingReward) OnWaveEnded(session.WaveNumber);
-            else OnRewardsClaimed();
-            return;
+            if (session.State == WaveState.Result &&
+    claimRewards != null &&
+    claimRewards.HasPendingReward)
+{
+    OnWaveEnded(session.WaveNumber);
+}
+else
+{
+    waitingForClaim = false;
+    SetPanelVisible(false);
+    SetBuildingSpotsVisible(true);
+}
+
+return;
         }
         OnWaveStarted(session.WaveNumber);
         totalServedNeeds = session.ServedCount;

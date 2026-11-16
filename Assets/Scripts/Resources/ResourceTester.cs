@@ -34,7 +34,7 @@ public class ResourceTester : MonoBehaviour
         TestAdd(ResourceType.Coins, 100);
         TestAdd(ResourceType.Energy, 10);
         TestAdd(ResourceType.Reputation, 5);
-        TestAdd(ResourceType.Wood, 20);
+        TestAdd(ResourceType.Materials, 20);
         TestAdd(ResourceType.Stone, 15);
         TestAdd(ResourceType.Gems, 2);
         TestAdd(ResourceType.ResortValue, 100);
@@ -45,7 +45,7 @@ public class ResourceTester : MonoBehaviour
         TestSpend(ResourceType.Coins, 50);
         TestSpend(ResourceType.Energy, 5);
         TestSpend(ResourceType.Reputation, 2);
-        TestSpend(ResourceType.Wood, 10);
+        TestSpend(ResourceType.Materials, 10);
         TestSpend(ResourceType.Stone, 5);
         TestSpend(ResourceType.Gems, 1);
 

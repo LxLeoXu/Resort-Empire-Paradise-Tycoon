@@ -65,19 +65,30 @@ public partial class ClaimRewards : MonoBehaviour
     }
 
     private static bool IsValid(WaveRewardsData rewards)
-    {
-        return rewards != null && rewards.coins >= 0 && rewards.energy >= 0 && rewards.resortValue >= 0;
-    }
+{
+    return rewards != null
+        && rewards.coins >= 0
+        && rewards.energy >= 0
+        && rewards.resortValue >= 0
+        && rewards.materials >= 0;
+}
 
     private void Prepare(WaveRewardsData rewards)
-    {
-        if (!IsValid(rewards)) return;
+{
+    if (!IsValid(rewards))
+        return;
 
-        pendingRewards = new WaveRewardsData(rewards.coins, rewards.energy, rewards.resortValue);
-        rewardPrepared = true;
-        claimed = false;
-        RefreshButton();
-    }
+    pendingRewards = new WaveRewardsData(
+        rewards.coins,
+        rewards.energy,
+        rewards.resortValue,
+        rewards.materials);
+
+    rewardPrepared = true;
+    claimed = false;
+
+    RefreshButton();
+}
 
     public void Claim()
     {
@@ -89,6 +100,7 @@ public partial class ClaimRewards : MonoBehaviour
         int coins = pendingRewards.coins;
         int energy = pendingRewards.energy;
         int resort = pendingRewards.resortValue;
+        int materials = pendingRewards.materials;
 
         int currentEnergy = manager.GetResource(ResourceType.Energy);
         int freeEnergy = Mathf.Max(0, ResourceManager.MaxEnergy - currentEnergy);
@@ -101,8 +113,18 @@ public partial class ClaimRewards : MonoBehaviour
         manager.AddResource(ResourceType.Coins, coins);
         manager.AddResource(ResourceType.ResortValue, resort);
         if (energyToAdd > 0) manager.AddResource(ResourceType.Energy, energyToAdd);
+        // SCRUM-438 + SCRUM-474
+if (materials > 0)
+{
+    manager.AddResource(
+        ResourceType.Materials,
+        materials);
+}
 
-        Debug.Log($"<color=green>[CLAIM]</color> Pripísané: +{coins} Coins, +{energyToAdd} Energy, +{resort} Resort Value");
+        Debug.Log(
+            $"[CLAIM] +{coins} Coins, +{energyToAdd} Energy, " +
+            $"+{resort} Resort Value, +{materials} Materials. " +
+            $"Aktuálny stav Materials: {manager.GetResource(ResourceType.Materials)}");
 
         OnClaimed?.Invoke();
         GamePersistence.Instance?.SaveNow();
@@ -131,4 +153,5 @@ public partial class ClaimRewards : MonoBehaviour
         if (claimButton != null)
             claimButton.interactable = rewardPrepared && !claimed;
     }
+    
 }

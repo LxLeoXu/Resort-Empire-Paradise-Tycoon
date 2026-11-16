@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public partial class ResourceManager : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public partial class ResourceManager : MonoBehaviour
     [SerializeField] private int startingCoins = 12450;
     [SerializeField] private int startingEnergy = 45;
     [SerializeField] private int startingReputation = 0;
-    [SerializeField] private int startingWood = 50;
+    [FormerlySerializedAs("startingWood")]
+    [SerializeField] private int startingMaterials = 50;
     [SerializeField] private int startingStone = 50;
     [SerializeField] private int startingGems = 10;
     [SerializeField] private int startingResortValue = 700;
@@ -41,7 +43,7 @@ public partial class ResourceManager : MonoBehaviour
         new ResourceSave { type = ResourceType.Coins, amount = Mathf.Max(0, startingCoins) },
         new ResourceSave { type = ResourceType.Energy, amount = Mathf.Clamp(startingEnergy, 0, MaxEnergy) },
         new ResourceSave { type = ResourceType.Reputation, amount = Mathf.Max(0, startingReputation) },
-        new ResourceSave { type = ResourceType.Wood, amount = Mathf.Max(0, startingWood) },
+        new ResourceSave { type = ResourceType.Materials, amount = Mathf.Max(0, startingMaterials) },
         new ResourceSave { type = ResourceType.Stone, amount = Mathf.Max(0, startingStone) },
         new ResourceSave { type = ResourceType.Gems, amount = Mathf.Max(0, startingGems) },
         new ResourceSave { type = ResourceType.ResortValue, amount = Mathf.Max(0, startingResortValue) }

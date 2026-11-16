@@ -102,6 +102,7 @@ public sealed class GameSaveStore
             if (envelope == null || string.IsNullOrEmpty(envelope.json) || envelope.checksum != Hash(envelope.json))
                 throw new InvalidDataException("Save checksum does not match.");
             var candidate = JsonUtility.FromJson<GameState>(envelope.json);
+            candidate?.MigrateLegacyResources();
             if (candidate == null || !candidate.IsProgressValid()) throw new InvalidDataException("Invalid or unsupported save progress.");
             state = candidate;
             return true;

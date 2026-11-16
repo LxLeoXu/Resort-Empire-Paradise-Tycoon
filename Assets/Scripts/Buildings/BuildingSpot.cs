@@ -25,6 +25,7 @@ public partial class BuildingSpot : MonoBehaviour
     public bool isOccupied = false;
     private GameObject spawnedBuilding;
 
+    private bool purchaseInProgress;
     private WaveManager waveManager;
     private Renderer[] allRenderers;
     private Collider2D[] allColliders;
@@ -121,10 +122,7 @@ public partial class BuildingSpot : MonoBehaviour
             if (areaUnlockUI != null)
             {
                 int coins = ResourceManager.Instance != null ? ResourceManager.Instance.GetResource(ResourceType.Coins) : 0;
-                int activeWave = waveManager != null ? waveManager.EffectiveWaveNumber : 0;
-
-                bool isWaveEnded = waveManager != null && waveManager.Session != null && waveManager.Session.State == WaveState.Result;
-                bool isEligible = (activeWave > requiredWave) || (activeWave == requiredWave && isWaveEnded);
+                bool isEligible = CanBuyNow();
 
                 // Odovzdávame akciu HandleBuyAndBuild priamo do Setupu
                 areaUnlockUI.Setup(areaTitle, areaPreview, demandAdded, unlockCost, isOccupied, isEligible, coins, HandleBuyAndBuild);
@@ -146,18 +144,8 @@ public partial class BuildingSpot : MonoBehaviour
 
     private void HandleBuyAndBuild()
     {
-        if (isOccupied) return;
-
-        if (ResourceManager.Instance != null)
-        {
-            if (!ResourceManager.Instance.SpendResource(ResourceType.Coins, unlockCost))
-            {
-                Debug.LogWarning("Nemáš dosť mincí na odomknutie!");
-                return;
-            }
-        }
-
         BuildFirstBuilding();
+        if (!isOccupied) return;
 
         if (s9Window != null)
         {
@@ -167,30 +155,48 @@ public partial class BuildingSpot : MonoBehaviour
         }
     }
 
+    private bool CanBuyNow()
+    {
+        if (GamePersistence.IsRestoring || waveManager == null || waveManager.Session == null ||
+            waveManager.Session.State == WaveState.Running) return false;
+        int wave = waveManager.EffectiveWaveNumber;
+        return wave > requiredWave || (wave == requiredWave && waveManager.Session.State == WaveState.Result);
+    }
+
     public void BuildBuilding(int buildingIndex)
     {
-        if (isOccupied) return;
-
-        if (buildingPrefabs == null || buildingPrefabs.Count == 0 || buildingIndex >= buildingPrefabs.Count)
+        if (purchaseInProgress || isOccupied || !CanBuyNow()) return;
+        var resources = ResourceManager.Instance;
+        if (resources == null || unlockCost <= 0) return;
+        if (buildingPrefabs == null || buildingIndex < 0 || buildingIndex >= buildingPrefabs.Count ||
+            buildingPrefabs[buildingIndex] == null ||
+            buildingPrefabs[buildingIndex].GetComponentInChildren<BuildingInfo>(true) == null)
         {
-            Debug.LogError("Chýba prefab budovy!", this);
+            Debug.LogError("Chýba platný prefab budovy!", this);
             return;
         }
-
-        GameObject prefabToBuild = buildingPrefabs[buildingIndex];
-
-        if (prefabToBuild != null)
+        purchaseInProgress = true;
+        try
         {
-            spawnedBuilding = Instantiate(prefabToBuild, transform.position, Quaternion.identity);
+            if (!resources.SpendResource(ResourceType.Coins, unlockCost)) return;
+            try
+            {
+                spawnedBuilding = Instantiate(buildingPrefabs[buildingIndex], transform.position, Quaternion.identity);
+            }
+            catch
+            {
+                resources.AddResource(ResourceType.Coins, unlockCost);
+                throw;
+            }
             builtPrefabIndex = buildingIndex;
             isOccupied = true;
-
-            if (ResourceManager.Instance != null)
-                ResourceManager.Instance.AddResource(ResourceType.ResortValue, resortValueGain);
-
+            spawnedBuilding.GetComponentInChildren<BuildingInfo>(true).isBuilt = true;
+            resources.AddResource(ResourceType.ResortValue, resortValueGain);
             gameObject.SetActive(false);
-            Debug.Log($"<color=green>[POSTAVENÉ]</color> {prefabToBuild.name} bola úspešne postavená!");
+            GamePersistence.Instance?.SaveNow();
+            Debug.Log($"<color=green>[POSTAVENÉ]</color> {spawnedBuilding.name} bola úspešne postavená!");
         }
+        finally { purchaseInProgress = false; }
     }
 
     public void BuildFirstBuilding() { BuildBuilding(0); }
