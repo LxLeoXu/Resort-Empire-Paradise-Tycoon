@@ -15939,6 +15939,25 @@ MonoBehaviour:
   chipSprite: {fileID: 21300000, guid: 0be3099bc41f9424b96c830cddb0e5eb, type: 3}
   coinSprite: {fileID: 21300000, guid: 992a78ff1cffbb34f8ab3dc906fb4d21, type: 3}
   priceFont: {fileID: 11400000, guid: c832b67a613d8fe4fa0a2f8e09e89a30, type: 2}
+  celebration:
+    ribbon: {fileID: 21300000, guid: e5774d6e0cca27d4ebdbce2a90638e18, type: 3}
+    particle: {fileID: 21300000, guid: a15d073bca39f6e45b023164358797a4, type: 3}
+    ring: {fileID: 21300000, guid: adb894dec21e7364995f21f645fc3ec0, type: 3}
+    glow: {fileID: 21300000, guid: a91b6d5da06413947ba2e93f37ca4d0d, type: 3}
+    spark: {fileID: 21300000, guid: f5995548f9b62e24d976c9a7b156816b, type: 3}
+    puff: {fileID: 21300000, guid: 074e574901b99d040a66a3234f473c03, type: 3}
+    shine: {fileID: 21300000, guid: 75bcc656fb4005e4aa7f95111eb1f1b0, type: 3}
+    valueIcon: {fileID: 21300000, guid: 69134ce384b220d4d8223260b9c402e1, type: 3}
+    font: {fileID: 11400000, guid: c832b67a613d8fe4fa0a2f8e09e89a30, type: 2}
+    outline: {fileID: 2100000, guid: 1b4585f3bbf88784cb72798aa9fd9010, type: 2}
+    glowColor: {r: 1, g: 0.82, b: 0.55, a: 1}
+    ringColor: {r: 1, g: 0.88, b: 0.7, a: 1}
+    puffColor: {r: 0.88, g: 0.97, b: 1, a: 1}
+    titleFormat: '{0} UNLOCKED!'
+    rise: 1
+    count: 6
+    particleSize: 54
+    haloColor: {r: 1, g: 0.7, b: 0.35, a: 0.55}
 --- !u!1 &5471191629542512943
 GameObject:
   m_ObjectHideFlags: 0
@@ -16097,6 +16116,25 @@ MonoBehaviour:
   chipSprite: {fileID: 21300000, guid: 0be3099bc41f9424b96c830cddb0e5eb, type: 3}
   coinSprite: {fileID: 21300000, guid: 992a78ff1cffbb34f8ab3dc906fb4d21, type: 3}
   priceFont: {fileID: 11400000, guid: c832b67a613d8fe4fa0a2f8e09e89a30, type: 2}
+  celebration:
+    ribbon: {fileID: 21300000, guid: f5fbcf1f36cee6d4cb049e1bd52511ef, type: 3}
+    particle: {fileID: 21300000, guid: 69d2869b7eaa2e149acbffdc2a246952, type: 3}
+    ring: {fileID: 21300000, guid: adb894dec21e7364995f21f645fc3ec0, type: 3}
+    glow: {fileID: 21300000, guid: a91b6d5da06413947ba2e93f37ca4d0d, type: 3}
+    spark: {fileID: 21300000, guid: f5995548f9b62e24d976c9a7b156816b, type: 3}
+    puff: {fileID: 21300000, guid: 074e574901b99d040a66a3234f473c03, type: 3}
+    shine: {fileID: 21300000, guid: 75bcc656fb4005e4aa7f95111eb1f1b0, type: 3}
+    valueIcon: {fileID: 21300000, guid: 69134ce384b220d4d8223260b9c402e1, type: 3}
+    font: {fileID: 11400000, guid: c832b67a613d8fe4fa0a2f8e09e89a30, type: 2}
+    outline: {fileID: 2100000, guid: 1b4585f3bbf88784cb72798aa9fd9010, type: 2}
+    glowColor: {r: 0.75, g: 1, b: 0.95, a: 1}
+    ringColor: {r: 0.85, g: 1, b: 0.98, a: 1}
+    puffColor: {r: 0.97, g: 0.91, b: 0.79, a: 1}
+    titleFormat: '{0} UNLOCKED!'
+    rise: 0
+    count: 9
+    particleSize: 40
+    haloColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &5497172898146611260
 GameObject:
   m_ObjectHideFlags: 0

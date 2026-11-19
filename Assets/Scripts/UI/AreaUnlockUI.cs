@@ -88,16 +88,16 @@ public class AreaUnlockUI : MonoBehaviour
 
         if (titleText != null) titleText.text = title;
         if (previewImage != null && preview != null) previewImage.sprite = preview;
-        if (priceText != null) priceText.text = $"{cost:N0} Coins";
+        if (priceText != null) priceText.text = cost.ToString("N0", System.Globalization.CultureInfo.InvariantCulture);
 
         if (demandText != null)
-            demandText.text = $"✔ Adds: {demand}";
+            demandText.text = $"Adds {demand}";
 
         if (satisfactionText != null)
-            satisfactionText.text = $"✔ {GetLocalized("s9_feature_satisfaction", "Higher satisfaction potential")}";
+            satisfactionText.text = GetLocalized("s9_feature_satisfaction", "Higher satisfaction potential");
 
         if (workerText != null)
-            workerText.text = $"✔ {GetLocalized("s9_feature_worker", "Includes: 1 Worker")}";
+            workerText.text = GetLocalized("s9_feature_worker", "+1 Worker");
 
         RefreshState(cost, isBuilt, isEligible, playerCoins);
     }
@@ -110,7 +110,7 @@ public class AreaUnlockUI : MonoBehaviour
             unlockButton.interactable = false;
             unlockButtonText.text = GetLocalized("s9_btn_already_built", "ALREADY BUILT");
             if (headerBadgeText != null) 
-                headerBadgeText.text = GetLocalized("s9_badge_available", "NEW AREA AVAILABLE !");
+                headerBadgeText.text = GetLocalized("s9_badge_available", "NEW AREA AVAILABLE!");
         }
         else if (!isEligible || cost <= 0 || ResourceManager.Instance == null)
         {
@@ -123,16 +123,16 @@ public class AreaUnlockUI : MonoBehaviour
         {
             unlockButton.interactable = false;
             int missing = cost - playerCoins;
-            unlockButtonText.text = GetLocalized("s9_btn_missing_coins", $"MISSING: {missing:N0} COINS", missing);
+            unlockButtonText.text = GetLocalized("s9_btn_missing_coins", "NEED {0:N0} MORE", missing);
             if (headerBadgeText != null) 
-                headerBadgeText.text = GetLocalized("s9_badge_available", "NEW AREA AVAILABLE !");
+                headerBadgeText.text = GetLocalized("s9_badge_available", "NEW AREA AVAILABLE!");
         }
         else
         {
             unlockButton.interactable = true;
             unlockButtonText.text = GetLocalized("s9_btn_unlock", "UNLOCK & EXPAND");
             if (headerBadgeText != null) 
-                headerBadgeText.text = GetLocalized("s9_badge_available", "NEW AREA AVAILABLE !");
+                headerBadgeText.text = GetLocalized("s9_badge_available", "NEW AREA AVAILABLE!");
         }
     }
 
