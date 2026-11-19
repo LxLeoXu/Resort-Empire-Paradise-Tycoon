@@ -1,0 +1,2366 @@
+fileFormatVersion: 2
+guid: 41658be52463bfc47bd45cf2a6680872
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -401587981001976601
+    second: SpaSite_Shadow_0
+  - first:
+      213: 8241802873391315871
+    second: SpaSite_Shadow_1
+  - first:
+      213: -9182361815391105399
+    second: SpaSite_Shadow_2
+  - first:
+      213: -3475097164488184582
+    second: SpaSite_Shadow_3
+  - first:
+      213: -5006910634705658631
+    second: SpaSite_Shadow_4
+  - first:
+      213: -4277653180947895038
+    second: SpaSite_Shadow_5
+  - first:
+      213: -625057449925001228
+    second: SpaSite_Shadow_6
+  - first:
+      213: 6091481541485938182
+    second: SpaSite_Shadow_7
+  - first:
+      213: 8984408120177737763
+    second: SpaSite_Shadow_8
+  - first:
+      213: 3471531781599373470
+    second: SpaSite_Shadow_9
+  - first:
+      213: 7409148048187496125
+    second: SpaSite_Shadow_10
+  - first:
+      213: -2000533013211679469
+    second: SpaSite_Shadow_11
+  - first:
+      213: -3406752968643818835
+    second: SpaSite_Shadow_12
+  - first:
+      213: 1563100319065463304
+    second: SpaSite_Shadow_13
+  - first:
+      213: 6445595841200645260
+    second: SpaSite_Shadow_14
+  - first:
+      213: 7342420355596823185
+    second: SpaSite_Shadow_15
+  - first:
+      213: 6609918584994646332
+    second: SpaSite_Shadow_16
+  - first:
+      213: -7165406680481333447
+    second: SpaSite_Shadow_17
+  - first:
+      213: 6276741784999587083
+    second: SpaSite_Shadow_18
+  - first:
+      213: 44937679822387137
+    second: SpaSite_Shadow_19
+  - first:
+      213: 2979422269896831810
+    second: SpaSite_Shadow_20
+  - first:
+      213: 4656716282405228558
+    second: SpaSite_Shadow_21
+  - first:
+      213: -5475198843124390247
+    second: SpaSite_Shadow_22
+  - first:
+      213: -2973688870813293105
+    second: SpaSite_Shadow_23
+  - first:
+      213: 3510274475296727312
+    second: SpaSite_Shadow_24
+  - first:
+      213: -5728672671726962991
+    second: SpaSite_Shadow_25
+  - first:
+      213: 7632518581199816882
+    second: SpaSite_Shadow_26
+  - first:
+      213: 2228858367140803755
+    second: SpaSite_Shadow_27
+  - first:
+      213: -6068446501493701669
+    second: SpaSite_Shadow_28
+  - first:
+      213: 5796459550095301902
+    second: SpaSite_Shadow_29
+  - first:
+      213: 6311897551236966704
+    second: SpaSite_Shadow_30
+  - first:
+      213: 8116111152061298861
+    second: SpaSite_Shadow_31
+  - first:
+      213: 7659767407586712206
+    second: SpaSite_Shadow_32
+  - first:
+      213: -7536207317384288998
+    second: SpaSite_Shadow_33
+  - first:
+      213: 3429597007277863453
+    second: SpaSite_Shadow_34
+  - first:
+      213: 5019364006122025688
+    second: SpaSite_Shadow_35
+  - first:
+      213: -339619003493567585
+    second: SpaSite_Shadow_36
+  - first:
+      213: 7845671951389253326
+    second: SpaSite_Shadow_37
+  - first:
+      213: -2741716247709098248
+    second: SpaSite_Shadow_38
+  - first:
+      213: 2114335304371772784
+    second: SpaSite_Shadow_39
+  - first:
+      213: -922979921993847292
+    second: SpaSite_Shadow_40
+  - first:
+      213: -5041000153116805646
+    second: SpaSite_Shadow_41
+  - first:
+      213: 5034217639937731740
+    second: SpaSite_Shadow_42
+  - first:
+      213: 7170811167360681178
+    second: SpaSite_Shadow_43
+  - first:
+      213: 422095719533761742
+    second: SpaSite_Shadow_44
+  - first:
+      213: -6172850254614680734
+    second: SpaSite_Shadow_45
+  - first:
+      213: 5669348538038115533
+    second: SpaSite_Shadow_46
+  - first:
+      213: 4316469199400923260
+    second: SpaSite_Shadow_47
+  - first:
+      213: 6483042184225675968
+    second: SpaSite_Shadow_48
+  - first:
+      213: -7949640937841266249
+    second: SpaSite_Shadow_49
+  - first:
+      213: -5085345276050231177
+    second: SpaSite_Shadow_50
+  - first:
+      213: -2557305753569720267
+    second: SpaSite_Shadow_51
+  - first:
+      213: 7910311202547342649
+    second: SpaSite_Shadow_52
+  - first:
+      213: 8105431347790603384
+    second: SpaSite_Shadow_53
+  - first:
+      213: 2847054175390351843
+    second: SpaSite_Shadow_54
+  - first:
+      213: -7459681052755897171
+    second: SpaSite_Shadow_55
+  - first:
+      213: 8701401912997478891
+    second: SpaSite_Shadow_56
+  - first:
+      213: -1319580892020045892
+    second: SpaSite_Shadow_57
+  - first:
+      213: 4464450042832703431
+    second: SpaSite_Shadow_58
+  - first:
+      213: 4716489800042180187
+    second: SpaSite_Shadow_59
+  - first:
+      213: 4994411820841378846
+    second: SpaSite_Shadow_60
+  - first:
+      213: 6304092017724634618
+    second: SpaSite_Shadow_61
+  - first:
+      213: -6258248697636680626
+    second: SpaSite_Shadow_62
+  - first:
+      213: -7706041967709693081
+    second: SpaSite_Shadow_63
+  - first:
+      213: -6318007290047076747
+    second: SpaSite_Shadow_64
+  - first:
+      213: -6584810713802002231
+    second: SpaSite_Shadow_65
+  - first:
+      213: 3714362341027267596
+    second: SpaSite_Shadow_66
+  - first:
+      213: 3157770896340593155
+    second: SpaSite_Shadow_67
+  - first:
+      213: 6972026832953664118
+    second: SpaSite_Shadow_68
+  - first:
+      213: -973050793586049770
+    second: SpaSite_Shadow_69
+  - first:
+      213: 818554962541622601
+    second: SpaSite_Shadow_70
+  - first:
+      213: 947899202601413473
+    second: SpaSite_Shadow_71
+  - first:
+      213: -3551426279342548948
+    second: SpaSite_Shadow_72
+  - first:
+      213: -6705305838068879455
+    second: SpaSite_Shadow_73
+  - first:
+      213: -9027668173194695964
+    second: SpaSite_Shadow_74
+  - first:
+      213: 4584748923654856224
+    second: SpaSite_Shadow_75
+  - first:
+      213: -5030378972271871544
+    second: SpaSite_Shadow_76
+  - first:
+      213: 9022392787535115582
+    second: SpaSite_Shadow_77
+  - first:
+      213: 3896391129587478962
+    second: SpaSite_Shadow_78
+  - first:
+      213: -3745294236761325819
+    second: SpaSite_Shadow_79
+  - first:
+      213: 5707992351026759590
+    second: SpaSite_Shadow_80
+  - first:
+      213: 765726759689954125
+    second: SpaSite_Shadow_81
+  - first:
+      213: 4399693516049262372
+    second: SpaSite_Shadow_82
+  - first:
+      213: -5709836406813468525
+    second: SpaSite_Shadow_83
+  - first:
+      213: 2593813347747606682
+    second: SpaSite_Shadow_84
+  - first:
+      213: 6779390265708210516
+    second: SpaSite_Shadow_85
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 1
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.407035, y: 0.387078}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpaSite_Shadow_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 198
+        width: 398
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e49f46ebd54d6af0800000000000000
+      internalID: -401587981001976601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 221
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9b7841eb04c06270800000000000000
+      internalID: 8241802873391315871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 398
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98e80824492b19080800000000000000
+      internalID: -9182361815391105399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_3
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 196
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afce6be6a89f5cfc0800000000000000
+      internalID: -3475097164488184582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_4
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 196
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc5e343e41e38ab0800000000000000
+      internalID: -5006910634705658631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_5
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 203
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20de74d8819b2a4c0800000000000000
+      internalID: -4277653180947895038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_6
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 195
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ff320d9f895357f0800000000000000
+      internalID: -625057449925001228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_7
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 205
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6064e1c103a498450800000000000000
+      internalID: 6091481541485938182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_8
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 195
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 320445875970fac70800000000000000
+      internalID: 8984408120177737763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_9
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 192
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e98a5bc23cb5d2030800000000000000
+      internalID: 3471531781599373470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_10
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 207
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db69e7cf4e492d660800000000000000
+      internalID: 7409148048187496125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_11
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 196
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3157312e2ddac34e0800000000000000
+      internalID: -2000533013211679469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_12
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 217
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daa4a7a8938c8b0d0800000000000000
+      internalID: -3406752968643818835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_13
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 195
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80a5232657f31b510800000000000000
+      internalID: 1563100319065463304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_14
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 210
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c84ef70744b537950800000000000000
+      internalID: 6445595841200645260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_15
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 198
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19a22fe596485e560800000000000000
+      internalID: 7342420355596823185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_16
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 204
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c39cbd4aee52bbb50800000000000000
+      internalID: 6609918584994646332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_17
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 194
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93ff2ba869c5f8c90800000000000000
+      internalID: -7165406680481333447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_18
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 196
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0d60c9d5677b1750800000000000000
+      internalID: 6276741784999587083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_19
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 192
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7f7dae496af9000800000000000000
+      internalID: 44937679822387137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_20
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 209
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 243b611d4c8095920800000000000000
+      internalID: 2979422269896831810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_21
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 195
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e009a8859caff9040800000000000000
+      internalID: 4656716282405228558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_22
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 204
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 996e0f839af2404b0800000000000000
+      internalID: -5475198843124390247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_23
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 195
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc524ae2ab55bb6d0800000000000000
+      internalID: -2973688870813293105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_24
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 199
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011ae2c790007b030800000000000000
+      internalID: 3510274475296727312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_25
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 187
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6f93f8e8aaf70b0800000000000000
+      internalID: -5728672671726962991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_26
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 193
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b8cbf5f5372ce960800000000000000
+      internalID: 7632518581199816882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_27
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 203
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba4b51c30ee7eee10800000000000000
+      internalID: 2228858367140803755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_28
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 211
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd381041f0c88cba0800000000000000
+      internalID: -6068446501493701669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_29
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 195
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0dd956ff39217050800000000000000
+      internalID: 5796459550095301902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_30
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 194
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0392328816d589750800000000000000
+      internalID: 6311897551236966704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_31
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 197
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da83330871832a070800000000000000
+      internalID: 8116111152061298861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_32
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 198
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8a125fbfd5fc4a60800000000000000
+      internalID: 7659767407586712206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_33
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 188
+        width: 33
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a152c959f530a6790800000000000000
+      internalID: -7536207317384288998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_34
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 204
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d123a8dae40689f20800000000000000
+      internalID: 3429597007277863453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_35
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 109
+        width: 32
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d2f84748fc58a540800000000000000
+      internalID: 5019364006122025688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_36
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 174
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f933bc1d05e694bf0800000000000000
+      internalID: -339619003493567585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_37
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 166
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ece5dc6521d61ec60800000000000000
+      internalID: 7845671951389253326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_38
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 177
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fed164599773f9d0800000000000000
+      internalID: -2741716247709098248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_39
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 88
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07d9521d1c0a75d10800000000000000
+      internalID: 2114335304371772784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_40
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 89
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e2dbea6aae033f0800000000000000
+      internalID: -922979921993847292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_41
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 96
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f578c0b115ca0ab0800000000000000
+      internalID: -5041000153116805646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_42
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 71
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9c6e7665422dd540800000000000000
+      internalID: 5034217639937731740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_43
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 77
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad400fd93c6d38360800000000000000
+      internalID: 7170811167360681178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_44
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 72
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec4d50012d59bd500800000000000000
+      internalID: 422095719533761742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_45
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 64
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b230a0661a55aa0800000000000000
+      internalID: -6172850254614680734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_46
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 59
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcc54a535729dae40800000000000000
+      internalID: 5669348538038115533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_47
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 64
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c70f4320edd27eb30800000000000000
+      internalID: 4316469199400923260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_48
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 67
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cad4a6948468f950800000000000000
+      internalID: 6483042184225675968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_49
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 46
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b17110afa33da190800000000000000
+      internalID: -7949640937841266249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 770b0dc2a693d69b0800000000000000
+      internalID: -5085345276050231177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_51
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 3
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5380a6067ff928cd0800000000000000
+      internalID: -2557305753569720267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_52
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 4
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93d90aac02217cd60800000000000000
+      internalID: 7910311202547342649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_53
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 3
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 874ef5ccdd64c7070800000000000000
+      internalID: 8105431347790603384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_54
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 11
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e14f6c20b4c28720800000000000000
+      internalID: 2847054175390351843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_55
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 2
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da4d5c80b93e97890800000000000000
+      internalID: -7459681052755897171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_56
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 8
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be18e1810f691c870800000000000000
+      internalID: 8701401912997478891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_57
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb780ce8b28efade0800000000000000
+      internalID: -1319580892020045892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_58
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 9
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cf458809a9e4fd30800000000000000
+      internalID: 4464450042832703431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_59
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 0
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5e644eeb76547140800000000000000
+      internalID: 4716489800042180187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_60
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 11
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e14234be617bf4540800000000000000
+      internalID: 4994411820841378846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_61
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 13
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af53ad32a42ac7750800000000000000
+      internalID: 6304092017724634618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_62
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 9
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c805597fb3629a0800000000000000
+      internalID: -6258248697636680626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_63
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 4
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76b5962a8a3ae0590800000000000000
+      internalID: -7706041967709693081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_64
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 7
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5766a6c08dde158a0800000000000000
+      internalID: -6318007290047076747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_65
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 7
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c035aa2b8d0e94a0800000000000000
+      internalID: -6584810713802002231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_66
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 0
+        width: 62
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c04c400aed01c8330800000000000000
+      internalID: 3714362341027267596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_67
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 10
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30aa27e46e7a2db20800000000000000
+      internalID: 3157770896340593155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_68
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 12
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 672e1b6177d91c060800000000000000
+      internalID: 6972026832953664118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_69
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 12
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d34eb65770f72f0800000000000000
+      internalID: -973050793586049770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_70
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 3
+        width: 8
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9453d6bc6671c5b00800000000000000
+      internalID: 818554962541622601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_71
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 0
+        width: 48
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16beee57d4d972d00800000000000000
+      internalID: 947899202601413473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_72
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 2
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c28dccd7d9cc6bec0800000000000000
+      internalID: -3551426279342548948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_73
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 3
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af2d83ddd7f1f2a0800000000000000
+      internalID: -6705305838068879455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_74
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea61aa80a747b280800000000000000
+      internalID: -9027668173194695964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_75
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02e5dc2eadc40af30800000000000000
+      internalID: 4584748923654856224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_76
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 0
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c9f3201af0803ab0800000000000000
+      internalID: -5030378972271871544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_77
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e35b315007af53d70800000000000000
+      internalID: 9022392787535115582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_78
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 0
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b17b01a613c21630800000000000000
+      internalID: 3896391129587478962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_79
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 1
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50ff58e2cba060cc0800000000000000
+      internalID: -3745294236761325819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_80
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 3
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7c89f0dccd63f40800000000000000
+      internalID: 5707992351026759590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_81
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d43a4525e6860aa00800000000000000
+      internalID: 765726759689954125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_82
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 427a4b831f9de0d30800000000000000
+      internalID: 4399693516049262372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_83
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3985a4e3a0692c0b0800000000000000
+      internalID: -5709836406813468525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_84
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 5
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a90b9264f731ff320800000000000000
+      internalID: 2593813347747606682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaSite_Shadow_85
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 0
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4596745278b351e50800000000000000
+      internalID: 6779390265708210516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SpaSite_Shadow_0: -401587981001976601
+      SpaSite_Shadow_1: 8241802873391315871
+      SpaSite_Shadow_10: 7409148048187496125
+      SpaSite_Shadow_11: -2000533013211679469
+      SpaSite_Shadow_12: -3406752968643818835
+      SpaSite_Shadow_13: 1563100319065463304
+      SpaSite_Shadow_14: 6445595841200645260
+      SpaSite_Shadow_15: 7342420355596823185
+      SpaSite_Shadow_16: 6609918584994646332
+      SpaSite_Shadow_17: -7165406680481333447
+      SpaSite_Shadow_18: 6276741784999587083
+      SpaSite_Shadow_19: 44937679822387137
+      SpaSite_Shadow_2: -9182361815391105399
+      SpaSite_Shadow_20: 2979422269896831810
+      SpaSite_Shadow_21: 4656716282405228558
+      SpaSite_Shadow_22: -5475198843124390247
+      SpaSite_Shadow_23: -2973688870813293105
+      SpaSite_Shadow_24: 3510274475296727312
+      SpaSite_Shadow_25: -5728672671726962991
+      SpaSite_Shadow_26: 7632518581199816882
+      SpaSite_Shadow_27: 2228858367140803755
+      SpaSite_Shadow_28: -6068446501493701669
+      SpaSite_Shadow_29: 5796459550095301902
+      SpaSite_Shadow_3: -3475097164488184582
+      SpaSite_Shadow_30: 6311897551236966704
+      SpaSite_Shadow_31: 8116111152061298861
+      SpaSite_Shadow_32: 7659767407586712206
+      SpaSite_Shadow_33: -7536207317384288998
+      SpaSite_Shadow_34: 3429597007277863453
+      SpaSite_Shadow_35: 5019364006122025688
+      SpaSite_Shadow_36: -339619003493567585
+      SpaSite_Shadow_37: 7845671951389253326
+      SpaSite_Shadow_38: -2741716247709098248
+      SpaSite_Shadow_39: 2114335304371772784
+      SpaSite_Shadow_4: -5006910634705658631
+      SpaSite_Shadow_40: -922979921993847292
+      SpaSite_Shadow_41: -5041000153116805646
+      SpaSite_Shadow_42: 5034217639937731740
+      SpaSite_Shadow_43: 7170811167360681178
+      SpaSite_Shadow_44: 422095719533761742
+      SpaSite_Shadow_45: -6172850254614680734
+      SpaSite_Shadow_46: 5669348538038115533
+      SpaSite_Shadow_47: 4316469199400923260
+      SpaSite_Shadow_48: 6483042184225675968
+      SpaSite_Shadow_49: -7949640937841266249
+      SpaSite_Shadow_5: -4277653180947895038
+      SpaSite_Shadow_50: -5085345276050231177
+      SpaSite_Shadow_51: -2557305753569720267
+      SpaSite_Shadow_52: 7910311202547342649
+      SpaSite_Shadow_53: 8105431347790603384
+      SpaSite_Shadow_54: 2847054175390351843
+      SpaSite_Shadow_55: -7459681052755897171
+      SpaSite_Shadow_56: 8701401912997478891
+      SpaSite_Shadow_57: -1319580892020045892
+      SpaSite_Shadow_58: 4464450042832703431
+      SpaSite_Shadow_59: 4716489800042180187
+      SpaSite_Shadow_6: -625057449925001228
+      SpaSite_Shadow_60: 4994411820841378846
+      SpaSite_Shadow_61: 6304092017724634618
+      SpaSite_Shadow_62: -6258248697636680626
+      SpaSite_Shadow_63: -7706041967709693081
+      SpaSite_Shadow_64: -6318007290047076747
+      SpaSite_Shadow_65: -6584810713802002231
+      SpaSite_Shadow_66: 3714362341027267596
+      SpaSite_Shadow_67: 3157770896340593155
+      SpaSite_Shadow_68: 6972026832953664118
+      SpaSite_Shadow_69: -973050793586049770
+      SpaSite_Shadow_7: 6091481541485938182
+      SpaSite_Shadow_70: 818554962541622601
+      SpaSite_Shadow_71: 947899202601413473
+      SpaSite_Shadow_72: -3551426279342548948
+      SpaSite_Shadow_73: -6705305838068879455
+      SpaSite_Shadow_74: -9027668173194695964
+      SpaSite_Shadow_75: 4584748923654856224
+      SpaSite_Shadow_76: -5030378972271871544
+      SpaSite_Shadow_77: 9022392787535115582
+      SpaSite_Shadow_78: 3896391129587478962
+      SpaSite_Shadow_79: -3745294236761325819
+      SpaSite_Shadow_8: 8984408120177737763
+      SpaSite_Shadow_80: 5707992351026759590
+      SpaSite_Shadow_81: 765726759689954125
+      SpaSite_Shadow_82: 4399693516049262372
+      SpaSite_Shadow_83: -5709836406813468525
+      SpaSite_Shadow_84: 2593813347747606682
+      SpaSite_Shadow_85: 6779390265708210516
+      SpaSite_Shadow_9: 3471531781599373470
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
