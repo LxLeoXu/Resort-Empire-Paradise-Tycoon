@@ -88,6 +88,94 @@ MonoBehaviour:
     m_Localized: Not enough data yet
     m_Metadata:
       m_Items: []
+  - m_Id: 10214932894400512
+    m_Localized: UPGRADE AVAILABLE!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480896
+    m_Localized: NO UPGRADE NEEDED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480897
+    m_Localized: All buildings kept up with demand this wave.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480898
+    m_Localized: MAX LEVEL REACHED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480899
+    m_Localized: '{0} is already at its maximum level.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480900
+    m_Localized: CONTINUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480901
+    m_Localized: LATER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480902
+    m_Localized: UPGRADE NOW
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480903
+    m_Localized: Upgrade to add more seats.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480904
+    m_Localized: '{0} Seats'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480905
+    m_Localized: '{0} Quality'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480906
+    m_Localized: Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480907
+    m_Localized: Improved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480908
+    m_Localized: Premium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480909
+    m_Localized: +{0} Resort Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480910
+    m_Localized: 'Missing: {0} Coins'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480911
+    m_Localized: Rooms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480912
+    m_Localized: Drinks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480913
+    m_Localized: Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480914
+    m_Localized: Relax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480915
+    m_Localized: Ocean View
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480916
+    m_Localized: Service
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

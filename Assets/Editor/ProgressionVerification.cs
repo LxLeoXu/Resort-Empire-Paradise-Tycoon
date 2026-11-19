@@ -131,13 +131,15 @@ public static class ProgressionVerification
                 var nextLabel = (TMPro.TextMeshProUGUI)s5.FindProperty("laterButtonLabel").objectReferenceValue;
                 var nextButton = (UnityEngine.UI.Button)s5.FindProperty("laterButton").objectReferenceValue;
                 var upgradeAction = (UnityEngine.UI.Button)s5.FindProperty("upgradeButton").objectReferenceValue;
-                Require(heading.text == "NO UPGRADE AVAILABLE" && nextLabel.text == "CONTINUE" && !upgradeAction.gameObject.activeInHierarchy,
+                Require(heading.text == "NO UPGRADE NEEDED" && nextLabel.text == "CONTINUE" && !upgradeAction.gameObject.activeInHierarchy,
                     "Empty S5 has correct title, Continue and no Upgrade button");
                 Require(!upgrade.transform.Find("Window/BuildingCard").gameObject.activeSelf && !upgrade.transform.Find("Window/Description").gameObject.activeSelf &&
                     upgrade.transform.Find("Window/NoUpgradeContent").gameObject.activeSelf, "Empty S5 hides all stale card, comparison and cost content");
                 Canvas.ForceUpdateCanvases();
                 var s5Window = (RectTransform)s5.FindProperty("windowRect").objectReferenceValue;
                 var messageRect = (RectTransform)upgrade.transform.Find("Window/NoUpgradeContent");
+                var message = messageRect.GetComponent<TMPro.TMP_Text>();
+                Require(message.text == "All buildings kept up with demand this wave.", "Smooth wave explains why no upgrade is needed");
                 var headerBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(s5Window, heading.rectTransform);
                 var messageBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(s5Window, messageRect);
                 var buttonBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(s5Window, nextButton.transform);
@@ -157,6 +159,22 @@ public static class ProgressionVerification
                 Require(heading.text == "UPGRADE AVAILABLE!" && nextLabel.text == "LATER" && upgradeAction.gameObject.activeInHierarchy &&
                     upgrade.transform.Find("Window/BuildingCard").gameObject.activeSelf && !messageRect.gameObject.activeSelf,
                     "Normal S5 presentation is restored after an empty result");
+                var restaurant = upgrade.TargetBuilding;
+                int previousLevel = restaurant.currentLevel;
+                restaurant.currentLevel = BuildingInfo.MaxLevel;
+                upgrade.OpenRecommended();
+                Require(upgrade.TargetBuilding == restaurant && heading.text == "MAX LEVEL REACHED" &&
+                    message.gameObject.activeInHierarchy && message.text == $"{restaurant.buildingName} is already at its maximum level." &&
+                    !upgradeAction.gameObject.activeInHierarchy && !upgrade.transform.Find("Window/Description").gameObject.activeInHierarchy &&
+                    nextLabel.text == "CONTINUE", "Max-level bottleneck shows the building name and Continue without a price or purchase");
+                nextButton.onClick.Invoke();
+                Require(!upgrade.gameObject.activeInHierarchy, "Continue closes the max-level result");
+                restaurant.currentLevel = previousLevel;
+                upgrade.OpenRecommended();
+                var cost = (TMPro.TMP_Text)s5.FindProperty("costText").objectReferenceValue;
+                Require(cost.gameObject.activeInHierarchy && cost.text == restaurant.UpgradeCost.ToString() &&
+                    upgradeAction.gameObject.activeInHierarchy && !message.gameObject.activeInHierarchy,
+                    "An upgradeable bottleneck shows the actual price after a max-level result");
                 var requirement = vip.Definition.requirements[0];
                 int materials = resources.GetResource(ResourceType.Materials);
                 Require(!vip.TryAccept(), "VIP cannot finish without requirements");

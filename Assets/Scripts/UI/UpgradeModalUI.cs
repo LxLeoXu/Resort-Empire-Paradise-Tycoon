@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 [RequireComponent(typeof(ModalWindow))]
 public class UpgradeModalUI : MonoBehaviour
@@ -29,14 +31,14 @@ public class UpgradeModalUI : MonoBehaviour
     [SerializeField] private Button upgradeButton;
     [SerializeField] private Button laterButton;
 
-    [Header("No upgrade available")]
+    [Header("Recommendation presentation")]
     [SerializeField] private TextMeshProUGUI windowTitle;
     [SerializeField] private RectTransform windowRect;
     [SerializeField] private GameObject[] upgradeOnlyContent;
     [SerializeField] private GameObject noUpgradeContent;
     [SerializeField] private TextMeshProUGUI laterButtonLabel;
     private bool presentationCaptured;
-    private string originalTitle, originalLaterLabel;
+    private TMP_Text messageLabel, upgradeButtonLabel;
     private Vector2 originalWindowSize, originalHeaderSize, originalButtonMin, originalButtonMax, originalButtonPosition, originalButtonSize, originalButtonPivot;
     private bool[] originalContentVisible;
     private Vector3 originalButtonRowScale;
@@ -72,9 +74,9 @@ public class UpgradeModalUI : MonoBehaviour
     {
         if (presentationCaptured) return;
         presentationCaptured = true;
-        originalTitle = windowTitle != null ? windowTitle.text : "UPGRADE AVAILABLE!";
+        if (noUpgradeContent != null) messageLabel = noUpgradeContent.GetComponent<TMP_Text>();
+        if (upgradeButton != null) upgradeButtonLabel = upgradeButton.GetComponentInChildren<TMP_Text>(true);
         if (windowTitle != null) originalHeaderSize = windowTitle.rectTransform.sizeDelta;
-        originalLaterLabel = laterButtonLabel != null ? laterButtonLabel.text : "LATER";
         if (laterButtonLabel != null) originalLaterFontSize = laterButtonLabel.fontSize;
         if (windowRect != null) originalWindowSize = windowRect.sizeDelta;
         originalContentVisible = new bool[upgradeOnlyContent != null ? upgradeOnlyContent.Length : 0];
@@ -90,14 +92,12 @@ public class UpgradeModalUI : MonoBehaviour
     private void SetRecommendationPresentation(bool hasRecommendation)
     {
         CapturePresentation();
-        if (windowTitle != null) windowTitle.text = hasRecommendation ? originalTitle : "NO UPGRADE AVAILABLE";
         if (windowTitle != null) windowTitle.rectTransform.sizeDelta = hasRecommendation ? originalHeaderSize :
             new Vector2(Mathf.Max(originalHeaderSize.x, originalWindowSize.x - 100), originalHeaderSize.y);
         if (windowRect != null) windowRect.sizeDelta = hasRecommendation ? originalWindowSize : new Vector2(originalWindowSize.x, 320f);
         for (int i = 0; i < originalContentVisible.Length; i++)
             if (upgradeOnlyContent[i] != null) upgradeOnlyContent[i].SetActive(hasRecommendation && originalContentVisible[i]);
         if (noUpgradeContent != null) noUpgradeContent.SetActive(!hasRecommendation);
-        if (laterButtonLabel != null) laterButtonLabel.text = hasRecommendation ? originalLaterLabel : "CONTINUE";
         if (laterButtonLabel != null) laterButtonLabel.fontSize = hasRecommendation ? originalLaterFontSize : 36;
         if (laterButton == null) return;
         var rect = (RectTransform)laterButton.transform;
@@ -131,6 +131,7 @@ public class UpgradeModalUI : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
+        LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         observedResources = ResourceManager.Instance;
         if (observedResources != null) observedResources.OnResourceChanged += OnCoinsChanged;
         RefreshAffordability();
@@ -143,6 +144,7 @@ public class UpgradeModalUI : MonoBehaviour
 
     private void OnDisable()
     {
+        LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
         if (observedResources != null) observedResources.OnResourceChanged -= OnCoinsChanged;
         observedResources = null;
         targetBuilding = null;
@@ -206,42 +208,56 @@ public class UpgradeModalUI : MonoBehaviour
         if (purchaseInProgress) return;
         purchaseCompleted = false;
         targetBuilding = building;
-        SetRecommendationPresentation(building != null);
+        SetRecommendationPresentation(building != null && building.CanUpgrade);
+        RefreshContent();
+        if (modalWindow != null) modalWindow.Open(); else gameObject.SetActive(true);
+    }
+
+    private static string Text(string key, params object[] args) =>
+        LocalizationSettings.StringDatabase.GetLocalizedString("GameTexts", key, args);
+
+    private void OnLocaleChanged(Locale locale) => RefreshContent();
+
+    private void RefreshContent()
+    {
+        var building = targetBuilding;
+        bool offerUpgrade = building != null && building.CanUpgrade;
+        string bName = building == null ? null : string.IsNullOrEmpty(building.buildingName) ? building.gameObject.name : building.buildingName;
+        if (laterButtonLabel != null) laterButtonLabel.text = Text(offerUpgrade ? "s5_later" : "s5_continue");
         if (buildingIcon != null) buildingIcon.enabled = building != null && building.buildingIcon != null;
-        if (building == null)
+        if (!offerUpgrade)
         {
+            bool atMax = building != null && building.currentLevel >= BuildingInfo.MaxLevel;
+            if (windowTitle != null) windowTitle.text = Text(atMax ? "s5_max_level" : "s5_no_upgrade_needed");
+            if (messageLabel != null)
+                messageLabel.text = atMax ? Text("s5_max_level_message", bName) : Text("s5_no_upgrade_message");
             if (missingCoinsText != null) missingCoinsText.gameObject.SetActive(false);
             if (upgradeButton != null) upgradeButton.interactable = false;
-            if (modalWindow != null) modalWindow.Open(); else gameObject.SetActive(true);
             return;
         }
 
-        string bName = string.IsNullOrEmpty(building.buildingName) ? building.gameObject.name : building.buildingName;
+        if (windowTitle != null) windowTitle.text = Text("s5_upgrade_available");
+        if (upgradeButtonLabel != null) upgradeButtonLabel.text = Text("s5_upgrade_now");
         if (buildingTitle != null) buildingTitle.text = bName;
         if (buildingIcon != null && building.buildingIcon != null) buildingIcon.sprite = building.buildingIcon;
         if (buildingDescription != null)
-            buildingDescription.text = $"Level up to unlock more {building.offeredNeed.ToString().ToLower()} seats!";
+            buildingDescription.text = Text("s5_upgrade_description");
 
-        if (capacityLabel != null) capacityLabel.text = $"{bName} Seats";
+        if (capacityLabel != null) capacityLabel.text = Text("s5_capacity", bName);
         if (capacityBefore != null) capacityBefore.text = $"{building.CurrentCapacity}";
         if (capacityAfter != null) capacityAfter.text = $"{building.NextCapacity}";
 
-        if (qualityLabel != null) qualityLabel.text = $"{building.offeredNeed} Quality";
-        if (qualityBefore != null) qualityBefore.text = building.currentLevel == 1 ? "Basic" : "Improved";
-        if (qualityAfter != null) qualityAfter.text = building.currentLevel == 1 ? "Improved" : "Premium";
+        if (qualityLabel != null) qualityLabel.text = Text("s5_quality", Text("need_" + building.offeredNeed));
+        if (qualityBefore != null) qualityBefore.text = Text(building.currentLevel == 1 ? "s5_basic" : "s5_improved");
+        if (qualityAfter != null) qualityAfter.text = Text(building.currentLevel == 1 ? "s5_improved" : "s5_premium");
 
         int cost = building.UpgradeCost;
         int gain = targetBuilding.ResortValueGain;
 
         if (costText != null) costText.text = $"{cost}";
-        if (resortValueText != null) resortValueText.text = $"+{gain} Resort Value";
+        if (resortValueText != null) resortValueText.text = Text("s5_resort_gain", gain);
 
         RefreshAffordability();
-
-        if (modalWindow != null)
-            modalWindow.Open();
-        else
-            gameObject.SetActive(true);
     }
 
     private void RefreshAffordability()
@@ -258,7 +274,7 @@ public class UpgradeModalUI : MonoBehaviour
         {
             bool showMissing = resources != null && targetBuilding.CanUpgrade && missing > 0;
             missingCoinsText.gameObject.SetActive(showMissing);
-            if (showMissing) missingCoinsText.text = $"Missing: {missing} Coins";
+            if (showMissing) missingCoinsText.text = Text("s5_missing_coins", missing);
         }
     }
 

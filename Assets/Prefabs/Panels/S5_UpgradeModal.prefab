@@ -2818,9 +2818,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Everything ran smoothly.
-
-    You can continue to the next wave.'
+  m_text: ''
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa91cc29f2e84c442a6aba9ca75e6b4f, type: 2}
   m_sharedMaterial: {fileID: 3593132570286397385, guid: fa91cc29f2e84c442a6aba9ca75e6b4f, type: 2}
