@@ -36,6 +36,9 @@ public class S4FigmaResultsUI : MonoBehaviour
 
     private bool resultsShown;
 
+    public bool HasClaimedWave(int waveId) => claimRewards != null && claimRewards.HasClaimedWave(waveId);
+    public void BeginTestWave(int waveId) => claimRewards?.BeginTestWave(waveId);
+
     private void OnEnable()
     {
         if (claimRewards != null)
@@ -150,7 +153,9 @@ WaveRewardsData rewards = new WaveRewardsData(
         // Iba nova vlna moze pripravit novu odmenu.
         bool alreadyPrepared = restoreExistingReward && claimRewards.HasPendingReward && claimRewards.CaptureState().waveId == waveId;
         if (alreadyPrepared) rewards = claimRewards.CaptureState().rewards;
-        if (!alreadyPrepared && !claimRewards.SetRewardsForWave(waveId, rewards))
+        if (!alreadyPrepared && !(restoreExistingReward
+            ? claimRewards.PrepareCompletedWave(waveId, rewards)
+            : claimRewards.SetRewardsForWave(waveId, rewards)))
         {
             Debug.LogWarning(
                 "S4: Odmena pre tuto vlnu sa " +

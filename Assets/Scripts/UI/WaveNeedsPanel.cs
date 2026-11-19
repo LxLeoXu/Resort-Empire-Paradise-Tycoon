@@ -173,8 +173,6 @@ public class WaveNeedsPanel : MonoBehaviour
             waveManager.Session.State != WaveState.Running)
             return;
 
-        BuildingService[] services = FindObjectsByType<BuildingService>(FindObjectsSortMode.None);
-
         foreach (var kvp in states)
         {
             NeedType type = kvp.Key;
@@ -184,35 +182,11 @@ public class WaveNeedsPanel : MonoBehaviour
             if (card == null || !card.gameObject.activeSelf)
                 continue;
 
-            BuildingService service = null;
-            foreach (var s in services)
+            bool active = waveManager.Session.IsBottleneck(type);
+            if (active != state.isWarningActive)
             {
-                if (s.Need == type) { service = s; break; }
-            }
-
-            // Zistíme čas čakania najdlhšie čakajúceho hosťa
-            float maxWait = service != null ? service.MaxWaitTime : 0f;
-
-            if (maxWait >= warningWaitTimeThreshold)
-            {
-                state.timeAboveThreshold += Time.deltaTime;
-
-                if (state.timeAboveThreshold >= warningDelay && !state.isWarningActive)
-                {
-                    state.isWarningActive = true;
-                    string buildingName = GetBuildingDisplayName(type);
-                    card.SetWarning(true, $"{buildingName} Waiting Too Long");
-                }
-            }
-            else
-            {
-                state.timeAboveThreshold = 0f;
-
-                if (state.isWarningActive)
-                {
-                    state.isWarningActive = false;
-                    card.SetWarning(false);
-                }
+                state.isWarningActive = active;
+                card.SetWarning(active, active ? $"{GetBuildingDisplayName(type)} Waiting Too Long" : null);
             }
         }
     }

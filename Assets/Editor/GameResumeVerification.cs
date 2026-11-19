@@ -142,6 +142,18 @@ public static class GameResumeVerification
                 Require(claim != null, "Scene has a ClaimRewards component");
                 if (manager.Session.State != WaveState.Result || !claim.HasPendingReward) return;
                 Time.timeScale = 0;
+                var results = claim.GetComponent<S4FigmaResultsUI>();
+                Require(results.gameObject.activeInHierarchy, "Boat departure opens S4");
+                var earned = claim.CaptureState().rewards;
+                results.HideResults();
+                claim.RestoreState(new RewardSave { waveId = manager.Session.WaveNumber - 1, claimed = true });
+                manager.Session.NotifyStateRestored();
+                Require(results.gameObject.activeInHierarchy && claim.HasPendingReward &&
+                    claim.CaptureState().rewards.coins == earned.coins, "Completed save with missing S4 reconstructs the earned reward");
+                results.HideResults();
+                manager.StartWave();
+                Require(manager.Session.State == WaveState.Result && results.gameObject.activeInHierarchy,
+                    "Starting another wave reopens the unpaid result");
                 Require(persistence.SaveNow(), "Pending S4 result saved");
                 SessionState.SetString(Key + "stage", "claim-restored-result");
                 Reload(persistence);

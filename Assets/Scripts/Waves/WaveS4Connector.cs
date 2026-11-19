@@ -18,6 +18,7 @@ private float queueDelayThresholdSeconds = 8f;
     private int testSatisfaction = 88;
 
     private WaveSession session;
+    private SatisfactionTracker satisfactionTracker;
     private int? completedWaveId;
     private int? actualSatisfaction;
 
@@ -45,6 +46,8 @@ private float queueDelayThresholdSeconds = 8f;
         }
 
         session.WaveStarted += OnWaveStarted;
+        satisfactionTracker = FindFirstObjectByType<SatisfactionTracker>();
+        session.StateRestored += OnWaveRestored;
         waveManager.OnWaveEnded.AddListener(OnWaveEnded);
     }
 
@@ -53,6 +56,7 @@ private float queueDelayThresholdSeconds = 8f;
         completedWaveId = null;
         actualSatisfaction = null;
         resultsDisplayed = false;
+        if (waveManager.UseTestWave) resultsUI.BeginTestWave(waveId);
     }
 
     // Zavola buduci system spokojnosti.
@@ -66,10 +70,33 @@ private float queueDelayThresholdSeconds = 8f;
     private void OnWaveEnded(int waveId)
     {
         completedWaveId = waveId;
+        if (!actualSatisfaction.HasValue && !useTestSatisfaction && satisfactionTracker != null)
+            actualSatisfaction = Mathf.RoundToInt(satisfactionTracker.LiveSatisfactionPercent);
 
         Debug.Log("Wave ended: " + waveId);
 
         TryShowResults();
+    }
+
+    private void OnWaveRestored()
+    {
+        actualSatisfaction = null;
+        resultsDisplayed = false;
+        if (session.State == WaveState.Result)
+            ShowUnclaimedResult();
+    }
+
+    // Also handles saves made after the boat left but before S4 prepared the reward.
+    public bool ShowUnclaimedResult()
+    {
+        if (session == null || session.State != WaveState.Result || resultsUI == null ||
+            resultsUI.HasClaimedWave(session.WaveNumber)) return false;
+        if (!resultsUI.gameObject.activeInHierarchy || !resultsDisplayed)
+        {
+            resultsDisplayed = false;
+            OnWaveEnded(session.WaveNumber);
+        }
+        return true;
     }
 
     private void TryShowResults()
@@ -120,6 +147,7 @@ resultsDisplayed = resultsUI.ShowWaveResults(
     satisfaction,
     positiveFeedback: positiveFeedback,
     negativeFeedback: negativeFeedback,
+    restoreExistingReward: true,
     vipServed: vipServed
 );
 
@@ -141,7 +169,10 @@ resultsDisplayed = resultsUI.ShowWaveResults(
     private void OnDestroy()
     {
         if (session != null)
+        {
             session.WaveStarted -= OnWaveStarted;
+            session.StateRestored -= OnWaveRestored;
+        }
 
         if (waveManager != null)
             waveManager.OnWaveEnded.RemoveListener(OnWaveEnded);
@@ -149,7 +180,7 @@ resultsDisplayed = resultsUI.ShowWaveResults(
     public static void BuildFeedback(WaveSession source, float threshold, out string positive, out string negative)
     {
         NeedType best = source.GetBestServedNeedType();
-        NeedType delayed = source.GetMostDelayedNeed(threshold);
+        NeedType delayed = source.HasBottleneckMeasurements ? source.GetRecommendedNeed() : source.GetMostDelayedNeed(threshold);
         positive = best == NeedType.None
             ? GetFeedbackText("WaveFeedback_NoData", "Not enough data yet")
             : GetFeedbackText("WaveFeedback_Positive", "{0} went great!", GetNeedDisplayName(best));
