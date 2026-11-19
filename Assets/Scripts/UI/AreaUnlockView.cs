@@ -27,6 +27,8 @@ public class AreaUnlockView : MonoBehaviour
         [Tooltip("The stamp's centre, from the postcard's centre (canvas units)")]
         public Vector2 stampOffset = new Vector2(250f, 170f);
         public float stampTilt = 7f;
+        [Tooltip("No worker comes with this building (the Spa): the worker row is hidden, the rows below move up")]
+        public bool noWorker;
     }
 
     [Tooltip("AreaUnlockUI's preview image: the spot puts its postcard there")]
@@ -87,6 +89,8 @@ public class AreaUnlockView : MonoBehaviour
     private Material labelPlainMaterial;
     private Vector2 ribbonRest, cardRest, priceRest;
     private Vector2[] rowRest;
+    private Vector2[] rowOffset = new Vector2[0];
+    private const int WorkerRow = 2;              // rows: title, demand, worker, satisfaction, price, buttons
     private bool rested, locked, shortOfCoins;
 
     private const float Slam = 0.46f;          // the stamp lands
@@ -147,6 +151,15 @@ public class AreaUnlockView : MonoBehaviour
         foreach (var s in FindObjectsByType<BuildingSpot>(FindObjectsInactive.Include, FindObjectsSortMode.None))
             if (s.AreaPreview == photo)
                 spot = s;
+        bool noWorker = theme != null && theme.noWorker && rows.Length > WorkerRow + 1;
+        if (rows.Length > WorkerRow && rows[WorkerRow] != null && rows[WorkerRow].gameObject.activeSelf == noWorker)
+            rows[WorkerRow].gameObject.SetActive(!noWorker);
+        rowOffset = new Vector2[rows.Length];                 // no worker: the two rows round it close up, centred
+        if (noWorker)
+        {
+            rowOffset[WorkerRow - 1] = (rowRest[WorkerRow] - rowRest[WorkerRow - 1]) * 0.5f;
+            rowOffset[WorkerRow + 1] = (rowRest[WorkerRow] - rowRest[WorkerRow + 1]) * 0.5f;
+        }
         if (theme == null)
             return;
         if (stampImage != null) stampImage.sprite = theme.stamp;
@@ -272,7 +285,8 @@ public class AreaUnlockView : MonoBehaviour
             if (rows[i] == null) continue;
             float p = Mathf.Clamp01((t - 0.16f - 0.05f * i) / 0.22f);
             rows[i].alpha = Smooth(p);
-            ((RectTransform)rows[i].transform).anchoredPosition = rowRest[i] + new Vector2(22f * (1f - EaseOutCubic(p)), 0f);
+            ((RectTransform)rows[i].transform).anchoredPosition = rowRest[i] + (i < rowOffset.Length ? rowOffset[i] : Vector2.zero)
+                                                                  + new Vector2(22f * (1f - EaseOutCubic(p)), 0f);
         }
         if (priceTag != null)                                 // a price that cannot be paid shakes sideways once
         {
