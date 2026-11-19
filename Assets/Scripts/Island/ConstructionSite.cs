@@ -22,8 +22,13 @@ public class ConstructionSite : MonoBehaviour
     [SerializeField] private Sprite coinSprite;
     [SerializeField] private TMP_FontAsset priceFont;
 
+    [Header("Celebration after the purchase in S9")]
+    [SerializeField] private UnlockCelebration.Style celebration;
+
     private BuildReadyBadge badge;
     private Camera mainCamera;
+    private bool wasOccupied;
+    private float s9SeenOpen = -10f;
 
     private void Start()
     {
@@ -51,14 +56,29 @@ public class ConstructionSite : MonoBehaviour
                            spot.UnlockCost);
             }
         }
+        wasOccupied = spot != null && spot.isOccupied;
         Refresh();
     }
 
     private void Update()
     {
+        WatchPurchase();
         Refresh();
         if (SpotOpen && WasTapped())
             spot.OpenS9();
+    }
+
+    private void WatchPurchase()
+    {
+        if (spot == null) return;
+        if (spot.S9Window != null && spot.S9Window.activeInHierarchy)
+            s9SeenOpen = Time.unscaledTime;
+        bool occupied = spot.isOccupied;
+        // only a purchase made in S9 (not a building restored from the save)
+        if (occupied && !wasOccupied && !GamePersistence.IsRestoring && Time.unscaledTime - s9SeenOpen < 1f &&
+            celebration != null && celebration.ribbon != null)
+            UnlockCelebration.Play(celebration, spot.AreaTitle, spot.SpawnedBuilding, spot.ResortValueGain);
+        wasOccupied = occupied;
     }
 
     private bool SpotOpen => spot != null && !spot.isOccupied && spot.gameObject.activeInHierarchy;
