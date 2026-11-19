@@ -83,6 +83,94 @@ MonoBehaviour:
     m_Key: WaveFeedback_NoData
     m_Metadata:
       m_Items: []
+  - m_Id: 10214932894400512
+    m_Key: s5_upgrade_available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480896
+    m_Key: s5_no_upgrade_needed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480897
+    m_Key: s5_no_upgrade_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480898
+    m_Key: s5_max_level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480899
+    m_Key: s5_max_level_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480900
+    m_Key: s5_continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480901
+    m_Key: s5_later
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480902
+    m_Key: s5_upgrade_now
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480903
+    m_Key: s5_upgrade_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480904
+    m_Key: s5_capacity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480905
+    m_Key: s5_quality
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480906
+    m_Key: s5_basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480907
+    m_Key: s5_improved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480908
+    m_Key: s5_premium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480909
+    m_Key: s5_resort_gain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480910
+    m_Key: s5_missing_coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480911
+    m_Key: need_Rooms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480912
+    m_Key: need_Drinks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480913
+    m_Key: need_Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480914
+    m_Key: need_Relax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480915
+    m_Key: need_OceanView
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480916
+    m_Key: need_None
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

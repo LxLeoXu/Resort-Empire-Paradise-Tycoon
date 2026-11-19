@@ -29,6 +29,7 @@ public sealed partial class WaveManager : MonoBehaviour
     private bool hasOceanViewDebuted = false;
 
     private WaveDefinition lastExecutedWave = null;
+    private WaveNeedsPanel bottleneckPanel;
 
     public WaveSession Session { get; private set; }
     public GuestWavePresentation Guests { get; private set; }
@@ -72,6 +73,14 @@ public sealed partial class WaveManager : MonoBehaviour
             if (!Guests.BoatDocked) return;
             Session.HoldArrivalsOpen = !Guests.AllGuestsDisembarked;
         }
+        if (Session.State == WaveState.Running)
+        {
+            if (bottleneckPanel == null) bottleneckPanel = FindFirstObjectByType<WaveNeedsPanel>(FindObjectsInactive.Include);
+            foreach (var service in FindObjectsByType<BuildingService>(FindObjectsSortMode.None))
+                Session.UpdateBottleneck(service.Need, service.MaxWaitTime, Time.deltaTime,
+                    bottleneckPanel != null ? bottleneckPanel.warningWaitTimeThreshold : 3f,
+                    bottleneckPanel != null ? bottleneckPanel.warningDelay : 1.5f);
+        }
         Session.Tick(Time.deltaTime);
     }
 
@@ -79,6 +88,8 @@ public sealed partial class WaveManager : MonoBehaviour
     {
         if (GamePersistence.IsRestoring || GamePersistence.IsPaused) return;
         if (Session == null || Session.State == WaveState.Running) return;
+        if (Session.State == WaveState.Result &&
+            FindFirstObjectByType<WaveS4Connector>()?.ShowUnclaimedResult() == true) return;
         if (Guests != null && Guests.enabled && Guests.TripInProgress) return;
 
         int waveIndex = Session.WaveNumber;

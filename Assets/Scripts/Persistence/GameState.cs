@@ -74,6 +74,7 @@ public sealed class GameState
             wave.elapsed < 0 || wave.duration < 0 || wave.elapsed > wave.duration ||
             !Finite(satisfactionTotal) || satisfactionTotal < 0 || satisfactionCount < 0) return false;
         if (!QueueWaitSave.AreValid(wave.queueWaits)) return false;
+        if (!BottleneckSave.AreValid(wave.bottlenecks)) return false;
         var resourceTypes = new HashSet<ResourceType>();
         foreach (var r in resources)
             if (r == null || !Enum.IsDefined(typeof(ResourceType), r.type) || r.amount < 0 || !resourceTypes.Add(r.type) ||
@@ -217,6 +218,7 @@ public sealed class QueueWaitSave
     public List<NeedType> arrivals = new(); public List<NeedSave> pending = new();
     // SCRUM-395: Cakacie casy jednotlivych potrieb
 public List<QueueWaitSave> queueWaits = new();
+    public List<BottleneckSave> bottlenecks = new();
     public List<int> inService = new(), inTransit = new(); public List<CountSave> servedByType = new();
 }
 [Serializable] public sealed class GuestSave

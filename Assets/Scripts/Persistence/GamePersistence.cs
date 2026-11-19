@@ -57,6 +57,7 @@ public sealed class GamePersistence : MonoBehaviour
     public static void Ensure(WaveManager waveManager)
     {
         if (Instance != null) return;
+        ProgressionBootstrap.EnsureExists();
         var coordinator = new GameObject("GamePersistence").AddComponent<GamePersistence>();
         coordinator.manager = waveManager;
 #if UNITY_EDITOR || SAVE_RECOVERY_TEST
@@ -294,15 +295,6 @@ public sealed class GamePersistence : MonoBehaviour
                 catch (Exception error) { Debug.LogWarning("Could not restore " + participant.SaveKey + ": " + error.Message, this); }
             }
             manager.Session.NotifyStateRestored();
-            if (manager.Session.State == WaveState.Result && claim != null && claim.HasPendingReward)
-            {
-                var connector = FindFirstObjectByType<WaveS4Connector>(FindObjectsInactive.Include);
-                WaveS4Connector.BuildFeedback(manager.Session, connector != null ? connector.QueueDelayThresholdSeconds : 8f,
-                    out string positiveFeedback, out string negativeFeedback);
-                FindFirstObjectByType<S4FigmaResultsUI>(FindObjectsInactive.Include)?.ShowWaveResults(manager.Session.WaveNumber,
-                    manager.Session.ServedCount, manager.Session.EmittedCount, satisfaction != null ? satisfaction.CurrentPercent : 100,
-                    positiveFeedback: positiveFeedback, negativeFeedback: negativeFeedback, restoreExistingReward: true);
-            }
             resumeScale = !float.IsNaN(data.timeScale) && !float.IsInfinity(data.timeScale) && data.timeScale >= 0 ? data.timeScale : 1f;
             LastError = null;
             restored = true;

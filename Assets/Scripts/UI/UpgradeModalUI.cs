@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 [RequireComponent(typeof(ModalWindow))]
 public class UpgradeModalUI : MonoBehaviour
@@ -29,6 +31,19 @@ public class UpgradeModalUI : MonoBehaviour
     [SerializeField] private Button upgradeButton;
     [SerializeField] private Button laterButton;
 
+    [Header("Recommendation presentation")]
+    [SerializeField] private TextMeshProUGUI windowTitle;
+    [SerializeField] private RectTransform windowRect;
+    [SerializeField] private GameObject[] upgradeOnlyContent;
+    [SerializeField] private GameObject noUpgradeContent;
+    [SerializeField] private TextMeshProUGUI laterButtonLabel;
+    private bool presentationCaptured;
+    private TMP_Text messageLabel, upgradeButtonLabel;
+    private Vector2 originalWindowSize, originalHeaderSize, originalButtonMin, originalButtonMax, originalButtonPosition, originalButtonSize, originalButtonPivot;
+    private bool[] originalContentVisible;
+    private Vector3 originalButtonRowScale;
+    private float originalLaterFontSize;
+
     [Header("S9 Area Unlock Reťazec")]
     [SerializeField] private WaveManager waveManager;
     [SerializeField] private BuildingSpot poolSpot;
@@ -38,11 +53,13 @@ public class UpgradeModalUI : MonoBehaviour
     private ResourceManager observedResources;
     private ModalWindow modalWindow;
     private BuildingInfo targetBuilding;
+    public BuildingInfo TargetBuilding => targetBuilding;
     private BuildingSpot spotToOpenAfterClose = null;
 
     private void Awake()
     {
         modalWindow = GetComponent<ModalWindow>();
+        CapturePresentation();
 
         if (laterButton != null)
             laterButton.onClick.AddListener(OnLaterClicked);
@@ -51,6 +68,47 @@ public class UpgradeModalUI : MonoBehaviour
             upgradeButton.onClick.AddListener(OnUpgradeClicked);
 
         FindReferencesIfMissing();
+    }
+
+    private void CapturePresentation()
+    {
+        if (presentationCaptured) return;
+        presentationCaptured = true;
+        if (noUpgradeContent != null) messageLabel = noUpgradeContent.GetComponent<TMP_Text>();
+        if (upgradeButton != null) upgradeButtonLabel = upgradeButton.GetComponentInChildren<TMP_Text>(true);
+        if (windowTitle != null) originalHeaderSize = windowTitle.rectTransform.sizeDelta;
+        if (laterButtonLabel != null) originalLaterFontSize = laterButtonLabel.fontSize;
+        if (windowRect != null) originalWindowSize = windowRect.sizeDelta;
+        originalContentVisible = new bool[upgradeOnlyContent != null ? upgradeOnlyContent.Length : 0];
+        for (int i = 0; i < originalContentVisible.Length; i++)
+            originalContentVisible[i] = upgradeOnlyContent[i] != null && upgradeOnlyContent[i].activeSelf;
+        if (laterButton == null) return;
+        var rect = (RectTransform)laterButton.transform;
+        originalButtonRowScale = rect.parent.localScale;
+        originalButtonMin = rect.anchorMin; originalButtonMax = rect.anchorMax; originalButtonPivot = rect.pivot;
+        originalButtonPosition = rect.anchoredPosition; originalButtonSize = rect.sizeDelta;
+    }
+
+    private void SetRecommendationPresentation(bool hasRecommendation)
+    {
+        CapturePresentation();
+        if (windowTitle != null) windowTitle.rectTransform.sizeDelta = hasRecommendation ? originalHeaderSize :
+            new Vector2(Mathf.Max(originalHeaderSize.x, originalWindowSize.x - 100), originalHeaderSize.y);
+        if (windowRect != null) windowRect.sizeDelta = hasRecommendation ? originalWindowSize : new Vector2(originalWindowSize.x, 320f);
+        for (int i = 0; i < originalContentVisible.Length; i++)
+            if (upgradeOnlyContent[i] != null) upgradeOnlyContent[i].SetActive(hasRecommendation && originalContentVisible[i]);
+        if (noUpgradeContent != null) noUpgradeContent.SetActive(!hasRecommendation);
+        if (laterButtonLabel != null) laterButtonLabel.fontSize = hasRecommendation ? originalLaterFontSize : 36;
+        if (laterButton == null) return;
+        var rect = (RectTransform)laterButton.transform;
+        rect.parent.localScale = hasRecommendation ? originalButtonRowScale : Vector3.one;
+        rect.anchorMin = hasRecommendation ? originalButtonMin : new Vector2(.5f, .5f);
+        rect.anchorMax = hasRecommendation ? originalButtonMax : new Vector2(.5f, .5f);
+        rect.pivot = hasRecommendation ? originalButtonPivot : new Vector2(.5f, .5f);
+        rect.anchoredPosition = hasRecommendation ? originalButtonPosition : Vector2.zero;
+        rect.sizeDelta = hasRecommendation ? originalButtonSize : new Vector2(240, 70);
+        if (!hasRecommendation && windowRect != null)
+            rect.position = windowRect.TransformPoint(new Vector3(0, windowRect.rect.yMin + 65, 0));
     }
 
     private void FindReferencesIfMissing()
@@ -73,6 +131,7 @@ public class UpgradeModalUI : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
+        LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         observedResources = ResourceManager.Instance;
         if (observedResources != null) observedResources.OnResourceChanged += OnCoinsChanged;
         RefreshAffordability();
@@ -85,6 +144,7 @@ public class UpgradeModalUI : MonoBehaviour
 
     private void OnDisable()
     {
+        LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
         if (observedResources != null) observedResources.OnResourceChanged -= OnCoinsChanged;
         observedResources = null;
         targetBuilding = null;
@@ -105,33 +165,21 @@ public class UpgradeModalUI : MonoBehaviour
         // 1. Zistíme, či sme po 3. alebo 6. vlne a máme pripravené stavenisko
         CheckIfShouldQueueS9();
 
-        // 2. Nájdeme budovu na upgrade
+        // SCRUM-38: only a measured bottleneck may create a recommendation.
         BuildingInfo[] allBuildings = FindObjectsOfType<BuildingInfo>();
         BuildingInfo bestCandidate = null;
+        NeedType recommended = waveManager != null && waveManager.Session != null ? waveManager.Session.GetRecommendedNeed() : NeedType.None;
 
         foreach (var b in allBuildings)
         {
-            if (b != null && b.isBuilt && b.CanUpgrade)
+            if (b != null && b.isBuilt && b.offeredNeed == recommended && recommended != NeedType.None)
             {
                 bestCandidate = b;
                 break;
             }
         }
 
-        if (bestCandidate != null)
-        {
-            OpenForBuilding(bestCandidate);
-        }
-        else
-        {
-            Debug.Log("Žiadna budova nepotrebuje upgrade, posúvam rovno na S9.");
-            if (spotToOpenAfterClose != null)
-            {
-                BuildingSpot target = spotToOpenAfterClose;
-                spotToOpenAfterClose = null;
-                target.OpenS9();
-            }
-        }
+        OpenForBuilding(bestCandidate);
     }
 
     private void CheckIfShouldQueueS9()
@@ -157,41 +205,64 @@ public class UpgradeModalUI : MonoBehaviour
 
     public void OpenForBuilding(BuildingInfo building)
     {
-        if (building == null || purchaseInProgress) return;
+        if (purchaseInProgress) return;
         purchaseCompleted = false;
         targetBuilding = building;
+        SetRecommendationPresentation(building != null && building.CanUpgrade);
+        RefreshContent();
+        if (modalWindow != null) modalWindow.Open(); else gameObject.SetActive(true);
+    }
 
-        string bName = string.IsNullOrEmpty(building.buildingName) ? building.gameObject.name : building.buildingName;
+    private static string Text(string key, params object[] args) =>
+        LocalizationSettings.StringDatabase.GetLocalizedString("GameTexts", key, args);
+
+    private void OnLocaleChanged(Locale locale) => RefreshContent();
+
+    private void RefreshContent()
+    {
+        var building = targetBuilding;
+        bool offerUpgrade = building != null && building.CanUpgrade;
+        string bName = building == null ? null : string.IsNullOrEmpty(building.buildingName) ? building.gameObject.name : building.buildingName;
+        if (laterButtonLabel != null) laterButtonLabel.text = Text(offerUpgrade ? "s5_later" : "s5_continue");
+        if (buildingIcon != null) buildingIcon.enabled = building != null && building.buildingIcon != null;
+        if (!offerUpgrade)
+        {
+            bool atMax = building != null && building.currentLevel >= BuildingInfo.MaxLevel;
+            if (windowTitle != null) windowTitle.text = Text(atMax ? "s5_max_level" : "s5_no_upgrade_needed");
+            if (messageLabel != null)
+                messageLabel.text = atMax ? Text("s5_max_level_message", bName) : Text("s5_no_upgrade_message");
+            if (missingCoinsText != null) missingCoinsText.gameObject.SetActive(false);
+            if (upgradeButton != null) upgradeButton.interactable = false;
+            return;
+        }
+
+        if (windowTitle != null) windowTitle.text = Text("s5_upgrade_available");
+        if (upgradeButtonLabel != null) upgradeButtonLabel.text = Text("s5_upgrade_now");
         if (buildingTitle != null) buildingTitle.text = bName;
         if (buildingIcon != null && building.buildingIcon != null) buildingIcon.sprite = building.buildingIcon;
         if (buildingDescription != null)
-            buildingDescription.text = $"Level up to unlock more {building.offeredNeed.ToString().ToLower()} seats!";
+            buildingDescription.text = Text("s5_upgrade_description");
 
-        if (capacityLabel != null) capacityLabel.text = $"{bName} Seats";
+        if (capacityLabel != null) capacityLabel.text = Text("s5_capacity", bName);
         if (capacityBefore != null) capacityBefore.text = $"{building.CurrentCapacity}";
         if (capacityAfter != null) capacityAfter.text = $"{building.NextCapacity}";
 
-        if (qualityLabel != null) qualityLabel.text = $"{building.offeredNeed} Quality";
-        if (qualityBefore != null) qualityBefore.text = building.currentLevel == 1 ? "Basic" : "Improved";
-        if (qualityAfter != null) qualityAfter.text = building.currentLevel == 1 ? "Improved" : "Premium";
+        if (qualityLabel != null) qualityLabel.text = Text("s5_quality", Text("need_" + building.offeredNeed));
+        if (qualityBefore != null) qualityBefore.text = Text(building.currentLevel == 1 ? "s5_basic" : "s5_improved");
+        if (qualityAfter != null) qualityAfter.text = Text(building.currentLevel == 1 ? "s5_improved" : "s5_premium");
 
         int cost = building.UpgradeCost;
         int gain = targetBuilding.ResortValueGain;
 
         if (costText != null) costText.text = $"{cost}";
-        if (resortValueText != null) resortValueText.text = $"+{gain} Resort Value";
+        if (resortValueText != null) resortValueText.text = Text("s5_resort_gain", gain);
 
         RefreshAffordability();
-
-        if (modalWindow != null)
-            modalWindow.Open();
-        else
-            gameObject.SetActive(true);
     }
 
     private void RefreshAffordability()
     {
-        if (targetBuilding == null) return;
+        if (targetBuilding == null) { if (upgradeButton != null) upgradeButton.interactable = false; return; }
         var resources = ResourceManager.Instance;
         int cost = targetBuilding.UpgradeCost;
         int coins = resources != null ? resources.GetResource(ResourceType.Coins) : 0;
@@ -203,7 +274,7 @@ public class UpgradeModalUI : MonoBehaviour
         {
             bool showMissing = resources != null && targetBuilding.CanUpgrade && missing > 0;
             missingCoinsText.gameObject.SetActive(showMissing);
-            if (showMissing) missingCoinsText.text = $"Missing: {missing} Coins";
+            if (showMissing) missingCoinsText.text = Text("s5_missing_coins", missing);
         }
     }
 

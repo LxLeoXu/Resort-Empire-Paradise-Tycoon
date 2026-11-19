@@ -115,6 +115,7 @@ public int VipServedCount { get; private set; }
         inTransit.Clear();
         ServedCount = 0;
         ResetQueueWaitStatistics();
+        bottlenecks.Clear();
         VipServedCount = 0;
         servedByType.Clear();
         guestReturnPending = false;
@@ -306,6 +307,7 @@ public bool ResolveNeed(int id)
         if (State != WaveState.Running || !ArrivalsEnded || endingArrivals || guestReturnPending || pending.Count != 0) return;
         State = WaveState.Result;
         int completedWave = WaveNumber;
+        RecommendationReady?.Invoke(GetRecommendedNeed());
         WaveEnded?.Invoke(completedWave);
         StateChanged?.Invoke();
     }

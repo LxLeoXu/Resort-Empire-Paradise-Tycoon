@@ -19,6 +19,7 @@ public sealed partial class WaveSession
         foreach (var entry in servedByType) data.servedByType.Add(new CountSave { type = entry.Key, count = entry.Value });
         // SCRUM-395: Ulozenie statistik cakania
 data.queueWaits = CaptureQueueWaitStatistics();
+        data.bottlenecks = CaptureBottlenecks();
         return data;
     }
     public void RestoreState(WaveSave data)
@@ -36,6 +37,7 @@ data.queueWaits = CaptureQueueWaitStatistics();
         servedByType.Clear(); foreach (var count in data.servedByType) servedByType.Add(count.type, count.count);
         endingArrivals = false;
         RestoreQueueWaitStatistics(data.queueWaits);
+        RestoreBottlenecks(data.bottlenecks);
     }
     public void NotifyStateRestored() { StateChanged?.Invoke(); StateRestored?.Invoke(); }
 }

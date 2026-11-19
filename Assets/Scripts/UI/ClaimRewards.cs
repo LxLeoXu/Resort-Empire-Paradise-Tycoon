@@ -64,6 +64,33 @@ public partial class ClaimRewards : MonoBehaviour
         return SetRewardsForWave(waveId, WaveRewardCalculator.CalculateRewards(servedGuests, satisfactionPercent));
     }
 
+    public bool HasClaimedWave(int waveId) => claimed && lastWaveId == waveId;
+
+    public void BeginTestWave(int waveId)
+    {
+        if (claimed && waveId <= lastWaveId)
+        {
+            lastWaveId = waveId - 1;
+            claimed = false;
+            pendingRewards = null;
+        }
+    }
+
+    public bool PrepareCompletedWave(int waveId, WaveRewardsData rewards)
+    {
+        if (!HasPendingReward || waveId <= lastWaveId) return SetRewardsForWave(waveId, rewards);
+        // Older versions allowed starting another wave with an unpaid result.
+        // Include that balance in the displayed reward and settle it with one Claim.
+        rewards.coins += pendingRewards.coins;
+        rewards.energy = Mathf.Min(rewards.energy + pendingRewards.energy,
+            Mathf.Max(0, ResourceManager.MaxEnergy - ResourceManager.Instance.GetResource(ResourceType.Energy)));
+        rewards.resortValue += pendingRewards.resortValue;
+        rewards.materials += pendingRewards.materials;
+        lastWaveId = waveId;
+        Prepare(rewards);
+        return true;
+    }
+
     private static bool IsValid(WaveRewardsData rewards)
 {
     return rewards != null

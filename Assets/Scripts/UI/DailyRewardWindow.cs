@@ -52,6 +52,7 @@ public sealed class DailyRewardWindow : MonoBehaviour, IPointerClickHandler
 
     public event Action Claimed;
     public event Action Closed;
+    public Func<bool> ClaimRequested { get; set; }
 
     public bool IsOpen => phase != Phase.Hidden;
 
@@ -121,6 +122,13 @@ public sealed class DailyRewardWindow : MonoBehaviour, IPointerClickHandler
         Apply();
     }
 
+    public void Hide()
+    {
+        phase = Phase.Hidden;
+        gameObject.SetActive(false);
+        Closed?.Invoke();
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (phase == Phase.Opening) time = IntroLength;
@@ -168,6 +176,7 @@ public sealed class DailyRewardWindow : MonoBehaviour, IPointerClickHandler
     private void Claim()
     {
         if (phase != Phase.Opening && phase != Phase.Idle) return;
+        if (ClaimRequested != null && !ClaimRequested()) return;
         time = Mathf.Max(time, IntroLength);
         phase = Phase.Closing;
         closing = 0f;
