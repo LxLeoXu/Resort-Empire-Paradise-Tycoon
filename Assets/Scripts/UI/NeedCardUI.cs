@@ -19,6 +19,14 @@ public class NeedCardUI : MonoBehaviour
     [SerializeField] private GameObject warningBox;
     [SerializeField] private TextMeshProUGUI warningText;
 
+    [Header("Dobieha (RECOVERING)")]
+    [Tooltip("Rodičovský objekt RECOVERING boxu (ikona + text). Vypnutý, kým budova nedobieha.")]
+    [SerializeField] private GameObject recoveringBox;
+    [Tooltip("Image s ikonou Status_CatchingUp.png (voliteľné, môže byť nastavená priamo v prefabe).")]
+    [SerializeField] private Image recoveringIcon;
+    [SerializeField] private TextMeshProUGUI recoveringText;
+    [SerializeField] private Color recoveringColor = new Color(0.95f, 0.65f, 0.1f);
+
     [Header("Dynamická výška karty")]
     [SerializeField] private float normalHeight = 100f;
     [SerializeField] private float warningHeight = 160f;
@@ -39,6 +47,7 @@ public class NeedCardUI : MonoBehaviour
     private LayoutElement layoutElement;
     private BuildingService service;
     private bool warning;
+    private bool recovering;
     private float hintUntil;
 
     private void Awake()
@@ -51,6 +60,9 @@ public class NeedCardUI : MonoBehaviour
 
         layoutElement = GetComponent<LayoutElement>();
         SetCardHeight(normalHeight);
+
+        if (recoveringBox != null)
+            recoveringBox.SetActive(false);
 
         if (speedUpButton != null)
         {
@@ -113,6 +125,7 @@ public class NeedCardUI : MonoBehaviour
         if (iconImage != null && icon != null) iconImage.sprite = icon;
 
         SetWarning(false, string.Empty);
+        SetRecovering(false);
         UpdateProgress(0, 0);
         SetWorkerPresent(false);
     }
@@ -142,9 +155,31 @@ public class NeedCardUI : MonoBehaviour
             warningText.text = message;
 
         if (countText != null)
-            countText.color = isBottleneck ? bottleneckColor : normalColor;
+            countText.color = isBottleneck ? bottleneckColor : (recovering ? recoveringColor : normalColor);
 
-        SetCardHeight(isBottleneck ? warningHeight : normalHeight);
+        RefreshHeight();
+    }
+
+    // RECOVERING: rad je nad prahom, ale zmenšuje sa. Ikona Status_CatchingUp + "... is catching up".
+    public void SetRecovering(bool isRecovering, string message = "")
+    {
+        recovering = isRecovering;
+
+        if (recoveringBox != null)
+            recoveringBox.SetActive(isRecovering);
+
+        if (recoveringText != null && isRecovering)
+            recoveringText.text = message;
+
+        if (countText != null && !warning)
+            countText.color = isRecovering ? recoveringColor : normalColor;
+
+        RefreshHeight();
+    }
+
+    private void RefreshHeight()
+    {
+        SetCardHeight(warning || recovering ? warningHeight : normalHeight);
     }
 
     private void SetCardHeight(float height)
