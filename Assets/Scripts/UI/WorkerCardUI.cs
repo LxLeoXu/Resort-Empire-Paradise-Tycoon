@@ -47,25 +47,35 @@ public class WorkerCardUI : MonoBehaviour
 
         bool here = worker.building == building;
         bool busy = !worker.IsFree && !here;
-
-        if (nameText != null) nameText.text = worker.displayName;
+        
+        if (nameText != null)
+            nameText.text = worker.displayName;
 
         for (int i = 0; i < starImages.Length; i++)
             if (starImages[i] != null)
-                starImages[i].color = i < worker.stars ? activeStarColor : inactiveStarColor;
-
+                starImages[i].color = i < worker.stars
+                    ? activeStarColor
+                    : inactiveStarColor;
+        
         if (statusText != null)
             statusText.text = busy ? "BUSY" : here ? "ASSIGNED" : "AVAILABLE";
+        
         if (statusBackground != null)
             statusBackground.color = busy ? busyColor : here ? assignedColor : availableColor;
+        
+        if (selectButton != null)
+        {
+            selectButton.gameObject.SetActive(!here);
+            selectButton.interactable = WorkerRoster.Instance.CanAssign(worker, building);
+        }
 
-        if (selectButton != null) selectButton.gameObject.SetActive(!busy && !here);
-        if (unselectButton != null) unselectButton.gameObject.SetActive(here);
-
+        if (unselectButton != null)
+            unselectButton.gameObject.SetActive(here);
+        
         if (group != null)
         {
             group.alpha = busy ? busyAlpha : 1f;
-            group.interactable = !busy;
+            group.interactable = true;
         }
     }
 

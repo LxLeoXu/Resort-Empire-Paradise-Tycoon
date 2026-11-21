@@ -77,7 +77,7 @@ public sealed partial class WaveManager : MonoBehaviour
         {
             if (bottleneckPanel == null) bottleneckPanel = FindFirstObjectByType<WaveNeedsPanel>(FindObjectsInactive.Include);
             foreach (var service in FindObjectsByType<BuildingService>(FindObjectsSortMode.None))
-                Session.UpdateBottleneck(service.Need, service.MaxWaitTime, Time.deltaTime,
+                Session.UpdateBottleneck(service.Need, service.MaxWaitTime, service.QueueCount, Time.deltaTime,
                     bottleneckPanel != null ? bottleneckPanel.warningWaitTimeThreshold : 3f,
                     bottleneckPanel != null ? bottleneckPanel.warningDelay : 1.5f);
         }

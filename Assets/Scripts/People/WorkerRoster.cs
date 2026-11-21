@@ -24,8 +24,7 @@ public sealed partial class WorkerRoster : MonoBehaviour
     [SerializeField] private List<Worker> workers = new()
     {
         new Worker("Chef Marco", 4),
-        new Worker("Chef Lina", 2),
-        new Worker("Chef Leo", 4),
+        new Worker("Chef Lina", 2)
     };
 
     private static WorkerRoster instance;
@@ -45,6 +44,7 @@ public sealed partial class WorkerRoster : MonoBehaviour
     public IReadOnlyList<Worker> Workers => workers;
 
     public event Action Changed;
+    public event Action<Worker, BuildingService, BuildingService> WorkerMoved;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetStatic() => instance = null;
@@ -68,23 +68,42 @@ public sealed partial class WorkerRoster : MonoBehaviour
     }
 
     public bool CanAssign(Worker worker, BuildingService building) =>
-        worker != null && building != null && worker.IsFree && CountIn(building) < MaxPerBuilding;
+        worker != null &&
+        building != null &&
+        worker.building != building &&
+        CountIn(building) < MaxPerBuilding;
 
     public bool Assign(Worker worker, BuildingService building)
     {
         if (!CanAssign(worker, building)) return false;
+
+        BuildingService previousBuilding = worker.building;
+
         worker.building = building;
+
+        if (previousBuilding != null)
+            previousBuilding.SetWorkers(CountIn(previousBuilding));
+
         building.SetWorkers(CountIn(building));
+
         Changed?.Invoke();
+
+        if (previousBuilding != null)
+            WorkerMoved?.Invoke(worker, previousBuilding, building);
+
         return true;
     }
 
     public bool Release(Worker worker)
     {
         if (worker == null || worker.IsFree) return false;
+
         var building = worker.building;
         worker.building = null;
-        if (building != null) building.SetWorkers(CountIn(building));
+
+        if (building != null)
+            building.SetWorkers(CountIn(building));
+
         Changed?.Invoke();
         return true;
     }
@@ -92,6 +111,25 @@ public sealed partial class WorkerRoster : MonoBehaviour
     public bool Toggle(Worker worker, BuildingService building)
     {
         if (worker == null) return false;
-        return worker.building == building ? Release(worker) : Assign(worker, building);
+
+        return worker.building == building
+            ? Release(worker)
+            : Assign(worker, building);
+    }
+
+    public bool RecruitAndAssign(BuildingService building)
+    {
+        if (building == null || CountIn(building) >= MaxPerBuilding)
+            return false;
+
+        Worker worker = new Worker("Chef " + (workers.Count + 1), 1);
+
+        workers.Add(worker);
+        worker.building = building;
+
+        building.SetWorkers(CountIn(building));
+        Changed?.Invoke();
+
+        return true;
     }
 }
