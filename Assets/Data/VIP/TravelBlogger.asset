@@ -17,15 +17,15 @@ MonoBehaviour:
   portrait: {fileID: 21300000, guid: 6f44464bb3691a64a8691ccabcf320f0, type: 3}
   requirements:
   - id: welcome-basket
-    description: Prepare a welcome basket
+    description: Sunset coctail
     bonus: 0
     materials: 10
   - id: room-preparation
-    description: Prepare a special room
+    description: Pool day
     bonus: 0
     materials: 15
   - id: photo-spot
-    description: Prepare a photo spot
+    description: Seafood dinner
     bonus: 0
     materials: 20
   - id: local-souvenirs
@@ -36,7 +36,7 @@ MonoBehaviour:
   - resource: 0
     amount: 300
   - resource: 2
-    amount: 5
+    amount: 10
   bonusRewards:
   - resource: 0
     amount: 100

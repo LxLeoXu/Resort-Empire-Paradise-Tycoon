@@ -86,6 +86,7 @@ public partial class ClaimRewards : MonoBehaviour
             Mathf.Max(0, ResourceManager.MaxEnergy - ResourceManager.Instance.GetResource(ResourceType.Energy)));
         rewards.resortValue += pendingRewards.resortValue;
         rewards.materials += pendingRewards.materials;
+        rewards.reputation += pendingRewards.reputation;
         lastWaveId = waveId;
         Prepare(rewards);
         return true;
@@ -97,7 +98,8 @@ public partial class ClaimRewards : MonoBehaviour
         && rewards.coins >= 0
         && rewards.energy >= 0
         && rewards.resortValue >= 0
-        && rewards.materials >= 0;
+        && rewards.materials >= 0
+        && rewards.reputation >= 0;
 }
 
     private void Prepare(WaveRewardsData rewards)
@@ -109,7 +111,8 @@ public partial class ClaimRewards : MonoBehaviour
         rewards.coins,
         rewards.energy,
         rewards.resortValue,
-        rewards.materials);
+        rewards.materials,
+        rewards.reputation);
 
     rewardPrepared = true;
     claimed = false;
@@ -128,6 +131,7 @@ public partial class ClaimRewards : MonoBehaviour
         int energy = pendingRewards.energy;
         int resort = pendingRewards.resortValue;
         int materials = pendingRewards.materials;
+        int reputation = pendingRewards.reputation;
 
         int currentEnergy = manager.GetResource(ResourceType.Energy);
         int freeEnergy = Mathf.Max(0, ResourceManager.MaxEnergy - currentEnergy);
@@ -147,6 +151,10 @@ if (materials > 0)
         ResourceType.Materials,
         materials);
 }
+        if (reputation > 0)
+        {
+            manager.AddResource(ResourceType.Reputation, reputation);
+        }
 
         Debug.Log(
             $"[CLAIM] +{coins} Coins, +{energyToAdd} Energy, " +

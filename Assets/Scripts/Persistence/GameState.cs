@@ -238,7 +238,8 @@ public List<QueueWaitSave> queueWaits = new();
     public bool IsValid() => waveId >= -1 &&
         (!prepared || (!claimed && rewards != null)) &&
         (rewards == null || (rewards.coins >= 0 && rewards.energy >= 0 &&
-            rewards.resortValue >= 0 && rewards.materials >= 0));
+            rewards.resortValue >= 0 && rewards.materials >= 0 &&
+            rewards.reputation >= 0));
 }
 [Serializable] public sealed class SaveExtension { public string key, json; }
 
