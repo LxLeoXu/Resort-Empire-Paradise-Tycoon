@@ -38,6 +38,17 @@ public partial class ClaimRewards : MonoBehaviour
             claimButton.onClick.RemoveListener(Claim);
     }
 
+    private bool vipDisplayOnlyMode = false;
+
+    public void PrepareVipDisplayOnly()
+    {
+        vipDisplayOnlyMode = true;
+        rewardPrepared = false;
+        claimed = false;
+        if (claimButton != null)
+            claimButton.interactable = true;
+    }
+
     public void SetRewards(WaveRewardsData rewards)
     {
         if (rewardPrepared || claimed) return;
@@ -122,6 +133,14 @@ public partial class ClaimRewards : MonoBehaviour
 
     public void Claim()
     {
+        if (vipDisplayOnlyMode)
+        {
+            vipDisplayOnlyMode = false;
+            if (claimButton != null) claimButton.interactable = false;
+            OnClaimed?.Invoke();
+            return;
+        }
+
         if (!rewardPrepared || claimed || pendingRewards == null) return;
 
         ResourceManager manager = ResourceManager.Instance;
@@ -186,7 +205,7 @@ if (materials > 0)
     private void RefreshButton()
     {
         if (claimButton != null)
-            claimButton.interactable = rewardPrepared && !claimed;
+            claimButton.interactable = vipDisplayOnlyMode || (rewardPrepared && !claimed);
     }
-    
+
 }

@@ -268,6 +268,60 @@ public class S4FigmaResultsUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void ShowVipResults(
+        int completedRequests,
+        int totalRequests,
+        int satisfactionPercent,
+        int stars,
+        System.Collections.Generic.List<VipReward> earnedRewards)
+    {
+        if (claimRewards != null)
+            claimRewards.PrepareVipDisplayOnly();
+
+        if (guestsText != null)
+            guestsText.text = $"{completedRequests}/{totalRequests}";
+
+        if (satisfactionText != null)
+            satisfactionText.text = $"{satisfactionPercent}%";
+
+        SetFeedback(statusLine1Text, "VIP Visit Completed!");
+        SetFeedback(statusLine2Text, null);
+
+        int coins = 0, energy = 0, resort = 0, materials = 0, reputation = 0;
+        if (earnedRewards != null)
+        {
+            foreach (var r in earnedRewards)
+            {
+                switch (r.resource)
+                {
+                    case ResourceType.Coins: coins += r.amount; break;
+                    case ResourceType.Energy: energy += r.amount; break;
+                    case ResourceType.ResortValue: resort += r.amount; break;
+                    case ResourceType.Materials: materials += r.amount; break;
+                    case ResourceType.Reputation: reputation += r.amount; break;
+                }
+            }
+        }
+
+        if (coinsRewardText != null) coinsRewardText.text = $"+{coins} Coins";
+        if (energyRewardText != null) energyRewardText.text = $"+{energy} Energy";
+        if (resortValueRewardText != null) resortValueRewardText.text = $"+{resort} Resort Value";
+        if (materialsRewardText != null) materialsRewardText.text = $"+{materials} Materials";
+        if (reputationRewardText != null) reputationRewardText.text = $"+{reputation} Reputation";
+
+        if (starImages != null)
+        {
+            for (int i = 0; i < starImages.Length; i++)
+            {
+                if (starImages[i] != null)
+                    starImages[i].color = i < stars ? activeStarColor : inactiveStarColor;
+            }
+        }
+
+        resultsShown = true;
+        gameObject.SetActive(true);
+    }
+
 #if UNITY_EDITOR
     public void EditorBind(
         TMP_Text guests,
