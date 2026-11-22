@@ -204,16 +204,28 @@ public static class ProgressionVerification
                 resources.AddResource(ResourceType.Materials, bonus.materials);
                 Require(vip.TryFulfillRequirement(bonus.id), "Optional bonus paid");
                 int coins = resources.GetResource(ResourceType.Coins);
-                Require(vip.TryAccept() && resources.GetResource(ResourceType.Coins) == coins + 400 && !vip.IsWaiting, "VIP base and optional bonus rewards granted");
+                Require(vip.TryAccept() && resources.GetResource(ResourceType.Coins) == coins && !vip.IsWaiting && vip.HasPendingResult, "VIP result prepared without credit");
+                SessionState.SetInt(Key + "beforeVipClaim", coins);
+                Next("vip-result", persistence);
+            }
+            else if (stage == "vip-result")
+            {
+                int coins = SessionState.GetInt(Key + "beforeVipClaim", -1);
+                Require(vip.HasPendingResult && vip.PendingResult.perfectStay && vip.PendingResult.stars == 5 && resources.GetResource(ResourceType.Coins) == coins, "Unclaimed S8 survives restart without payout");
+                GamePersistence.DisableSaving = true;
+                Require(!vip.TryClaimResult() && vip.HasPendingResult && resources.GetResource(ResourceType.Coins) == coins, "Failed VIP claim save rolls back rewards");
+                GamePersistence.DisableSaving = false;
+                Require(vip.TryClaimResult() && resources.GetResource(ResourceType.Coins) == coins + 400, "VIP base and optional bonus rewards claimed");
+                Require(!vip.TryClaimResult(), "Repeated VIP Claim rejected");
                 Require(!vip.TryAccept() && !vip.CheckArrival(), "VIP rewards/arrival cannot repeat");
                 SessionState.SetInt(Key + "coins", resources.GetResource(ResourceType.Coins));
                 Next("finished", persistence);
             }
             else if (stage == "finished")
             {
-                Require(!vip.IsWaiting && vip.CurrentVisit.rewarded && !vip.CheckArrival() && !vip.TryAccept(), "Restart never repeats a completed VIP");
+                Require(!vip.IsWaiting && vip.CurrentVisit.rewarded && !vip.CheckArrival() && !vip.TryAccept() && !vip.TryClaimResult(), "Restart never repeats a completed VIP");
                 Require(resources.GetResource(ResourceType.Coins) == SessionState.GetInt(Key + "coins", -1), "VIP credit persists exactly once");
-                var seeded = vip.CurrentVisit; seeded.waiting = true; seeded.rewarded = false; seeded.fulfilled.Clear();
+                var seeded = vip.CurrentVisit; seeded.waiting = true; seeded.rewarded = false; seeded.fulfilled.Clear(); seeded.result = null;
                 vip.RestoreSaveJson(JsonUtility.ToJson(seeded));
                 int coins = resources.GetResource(ResourceType.Coins);
                 Require(vip.TryDecline() && !vip.IsWaiting && !vip.CheckArrival() && resources.GetResource(ResourceType.Coins) == coins, "Player may decline VIP without expiry or extra reward");

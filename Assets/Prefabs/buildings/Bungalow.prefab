@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
   saveKey: bungalows
   buildingName: Bungalow
-  buildingIcon: {fileID: 0}
+  buildingIcon: {fileID: 21300000, guid: ca12448970229c745acbd930c9b04154, type: 3}
   isBuilt: 1
   currentLevel: 1
   offeredNeed: 5

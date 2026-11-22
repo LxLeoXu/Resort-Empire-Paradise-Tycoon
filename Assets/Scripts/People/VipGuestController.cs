@@ -12,6 +12,7 @@ public sealed class VipVisitSave
     public string guestId;
     public int afterWave;
     public List<string> fulfilled = new();
+    public VipStayResult result;
 }
 
 /// <summary>VIP visit has no expiry and never enters/block the ordinary wave queues.</summary>
@@ -26,6 +27,8 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
     public VipGuestDefinition Definition => definition;
     public VipVisitSave CurrentVisit => JsonUtility.FromJson<VipVisitSave>(JsonUtility.ToJson(visit));
     public bool IsWaiting => visit.waiting;
+    public bool HasPendingResult => visit.result != null && !visit.waiting && !visit.rewarded;
+    public VipStayResult PendingResult => HasPendingResult ? JsonUtility.FromJson<VipStayResult>(JsonUtility.ToJson(visit.result)) : null;
     public bool IsReady => ready;
     public string SaveKey => "vip-guests.v1";
     public string LastError { get; private set; }
@@ -41,6 +44,7 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
         if (session == null) yield break;
         session.WaveEnded += OnWaveEnded;
         ready = true;
+        (GetComponent<VipResultsPresenter>() ?? gameObject.AddComponent<VipResultsPresenter>()).Bind(this);
         if (visit.waiting) VisitRestored?.Invoke(definition);
         CheckArrival();
     }
@@ -80,19 +84,27 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
         if (!CanAct() || definition.requirements.Any(r => !r.bonus && !visit.fulfilled.Contains(r.id))) return false;
         return Commit(() =>
         {
-            var rewards = new List<VipReward>(definition.rewards);
-            if (definition.requirements.Where(r => r.bonus).All(r => visit.fulfilled.Contains(r.id))) rewards.AddRange(definition.bonusRewards);
-            foreach (var reward in rewards)
-                if (!ResourceManager.Instance.AddResource(reward.resource, reward.amount)) return false;
-            visit.waiting = false; visit.rewarded = true;
+            visit.result = VipStayResult.Create(definition, visit.fulfilled, true);
+            visit.waiting = false;
             return true;
         });
     }
     public bool TryDecline()
     {
         if (!CanAct()) return false;
-        return Commit(() => { visit.waiting = false; return true; });
+        return Commit(() => { visit.result = VipStayResult.Create(definition, visit.fulfilled, false); visit.waiting = false; return true; });
     }
+    public bool TryClaimResult()
+    {
+        if (!ready || transaction || GamePersistence.IsPaused || GamePersistence.IsRestoring || !HasPendingResult) return false;
+        return Commit(() =>
+        {
+            if (!visit.result.IsValid()) return false;
+            visit.rewarded = true; // Reentrant callbacks cannot claim this result again.
+            return ClaimRewards.TryGrantResources(ResourceManager.Instance, visit.result.rewards);
+        });
+    }
+
     private bool CanAct() => ready && !transaction && !GamePersistence.IsPaused && !GamePersistence.IsRestoring &&
         visit.waiting && !visit.rewarded && definition != null && definition.IsValid() && visit.guestId == definition.guestId;
 
@@ -124,6 +136,42 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
         if (saved == null || saved.afterWave < 0 || saved.fulfilled == null || saved.fulfilled.Any(string.IsNullOrWhiteSpace) ||
             saved.fulfilled.Distinct().Count() != saved.fulfilled.Count || (saved.waiting && (!saved.offered || saved.rewarded || string.IsNullOrWhiteSpace(saved.guestId))))
             throw new ArgumentException("Invalid saved VIP visit.");
+        if (saved.result != null &&
+    (!saved.result.IsValid() || saved.waiting || !saved.offered))
+{
+    VipStayResult r = saved.result;
+
+    bool expectedPerfect =
+        r.requiredCompleted == 3 && r.bonusCompleted;
+
+    int expectedStars =
+        expectedPerfect ? 5 : r.requiredCompleted + 1;
+
+    Debug.LogWarning(
+        "[VIP SAVE DIAGNOSTIC]\n" +
+        $"Offered: {saved.offered}\n" +
+        $"Waiting: {saved.waiting}\n" +
+        $"Rewarded: {saved.rewarded}\n" +
+        $"Guest name valid: {!string.IsNullOrWhiteSpace(r.guestName)}\n" +
+        $"Required completed: {r.requiredCompleted}\n" +
+        $"Bonus completed: {r.bonusCompleted}\n" +
+        $"Perfect Stay: {r.perfectStay}\n" +
+        $"Expected Perfect Stay: {expectedPerfect}\n" +
+        $"Stars: {r.stars}\n" +
+        $"Expected stars: {expectedStars}\n" +
+        $"Requirements count: {r.requirements?.Count ?? -1}\n" +
+        $"Rewards present: {r.rewards != null}\n" +
+        $"Rewards valid: {r.rewards != null && r.rewards.IsValid()}\n" +
+        $"Gems: {(r.rewards != null ? r.rewards.gems : -1)}\n" +
+        $"First Five Star Bonus: {r.rewards != null && r.rewards.firstFiveStarBonus}\n" +
+        $"Result valid: {r.IsValid()}"
+    );
+
+    throw new ArgumentException("Invalid saved VIP result.");
+}
+        if (definition != null && saved.guestId == definition.guestId &&
+            saved.fulfilled.Any(id => !definition.requirements.Exists(r => r.id == id)))
+            throw new ArgumentException("Unknown saved VIP requirement.");
         visit = saved;
     }
 }

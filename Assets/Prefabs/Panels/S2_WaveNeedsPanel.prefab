@@ -11676,6 +11676,7 @@ GameObject:
   - component: {fileID: 976318463676549121}
   - component: {fileID: 3920450085984078292}
   - component: {fileID: 539709780368734017}
+  - component: {fileID: 1330210416102905938}
   m_Layer: 5
   m_Name: S2_WaveNeedsPanel
   m_TagString: Untagged
@@ -11779,6 +11780,8 @@ MonoBehaviour:
   overlayButton: {fileID: 0}
   toggleTabButton: {fileID: 0}
   slideDuration: 0.25
+  warningWaitTimeThreshold: 3
+  warningDelay: 1.5
 --- !u!223 &3920450085984078292
 Canvas:
   m_ObjectHideFlags: 0
@@ -11819,6 +11822,31 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1330210416102905938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895666351422058908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf50c7bbfc243254cbecb45120c42df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S2LiveSatisfactionBinder
+  satisfactionTracker: {fileID: 0}
+  satisfactionPercentText: {fileID: 0}
+  ratingText: {fileID: 6207721298218696510}
+  satisfactionFill: {fileID: 9081642368394239426}
+  satisfactionSlider: {fileID: 0}
+  starImages:
+  - {fileID: 3934241474801247580}
+  - {fileID: 2280864675785065417}
+  - {fileID: 286047355846398338}
+  - {fileID: 1432396628489724146}
+  - {fileID: 4328186027874014802}
+  activeStarColor: {r: 1, g: 0.75, b: 0.1, a: 1}
+  inactiveStarColor: {r: 0.55, g: 0.55, b: 0.55, a: 1}
 --- !u!1 &8923239294006912475
 GameObject:
   m_ObjectHideFlags: 0

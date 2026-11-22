@@ -140,7 +140,7 @@ public sealed class GamePersistence : MonoBehaviour
 
     private GameState CaptureWorldState()
     {
-        var data = new GameState { resources = ResourceManager.Instance.CaptureResources(), timeScale = IsPaused ? resumeScale : Time.timeScale };
+        var data = new GameState { firstFiveStarReward = ResourceManager.Instance.CaptureFirstFiveStarReward(), resources = ResourceManager.Instance.CaptureResources(), timeScale = IsPaused ? resumeScale : Time.timeScale };
         manager.CaptureProgress(data);
         var ids = new Dictionary<BuildingService, string>();
         foreach (var building in FindObjectsByType<BuildingService>(FindObjectsSortMode.None))
@@ -156,7 +156,7 @@ public sealed class GamePersistence : MonoBehaviour
         data.workers = WorkerRoster.Instance.CaptureState(ids);
         if (manager.Guests != null && manager.Guests.enabled) data.presentation = manager.Guests.CaptureState();
         FindFirstObjectByType<SatisfactionTracker>()?.CaptureState(data);
-        var claim = FindFirstObjectByType<ClaimRewards>(FindObjectsInactive.Include);
+        var claim = ClaimRewards.FindOrdinaryClaim();
         if (claim != null) data.reward = claim.CaptureState();
         var extensions = new Dictionary<string, string>();
         foreach (var extension in retainedExtensions) extensions[extension.key] = extension.json;
@@ -247,8 +247,9 @@ public sealed class GamePersistence : MonoBehaviour
             yield return null; // Starts bind freshly restored BuildingServices to the existing WaveSession.
             WorkerRoster.Instance.RestoreState(data.workers, buildings);
             ResourceManager.Instance.RestoreResources(data.resources);
+            ResourceManager.Instance.RestoreFirstFiveStarReward(data.firstFiveStarReward);
             var satisfaction = FindFirstObjectByType<SatisfactionTracker>();
-            var claim = FindFirstObjectByType<ClaimRewards>(FindObjectsInactive.Include);
+            var claim = ClaimRewards.FindOrdinaryClaim();
             bool resumed = false;
             string waveError = null;
             try

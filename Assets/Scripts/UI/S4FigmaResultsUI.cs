@@ -1,18 +1,23 @@
-
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Globalization;
+using UnityEngine.Localization.Settings;
 
-public class S4FigmaResultsUI : MonoBehaviour
+public partial class S4FigmaResultsUI : MonoBehaviour
 {
     [Header("Performance")]
     [SerializeField] private TMP_Text guestsText;
     [SerializeField] private TMP_Text satisfactionText;
     [SerializeField] private TMP_Text statusLine1Text;
     [SerializeField] private TMP_Text statusLine2Text;
+    
 
 [Header("Rewards")]
 [SerializeField] private TMP_Text coinsRewardText;
+// SCRUM-531: Rozpis ziskanych minci.
+[SerializeField] private TMP_Text coinsBreakdownText;
 [SerializeField] private TMP_Text energyRewardText;
 [SerializeField] private TMP_Text resortValueRewardText;
 
@@ -150,6 +155,11 @@ WaveRewardsData rewards = new WaveRewardsData(
     Mathf.Max(0, calculated.resortValue),
     totalMaterials);
 
+        int gems = manager.GetFirstFiveStarGemReward(waveId, WaveRewardCalculator.GetStarRating(satisfaction),
+            claimRewards.HasPendingFirstFiveStarBonus);
+        rewards.gems = gems;
+        rewards.firstFiveStarBonus = gems > 0;
+
         // Iba nova vlna moze pripravit novu odmenu.
         bool alreadyPrepared = restoreExistingReward && claimRewards.HasPendingReward && claimRewards.CaptureState().waveId == waveId;
         if (alreadyPrepared) rewards = claimRewards.CaptureState().rewards;
@@ -182,6 +192,11 @@ WaveRewardsData rewards = new WaveRewardsData(
         if (coinsRewardText != null)
             coinsRewardText.text =
                 "+" + rewards.coins + " Coins";
+            // SCRUM-531: Rozpis musi zodpovedat pripravenej odmene.
+ShowCoinsBreakdown(
+    guests,
+    satisfaction,
+    rewards.coins);
 
         if (energyRewardText != null)
             energyRewardText.text =
@@ -198,6 +213,7 @@ if (materialsRewardText != null)
         "+" + rewards.materials + " Materials";
 }
 
+        ShowGemReward(rewards.gems);
         UpdateStars(satisfaction);
 
         resultsShown = true;
@@ -215,7 +231,89 @@ Debug.Log(
 
         return true;
     }
+// SCRUM-531 + SCRUM-532 + SCRUM-533
+private void ShowCoinsBreakdown(
+    int servedNeeds,
+    int satisfactionPercent,
+    int actualCoins)
+{
+    if (coinsBreakdownText == null)
+        return;
 
+    // Rozpis patri iba beznej vlne S4, nie VIP S8.
+    if (IsVipVariant)
+    {
+        coinsBreakdownText.gameObject.SetActive(false);
+        return;
+    }
+
+    coinsBreakdownText.gameObject.SetActive(true);
+
+    int stars = WaveRewardCalculator.GetStarRating(
+        satisfactionPercent);
+
+    float multiplier = WaveRewardCalculator.GetCoinMultiplier(
+        satisfactionPercent);
+
+    int calculatedCoins = WaveRewardCalculator.CalculateCoins(
+        servedNeeds,
+        satisfactionPercent);
+
+    // Pri obnovenej starej odmene nesmieme zobrazit
+    // nespravny matematicky rozpis.
+    bool matches = calculatedCoins == actualCoins;
+
+    string key = matches
+        ? "WaveCoins_Breakdown"
+        : "WaveCoins_Saved";
+
+    string fallback = matches
+        ? "{0} needs × {1} Coins × {2:0.00} ({3}★) = {4} Coins"
+        : "Saved reward: {0} Coins";
+
+    object[] arguments = matches
+        ? new object[]
+        {
+            servedNeeds,
+            WaveRewardCalculator.CoinsPerNeed,
+            multiplier,
+            stars,
+            actualCoins
+        }
+        : new object[] { actualCoins };
+
+    string template = fallback;
+
+    try
+    {
+        string localized = LocalizationSettings.StringDatabase
+            .GetLocalizedString("GameTexts", key);
+
+        if (!string.IsNullOrWhiteSpace(localized))
+            template = localized;
+    }
+    catch (Exception exception)
+    {
+        Debug.LogWarning(
+            "[S4 Coins Breakdown] Localization: " +
+            exception.Message);
+    }
+
+    try
+    {
+        coinsBreakdownText.text = string.Format(
+            CultureInfo.CurrentCulture,
+            template,
+            arguments);
+    }
+    catch (FormatException)
+    {
+        coinsBreakdownText.text = string.Format(
+            CultureInfo.CurrentCulture,
+            fallback,
+            arguments);
+    }
+}
     private void UpdateStars(int satisfaction)
     {
         int stars = WaveRewardCalculator.GetStarRating(satisfaction);

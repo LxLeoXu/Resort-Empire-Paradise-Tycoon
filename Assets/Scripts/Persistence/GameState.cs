@@ -18,6 +18,7 @@ public sealed class GameState
     public float satisfactionTotal;
     public int satisfactionCount;
     public RewardSave reward;
+    public FirstFiveStarRewardSave firstFiveStarReward;
     public List<SaveExtension> extensions = new();
 
     // Older saves may omit Materials entirely. Do not repair other missing/invalid resources.
@@ -237,8 +238,7 @@ public List<QueueWaitSave> queueWaits = new();
     public bool prepared, claimed; public int waveId; public WaveRewardsData rewards;
     public bool IsValid() => waveId >= -1 &&
         (!prepared || (!claimed && rewards != null)) &&
-        (rewards == null || (rewards.coins >= 0 && rewards.energy >= 0 &&
-            rewards.resortValue >= 0 && rewards.materials >= 0));
+        (rewards == null || rewards.IsValid());
 }
 [Serializable] public sealed class SaveExtension { public string key, json; }
 
@@ -249,3 +249,5 @@ public interface IGameSaveParticipant
     string CaptureSaveJson();
     void RestoreSaveJson(string json);
 }
+
+[Serializable] public sealed class FirstFiveStarRewardSave { public bool claimed, legacyHistoryUnknown; }
