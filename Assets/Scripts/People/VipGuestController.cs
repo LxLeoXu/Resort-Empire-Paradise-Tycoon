@@ -30,7 +30,11 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
     [SerializeField, Min(11)] private int vipReputationReward = 25;
     [SerializeField] private UnityEvent onVipArrived = new();
 
-    [Header("VIP Hodnotenie - Hranice hviezdičiek (Inspector)")]
+    [Header("VIP Spokojnosť a Hranice hviezdičiek (Inspector)")]
+    [Tooltip("Koľko percent z celkovej spokojnosti tvorí splnenie bonusovej požiadavky.")]
+    [Range(0, 100)][SerializeField] private int bonusWeightPercent = 25;
+    [Range(0, 100)][SerializeField] private int star1Threshold = 0;
+    [Range(0, 100)][SerializeField] private int star2Threshold = 30;
     [Range(0, 100)][SerializeField] private int star3Threshold = 50;
     [Range(0, 100)][SerializeField] private int star4Threshold = 70;
     [Range(0, 100)][SerializeField] private int star5Threshold = 90;
@@ -329,7 +333,7 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
 
             grantedRewards = rewards;
             completedTotal = definition.requirements.Count(r => GetRequirementState(r) == VipRequirementState.Completed);
-            satisfactionPercent = Mathf.RoundToInt((float)completedTotal / Mathf.Max(1, totalCount) * 100f);
+            satisfactionPercent = CalculateSatisfactionPercent();
             stars = CalculateVipStars(satisfactionPercent);
 
             visit.waiting = false;
@@ -353,13 +357,50 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
         return ok;
     }
 
+    public int CurrentSatisfactionPercent => CalculateSatisfactionPercent();
+    public int CurrentStarRating => CalculateVipStars(CurrentSatisfactionPercent);
+
+    public int CalculateSatisfactionPercent()
+    {
+        if (definition == null || definition.requirements == null || definition.requirements.Count == 0)
+            return 0;
+
+        int requiredTotal = 0;
+        int requiredDone = 0;
+        int bonusTotal = 0;
+        int bonusDone = 0;
+
+        foreach (var r in definition.requirements)
+        {
+            if (r == null) continue;
+            bool done = GetRequirementState(r) == VipRequirementState.Completed;
+            if (r.bonus)
+            {
+                bonusTotal++;
+                if (done) bonusDone++;
+            }
+            else
+            {
+                requiredTotal++;
+                if (done) requiredDone++;
+            }
+        }
+
+        float mainPool = 100f - bonusWeightPercent;
+        float mainScore = requiredTotal > 0 ? (mainPool * requiredDone / requiredTotal) : mainPool;
+        float bonusScore = bonusTotal > 0 ? ((float)bonusWeightPercent * bonusDone / bonusTotal) : 0f;
+
+        return Mathf.Clamp(Mathf.RoundToInt(mainScore + bonusScore), 0, 100);
+    }
+
     public int CalculateVipStars(int satisfactionPercent)
     {
-        if (satisfactionPercent >= 100) return 5;
         if (satisfactionPercent >= star5Threshold) return 5;
         if (satisfactionPercent >= star4Threshold) return 4;
         if (satisfactionPercent >= star3Threshold) return 3;
-        return 2;
+        if (satisfactionPercent >= star2Threshold) return 2;
+        if (satisfactionPercent >= star1Threshold) return 1;
+        return 1;
     }
 
     // Spätná kompatibilita pre staršie volania

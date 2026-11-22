@@ -219,7 +219,6 @@ public class VipGuestCardUI : MonoBehaviour
 
                 requirementTexts[i].text =
                     requirement.description +
-                    (requirement.bonus ? " (BONUS)" : "") +
                     " - " +
                     requirement.materials +
                     " Materials" +

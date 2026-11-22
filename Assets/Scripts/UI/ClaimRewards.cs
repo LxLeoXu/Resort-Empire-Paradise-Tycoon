@@ -205,7 +205,7 @@ if (materials > 0)
     private void RefreshButton()
     {
         if (claimButton != null)
-            claimButton.interactable = rewardPrepared && !claimed;
+            claimButton.interactable = vipDisplayOnlyMode || (rewardPrepared && !claimed);
     }
-    
+
 }
