@@ -14,6 +14,7 @@ public class VipGuestCardUI : MonoBehaviour
     [SerializeField] private Image portraitImage;
     [SerializeField] private TMP_Text guestNameText;
     [SerializeField] private TMP_Text requestSummaryText;
+    [SerializeField] private S7_VipRequestBoardUI vipRequestBoard;
 
     [Header("Requirements")]
     [SerializeField] private TMP_Text[] requirementTexts;
@@ -56,13 +57,32 @@ public class VipGuestCardUI : MonoBehaviour
             }
         }
 
-        // S7 is not implemented yet.
-        // Open Requests is intentionally disabled.
         if (openRequestsButton != null)
-            openRequestsButton.interactable = false;
+        {
+            openRequestsButton.interactable = true;
+            openRequestsButton.onClick.AddListener(OpenRequests);
+        }
 
         if (requestsRoot != null)
             requestsRoot.SetActive(false);
+    }
+
+    private void OpenRequests()
+    {
+        if (controller == null) return;
+
+        if (vipRequestBoard == null)
+            vipRequestBoard = FindFirstObjectByType<S7_VipRequestBoardUI>(FindObjectsInactive.Include);
+
+        if (vipRequestBoard != null)
+        {
+            Hide();
+            vipRequestBoard.Show(controller);
+        }
+        else
+        {
+            Debug.LogError("VipGuestCardUI: S7_VipRequestBoardUI sa nenašiel v scéne!", this);
+        }
     }
 
     public void Show(VipGuestController vipController)
