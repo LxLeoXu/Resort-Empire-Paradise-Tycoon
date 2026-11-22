@@ -171,12 +171,52 @@ MonoBehaviour:
     m_Key: need_None
     m_Metadata:
       m_Items: []
-  - m_Id: 10923083912183808
+        - m_Id: 10923083912183808
     m_Key: WaveCoins_Breakdown
     m_Metadata:
       m_Items: []
   - m_Id: 10923086386823168
     m_Key: WaveCoins_Saved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082817972883456
+    m_Key: vip_board_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082867260149760
+    m_Key: vip_btn_serve_all
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082867851546624
+    m_Key: vip_ready_to_serve
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082868489080832
+    m_Key: vip_state_missing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082869126615040
+    m_Key: vip_state_ready
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082869764149248
+    m_Key: vip_state_in_progress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082870405877760
+    m_Key: vip_state_completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082871144075264
+    m_Key: vip_tag_bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082871710306304
+    m_Key: vip_btn_fix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082872381394944
+    m_Key: vip_not_enough_materials
     m_Metadata:
       m_Items: []
   m_Metadata:

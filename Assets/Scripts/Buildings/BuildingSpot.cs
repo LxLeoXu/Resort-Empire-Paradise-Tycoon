@@ -21,8 +21,12 @@ public partial class BuildingSpot : MonoBehaviour
     [Header("Hodnota rezortu")]
     [SerializeField] private int resortValueGain = 100;
 
+    [Header("Workers")]
+    [SerializeField] private bool grantWorkerOnBuild = true;
+
     [Header("Stav miesta")]
     public bool isOccupied = false;
+
     private GameObject spawnedBuilding;
 
     private bool purchaseInProgress;
@@ -43,7 +47,9 @@ public partial class BuildingSpot : MonoBehaviour
     private void Start()
     {
         waveManager = FindObjectOfType<WaveManager>();
-        if (waveManager != null && waveManager.Session != null)
+
+        if (waveManager != null &&
+            waveManager.Session != null)
         {
             waveManager.Session.WaveStarted += OnWaveStarted;
             waveManager.Session.WaveEnded += OnWaveEnded;
@@ -52,7 +58,8 @@ public partial class BuildingSpot : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (waveManager != null && waveManager.Session != null)
+        if (waveManager != null &&
+            waveManager.Session != null)
         {
             waveManager.Session.WaveStarted -= OnWaveStarted;
             waveManager.Session.WaveEnded -= OnWaveEnded;
@@ -67,18 +74,22 @@ public partial class BuildingSpot : MonoBehaviour
     private void OnWaveEnded(int waveNumber)
     {
         if (!isOccupied)
-        {
             SetSpotActive(true);
-        }
     }
 
     private void SetSpotActive(bool active)
     {
         foreach (var r in allRenderers)
-            if (r != null) r.enabled = active;
+        {
+            if (r != null)
+                r.enabled = active;
+        }
 
         foreach (var c in allColliders)
-            if (c != null) c.enabled = active;
+        {
+            if (c != null)
+                c.enabled = active;
+        }
     }
 
     private void OnMouseDown()
@@ -88,13 +99,18 @@ public partial class BuildingSpot : MonoBehaviour
 
     public void OpenS9()
     {
-        if (waveManager != null && waveManager.Session != null && waveManager.Session.State == WaveState.Running)
+        if (waveManager != null &&
+            waveManager.Session != null &&
+            waveManager.Session.State == WaveState.Running)
         {
-            Debug.LogWarning("Počas bežiacej vlny sa nedá stavať!");
+            Debug.LogWarning(
+                "Počas bežiacej vlny sa nedá stavať!");
+
             return;
         }
 
-        if (isOccupied) return;
+        if (isOccupied)
+            return;
 
         if (gameObject.activeInHierarchy)
         {
@@ -121,85 +137,203 @@ public partial class BuildingSpot : MonoBehaviour
 
             if (areaUnlockUI != null)
             {
-                int coins = ResourceManager.Instance != null ? ResourceManager.Instance.GetResource(ResourceType.Coins) : 0;
+                int coins = ResourceManager.Instance != null
+                    ? ResourceManager.Instance.GetResource(ResourceType.Coins)
+                    : 0;
+
                 bool isEligible = CanBuyNow();
 
-                // Odovzdávame akciu HandleBuyAndBuild priamo do Setupu
-                areaUnlockUI.Setup(areaTitle, areaPreview, demandAdded, unlockCost, isOccupied, isEligible, coins, HandleBuyAndBuild);
+                areaUnlockUI.Setup(
+                    areaTitle,
+                    areaPreview,
+                    demandAdded,
+                    unlockCost,
+                    isOccupied,
+                    isEligible,
+                    coins,
+                    HandleBuyAndBuild);
             }
 
-            ModalWindow modal = s9Window.GetComponent<ModalWindow>();
+            ModalWindow modal =
+                s9Window.GetComponent<ModalWindow>();
+
             if (modal != null)
                 modal.Open();
             else
                 s9Window.SetActive(true);
 
-            Debug.Log($"<color=green>[S9 OTVORENÉ]</color> Otvorené S9 pre {areaTitle}");
+            Debug.Log(
+                $"<color=green>[S9 OTVORENÉ]</color> Otvorené S9 pre {areaTitle}");
         }
         else
         {
-            Debug.LogError("BuildingSpot nemá priradené s9Window!", this);
+            Debug.LogError(
+                "BuildingSpot nemá priradené s9Window!",
+                this);
         }
     }
 
     private void HandleBuyAndBuild()
     {
         BuildFirstBuilding();
-        if (!isOccupied) return;
+
+        if (!isOccupied)
+            return;
 
         if (s9Window != null)
         {
-            ModalWindow modal = s9Window.GetComponent<ModalWindow>();
-            if (modal != null) modal.Close();
-            else s9Window.SetActive(false);
+            ModalWindow modal =
+                s9Window.GetComponent<ModalWindow>();
+
+            if (modal != null)
+                modal.Close();
+            else
+                s9Window.SetActive(false);
         }
     }
 
     private bool CanBuyNow()
     {
-        if (GamePersistence.IsRestoring || waveManager == null || waveManager.Session == null ||
-            waveManager.Session.State == WaveState.Running) return false;
+        if (GamePersistence.IsRestoring ||
+            waveManager == null ||
+            waveManager.Session == null ||
+            waveManager.Session.State == WaveState.Running)
+            return false;
+
         int wave = waveManager.EffectiveWaveNumber;
-        return wave > requiredWave || (wave == requiredWave && waveManager.Session.State == WaveState.Result);
+
+        return wave > requiredWave ||
+               (wave == requiredWave &&
+                waveManager.Session.State == WaveState.Result);
     }
 
     public void BuildBuilding(int buildingIndex)
     {
-        if (purchaseInProgress || isOccupied || !CanBuyNow()) return;
+        if (purchaseInProgress ||
+            isOccupied ||
+            !CanBuyNow())
+            return;
+
         var resources = ResourceManager.Instance;
-        if (resources == null || unlockCost <= 0) return;
-        if (buildingPrefabs == null || buildingIndex < 0 || buildingIndex >= buildingPrefabs.Count ||
-            buildingPrefabs[buildingIndex] == null ||
-            buildingPrefabs[buildingIndex].GetComponentInChildren<BuildingInfo>(true) == null)
+
+        if (resources == null || unlockCost <= 0)
+            return;
+
+        if (buildingPrefabs == null ||
+            buildingIndex < 0 ||
+            buildingIndex >= buildingPrefabs.Count ||
+            buildingPrefabs[buildingIndex] == null)
         {
-            Debug.LogError("Chýba platný prefab budovy!", this);
+            Debug.LogError(
+                "Chýba platný prefab budovy!",
+                this);
+
             return;
         }
+
+        GameObject prefab = buildingPrefabs[buildingIndex];
+
+        BuildingInfo prefabInfo =
+            prefab.GetComponentInChildren<BuildingInfo>(true);
+
+        BuildingService prefabService =
+            prefab.GetComponentInChildren<BuildingService>(true);
+
+        if (prefabInfo == null ||
+            (grantWorkerOnBuild && prefabService == null))
+        {
+            Debug.LogError(
+                "Prefab budovy nemá potrebný BuildingInfo alebo BuildingService!",
+                this);
+
+            return;
+        }
+
         purchaseInProgress = true;
+
         try
         {
-            if (!resources.SpendResource(ResourceType.Coins, unlockCost)) return;
+            if (!resources.SpendResource(
+                ResourceType.Coins,
+                unlockCost))
+                return;
+
             try
             {
-                spawnedBuilding = Instantiate(buildingPrefabs[buildingIndex], transform.position, Quaternion.identity);
+                spawnedBuilding = Instantiate(
+                    prefab,
+                    transform.position,
+                    Quaternion.identity);
             }
             catch
             {
-                resources.AddResource(ResourceType.Coins, unlockCost);
+                resources.AddResource(
+                    ResourceType.Coins,
+                    unlockCost);
+
                 throw;
             }
+
+            BuildingInfo info =
+                spawnedBuilding.GetComponentInChildren<BuildingInfo>(true);
+
+            info.isBuilt = true;
+
+            if (grantWorkerOnBuild)
+            {
+                BuildingService service =
+                    spawnedBuilding.GetComponentInChildren<BuildingService>(true);
+
+                if (service == null ||
+                    !WorkerRoster.Instance.RecruitAndAssign(service))
+                {
+                    Debug.LogError(
+                        "Nepodarilo sa pridať pracovníka. Nákup bol zrušený.",
+                        this);
+
+                    Destroy(spawnedBuilding);
+                    spawnedBuilding = null;
+
+                    resources.AddResource(
+                        ResourceType.Coins,
+                        unlockCost);
+
+                    return;
+                }
+            }
+
             builtPrefabIndex = buildingIndex;
             isOccupied = true;
-            spawnedBuilding.GetComponentInChildren<BuildingInfo>(true).isBuilt = true;
-            resources.AddResource(ResourceType.ResortValue, resortValueGain);
+
+            resources.AddResource(
+                ResourceType.ResortValue,
+                resortValueGain);
+
             gameObject.SetActive(false);
+
             GamePersistence.Instance?.SaveNow();
-            Debug.Log($"<color=green>[POSTAVENÉ]</color> {spawnedBuilding.name} bola úspešne postavená!");
+
+            Debug.Log(
+                $"<color=green>[POSTAVENÉ]</color> {spawnedBuilding.name} bola úspešne postavená!");
         }
-        finally { purchaseInProgress = false; }
+        finally
+        {
+            purchaseInProgress = false;
+        }
     }
 
-    public void BuildFirstBuilding() { BuildBuilding(0); }
-    public void BuildSecondBuilding() { BuildBuilding(1); }
-    public void BuildThirdBuilding() { BuildBuilding(2); }
+    public void BuildFirstBuilding()
+    {
+        BuildBuilding(0);
+    }
+
+    public void BuildSecondBuilding()
+    {
+        BuildBuilding(1);
+    }
+
+    public void BuildThirdBuilding()
+    {
+        BuildBuilding(2);
+    }
 }

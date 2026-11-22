@@ -48,6 +48,15 @@ public partial class ClaimRewards : MonoBehaviour
             claimButton.onClick.RemoveListener(Claim);
     }
 
+    private bool vipDisplayOnlyMode = false;
+
+    public void PrepareVipDisplayOnly()
+    {
+        // The VIP credit was granted in S7; keep any ordinary pending wave intact.
+        vipDisplayOnlyMode = true;
+        RefreshButton();
+    }
+
     public void SetRewards(WaveRewardsData rewards)
     {
         if (rewardPrepared || claimed) return;
@@ -114,6 +123,7 @@ public partial class ClaimRewards : MonoBehaviour
         return;
 
     pendingRewards = rewards.Copy();
+    vipDisplayOnlyMode = false;
 
     rewardPrepared = true;
     claimed = false;
@@ -142,11 +152,15 @@ public partial class ClaimRewards : MonoBehaviour
 
     public void Claim()
     {
-        if (vipOwner != null)
+        if (vipDisplayOnlyMode)
         {
-            if (vipOwner.TryClaimResult()) OnClaimed?.Invoke();
-            return; // A VIP visit never opens S5 or consumes the ordinary wave reward.
+            // S7 already paid and persisted; this only closes the fallback UI.
+            vipDisplayOnlyMode = false;
+            RefreshButton();
+            OnClaimed?.Invoke();
+            return;
         }
+
         if (!rewardPrepared || claimed || pendingRewards == null) return;
         var manager = ResourceManager.Instance;
         if (manager == null || GamePersistence.IsRestoring) return;
@@ -195,7 +209,7 @@ public partial class ClaimRewards : MonoBehaviour
     private void RefreshButton()
     {
         if (claimButton != null)
-            claimButton.interactable = vipOwner != null ? vipOwner.HasPendingResult : rewardPrepared && !claimed;
+            claimButton.interactable = vipDisplayOnlyMode || (rewardPrepared && !claimed);
     }
-    
+
 }

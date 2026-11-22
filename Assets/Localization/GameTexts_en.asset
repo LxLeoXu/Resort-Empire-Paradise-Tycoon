@@ -41,7 +41,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7458929146679296
-    m_Localized: NEW AREA AVAILABLE !
+    m_Localized: NEW AREA AVAILABLE!
     m_Metadata:
       m_Items: []
   - m_Id: 7458949111566336
@@ -53,7 +53,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7458959081426944
-    m_Localized: 'Includes: 1 Worker'
+    m_Localized: +1 Worker
     m_Metadata:
       m_Items: []
   - m_Id: 7458959781875712
@@ -61,7 +61,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7458960528461824
-    m_Localized: 'MISSING: {0:N0} COINS'
+    m_Localized: NEED {0:N0} MORE
     m_Metadata:
       m_Items: []
   - m_Id: 7458961329573888
@@ -176,12 +176,52 @@ MonoBehaviour:
     m_Localized: Service
     m_Metadata:
       m_Items: []
-  - m_Id: 10923083912183808
+        - m_Id: 10923083912183808
     m_Localized: '{0} needs x {1} Coins x {2:0.00} ({3} stars) = {4} Coins'
     m_Metadata:
       m_Items: []
   - m_Id: 10923086386823168
     m_Localized: 'Saved reward: {0} Coins'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082817972883456
+    m_Localized: VIP REQUESTS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082867260149760
+    m_Localized: SERVE ALL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082867851546624
+    m_Localized: '{0} ready to serve'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082868489080832
+    m_Localized: MISSING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082869126615040
+    m_Localized: READY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082869764149248
+    m_Localized: IN PROGRESS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082870405877760
+    m_Localized: DONE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082871144075264
+    m_Localized: BONUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082871710306304
+    m_Localized: Fix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082872381394944
+    m_Localized: Need {1} Materials (have {0})
     m_Metadata:
       m_Items: []
   references:

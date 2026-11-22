@@ -41,8 +41,16 @@ public partial class S4FigmaResultsUI : MonoBehaviour
 
     private bool resultsShown;
 
-    public bool HasClaimedWave(int waveId) => claimRewards != null && claimRewards.HasClaimedWave(waveId);
-    public void BeginTestWave(int waveId) => claimRewards?.BeginTestWave(waveId);
+    public bool HasClaimedWave(int waveId)
+    {
+        return claimRewards != null &&
+               claimRewards.HasClaimedWave(waveId);
+    }
+
+    public void BeginTestWave(int waveId)
+    {
+        claimRewards?.BeginTestWave(waveId);
+    }
 
     private void OnEnable()
     {
@@ -65,8 +73,6 @@ public partial class S4FigmaResultsUI : MonoBehaviour
             gameObject.SetActive(false);
     }
 
-    // Kompatibilita s povodnym testovacim UI.
-    // Wave ID 0 pouzivame iba na nahlad.
     public void ShowResults(
         int servedGuests,
         int satisfactionPercent)
@@ -89,7 +95,6 @@ public partial class S4FigmaResultsUI : MonoBehaviour
             satisfactionPercent);
     }
 
-    // Skutocna vlna: waveId je cislo ukoncenej vlny.
     public bool ShowWaveResults(
         int waveId,
         int servedGuests,
@@ -108,6 +113,7 @@ public partial class S4FigmaResultsUI : MonoBehaviour
             Debug.LogError(
                 "S4: ClaimRewards nie je priradeny!",
                 this);
+
             return false;
         }
 
@@ -118,21 +124,22 @@ public partial class S4FigmaResultsUI : MonoBehaviour
             Debug.LogError(
                 "S4: ResourceManager neexistuje!",
                 this);
+
             return false;
         }
 
         int guests = Mathf.Max(0, servedGuests);
 
         int satisfaction = Mathf.Clamp(
-            satisfactionPercent, 0, 100);
+            satisfactionPercent,
+            0,
+            100);
 
-        // Vypocitaj odmeny iba raz.
         WaveRewardsData calculated =
             WaveRewardCalculator.CalculateRewards(
                 guests,
                 satisfaction);
 
-        // Energia moze mat maximum 50.
         int currentEnergy =
             manager.GetResource(ResourceType.Energy);
 
@@ -140,20 +147,20 @@ public partial class S4FigmaResultsUI : MonoBehaviour
             0,
             ResourceManager.MaxEnergy - currentEnergy);
 
-        // SCRUM-474: Materialy za VIP hosti
-int vipMaterials = Mathf.Max(0, vipServed);
+        int vipMaterials = Mathf.Max(0, vipServed);
 
-// SCRUM-438: Materialy za 4 a 5 hviezdiciek
-int waveMaterials = Mathf.Max(0, calculated.materials);
+        int waveMaterials = Mathf.Max(
+            0,
+            calculated.materials);
 
-// Celkova odmena
-int totalMaterials = waveMaterials + vipMaterials;
+        int totalMaterials = waveMaterials + vipMaterials;
 
-WaveRewardsData rewards = new WaveRewardsData(
-    Mathf.Max(0, calculated.coins),
-    Mathf.Clamp(calculated.energy, 0, energySpace),
-    Mathf.Max(0, calculated.resortValue),
-    totalMaterials);
+        WaveRewardsData rewards = new WaveRewardsData(
+            Mathf.Max(0, calculated.coins),
+            Mathf.Clamp(calculated.energy, 0, energySpace),
+            Mathf.Max(0, calculated.resortValue),
+            totalMaterials,
+            Mathf.Max(0, calculated.reputation));
 
         int gems = manager.GetFirstFiveStarGemReward(waveId, WaveRewardCalculator.GetStarRating(satisfaction),
             claimRewards.HasPendingFirstFiveStarBonus);
@@ -168,12 +175,11 @@ WaveRewardsData rewards = new WaveRewardsData(
             : claimRewards.SetRewardsForWave(waveId, rewards)))
         {
             Debug.LogWarning(
-                "S4: Odmena pre tuto vlnu sa " +
-                "neda znova pripravit.");
+                "S4: Odmena pre tuto vlnu sa neda znova pripravit.");
+
             return false;
         }
 
-        // Zobraz realny pocet hosti.
         if (guestsText != null)
         {
             guestsText.text = totalGuests > 0
@@ -184,11 +190,9 @@ WaveRewardsData rewards = new WaveRewardsData(
         if (satisfactionText != null)
             satisfactionText.text = satisfaction + "%";
 
-        // Ziadne vymyslene spravy z Figmy.
         SetFeedback(statusLine1Text, positiveFeedback);
         SetFeedback(statusLine2Text, negativeFeedback);
 
-        // Presne tie odmeny, ktore sme pripravili.
         if (coinsRewardText != null)
             coinsRewardText.text =
                 "+" + rewards.coins + " Coins";
@@ -199,19 +203,19 @@ ShowCoinsBreakdown(
     rewards.coins);
 
         if (energyRewardText != null)
-            energyRewardText.text =
-                "+" + rewards.energy + " Energy";
+            energyRewardText.text = "+" + rewards.energy + " Energy";
 
         if (resortValueRewardText != null)
             resortValueRewardText.text =
                 "+" + rewards.resortValue + " Resort Value";
 
-        // SCRUM-503: Materialy v S4
-if (materialsRewardText != null)
-{
-    materialsRewardText.text =
-        "+" + rewards.materials + " Materials";
-}
+        if (materialsRewardText != null)
+            materialsRewardText.text =
+                "+" + rewards.materials + " Materials";
+
+        if (reputationRewardText != null)
+            reputationRewardText.text =
+                "+" + rewards.reputation + " Reputation";
 
         ShowGemReward(rewards.gems);
         UpdateStars(satisfaction);
@@ -219,15 +223,16 @@ if (materialsRewardText != null)
         resultsShown = true;
         gameObject.SetActive(true);
 
-Debug.Log(
-    $"[S4 REWARDS] Wave {waveId}: " +
-    $"Guests={guests}, " +
-    $"Satisfaction={satisfaction}%, " +
-    $"Coins={rewards.coins}, " +
-    $"Energy={rewards.energy}, " +
-    $"ResortValue={rewards.resortValue}, " +
-    $"Materials={rewards.materials}, " +
-    $"VIP Served={vipServed}");
+        Debug.Log(
+            $"[S4 REWARDS] Wave {waveId}: " +
+            $"Guests={guests}, " +
+            $"Satisfaction={satisfaction}%, " +
+            $"Coins={rewards.coins}, " +
+            $"Energy={rewards.energy}, " +
+            $"ResortValue={rewards.resortValue}, " +
+            $"Materials={rewards.materials}, " +
+            $"Reputation={rewards.reputation}, " +
+            $"VIP Served={vipServed}");
 
         return true;
     }
@@ -316,7 +321,8 @@ private void ShowCoinsBreakdown(
 }
     private void UpdateStars(int satisfaction)
     {
-        int stars = WaveRewardCalculator.GetStarRating(satisfaction);
+        int stars =
+            WaveRewardCalculator.GetStarRating(satisfaction);
 
         if (starImages == null)
             return;
@@ -353,6 +359,64 @@ private void ShowCoinsBreakdown(
     {
         resultsShown = false;
         gameObject.SetActive(false);
+    }
+
+    public void ShowVipResults(
+        int completedRequests,
+        int totalRequests,
+        int satisfactionPercent,
+        int stars,
+        System.Collections.Generic.List<VipReward> earnedRewards)
+    {
+        if (claimRewards != null)
+            claimRewards.PrepareVipDisplayOnly();
+
+        // The fallback reuses S4: ordinary-wave rows must not leak into VIP results.
+        if (coinsBreakdownText != null) coinsBreakdownText.gameObject.SetActive(false);
+        if (gemsRewardText != null) gemsRewardText.gameObject.SetActive(false);
+
+        if (guestsText != null)
+            guestsText.text = $"{completedRequests}/{totalRequests}";
+
+        if (satisfactionText != null)
+            satisfactionText.text = $"{satisfactionPercent}%";
+
+        SetFeedback(statusLine1Text, "VIP Visit Completed!");
+        SetFeedback(statusLine2Text, null);
+
+        int coins = 0, energy = 0, resort = 0, materials = 0, reputation = 0;
+        if (earnedRewards != null)
+        {
+            foreach (var r in earnedRewards)
+            {
+                switch (r.resource)
+                {
+                    case ResourceType.Coins: coins += r.amount; break;
+                    case ResourceType.Energy: energy += r.amount; break;
+                    case ResourceType.ResortValue: resort += r.amount; break;
+                    case ResourceType.Materials: materials += r.amount; break;
+                    case ResourceType.Reputation: reputation += r.amount; break;
+                }
+            }
+        }
+
+        if (coinsRewardText != null) coinsRewardText.text = $"+{coins} Coins";
+        if (energyRewardText != null) energyRewardText.text = $"+{energy} Energy";
+        if (resortValueRewardText != null) resortValueRewardText.text = $"+{resort} Resort Value";
+        if (materialsRewardText != null) materialsRewardText.text = $"+{materials} Materials";
+        if (reputationRewardText != null) reputationRewardText.text = $"+{reputation} Reputation";
+
+        if (starImages != null)
+        {
+            for (int i = 0; i < starImages.Length; i++)
+            {
+                if (starImages[i] != null)
+                    starImages[i].color = i < stars ? activeStarColor : inactiveStarColor;
+            }
+        }
+
+        resultsShown = true;
+        gameObject.SetActive(true);
     }
 
 #if UNITY_EDITOR

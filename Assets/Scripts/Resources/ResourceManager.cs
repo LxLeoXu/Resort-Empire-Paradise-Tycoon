@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +13,10 @@ public partial class ResourceManager : MonoBehaviour
     [SerializeField] private int startingCoins = 12450;
     [SerializeField] private int startingEnergy = 45;
     [SerializeField] private int startingReputation = 0;
+
     [FormerlySerializedAs("startingWood")]
     [SerializeField] private int startingMaterials = 50;
+
     [SerializeField] private int startingStone = 50;
     [SerializeField] private int startingGems = 0;
     [SerializeField] private int startingResortValue = 700;
@@ -55,16 +56,47 @@ public partial class ResourceManager : MonoBehaviour
         RestoreResources(CaptureStartingResources());
     }
 
-    public List<ResourceSave> CaptureStartingResources() => new()
+    public List<ResourceSave> CaptureStartingResources()
     {
-        new ResourceSave { type = ResourceType.Coins, amount = Mathf.Max(0, startingCoins) },
-        new ResourceSave { type = ResourceType.Energy, amount = Mathf.Clamp(startingEnergy, 0, MaxEnergy) },
-        new ResourceSave { type = ResourceType.Reputation, amount = Mathf.Max(0, startingReputation) },
-        new ResourceSave { type = ResourceType.Materials, amount = Mathf.Max(0, startingMaterials) },
-        new ResourceSave { type = ResourceType.Stone, amount = Mathf.Max(0, startingStone) },
-        new ResourceSave { type = ResourceType.Gems, amount = Mathf.Max(0, startingGems) },
-        new ResourceSave { type = ResourceType.ResortValue, amount = Mathf.Max(0, startingResortValue) }
-    };
+        return new List<ResourceSave>
+        {
+            new ResourceSave
+            {
+                type = ResourceType.Coins,
+                amount = Mathf.Max(0, startingCoins)
+            },
+            new ResourceSave
+            {
+                type = ResourceType.Energy,
+                amount = Mathf.Clamp(startingEnergy, 0, MaxEnergy)
+            },
+            new ResourceSave
+            {
+                type = ResourceType.Reputation,
+                amount = Mathf.Max(0, startingReputation)
+            },
+            new ResourceSave
+            {
+                type = ResourceType.Materials,
+                amount = Mathf.Max(0, startingMaterials)
+            },
+            new ResourceSave
+            {
+                type = ResourceType.Stone,
+                amount = Mathf.Max(0, startingStone)
+            },
+            new ResourceSave
+            {
+                type = ResourceType.Gems,
+                amount = Mathf.Max(0, startingGems)
+            },
+            new ResourceSave
+            {
+                type = ResourceType.ResortValue,
+                amount = Mathf.Max(0, startingResortValue)
+            }
+        };
+    }
 
     public int GetResource(ResourceType type)
     {
@@ -84,7 +116,8 @@ public partial class ResourceManager : MonoBehaviour
         if (type == ResourceType.Energy)
         {
             newAmount = (int)Math.Min(
-                (long)current + amount, MaxEnergy);
+                (long)current + amount,
+                MaxEnergy);
         }
         else
         {
@@ -100,13 +133,14 @@ public partial class ResourceManager : MonoBehaviour
         resources[type] = newAmount;
 
         OnResourceChanged?.Invoke(type, newAmount);
+
         return true;
     }
 
     public bool SpendResource(ResourceType type, int amount)
     {
-        // Hodnota rezortu sa nikdy neznižuje (SCRUM-86), len rastie.
-        if (type == ResourceType.ResortValue)
+        if (type == ResourceType.ResortValue ||
+            type == ResourceType.Reputation)
             return false;
 
         if (amount <= 0 || GetResource(type) < amount)
@@ -115,6 +149,7 @@ public partial class ResourceManager : MonoBehaviour
         resources[type] -= amount;
 
         OnResourceChanged?.Invoke(type, resources[type]);
+
         return true;
     }
 

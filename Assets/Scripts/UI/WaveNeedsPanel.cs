@@ -36,6 +36,7 @@ public class WaveNeedsPanel : MonoBehaviour
         public int servedCount;
         public float timeAboveThreshold;
         public bool isWarningActive;
+        public bool isRecovering;
     }
 
     private readonly Dictionary<NeedType, NeedState> states = new();
@@ -182,11 +183,20 @@ public class WaveNeedsPanel : MonoBehaviour
             if (card == null || !card.gameObject.activeSelf)
                 continue;
 
-            bool active = waveManager.Session.IsBottleneck(type);
-            if (active != state.isWarningActive)
+            // BOTTLENECK a RECOVERING sa nikdy nezobrazia naraz.
+            bool bottleneck = waveManager.Session.IsBottleneck(type);
+            bool recovering = !bottleneck && waveManager.Session.IsRecovering(type);
+
+            if (bottleneck != state.isWarningActive)
             {
-                state.isWarningActive = active;
-                card.SetWarning(active, active ? $"{GetBuildingDisplayName(type)} Waiting Too Long" : null);
+                state.isWarningActive = bottleneck;
+                card.SetWarning(bottleneck, bottleneck ? $"{GetBuildingDisplayName(type)} Waiting Too Long" : null);
+            }
+
+            if (recovering != state.isRecovering)
+            {
+                state.isRecovering = recovering;
+                card.SetRecovering(recovering, recovering ? $"{GetBuildingDisplayName(type)} is catching up" : null);
             }
         }
     }
@@ -299,13 +309,15 @@ public class WaveNeedsPanel : MonoBehaviour
                     arrivedCount = 0,
                     servedCount = 0,
                     timeAboveThreshold = 0f,
-                    isWarningActive = false
+                    isWarningActive = false,
+                    isRecovering = false
                 };
 
                 totalWaveNeeds += countForThisWave;
 
                 card.UpdateProgress(0, countForThisWave);
                 card.SetWarning(false);
+                card.SetRecovering(false);
 
                 bool hasWorker = builtNeeds[card.needType];
 

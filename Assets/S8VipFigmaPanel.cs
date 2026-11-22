@@ -29,11 +29,16 @@ public sealed class S8VipFigmaPanel : MonoBehaviour
 
     private ClaimRewards claimSource;
     private bool preview;
+    private bool completedVisitDisplayOnly;
     private static S8VipFigmaPanel previewInstance;
     private bool isRuntimeConnector;
     private float nextCheck;
     private S4FigmaResultsUI activeVip;
     private S8VipFigmaPanel activePanel;
+
+    // Preserve ordinary S4 results and their unclaimed wave rewards while VIP S8 is open.
+    private readonly List<GameObject> temporarilyHiddenS4 = new List<GameObject>();
+    private float nextS4VisibilityCheck;
 
     private static readonly Color Purple = new Color32(126, 51, 242, 255);
     private static readonly Color Gold = new Color32(255, 193, 42, 255);
@@ -52,13 +57,153 @@ public sealed class S8VipFigmaPanel : MonoBehaviour
     private void OnDestroy()
     {
         if (claimButton != null) claimButton.onClick.RemoveListener(OnClaimPressed);
+        RestoreOrdinaryWaveResults();
         if (isRuntimeConnector) RemoveActivePanel();
+    }
+
+    private void HideOrdinaryWaveResults()
+    {
+        foreach (var result in FindObjectsByType<S4FigmaResultsUI>(
+                     FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (result == null || result.IsVipVariant || !result.gameObject.activeInHierarchy)
+                continue;
+
+            var ordinaryWindow = result.gameObject;
+            if (!temporarilyHiddenS4.Contains(ordinaryWindow))
+                temporarilyHiddenS4.Add(ordinaryWindow);
+
+            // Do NOT call HideResults(): it would change S4's result state.
+            // Disabling the view does not pay or discard ordinary wave rewards.
+            ordinaryWindow.SetActive(false);
+        }
+    }
+
+    private void RestoreOrdinaryWaveResults()
+    {
+        foreach (var ordinaryWindow in temporarilyHiddenS4)
+            if (ordinaryWindow != null)
+                ordinaryWindow.SetActive(true);
+
+        temporarilyHiddenS4.Clear();
+    }
+
+    private void LateUpdate()
+    {
+        // Another script can show a wave result after the VIP receipt opens.
+        if (!completedVisitDisplayOnly || Time.unscaledTime < nextS4VisibilityCheck)
+            return;
+
+        nextS4VisibilityCheck = Time.unscaledTime + 0.1f;
+        HideOrdinaryWaveResults();
+    }
+
+    // New S7 path. Rewards have ALREADY been granted and saved by VipGuestController.
+    // S8 only displays the receipt and its Claim button closes the overlay.
+    public static bool TryShowCompleted(
+        VipGuestDefinition guest,
+        VipVisitSave visit,
+        int satisfactionPercent,
+        int rating,
+        List<VipReward> grantedRewards)
+    {
+        if (guest == null || visit == null || grantedRewards == null)
+            return false;
+
+        var prefab = Resources.Load<GameObject>("S8VipFigmaPanel");
+        if (prefab == null)
+        {
+            Debug.LogError("S8: Resources/S8VipFigmaPanel.prefab is missing.");
+            return false;
+        }
+
+        if (prefab.GetComponent<S8VipFigmaPanel>() == null)
+        {
+            Debug.LogError("S8: The prefab root has no S8VipFigmaPanel component.");
+            return false;
+        }
+
+        var instance = Instantiate(prefab);
+        var panel = instance.GetComponent<S8VipFigmaPanel>();
+        panel.DisplayCompletedVisit(guest, visit, satisfactionPercent, rating, grantedRewards);
+        panel.HideOrdinaryWaveResults();
+        return true;
+    }
+
+    public void DisplayCompletedVisit(
+        VipGuestDefinition guest,
+        VipVisitSave visit,
+        int satisfactionPercent,
+        int rating,
+        List<VipReward> grantedRewards)
+    {
+        // This mode must NEVER call ClaimRewards or ResourceManager.
+        completedVisitDisplayOnly = true;
+        preview = false;
+        claimSource = null;
+        if (previewWatermark != null)
+            previewWatermark.gameObject.SetActive(false);
+
+        var completed = new HashSet<string>(visit.completed ?? new List<string>());
+        var lines = new List<string>();
+        int requiredCompleted = 0;
+        int requiredTotal = 0;
+        bool bonusCompleted = false;
+
+        foreach (var req in guest.requirements)
+        {
+            if (req == null) continue;
+            bool done = completed.Contains(req.id);
+            lines.Add((done ? "[x] " : "[ ] ") +
+                (string.IsNullOrWhiteSpace(req.description) ? req.id : req.description));
+            if (req.bonus)
+                bonusCompleted = done;
+            else
+            {
+                requiredTotal++;
+                if (done) requiredCompleted++;
+            }
+        }
+
+        int coins = 0, energy = 0, materials = 0, resortValue = 0, reputation = 0;
+        foreach (var reward in grantedRewards)
+        {
+            if (reward == null) continue;
+            switch (reward.resource)
+            {
+                case ResourceType.Coins: coins += reward.amount; break;
+                case ResourceType.Energy: energy += reward.amount; break;
+                case ResourceType.Materials: materials += reward.amount; break;
+                case ResourceType.ResortValue: resortValue += reward.amount; break;
+                case ResourceType.Reputation: reputation += reward.amount; break;
+                default:
+                    Debug.LogWarning("S8: Unrepresented reward type: " + reward.resource);
+                    break;
+            }
+        }
+
+        bool perfectStay = requiredTotal > 0 &&
+            requiredCompleted == requiredTotal && bonusCompleted;
+
+        Apply(guest.displayName, requiredCompleted, Mathf.Clamp(rating, 1, 5),
+            perfectStay, lines, reputation, coins, energy, materials, resortValue);
+
+        if (requestsAnswered != null)
+            requestsAnswered.text = requiredCompleted + "/" + requiredTotal + " Served";
+        if (stayRating != null)
+            stayRating.text = rating + "/5 Stars";
+        Debug.Log("[S8] Showing saved VIP result: " + guest.displayName +
+            ", satisfaction=" + Mathf.Clamp(satisfactionPercent, 0, 100) +
+            "%, stars=" + rating + ". No additional rewards are granted.");
+        if (claimButton != null)
+            claimButton.interactable = true;
     }
 
     public void Display(VipStayResult result, ClaimRewards existingClaim)
     {
         if (result == null || !result.IsValid()) return;
         preview = false;
+        completedVisitDisplayOnly = false;
         claimSource = existingClaim;
         if (previewWatermark != null) previewWatermark.gameObject.SetActive(false);
         Apply(result.guestName, result.requiredCompleted, result.stars,
@@ -72,6 +217,7 @@ public sealed class S8VipFigmaPanel : MonoBehaviour
     public void DisplayPreview()
     {
         preview = true;
+        completedVisitDisplayOnly = false;
         claimSource = null;
         Apply("Chloe", 3, 5, true,
             new[] { "Required 1: fulfilled", "Required 2: fulfilled", "Required 3: fulfilled", "Bonus: fulfilled" },
@@ -83,6 +229,15 @@ public sealed class S8VipFigmaPanel : MonoBehaviour
     public void OnClaimPressed()
     {
         if (preview) return;
+        if (completedVisitDisplayOnly)
+        {
+            // S7 already saved the credit. Just close this receipt.
+            completedVisitDisplayOnly = false;
+            if (claimButton != null) claimButton.interactable = false;
+            RestoreOrdinaryWaveResults();
+            Destroy(gameObject);
+            return;
+        }
         if (claimSource == null)
         {
             Debug.LogError("S8 VIP: Original ClaimRewards was not found. Nothing was claimed.");
@@ -204,14 +359,8 @@ public sealed class S8VipFigmaPanel : MonoBehaviour
     }
 #endif
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-    private static void AutoInstall()
-    {
-        var go = new GameObject("S8 VIP UI Connector (runtime only)");
-        DontDestroyOnLoad(go);
-        var connector = go.AddComponent<S8VipFigmaPanel>();
-        connector.isRuntimeConnector = true;
-    }
+    // No polling connector is installed: S7 explicitly opens the S8 receipt
+    // after a successful saved transaction via TryShowCompleted().
 
 #if UNITY_EDITOR
     // -----------------------------------------------------------------------
