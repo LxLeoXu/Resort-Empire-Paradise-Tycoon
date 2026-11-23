@@ -14,13 +14,24 @@ public enum VipRequirementState
 }
 
 [Serializable]
+public sealed class VipRequirementTimerSave
+{
+    public string requirementId;
+    public float remainingSeconds;
+    public float durationSeconds;
+}
+
+[Serializable]
 public sealed class VipVisitSave
 {
     public bool offered, waiting, rewarded;
     public string guestId;
     public int afterWave;
-    public List<string> fulfilled = new();  // Zaplatené Materiály (READY)
-    public List<string> completed = new();  // Dokončené po odpočte (DONE / COMPLETED)
+    public List<string> fulfilled = new();
+    public List<string> completed = new();
+    public VipStayResult result;
+    // Optional in older saves: running VIP work resumes without counting offline time.
+    public List<VipRequirementTimerSave> activeTimers = new();
 }
 
 public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
@@ -50,9 +61,11 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
     public VipGuestDefinition Definition => definition;
 
     public VipVisitSave CurrentVisit =>
-        JsonUtility.FromJson<VipVisitSave>(JsonUtility.ToJson(visit));
+        JsonUtility.FromJson<VipVisitSave>(CaptureSaveJson());
 
     public bool IsWaiting => visit.waiting;
+    public bool HasPendingResult => visit.result != null && !visit.waiting && !visit.rewarded;
+    public VipStayResult PendingResult => HasPendingResult ? JsonUtility.FromJson<VipStayResult>(JsonUtility.ToJson(visit.result)) : null;
     public bool IsReady => ready;
     public int Star3Threshold => star3Threshold;
     public int Star4Threshold => star4Threshold;
@@ -65,6 +78,10 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
     private WaveSession session;
     private bool ready, transaction;
     private float retryAt;
+    private float nextRequirementSaveRetryAt;
+    private float nextVipFinishRetryAt;
+    private float nextTimerCheckpointAt;
+    private const float TimerCheckpointInterval = 10f;
 
     // Aktívne odpočty pre požiadavky v stave IN_PROGRESS
     private readonly Dictionary<string, float> inProgressRemaining = new();
@@ -100,6 +117,26 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
             session.WaveEnded -= OnWaveEnded;
     }
 
+    // Android often suspends the process rather than calling OnApplicationQuit.
+    private void OnApplicationPause(bool paused)
+    {
+        if (paused) SaveActiveTimersIfPossible();
+    }
+
+    private void OnApplicationQuit() => SaveActiveTimersIfPossible();
+
+    private void SaveActiveTimersIfPossible()
+    {
+        if (!ready || transaction || !visit.waiting || visit.rewarded ||
+            inProgressRemaining.Count == 0 || GamePersistence.IsRestoring ||
+            GamePersistence.Instance == null || !GamePersistence.Instance.IsReady)
+            return;
+
+        // Checkpoint only: no resources or progress are changed here.
+        if (!GamePersistence.Instance.SaveNow())
+            Debug.LogWarning("VIP: Timer checkpoint save failed; remaining timers are still active.", this);
+    }
+
     private void OnWaveEnded(int wave)
     {
         CheckArrival();
@@ -131,10 +168,33 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
                 }
             }
 
-            if (finishedBuffer.Count > 0)
+            // Avoid retrying a failed save every frame (including after the timer reached zero).
+            if (finishedBuffer.Count > 0 && Time.unscaledTime >= nextRequirementSaveRetryAt)
             {
                 CompleteFinishedRequirements(finishedBuffer);
             }
+        }
+
+        // A periodic checkpoint limits progress loss if Android terminates the app.
+        // The saved duration NEVER advances while the player is offline.
+        if (inProgressRemaining.Count > 0 &&
+            Time.unscaledTime >= nextTimerCheckpointAt &&
+            !GamePersistence.IsPaused && !GamePersistence.IsRestoring && !transaction)
+        {
+            nextTimerCheckpointAt = Time.unscaledTime + TimerCheckpointInterval;
+            SaveActiveTimersIfPossible();
+        }
+
+        // A failed final save must not leave a completed VIP stuck with no Ready buttons.
+        // Also recover an already-completed, still-waiting visit after a restart.
+        if (Time.unscaledTime >= nextVipFinishRetryAt &&
+            CanAct() &&
+            inProgressRemaining.Count == 0 &&
+            definition.requirements.Where(r => !r.bonus)
+                .All(r => GetRequirementState(r) == VipRequirementState.Completed))
+        {
+            nextVipFinishRetryAt = Time.unscaledTime + 2f;
+            TryFinishAndOpenS8();
         }
     }
 
@@ -247,33 +307,51 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
     {
         if (!CanAct()) return false;
 
-        bool startedAny = false;
-        foreach (var req in definition.requirements)
+        // Stage only READY requirements, preserving any already-running timers.
+        var toStart = definition.requirements
+            .Where(req => GetRequirementState(req) == VipRequirementState.Ready)
+            .ToList();
+        if (toStart.Count == 0) return false;
+
+        bool committed = false;
+        try
         {
-            if (GetRequirementState(req) == VipRequirementState.Ready)
+            // Commit saves the new timer snapshot along with all game progress.
+            // Its existing Changed event updates S7 after a successful save.
+            committed = Commit(() =>
             {
-                float duration = Mathf.Max(1f, req.serveDurationSeconds);
-                inProgressDuration[req.id] = duration;
-                inProgressRemaining[req.id] = duration;
-                startedAny = true;
+                foreach (var req in toStart)
+                {
+                    float duration = Mathf.Max(1f, req.serveDurationSeconds);
+                    inProgressDuration[req.id] = duration;
+                    inProgressRemaining[req.id] = duration;
+                }
+                return true;
+            });
+            if (committed)
+                nextTimerCheckpointAt = Time.unscaledTime + TimerCheckpointInterval;
+            return committed;
+        }
+        finally
+        {
+            // Commit already restores visit/resources on a failed save; also
+            // revert the new runtime timers so the player can press Serve All again.
+            if (!committed)
+            {
+                foreach (var req in toStart)
+                {
+                    inProgressRemaining.Remove(req.id);
+                    inProgressDuration.Remove(req.id);
+                }
             }
         }
-
-        if (startedAny)
-            Changed?.Invoke();
-
-        return startedAny;
     }
 
     private void CompleteFinishedRequirements(List<string> finishedIds)
     {
-        foreach (var id in finishedIds)
-        {
-            inProgressRemaining.Remove(id);
-            inProgressDuration.Remove(id);
-        }
-
-        Commit(() =>
+        // Keep the finished timers until their Completed state is saved successfully.
+        // Otherwise a save failure leaves neither a Ready row nor a running timer to retry.
+        if (!Commit(() =>
         {
             visit.completed ??= new List<string>();
             foreach (var id in finishedIds)
@@ -282,17 +360,21 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
                     visit.completed.Add(id);
             }
             return true;
-        });
-
-        // Ak sú hotové všetky 3 hlavné požiadavky a žiadna ďalšia práve nebeží -> dokončiť VIP a otvoriť S8
-        bool allRequiredDone = definition.requirements
-            .Where(r => !r.bonus)
-            .All(r => GetRequirementState(r) == VipRequirementState.Completed);
-
-        if (allRequiredDone && inProgressRemaining.Count == 0)
+        }))
         {
-            TryFinishAndOpenS8();
+            nextRequirementSaveRetryAt = Time.unscaledTime + 2f;
+            Debug.LogWarning("VIP: Could not save completed requirements; retrying safely.", this);
+            return;
         }
+
+        nextRequirementSaveRetryAt = 0f;
+        foreach (var id in finishedIds)
+        {
+            inProgressRemaining.Remove(id);
+            inProgressDuration.Remove(id);
+        }
+
+        // Update() now handles the final save and its retries after all timers are gone.
     }
 
     public bool TryFinishAndOpenS8()
@@ -345,12 +427,18 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
         {
             VipCompleted?.Invoke(completedTotal, totalCount, satisfactionPercent, grantedRewards);
 
-            if (resultsUI == null)
-                resultsUI = FindFirstObjectByType<S4FigmaResultsUI>(FindObjectsInactive.Include);
-
-            if (resultsUI != null)
+            // S7 has already committed all VIP rewards at this point.
+            // Prefer the real purple S8 prefab; do not grant any resources in S8.
+            if (!S8VipFigmaPanel.TryShowCompleted(
+                    definition, CurrentVisit, satisfactionPercent, stars, grantedRewards))
             {
-                resultsUI.ShowVipResults(completedTotal, totalCount, satisfactionPercent, stars, grantedRewards);
+                Debug.LogWarning("VIP: Purple S8 is unavailable; using the S4 results fallback.");
+                if (resultsUI == null)
+                    resultsUI = FindFirstObjectByType<S4FigmaResultsUI>(FindObjectsInactive.Include);
+
+                if (resultsUI != null)
+                    resultsUI.ShowVipResults(completedTotal, totalCount,
+                        satisfactionPercent, stars, grantedRewards);
             }
         }
 
@@ -421,13 +509,17 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
     public bool TryDecline()
     {
         if (!CanAct()) return false;
-        inProgressRemaining.Clear();
-        inProgressDuration.Clear();
-        return Commit(() =>
+        bool ok = Commit(() =>
         {
             visit.waiting = false;
             return true;
         });
+        if (ok)
+        {
+            inProgressRemaining.Clear();
+            inProgressDuration.Clear();
+        }
+        return ok;
     }
 
     private bool CanAct()
@@ -482,7 +574,30 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
         return true;
     }
 
-    public string CaptureSaveJson() => JsonUtility.ToJson(visit);
+    public string CaptureSaveJson()
+    {
+        // Save a copy, never mutate the live visit from a serialization callback.
+        var snapshot = JsonUtility.FromJson<VipVisitSave>(JsonUtility.ToJson(visit));
+        snapshot.activeTimers = new List<VipRequirementTimerSave>();
+
+        if (visit.waiting && !visit.rewarded)
+        {
+            foreach (var id in inProgressRemaining.Keys.OrderBy(id => id, StringComparer.Ordinal))
+            {
+                if (visit.completed != null && visit.completed.Contains(id)) continue;
+                if (!inProgressDuration.TryGetValue(id, out float duration)) continue;
+
+                snapshot.activeTimers.Add(new VipRequirementTimerSave
+                {
+                    requirementId = id,
+                    remainingSeconds = Mathf.Clamp(inProgressRemaining[id], 0f, duration),
+                    durationSeconds = duration
+                });
+            }
+        }
+
+        return JsonUtility.ToJson(snapshot);
+    }
 
     public void RestoreSaveJson(string json)
     {
@@ -491,6 +606,7 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
         {
             saved.fulfilled ??= new List<string>();
             saved.completed ??= new List<string>();
+            saved.activeTimers ??= new List<VipRequirementTimerSave>(); // legacy saves
         }
 
         if (saved == null ||
@@ -507,8 +623,33 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
             throw new ArgumentException("Invalid saved VIP visit.");
         }
 
+        // Validate the full saved timer list before touching runtime state.
+        var timerIds = new HashSet<string>();
+        foreach (var timer in saved.activeTimers)
+        {
+            if (timer == null || string.IsNullOrWhiteSpace(timer.requirementId) ||
+                !timerIds.Add(timer.requirementId) ||
+                float.IsNaN(timer.remainingSeconds) || float.IsInfinity(timer.remainingSeconds) ||
+                float.IsNaN(timer.durationSeconds) || float.IsInfinity(timer.durationSeconds) ||
+                timer.durationSeconds < 1f || timer.remainingSeconds < 0f ||
+                timer.remainingSeconds > timer.durationSeconds ||
+                !saved.waiting || saved.rewarded ||
+                saved.completed.Contains(timer.requirementId) ||
+                definition == null || definition.requirements == null ||
+                !definition.requirements.Any(req => req != null &&
+                    req.id == timer.requirementId &&
+                    (req.startsReady || saved.fulfilled.Contains(req.id))))
+                throw new ArgumentException("Invalid saved VIP requirement timer.");
+        }
+
         inProgressRemaining.Clear();
         inProgressDuration.Clear();
+        foreach (var timer in saved.activeTimers)
+        {
+            inProgressRemaining.Add(timer.requirementId, timer.remainingSeconds);
+            inProgressDuration.Add(timer.requirementId, timer.durationSeconds);
+        }
         visit = saved;
+        nextTimerCheckpointAt = Time.unscaledTime + TimerCheckpointInterval;
     }
 }

@@ -176,6 +176,14 @@ MonoBehaviour:
     m_Localized: Service
     m_Metadata:
       m_Items: []
+        - m_Id: 10923083912183808
+    m_Localized: '{0} needs x {1} Coins x {2:0.00} ({3} stars) = {4} Coins'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10923086386823168
+    m_Localized: 'Saved reward: {0} Coins'
+    m_Metadata:
+      m_Items: []
   - m_Id: 11082817972883456
     m_Localized: VIP REQUESTS
     m_Metadata:

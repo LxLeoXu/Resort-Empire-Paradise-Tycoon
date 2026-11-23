@@ -2113,7 +2113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
   saveKey: pool
   buildingName: Pool
-  buildingIcon: {fileID: 0}
+  buildingIcon: {fileID: 21300000, guid: 65cadcef3d59d4146b9f432d9cc15ba3, type: 3}
   isBuilt: 1
   currentLevel: 1
   offeredNeed: 4

@@ -18,8 +18,25 @@ public partial class ResourceManager : MonoBehaviour
     [SerializeField] private int startingMaterials = 50;
 
     [SerializeField] private int startingStone = 50;
-    [SerializeField] private int startingGems = 10;
+    [SerializeField] private int startingGems = 0;
     [SerializeField] private int startingResortValue = 700;
+
+    [Header("First ordinary 5-star wave (provisional amount; team approval required)")]
+    [SerializeField, Min(1)] private int firstFiveStarGemReward = 10;
+    private FirstFiveStarRewardSave firstFiveStarReward = new();
+    public bool FirstFiveStarRewardClaimed => firstFiveStarReward.claimed;
+    public int GetFirstFiveStarGemReward(int waveId, int stars, bool pendingBonus) =>
+        waveId > 0 && stars == 5 && !pendingBonus && !FirstFiveStarRewardClaimed ? Mathf.Max(1, firstFiveStarGemReward) : 0;
+    public void MarkFirstFiveStarRewardClaimed() => firstFiveStarReward.claimed = true;
+    public FirstFiveStarRewardSave CaptureFirstFiveStarReward() => new()
+        { claimed = firstFiveStarReward.claimed, legacyHistoryUnknown = firstFiveStarReward.legacyHistoryUnknown };
+    public void RestoreFirstFiveStarReward(FirstFiveStarRewardSave saved)
+    {
+        // Legacy history cannot distinguish a past 5-star reward from starting/daily Gems.
+        // Preserve the wallet and do not issue an unprovable duplicate milestone.
+        firstFiveStarReward = saved == null ? new FirstFiveStarRewardSave { claimed = true, legacyHistoryUnknown = true }
+            : new FirstFiveStarRewardSave { claimed = saved.claimed, legacyHistoryUnknown = saved.legacyHistoryUnknown };
+    }
 
     private readonly Dictionary<ResourceType, int> resources = new();
 
