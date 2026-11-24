@@ -29,8 +29,11 @@ public class BuildingInfo : MonoBehaviour
     [Tooltip("Počet slotov pre pracovníkov na úrovniach 1 až 5 (1, 1, 1, 2, 3).")]
     [SerializeField] private int[] workerSlotsByLevel = { 1, 1, 1, 2, 3 };
 
-    [Tooltip("Cena vylepšenia na ďalšiu úroveň: [0]=Lv1->2 (500), [1]=Lv2->3 (1200), [2]=Lv3->4 (2500), [3]=Lv4->5 (5000).")]
+    [Tooltip("Cena vylepšenia v minciach: [0]=Lv1->2 (500), [1]=Lv2->3 (1200), [2]=Lv3->4 (2500), [3]=Lv4->5 (5000).")]
     [SerializeField] private int[] upgradeCosts = { 500, 1200, 2500, 5000 };
+
+    [Tooltip("Cena vylepšenia v materiáloch: [0]=Lv1->2 (0), [1]=Lv2->3 (0), [2]=Lv3->4 (napr. 3), [3]=Lv4->5 (napr. 5).")]
+    [SerializeField] private int[] upgradeMaterialCosts = { 0, 0, 3, 5 };
 
     [Tooltip("Zisk hodnoty rezortu pri vylepšení: [0]=Lv1->2, [1]=Lv2->3, [2]=Lv3->4, [3]=Lv4->5.")]
     [SerializeField] private int[] resortValueGains = { 100, 100, 200, 300 };
@@ -58,8 +61,11 @@ public class BuildingInfo : MonoBehaviour
         ? 0
         : (currentLevel < EffectiveMaxLevel ? GetWorkerSlots(currentLevel + 1) : CurrentWorkerSlots);
 
-    // Cena upgradu (Lv1->2: 500, Lv2->3: 1200, Lv3->4: 2500, Lv4->5: 5000)
+    // Cena upgradu v minciach (Lv1->2: 500, Lv2->3: 1200, Lv3->4: 2500, Lv4->5: 5000)
     public int UpgradeCost => CanUpgrade ? GetUpgradeCost(currentLevel) : 0;
+
+    // Cena upgradu v materiáloch (Lv1->2: 0, Lv2->3: 0, Lv3->4: 3, Lv4->5: 5)
+    public int UpgradeMaterialCost => CanUpgrade ? GetUpgradeMaterialCost(currentLevel) : 0;
 
     // Zisk hodnoty rezortu
     public int ResortValueGain => CanUpgrade ? GetResortValueGain(currentLevel) : 0;
@@ -99,6 +105,15 @@ public class BuildingInfo : MonoBehaviour
         if (idx >= 0 && upgradeCosts != null && idx < upgradeCosts.Length && upgradeCosts[idx] >= 0)
             return upgradeCosts[idx];
         return DefaultUpgradeCostFromLevel(clamped);
+    }
+
+    public int GetUpgradeMaterialCost(int fromLevel)
+    {
+        int clamped = Mathf.Clamp(fromLevel, 1, MaxLevel);
+        int idx = clamped - 1;
+        if (idx >= 0 && upgradeMaterialCosts != null && idx < upgradeMaterialCosts.Length && upgradeMaterialCosts[idx] >= 0)
+            return upgradeMaterialCosts[idx];
+        return DefaultUpgradeMaterialCostFromLevel(clamped);
     }
 
     public int GetResortValueGain(int fromLevel)
@@ -149,6 +164,13 @@ public class BuildingInfo : MonoBehaviour
         _ => 0
     };
 
+    public static int DefaultUpgradeMaterialCostFromLevel(int fromLevel) => fromLevel switch
+    {
+        3 => 3,
+        4 => 5,
+        _ => 0
+    };
+
     public static int DefaultResortValueGainFromLevel(int fromLevel) => fromLevel switch
     {
         1 => 100,
@@ -180,6 +202,7 @@ public class BuildingInfo : MonoBehaviour
         EnsureIntArray(ref capacitiesByLevel, MaxLevel, DefaultCapacityForLevel);
         EnsureIntArray(ref workerSlotsByLevel, MaxLevel, DefaultWorkerSlotsForLevel);
         EnsureIntArray(ref upgradeCosts, MaxLevel - 1, DefaultUpgradeCostFromLevel);
+        EnsureIntArray(ref upgradeMaterialCosts, MaxLevel - 1, DefaultUpgradeMaterialCostFromLevel);
         EnsureIntArray(ref resortValueGains, MaxLevel - 1, DefaultResortValueGainFromLevel);
         EnsureFloatArray(ref qualityBonusByLevel, MaxLevel, DefaultQualityBonusForLevel);
         currentLevel = Mathf.Clamp(currentLevel, 1, EffectiveMaxLevel);

@@ -940,10 +940,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7cce2453dd44048b1def41bfab617d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceManager
-  startingCoins: 999999
+  startingCoins: 99999
   startingEnergy: 10
   startingReputation: 0
-  startingMaterials: 50
+  startingMaterials: 20
   startingStone: 50
   startingGems: 0
   startingResortValue: 700
@@ -11203,6 +11203,18 @@ PrefabInstance:
       propertyPath: recoveryDuration
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 131569599649773054, guid: 02debdfb644f0e347be6f946a7837bde, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680415407375078184, guid: 02debdfb644f0e347be6f946a7837bde, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718104723673300797, guid: 02debdfb644f0e347be6f946a7837bde, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4478539664070906724, guid: 02debdfb644f0e347be6f946a7837bde, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -11251,6 +11263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reception
       objectReference: {fileID: 0}
+    - target: {fileID: 5447377614875023507, guid: 02debdfb644f0e347be6f946a7837bde, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5834146033373225024, guid: 02debdfb644f0e347be6f946a7837bde, type: 3}
       propertyPath: hasWorker
       value: 1
@@ -11272,6 +11288,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1407425055}
     - target: {fileID: 6989064622883047600, guid: 02debdfb644f0e347be6f946a7837bde, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480192753026857197, guid: 02debdfb644f0e347be6f946a7837bde, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695841492683743576, guid: 02debdfb644f0e347be6f946a7837bde, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class DevDebugManager : MonoBehaviour
 {
-    [Header("Dve zaškrtávacie políčka (Editor aj APK)")]
-    [Tooltip("Zobrazí presúvateľné okno na ovládanie ukladania (Save ZAP/VYP a Zmazať Save).")]
+    [Header("Testovacie panely a overlaye (Inspector)")]
+    [Tooltip("Zobrazí presúvateľné okno na ovládanie ukladania (Save ZAP/VYP a Zmazať Save) vpravo dole.")]
     [SerializeField] private bool showPersistenceDebug = true;
 
     [Tooltip("Zobrazí presúvateľný ladiaci panel pre vlny, TimeScale a živú spokojnosť.")]
     [SerializeField] private bool showWaveTuningDebug = true;
 
+    [Tooltip("Zobrazí tlačidlo „Test uloženia“ (SaveRecoveryTestPanel).")]
+    [SerializeField] private bool showSaveRecoveryTest = true;
+
+    [Tooltip("Zobrazí horný overlay „UI RESPONSE TEST (ENGINE)“ (UITouchResponseMeter).")]
+    [SerializeField] private bool showUiResponseTest = true;
+
     // Presúvateľné okná
-    private Rect persistenceRect = new Rect(Screen.width - 290, 300, 270, 130);
+    private Rect persistenceRect = new Rect(Screen.width - 290, Screen.height - 150, 270, 130);
     private Rect tuningButtonRect = new Rect(25, Screen.height - 85, 180, 65);
     private Rect tuningWindowRect = new Rect(25, 30, 850, 720);
     private Rect liveSatisfactionRect = new Rect(Screen.width / 2f - 160, 20, 320, 95);
@@ -47,14 +53,35 @@ public class DevDebugManager : MonoBehaviour
     private WaveManager manager;
     private WaveNeedsPanel needsPanel;
 
+    private void Awake()
+    {
+        SyncExternalOverlays();
+    }
+
+    private void OnValidate()
+    {
+        SyncExternalOverlays();
+    }
+
     private void Start()
     {
-        persistenceRect = new Rect(Screen.width - 290, 300, 270, 130);
+        persistenceRect = new Rect(Mathf.Max(15, Screen.width - 290), Mathf.Max(15, Screen.height - 150), 270, 130);
         tuningButtonRect = new Rect(25, Screen.height - 85, 180, 65);
         tuningWindowRect = new Rect(30, 30, Mathf.Min(850, Screen.width * 0.8f), Screen.height * 0.90f);
         liveSatisfactionRect = new Rect((Screen.width - 320) / 2f, 15, 320, 95);
 
+        SyncExternalOverlays();
         ReadInitialValues();
+    }
+
+    private void SyncExternalOverlays()
+    {
+#if UNITY_EDITOR || SAVE_RECOVERY_TEST
+        SaveRecoveryTestPanel.SetLauncherVisible(showSaveRecoveryTest);
+#endif
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        UITouchResponseMeter.SetOverlayVisible(showUiResponseTest);
+#endif
     }
 
     private void Update()

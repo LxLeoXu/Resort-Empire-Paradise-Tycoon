@@ -176,10 +176,6 @@ MonoBehaviour:
     m_Localized: Service
     m_Metadata:
       m_Items: []
-        - m_Id: 10923083912183808
-    m_Localized: '{0} needs x {1} Coins x {2:0.00} ({3} stars) = {4} Coins'
-    m_Metadata:
-      m_Items: []
   - m_Id: 10923086386823168
     m_Localized: 'Saved reward: {0} Coins'
     m_Metadata:
@@ -222,6 +218,30 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 11082872381394944
     m_Localized: Need {1} Materials (have {0})
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12054750959857664
+    m_Localized: 'Missing: {0} Materials'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12057418847580160
+    m_Localized: Worker slots
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12057486526869504
+    m_Localized: 'Worker slots: {0} -> {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059080576299008
+    m_Localized: '{0} + {1} Materials'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059115732955136
+    m_Localized: '{0} (+{1}%)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557578240
+    m_Localized: Upgrade to add a worker slot and improve quality.
     m_Metadata:
       m_Items: []
   references:
