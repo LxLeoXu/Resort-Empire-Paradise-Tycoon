@@ -241,7 +241,7 @@ public sealed class GamePersistence : MonoBehaviour
                     buildings[b.id] = target.spot.RestoreBuilding(target.index).GetComponentInChildren<BuildingService>();
                 }
                 var info = buildings[b.id].GetComponentInChildren<BuildingInfo>(true);
-                info.currentLevel = Mathf.Clamp(b.level, 1, BuildingInfo.MaxLevel); info.isBuilt = true;
+                info.currentLevel = Mathf.Clamp(b.level, 1, info.EffectiveMaxLevel); info.isBuilt = true;
                 buildings[b.id].GetComponentInChildren<BuildingLevels>(true)?.RefreshAfterLoad();
             }
             yield return null; // Starts bind freshly restored BuildingServices to the existing WaveSession.

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public sealed partial class WorkerRoster : MonoBehaviour
 {
-    public const int MaxPerBuilding = 3;
-
     [Serializable]
     public sealed class Worker
     {
@@ -59,6 +57,9 @@ public sealed partial class WorkerRoster : MonoBehaviour
         instance = this;
     }
 
+    public static int GetMaxWorkersFor(BuildingService building) =>
+        building != null ? building.MaxWorkers : 0;
+
     public int CountIn(BuildingService building)
     {
         int n = 0;
@@ -71,7 +72,7 @@ public sealed partial class WorkerRoster : MonoBehaviour
         worker != null &&
         building != null &&
         worker.building != building &&
-        CountIn(building) < MaxPerBuilding;
+        CountIn(building) < GetMaxWorkersFor(building);
 
     public bool Assign(Worker worker, BuildingService building)
     {
@@ -119,7 +120,7 @@ public sealed partial class WorkerRoster : MonoBehaviour
 
     public bool RecruitAndAssign(BuildingService building)
     {
-        if (building == null || CountIn(building) >= MaxPerBuilding)
+        if (building == null || CountIn(building) >= GetMaxWorkersFor(building))
             return false;
 
         Worker worker = new Worker("Chef " + (workers.Count + 1), 1);

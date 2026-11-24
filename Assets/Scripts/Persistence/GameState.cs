@@ -45,18 +45,21 @@ public sealed class GameState
         foreach (var r in resources)
             if (r == null || !Enum.IsDefined(typeof(ResourceType), r.type) || !types.Add(r.type) || r.amount < 0 ||
                 (r.type == ResourceType.Energy && r.amount > ResourceManager.MaxEnergy)) return false;
-        var buildingIds = new HashSet<string>();
+        var buildingLevels = new Dictionary<string, int>();
         foreach (var b in buildings)
-            if (b == null || string.IsNullOrEmpty(b.id) || !buildingIds.Add(b.id) || !ValidNeed(b.need) ||
+        {
+            if (b == null || string.IsNullOrEmpty(b.id) || buildingLevels.ContainsKey(b.id) || !ValidNeed(b.need) ||
                 b.level < 1 || b.level > BuildingInfo.MaxLevel) return false;
+            buildingLevels[b.id] = b.level;
+        }
         var assigned = new Dictionary<string, int>();
         foreach (var w in workers)
         {
             if (w == null || w.stars < 0 || w.stars > 5) return false;
             if (string.IsNullOrEmpty(w.buildingId)) continue;
-            if (!buildingIds.Contains(w.buildingId)) return false;
+            if (!buildingLevels.TryGetValue(w.buildingId, out int level)) return false;
             assigned.TryGetValue(w.buildingId, out int count);
-            if (count >= WorkerRoster.MaxPerBuilding) return false;
+            if (count >= BuildingInfo.DefaultWorkerSlotsForLevel(level)) return false;
             assigned[w.buildingId] = count + 1;
         }
         var keys = new HashSet<string>();
@@ -102,13 +105,14 @@ public sealed class GameState
         var transit = new HashSet<int>();
         foreach (int id in wave.inTransit) if (!ids.Contains(id) || service.Contains(id) || !transit.Add(id)) return false;
         foreach (var need in wave.arrivals) if (!ValidNeed(need)) return false;
-        var buildingIds = new HashSet<string>();
+        var buildingLevels = new Dictionary<string, int>();
         var assigned = new Dictionary<string, int>();
         var placed = new HashSet<int>();
         foreach (var b in buildings)
         {
-            if (b == null || string.IsNullOrEmpty(b.id) || !buildingIds.Add(b.id) || b.level < 1 || b.level > BuildingInfo.MaxLevel ||
+            if (b == null || string.IsNullOrEmpty(b.id) || buildingLevels.ContainsKey(b.id) || b.level < 1 || b.level > BuildingInfo.MaxLevel ||
                 b.queue == null || b.approaching == null || b.seats == null || !ValidNeed(b.need)) return false;
+            buildingLevels[b.id] = b.level;
             foreach (var q in b.queue)
                 if (q == null || !ids.Contains(q.id) || service.Contains(q.id) || transit.Contains(q.id) ||
                     !placed.Add(q.id) || needs[q.id] != b.need || !Finite(q.waited) || q.waited < 0) return false;
@@ -127,9 +131,9 @@ public sealed class GameState
         {
             if (w == null || w.stars < 0 || w.stars > 5) return false;
             if (string.IsNullOrEmpty(w.buildingId)) continue;
-            if (!buildingIds.Contains(w.buildingId)) return false;
+            if (!buildingLevels.TryGetValue(w.buildingId, out int level)) return false;
             assigned.TryGetValue(w.buildingId, out int count);
-            if (count >= WorkerRoster.MaxPerBuilding) return false;
+            if (count >= BuildingInfo.DefaultWorkerSlotsForLevel(level)) return false;
             assigned[w.buildingId] = count + 1;
         }
         if (wave.state == WaveState.Running && (wave.number == 0 || wave.duration <= 0 || wave.definition == null)) return false;
@@ -218,7 +222,7 @@ public sealed class QueueWaitSave
     public WaveDefinition definition;
     public List<NeedType> arrivals = new(); public List<NeedSave> pending = new();
     // SCRUM-395: Cakacie casy jednotlivych potrieb
-public List<QueueWaitSave> queueWaits = new();
+    public List<QueueWaitSave> queueWaits = new();
     public List<BottleneckSave> bottlenecks = new();
     public List<int> inService = new(), inTransit = new(); public List<CountSave> servedByType = new();
 }

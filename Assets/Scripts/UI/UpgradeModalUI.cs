@@ -17,15 +17,20 @@ public class UpgradeModalUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI capacityBefore;
     [SerializeField] private TextMeshProUGUI capacityAfter;
 
+    [Header("Worker Slots (Optional)")]
+    [SerializeField] private TextMeshProUGUI slotsLabel;
+    [SerializeField] private TextMeshProUGUI slotsBefore;
+    [SerializeField] private TextMeshProUGUI slotsAfter;
+
     [Header("Quality")]
     [SerializeField] private TextMeshProUGUI qualityLabel;
     [SerializeField] private TextMeshProUGUI qualityBefore;
     [SerializeField] private TextMeshProUGUI qualityAfter;
 
-[Header("Resources")]
-[SerializeField] private TextMeshProUGUI costText;
-[SerializeField] private TextMeshProUGUI resortValueText;
-[SerializeField] private TextMeshProUGUI missingCoinsText;
+    [Header("Resources")]
+    [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private TextMeshProUGUI resortValueText;
+    [SerializeField] private TextMeshProUGUI missingCoinsText;
 
     [Header("Buttons")]
     [SerializeField] private Button upgradeButton;
@@ -227,7 +232,7 @@ public class UpgradeModalUI : MonoBehaviour
         if (buildingIcon != null) buildingIcon.enabled = building != null && building.buildingIcon != null;
         if (!offerUpgrade)
         {
-            bool atMax = building != null && building.currentLevel >= BuildingInfo.MaxLevel;
+            bool atMax = building != null && building.currentLevel >= building.EffectiveMaxLevel;
             if (windowTitle != null) windowTitle.text = Text(atMax ? "s5_max_level" : "s5_no_upgrade_needed");
             if (messageLabel != null)
                 messageLabel.text = atMax ? Text("s5_max_level_message", bName) : Text("s5_no_upgrade_message");
@@ -240,16 +245,30 @@ public class UpgradeModalUI : MonoBehaviour
         if (upgradeButtonLabel != null) upgradeButtonLabel.text = Text("s5_upgrade_now");
         if (buildingTitle != null) buildingTitle.text = bName;
         if (buildingIcon != null && building.buildingIcon != null) buildingIcon.sprite = building.buildingIcon;
+
+        string description = Text("s5_upgrade_description");
+        bool slotsIncrease = building.NextWorkerSlots > building.CurrentWorkerSlots;
+        if (slotsBefore != null && slotsAfter != null)
+        {
+            if (slotsLabel != null) slotsLabel.text = "Worker slots";
+            slotsBefore.text = $"{building.CurrentWorkerSlots}";
+            slotsAfter.text = $"{building.NextWorkerSlots}";
+        }
+        else if (slotsIncrease)
+        {
+            description = $"{description}\nWorker slots: {building.CurrentWorkerSlots} -> {building.NextWorkerSlots}";
+        }
+
         if (buildingDescription != null)
-            buildingDescription.text = Text("s5_upgrade_description");
+            buildingDescription.text = description;
 
         if (capacityLabel != null) capacityLabel.text = Text("s5_capacity", bName);
         if (capacityBefore != null) capacityBefore.text = $"{building.CurrentCapacity}";
         if (capacityAfter != null) capacityAfter.text = $"{building.NextCapacity}";
 
         if (qualityLabel != null) qualityLabel.text = Text("s5_quality", Text("need_" + building.offeredNeed));
-        if (qualityBefore != null) qualityBefore.text = Text(building.currentLevel == 1 ? "s5_basic" : "s5_improved");
-        if (qualityAfter != null) qualityAfter.text = Text(building.currentLevel == 1 ? "s5_improved" : "s5_premium");
+        if (qualityBefore != null) qualityBefore.text = FormatQualityTier(building.currentLevel, building.CurrentQualityBonus);
+        if (qualityAfter != null) qualityAfter.text = FormatQualityTier(building.currentLevel + 1, building.NextQualityBonus);
 
         int cost = building.UpgradeCost;
         int gain = targetBuilding.ResortValueGain;
@@ -258,6 +277,19 @@ public class UpgradeModalUI : MonoBehaviour
         if (resortValueText != null) resortValueText.text = Text("s5_resort_gain", gain);
 
         RefreshAffordability();
+    }
+
+    private static string FormatQualityTier(int level, float qualityBonus)
+    {
+        string baseTier = level switch
+        {
+            1 => Text("s5_basic"),
+            2 => Text("s5_improved"),
+            _ => Text("s5_premium")
+        };
+
+        int pct = Mathf.RoundToInt(qualityBonus * 100f);
+        return pct > 0 ? $"{baseTier} (+{pct}%)" : baseTier;
     }
 
     private void RefreshAffordability()

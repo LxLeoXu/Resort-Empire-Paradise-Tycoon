@@ -29,6 +29,7 @@ public class DevDebugManager : MonoBehaviour
     private float patienceFloorAfter = 10f;
     private float unitFloor = 0.0f;
     private float waveFloor = 0.40f;
+    private float qualityBonusScale = 1.0f;
     private float arrivalDuration = 90f;
 
     // Rýchlosť, Vlna a Škálovanie
@@ -110,6 +111,7 @@ public class DevDebugManager : MonoBehaviour
             patienceFloorAfter = tracker.patienceFloorAfter;
             unitFloor = tracker.unitFloor;
             waveFloor = tracker.waveFloor;
+            qualityBonusScale = tracker.qualityBonusScale;
         }
 
         manager = FindFirstObjectByType<WaveManager>();
@@ -148,6 +150,7 @@ public class DevDebugManager : MonoBehaviour
             tracker.patienceFloorAfter = patienceFloorAfter;
             tracker.unitFloor = unitFloor;
             tracker.waveFloor = waveFloor;
+            tracker.qualityBonusScale = qualityBonusScale;
         }
 
         if (manager == null) manager = FindFirstObjectByType<WaveManager>();
@@ -323,6 +326,7 @@ public class DevDebugManager : MonoBehaviour
         DrawHoldRow("Drop to Min Patience After (s)", "patFloor", () => patienceFloorAfter, v => patienceFloorAfter = v, 0.5f, 1f);
         DrawHoldRow("Min Guest Floor", "unitFloor", () => unitFloor, v => unitFloor = v, 0.01f, 0f);
         DrawHoldRow("Min Wave Floor", "waveFloor", () => waveFloor, v => waveFloor = v, 0.01f, 0f);
+        DrawHoldRow("Quality Bonus Scale (Lv4+)", "qualScale", () => qualityBonusScale, v => qualityBonusScale = v, 0.10f, 0f);
         GUILayout.Space(12);
 
         DrawHoldRow("Wave Arrival Duration (s)", "arrDur", () => arrivalDuration, v => arrivalDuration = v, 1.0f, 1f);
@@ -339,6 +343,7 @@ public class DevDebugManager : MonoBehaviour
             patienceFloorAfter = 10f;
             unitFloor = 0.0f;
             waveFloor = 0.40f;
+            qualityBonusScale = 1.0f;
             arrivalDuration = 90f;
             timeScale = 1f;
             waveScaleMultiplier = 1.0f;
@@ -365,29 +370,30 @@ public class DevDebugManager : MonoBehaviour
         {
             var info = s.GetComponentInChildren<BuildingInfo>(true);
             if (info != null && !info.isBuilt) continue;
+            if (s.MaxWorkers <= 0) continue;
 
             string bName = info != null && !string.IsNullOrEmpty(info.buildingName) ? info.buildingName : s.Need.ToString();
-            bool hasWorker = s.HasWorker;
+            int lvl = info != null ? info.currentLevel : 1;
+            string color = s.HasWorker ? "green" : "red";
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label($"{bName}: {(hasWorker ? "<color=green>WORKER (1)</color>" : "<color=red>NO WORKER (0)</color>")}", GUILayout.Width(360));
+            GUILayout.Label($"{bName} (Lv.{lvl}): <color={color}>{s.Workers}/{s.MaxWorkers}</color>", GUILayout.Width(360));
 
-            if (hasWorker)
+            GUI.enabled = s.Workers > 0;
+            GUI.color = new Color(1f, 0.6f, 0.6f);
+            if (GUILayout.Button("-", GUILayout.Width(62), GUILayout.Height(42)))
             {
-                GUI.color = new Color(1f, 0.6f, 0.6f);
-                if (GUILayout.Button("Remove", GUILayout.Width(130), GUILayout.Height(42)))
-                {
-                    s.SetWorkers(0);
-                }
+                s.SetWorkers(s.Workers - 1);
             }
-            else
+
+            GUI.enabled = s.Workers < s.MaxWorkers;
+            GUI.color = new Color(0.6f, 1f, 0.6f);
+            if (GUILayout.Button("+", GUILayout.Width(62), GUILayout.Height(42)))
             {
-                GUI.color = new Color(0.6f, 1f, 0.6f);
-                if (GUILayout.Button("Assign", GUILayout.Width(130), GUILayout.Height(42)))
-                {
-                    s.SetWorkers(1);
-                }
+                s.SetWorkers(s.Workers + 1);
             }
+
+            GUI.enabled = true;
             GUI.color = Color.white;
             GUILayout.EndHorizontal();
         }

@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,8 +19,8 @@ public sealed partial class BuildingService : MonoBehaviour
     [Range(0.05f, 1f)] [SerializeField] private float noWorkerSpeed = 0.33f;
 
     [Header("Pracovník")]
-    [Tooltip("Rýchlosť podľa počtu pracovníkov: 1 = 1x, 2 = 1,5x, 3 = 2x (0 = noWorkerSpeed).")]
-    [SerializeField] private float[] speedByWorkers = { 1f, 1.5f, 2f };
+    [Tooltip("Rýchlosť podľa počtu pracovníkov: 1 = 1x, 2 = 1,5x, 3 = 1,8x (každý ďalší pridá menej ako predošlý; 0 = noWorkerSpeed).")]
+    [SerializeField] private float[] speedByWorkers = { 1f, 1.5f, 1.8f };
     [Tooltip("Voliteľné: objekt pracovníka. Skryje sa, keď budova pracovníka nemá.")]
     [SerializeField] private GameObject workerVisual;
 
@@ -61,7 +60,8 @@ public sealed partial class BuildingService : MonoBehaviour
                                 session.IsRecovering(Need);
 
     public NeedType Need => info != null ? info.offeredNeed : NeedType.None;
-    public int Seats => places != null ? places.Count : 0;
+    public int Seats => (places == null || places.Count == 0) ? 0 : (info != null ? info.CurrentCapacity : places.Count);
+    public int MaxWorkers => info != null ? info.CurrentWorkerSlots : 1;
     public int QueueCount => queue.Count;
     public int ApproachingCount => approaching.Count;
     public int Workers => workers;
@@ -144,9 +144,15 @@ public sealed partial class BuildingService : MonoBehaviour
     public event Action<WaveNeed, int> ServiceCompleted;
     public event Action Changed;
 
+    public void NotifyBuildingUpgraded()
+    {
+        EnsureSeats();
+        Changed?.Invoke();
+    }
+
     public void SetWorkers(int value)
     {
-        value = Mathf.Clamp(value, 0, WorkerRoster.MaxPerBuilding);
+        value = Mathf.Clamp(value, 0, MaxWorkers);
 
         if (workers == value) return;
 
