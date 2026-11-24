@@ -11344,10 +11344,7 @@ MonoBehaviour:
     canLeapTwice: 1
   - position: {x: 8.8, y: -3.4}
     direction: -1
-    canLeapTwice: 1
-  - position: {x: 1.8, y: 4}
-    direction: 1
-    canLeapTwice: 1
+    canLeapTwice: 0
   - position: {x: -0, y: -3.4}
     direction: 1
     canLeapTwice: 1
@@ -11360,12 +11357,9 @@ MonoBehaviour:
   - position: {x: -3.4, y: 3.2}
     direction: -1
     canLeapTwice: 1
-  - position: {x: 4.4, y: -2.8}
-    direction: 1
-    canLeapTwice: 1
   - position: {x: 5.2, y: 3.4}
     direction: -1
-    canLeapTwice: 1
+    canLeapTwice: 0
   - position: {x: -8.5, y: 2.3}
     direction: -1
     canLeapTwice: 0
@@ -11378,12 +11372,9 @@ MonoBehaviour:
   - position: {x: 8.2, y: 1}
     direction: 1
     canLeapTwice: 0
-  - position: {x: 6.6, y: -3.2}
-    direction: -1
-    canLeapTwice: 1
   - position: {x: 2.2, y: -3.2}
     direction: 1
-    canLeapTwice: 1
+    canLeapTwice: 0
   - position: {x: 7, y: 4}
     direction: -1
     canLeapTwice: 1
@@ -11395,7 +11386,7 @@ MonoBehaviour:
     canLeapTwice: 0
   - position: {x: -2.2, y: 4}
     direction: 1
-    canLeapTwice: 1
+    canLeapTwice: 0
   pause: {x: 7, y: 16}
   secondLeapChance: 0.45
   secondLeapDistance: 3.703
@@ -18874,10 +18865,7 @@ MonoBehaviour:
     canLeapTwice: 1
   - position: {x: 8.8, y: -3.4}
     direction: -1
-    canLeapTwice: 1
-  - position: {x: 1.8, y: 4}
-    direction: 1
-    canLeapTwice: 1
+    canLeapTwice: 0
   - position: {x: -0, y: -3.4}
     direction: 1
     canLeapTwice: 1
@@ -18890,12 +18878,9 @@ MonoBehaviour:
   - position: {x: -3.4, y: 3.2}
     direction: -1
     canLeapTwice: 1
-  - position: {x: 4.4, y: -2.8}
-    direction: 1
-    canLeapTwice: 1
   - position: {x: 5.2, y: 3.4}
     direction: -1
-    canLeapTwice: 1
+    canLeapTwice: 0
   - position: {x: -8.5, y: 2.3}
     direction: -1
     canLeapTwice: 0
@@ -18908,12 +18893,9 @@ MonoBehaviour:
   - position: {x: 8.2, y: 1}
     direction: 1
     canLeapTwice: 0
-  - position: {x: 6.6, y: -3.2}
-    direction: -1
-    canLeapTwice: 1
   - position: {x: 2.2, y: -3.2}
     direction: 1
-    canLeapTwice: 1
+    canLeapTwice: 0
   - position: {x: 7, y: 4}
     direction: -1
     canLeapTwice: 1
@@ -18925,7 +18907,7 @@ MonoBehaviour:
     canLeapTwice: 0
   - position: {x: -2.2, y: 4}
     direction: 1
-    canLeapTwice: 1
+    canLeapTwice: 0
   pause: {x: 7, y: 16}
   secondLeapChance: 0.45
   secondLeapDistance: 3.703
