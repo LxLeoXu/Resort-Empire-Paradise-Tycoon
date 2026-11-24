@@ -10,6 +10,7 @@ public class WorkerAssignUI : MonoBehaviour
     [SerializeField] private WorkerCardUI[] cards;
 
     private BuildingService building;
+    private string currentBuildingName = string.Empty;
     private WorkerRoster roster;
 
     private void Awake()
@@ -70,7 +71,7 @@ public class WorkerAssignUI : MonoBehaviour
     private void Show(BuildingService service, string buildingName)
     {
         building = service;
-        if (titleText != null) titleText.text = "ASSIGN STAFF - " + buildingName.ToUpperInvariant();
+        currentBuildingName = buildingName;
         gameObject.SetActive(true);
         Refresh();
     }
@@ -78,6 +79,13 @@ public class WorkerAssignUI : MonoBehaviour
     private void Refresh()
     {
         if (building == null || roster == null) return;
+
+        if (titleText != null)
+        {
+            int assigned = roster.CountIn(building);
+            int maxSlots = building.MaxWorkers;
+            titleText.text = $"ASSIGN STAFF - {currentBuildingName.ToUpperInvariant()} ({assigned}/{maxSlots})";
+        }
 
         var workers = roster.Workers;
         for (int i = 0; i < cards.Length; i++)

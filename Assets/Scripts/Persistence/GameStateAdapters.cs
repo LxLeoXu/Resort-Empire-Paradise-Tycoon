@@ -18,7 +18,7 @@ public sealed partial class WaveSession
         foreach (var need in pending.Values) data.pending.Add(new NeedSave(need));
         foreach (var entry in servedByType) data.servedByType.Add(new CountSave { type = entry.Key, count = entry.Value });
         // SCRUM-395: Ulozenie statistik cakania
-data.queueWaits = CaptureQueueWaitStatistics();
+        data.queueWaits = CaptureQueueWaitStatistics();
         data.bottlenecks = CaptureBottlenecks();
         return data;
     }
@@ -172,7 +172,13 @@ public sealed partial class WorkerRoster
         foreach (var saved in data)
         {
             var w = new Worker(saved.name, saved.stars); workers.Add(w);
-            if (!string.IsNullOrEmpty(saved.buildingId)) { w.building = buildings[saved.buildingId]; w.building.SetWorkers(CountIn(w.building)); }
+            if (!string.IsNullOrEmpty(saved.buildingId) &&
+                buildings.TryGetValue(saved.buildingId, out var target) &&
+                CountIn(target) < GetMaxWorkersFor(target))
+            {
+                w.building = target;
+                target.SetWorkers(CountIn(target));
+            }
         }
         Changed?.Invoke();
     }
@@ -234,9 +240,8 @@ public sealed partial class SatisfactionTracker
     public int CurrentPercent => count > 0 ? Mathf.RoundToInt(total / count * 100f) : 100;
     public void RestoreState(GameState data)
     {
-        total = data.satisfactionTotal; count = data.satisfactionCount; Unsubscribe();
-        foreach (var service in FindObjectsByType<BuildingService>(FindObjectsSortMode.None))
-        { service.Seated += OnSeated; services.Add(service); }
+        total = data.satisfactionTotal; count = data.satisfactionCount;
+        SubscribeToServices();
     }
 }
 

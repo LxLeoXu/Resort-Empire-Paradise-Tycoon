@@ -17,15 +17,23 @@ public class UpgradeModalUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI capacityBefore;
     [SerializeField] private TextMeshProUGUI capacityAfter;
 
+    [Header("Worker Slots (Optional)")]
+    [SerializeField] private TextMeshProUGUI slotsLabel;
+    [SerializeField] private TextMeshProUGUI slotsBefore;
+    [SerializeField] private TextMeshProUGUI slotsAfter;
+
     [Header("Quality")]
     [SerializeField] private TextMeshProUGUI qualityLabel;
     [SerializeField] private TextMeshProUGUI qualityBefore;
     [SerializeField] private TextMeshProUGUI qualityAfter;
 
-[Header("Resources")]
-[SerializeField] private TextMeshProUGUI costText;
-[SerializeField] private TextMeshProUGUI resortValueText;
-[SerializeField] private TextMeshProUGUI missingCoinsText;
+    [Header("Resources")]
+    [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private GameObject materialCostGroup;
+    [SerializeField] private TextMeshProUGUI materialCostText;
+    [SerializeField] private TextMeshProUGUI resortValueText;
+    [SerializeField] private TextMeshProUGUI missingCoinsText;
+    [SerializeField] private TextMeshProUGUI missingMaterialsText;
 
     [Header("Buttons")]
     [SerializeField] private Button upgradeButton;
@@ -133,19 +141,20 @@ public class UpgradeModalUI : MonoBehaviour
     {
         LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         observedResources = ResourceManager.Instance;
-        if (observedResources != null) observedResources.OnResourceChanged += OnCoinsChanged;
+        if (observedResources != null) observedResources.OnResourceChanged += OnResourceChanged;
         RefreshAffordability();
     }
 
-    private void OnCoinsChanged(ResourceType type, int amount)
+    private void OnResourceChanged(ResourceType type, int amount)
     {
-        if (type == ResourceType.Coins) RefreshAffordability();
+        if (type == ResourceType.Coins || type == ResourceType.Materials)
+            RefreshAffordability();
     }
 
     private void OnDisable()
     {
         LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
-        if (observedResources != null) observedResources.OnResourceChanged -= OnCoinsChanged;
+        if (observedResources != null) observedResources.OnResourceChanged -= OnResourceChanged;
         observedResources = null;
         targetBuilding = null;
         if (spotToOpenAfterClose != null)
@@ -216,6 +225,22 @@ public class UpgradeModalUI : MonoBehaviour
     private static string Text(string key, params object[] args) =>
         LocalizationSettings.StringDatabase.GetLocalizedString("GameTexts", key, args);
 
+    private static string TextWithFallback(string key, string fallbackFormat, params object[] args)
+    {
+        try
+        {
+            string value = LocalizationSettings.StringDatabase.GetLocalizedString("GameTexts", key, args);
+            if (!string.IsNullOrWhiteSpace(value) &&
+                !value.StartsWith("No translation found", System.StringComparison.OrdinalIgnoreCase))
+            {
+                return value;
+            }
+        }
+        catch { }
+
+        return string.Format(fallbackFormat, args);
+    }
+
     private void OnLocaleChanged(Locale locale) => RefreshContent();
 
     private void RefreshContent()
@@ -227,11 +252,14 @@ public class UpgradeModalUI : MonoBehaviour
         if (buildingIcon != null) buildingIcon.enabled = building != null && building.buildingIcon != null;
         if (!offerUpgrade)
         {
-            bool atMax = building != null && building.currentLevel >= BuildingInfo.MaxLevel;
+            bool atMax = building != null && building.currentLevel >= building.EffectiveMaxLevel;
             if (windowTitle != null) windowTitle.text = Text(atMax ? "s5_max_level" : "s5_no_upgrade_needed");
             if (messageLabel != null)
                 messageLabel.text = atMax ? Text("s5_max_level_message", bName) : Text("s5_no_upgrade_message");
             if (missingCoinsText != null) missingCoinsText.gameObject.SetActive(false);
+            if (missingMaterialsText != null) missingMaterialsText.gameObject.SetActive(false);
+            if (materialCostGroup != null) materialCostGroup.SetActive(false);
+            else if (materialCostText != null) materialCostText.gameObject.SetActive(false);
             if (upgradeButton != null) upgradeButton.interactable = false;
             return;
         }
@@ -240,41 +268,137 @@ public class UpgradeModalUI : MonoBehaviour
         if (upgradeButtonLabel != null) upgradeButtonLabel.text = Text("s5_upgrade_now");
         if (buildingTitle != null) buildingTitle.text = bName;
         if (buildingIcon != null && building.buildingIcon != null) buildingIcon.sprite = building.buildingIcon;
+
+        string description = building.NextCapacity > building.CurrentCapacity
+            ? Text("s5_upgrade_description")
+            : TextWithFallback("s5_upgrade_description_slots", "Upgrade to add a worker slot and improve quality.");
+
+        bool slotsIncrease = building.NextWorkerSlots > building.CurrentWorkerSlots;
+        if (slotsBefore != null && slotsAfter != null)
+        {
+            if (slotsLabel != null) slotsLabel.text = TextWithFallback("s5_worker_slots", "Worker slots");
+            slotsBefore.text = $"{building.CurrentWorkerSlots}";
+            slotsAfter.text = $"{building.NextWorkerSlots}";
+        }
+        else if (slotsIncrease)
+        {
+            string slotsLine = TextWithFallback(
+                "s5_worker_slots_change",
+                "Worker slots: {0} -> {1}",
+                building.CurrentWorkerSlots,
+                building.NextWorkerSlots);
+            description = $"{description}\n{slotsLine}";
+        }
+
         if (buildingDescription != null)
-            buildingDescription.text = Text("s5_upgrade_description");
+            buildingDescription.text = description;
 
         if (capacityLabel != null) capacityLabel.text = Text("s5_capacity", bName);
         if (capacityBefore != null) capacityBefore.text = $"{building.CurrentCapacity}";
         if (capacityAfter != null) capacityAfter.text = $"{building.NextCapacity}";
 
         if (qualityLabel != null) qualityLabel.text = Text("s5_quality", Text("need_" + building.offeredNeed));
-        if (qualityBefore != null) qualityBefore.text = Text(building.currentLevel == 1 ? "s5_basic" : "s5_improved");
-        if (qualityAfter != null) qualityAfter.text = Text(building.currentLevel == 1 ? "s5_improved" : "s5_premium");
+        if (qualityBefore != null) qualityBefore.text = FormatQualityTier(building.currentLevel, building.CurrentQualityBonus);
+        if (qualityAfter != null) qualityAfter.text = FormatQualityTier(building.currentLevel + 1, building.NextQualityBonus);
 
         int cost = building.UpgradeCost;
+        int materialCost = building.UpgradeMaterialCost;
         int gain = targetBuilding.ResortValueGain;
 
-        if (costText != null) costText.text = $"{cost}";
+        if (materialCostText != null)
+        {
+            if (costText != null) costText.text = $"{cost}";
+            materialCostText.text = $"{materialCost}";
+            if (materialCostGroup != null) materialCostGroup.SetActive(materialCost > 0);
+            else materialCostText.gameObject.SetActive(materialCost > 0);
+        }
+        else
+        {
+            if (materialCostGroup != null) materialCostGroup.SetActive(false);
+            if (costText != null)
+            {
+                costText.text = materialCost > 0
+                    ? TextWithFallback("s5_cost_coins_materials", "{0} + {1} Materials", cost, materialCost)
+                    : $"{cost}";
+            }
+        }
+
         if (resortValueText != null) resortValueText.text = Text("s5_resort_gain", gain);
 
         RefreshAffordability();
     }
 
+    private static string FormatQualityTier(int level, float qualityBonus)
+    {
+        string baseTier = level switch
+        {
+            1 => Text("s5_basic"),
+            2 => Text("s5_improved"),
+            _ => Text("s5_premium")
+        };
+
+        int pct = Mathf.RoundToInt(qualityBonus * 100f);
+        return pct > 0
+            ? TextWithFallback("s5_quality_with_bonus", "{0} (+{1}%)", baseTier, pct)
+            : baseTier;
+    }
+
     private void RefreshAffordability()
     {
-        if (targetBuilding == null) { if (upgradeButton != null) upgradeButton.interactable = false; return; }
+        if (targetBuilding == null)
+        {
+            if (upgradeButton != null) upgradeButton.interactable = false;
+            return;
+        }
+
         var resources = ResourceManager.Instance;
         int cost = targetBuilding.UpgradeCost;
+        int materialCost = targetBuilding.UpgradeMaterialCost;
+
         int coins = resources != null ? resources.GetResource(ResourceType.Coins) : 0;
-        int missing = Mathf.Max(0, cost - coins);
+        int materials = resources != null ? resources.GetResource(ResourceType.Materials) : 0;
+
+        int missingCoins = Mathf.Max(0, cost - coins);
+        int missingMaterials = Mathf.Max(0, materialCost - materials);
+        bool canAfford = resources != null && missingCoins == 0 && missingMaterials == 0;
+
         if (upgradeButton != null)
-            upgradeButton.interactable = !purchaseInProgress && !purchaseCompleted &&
-                targetBuilding.CanUpgrade && cost > 0 && resources != null && missing == 0;
-        if (missingCoinsText != null)
         {
-            bool showMissing = resources != null && targetBuilding.CanUpgrade && missing > 0;
-            missingCoinsText.gameObject.SetActive(showMissing);
-            if (showMissing) missingCoinsText.text = Text("s5_missing_coins", missing);
+            upgradeButton.interactable = !purchaseInProgress && !purchaseCompleted &&
+                targetBuilding.CanUpgrade && (cost > 0 || materialCost > 0) && canAfford;
+        }
+
+        bool canShowMissing = resources != null && targetBuilding.CanUpgrade;
+        string missingMaterialsLabel = missingMaterials > 0
+            ? TextWithFallback("s5_missing_materials", "Missing: {0} Materials", missingMaterials)
+            : string.Empty;
+
+        if (missingMaterialsText != null)
+        {
+            bool showCoins = canShowMissing && missingCoins > 0;
+            bool showMats = canShowMissing && missingMaterials > 0;
+
+            if (missingCoinsText != null)
+            {
+                missingCoinsText.gameObject.SetActive(showCoins);
+                if (showCoins) missingCoinsText.text = Text("s5_missing_coins", missingCoins);
+            }
+
+            missingMaterialsText.gameObject.SetActive(showMats);
+            if (showMats) missingMaterialsText.text = missingMaterialsLabel;
+        }
+        else if (missingCoinsText != null)
+        {
+            bool showCoins = canShowMissing && missingCoins > 0;
+            bool showMats = canShowMissing && missingMaterials > 0;
+            missingCoinsText.gameObject.SetActive(showCoins || showMats);
+
+            if (showCoins && showMats)
+                missingCoinsText.text = $"{Text("s5_missing_coins", missingCoins)}\n{missingMaterialsLabel}";
+            else if (showCoins)
+                missingCoinsText.text = Text("s5_missing_coins", missingCoins);
+            else if (showMats)
+                missingCoinsText.text = missingMaterialsLabel;
         }
     }
 
@@ -282,15 +406,38 @@ public class UpgradeModalUI : MonoBehaviour
     {
         if (purchaseInProgress || purchaseCompleted || targetBuilding == null || !targetBuilding.CanUpgrade)
             return;
+
         var resources = ResourceManager.Instance;
         if (resources == null) return;
+
         var building = targetBuilding;
         int cost = building.UpgradeCost;
+        int materialCost = building.UpgradeMaterialCost;
         int gain = building.ResortValueGain;
+
+        if (!resources.HasEnough(ResourceType.Coins, cost) ||
+            !resources.HasEnough(ResourceType.Materials, materialCost))
+        {
+            RefreshAffordability();
+            return;
+        }
+
         purchaseInProgress = true; // SpendResource invokes listeners synchronously.
+        bool coinsSpent = false;
         try
         {
-            if (!resources.SpendResource(ResourceType.Coins, cost)) return;
+            if (cost > 0)
+            {
+                if (!resources.SpendResource(ResourceType.Coins, cost)) return;
+                coinsSpent = true;
+            }
+
+            if (materialCost > 0 && !resources.SpendResource(ResourceType.Materials, materialCost))
+            {
+                if (coinsSpent) resources.AddResource(ResourceType.Coins, cost);
+                return;
+            }
+
             building.ApplyUpgrade();
             purchaseCompleted = true;
             resources.AddResource(ResourceType.ResortValue, gain);

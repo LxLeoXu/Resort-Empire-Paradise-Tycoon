@@ -2,10 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Where the building's guest places are (SCRUM-192: every building shows 3 of them in its sprite).
+/// Where the building's guest places are.
 /// Each place is an empty child Place_1, Place_2, ... sitting on the seat drawn in the sprite, listed in the
-/// order guests should take them. This only marks the places; seating guests, occupancy and the queue in front
-/// of the building belong to the guest logic (SCRUM-244).
+/// order guests should take them.
 /// </summary>
 public class GuestPlaces : MonoBehaviour
 {
@@ -15,13 +14,26 @@ public class GuestPlaces : MonoBehaviour
     public int Count => places.Count;
     public IReadOnlyList<Transform> Places => places;
 
-    public Vector3 GetPosition(int index) => places[index].position;
+    public Vector3 GetPosition(int index)
+    {
+        if (places.Count == 0) return transform.position;
+        if (index >= 0 && index < places.Count && places[index] != null)
+            return places[index].position;
+
+        // Bezpečný fallback pre Lv5 (10 miest), kým dočasná grafika Lv3 má len 7 transformov.
+        int validIndex = ((index % places.Count) + places.Count) % places.Count;
+        Vector3 basePos = places[validIndex] != null ? places[validIndex].position : transform.position;
+        int overflow = index / places.Count;
+        return basePos + new Vector3(0.08f * overflow, -0.04f * overflow, 0f);
+    }
 
     /// <summary>Hands out other places: BuildingLevels gives the places of the building's current level.</summary>
     public void SetPlaces(Transform[] newPlaces)
     {
         places.Clear();
-        places.AddRange(newPlaces);
+        if (newPlaces == null) return;
+        foreach (var place in newPlaces)
+            if (place != null) places.Add(place);
     }
 
     /// <summary>The need the building serves (BuildingInfo on the building's root).</summary>
