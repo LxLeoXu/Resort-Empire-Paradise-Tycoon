@@ -1,11 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Shows the building's art for its level (BuildingInfo.currentLevel 1-3, SCRUM-198). Each level lists the objects it
-/// shows (level 1: the building's own sprite child and shadow; levels 2 / 3: the Level2 / Level3 objects), its guest
-/// places (GuestPlaces then hands out 3 / 5 / 7 seats), its click area and the island props it changes (a bush that
-/// would stand on a new terrace). The art also switches in the Editor, so setting Current Level on BuildingInfo
-/// previews it; the places, the click area and the island change only in Play mode, so a preview never edits the scene.
+/// Shows the building's art for its level (BuildingInfo.currentLevel 1-5). Each level lists the objects it
+/// shows, its guest places (GuestPlaces hands out 3 / 5 / 7 / 7 / 10 seats), its click area and the island props
+/// it changes. If level 4 or 5 art is not assigned yet, it safely falls back to the highest configured level (level 3).
 /// </summary>
 [ExecuteAlways]
 public class BuildingLevels : MonoBehaviour
@@ -34,8 +33,8 @@ public class BuildingLevels : MonoBehaviour
         public Vector2 offset;
     }
 
-    [Tooltip("Úroveň 1, 2, 3.")]
-    public Level[] levels = new Level[3];
+    [Tooltip("Úrovne 1 až 5 (ak 4 a 5 zatiaľ nemajú obrázky, použije sa obrázok úrovne 3).")]
+    public Level[] levels = new Level[5];
     public BoxCollider2D selection;
     public IslandChange[] islandChanges = new IslandChange[0];
 
@@ -48,7 +47,16 @@ public class BuildingLevels : MonoBehaviour
     private void OnEnable()
     {
         info = GetComponent<BuildingInfo>();
+        if (info == null) info = GetComponentInParent<BuildingInfo>();
+        if (info == null) info = GetComponentInChildren<BuildingInfo>(true);
         guestPlaces = GetComponentInChildren<GuestPlaces>(true);
+        shown = 0;
+        Refresh();
+    }
+
+    private void OnValidate()
+    {
+        if (!isActiveAndEnabled) return;
         shown = 0;
         Refresh();
     }
@@ -59,30 +67,87 @@ public class BuildingLevels : MonoBehaviour
     private void Refresh()
     {
         if (info == null || levels == null || levels.Length == 0) return;
-        int level = Mathf.Clamp(info.currentLevel, 1, levels.Length);
+
+        int maxLevel = Mathf.Min(BuildingInfo.MaxLevel, info.EffectiveMaxLevel);
+        int level = Mathf.Clamp(info.currentLevel, 1, maxLevel);
         if (level == shown) return;
         shown = level;
-        for (int i = 0; i < levels.Length; i++)
-            if (i != level - 1) Show(levels[i], false);
-        Show(levels[level - 1], true);
+
+        int targetIndex = level - 1;
+        int visualIndex = FindVisualLevelIndex(targetIndex);
+        if (visualIndex >= 0)
+        {
+            var activeShow = new HashSet<GameObject>();
+            if (levels[visualIndex].show != null)
+            {
+                foreach (var go in levels[visualIndex].show)
+                    if (go != null) activeShow.Add(go);
+            }
+
+            for (int i = 0; i < levels.Length; i++)
+            {
+                if (levels[i] == null || levels[i].show == null) continue;
+                foreach (var go in levels[i].show)
+                    if (go != null && !activeShow.Contains(go) && go.activeSelf)
+                        go.SetActive(false);
+            }
+
+            foreach (var go in activeShow)
+                if (!go.activeSelf) go.SetActive(true);
+        }
+
         if (!Application.isPlaying) return;
 
-        var current = levels[level - 1];
-        if (current == null) return;
-        if (guestPlaces != null && current.places.Length > 0) guestPlaces.SetPlaces(current.places);
-        if (selection != null && current.selectionSize != Vector2.zero)
+        int placesIndex = FindPlacesLevelIndex(targetIndex);
+        if (guestPlaces != null && placesIndex >= 0)
+            guestPlaces.SetPlaces(levels[placesIndex].places);
+
+        int selectionIndex = FindSelectionLevelIndex(targetIndex);
+        if (selection != null && selectionIndex >= 0)
         {
-            selection.transform.localPosition = current.selectionPosition;
-            selection.size = current.selectionSize;
+            var sel = levels[selectionIndex];
+            selection.transform.localPosition = sel.selectionPosition;
+            selection.size = sel.selectionSize;
         }
+
         ChangeIsland(level);
     }
 
-    private static void Show(Level level, bool on)
+    private int FindVisualLevelIndex(int targetIndex)
     {
-        if (level == null) return;
-        foreach (var go in level.show)
-            if (go != null && go.activeSelf != on) go.SetActive(on);
+        int start = Mathf.Clamp(targetIndex, 0, levels.Length - 1);
+        for (int i = start; i >= 0; i--)
+        {
+            var lvl = levels[i];
+            if (lvl == null || lvl.show == null) continue;
+            foreach (var go in lvl.show)
+                if (go != null) return i;
+        }
+        return -1;
+    }
+
+    private int FindPlacesLevelIndex(int targetIndex)
+    {
+        int start = Mathf.Clamp(targetIndex, 0, levels.Length - 1);
+        for (int i = start; i >= 0; i--)
+        {
+            var lvl = levels[i];
+            if (lvl == null || lvl.places == null || lvl.places.Length == 0) continue;
+            foreach (var t in lvl.places)
+                if (t != null) return i;
+        }
+        return -1;
+    }
+
+    private int FindSelectionLevelIndex(int targetIndex)
+    {
+        int start = Mathf.Clamp(targetIndex, 0, levels.Length - 1);
+        for (int i = start; i >= 0; i--)
+        {
+            var lvl = levels[i];
+            if (lvl != null && lvl.selectionSize != Vector2.zero) return i;
+        }
+        return -1;
     }
 
     private void ChangeIsland(int level)

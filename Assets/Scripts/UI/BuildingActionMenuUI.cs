@@ -52,7 +52,7 @@ public class BuildingActionMenuUI : MonoBehaviour
 
         if (moveWorkerButton != null)
         {
-            moveWorkerButton.gameObject.SetActive(true);
+            moveWorkerButton.gameObject.SetActive(building.CurrentWorkerSlots > 0);
         }
 
         if (menuRoot != null)

@@ -9,10 +9,21 @@ public sealed class RecoveryTestExpectation { public int wave, coins; }
 /// <summary>Included only in Editor and builds explicitly compiled with SAVE_RECOVERY_TEST.</summary>
 public sealed class SaveRecoveryTestPanel : MonoBehaviour
 {
+    public static bool LauncherVisible { get; private set; } = true;
+
+    private GameObject launcherButtonObject;
     private GameObject window;
     private UnityEngine.UI.Text status;
     private UnityEngine.UI.Button damageButton, closeButton;
     private Font font;
+
+    public static void SetLauncherVisible(bool visible)
+    {
+        LauncherVisible = visible;
+        var panel = FindFirstObjectByType<SaveRecoveryTestPanel>();
+        if (panel != null)
+            panel.ApplyVisibility();
+    }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     public static void EnsureExists()
@@ -38,8 +49,9 @@ public sealed class SaveRecoveryTestPanel : MonoBehaviour
         safe.anchorMin = new Vector2(area.xMin / Screen.width, area.yMin / Screen.height);
         safe.anchorMax = new Vector2(area.xMax / Screen.width, area.yMax / Screen.height);
         safe.offsetMin = safe.offsetMax = Vector2.zero;
-        var launcher = Button(safe, "Test uloženia", new Vector2(0, 0), new Vector2(175, 100), new Vector2(310, 90));
+        var launcher = Button(safe, "Test uloženia", new Vector2(0, 0), new Vector2(175, 220), new Vector2(310, 90));
         launcher.onClick.AddListener(Open);
+        launcherButtonObject = launcher.gameObject;
         window = new GameObject("RecoveryWindow", typeof(RectTransform), typeof(UnityEngine.UI.Image));
         window.transform.SetParent(safe, false);
         var rect = (RectTransform)window.transform;
@@ -53,6 +65,15 @@ public sealed class SaveRecoveryTestPanel : MonoBehaviour
         closeButton = Button(rect, "Zavrieť panel", new Vector2(.5f, .075f), Vector2.zero, new Vector2(600, 90));
         closeButton.onClick.AddListener(() => window.SetActive(false));
         window.SetActive(false);
+        ApplyVisibility();
+    }
+
+    private void ApplyVisibility()
+    {
+        if (launcherButtonObject != null)
+            launcherButtonObject.SetActive(LauncherVisible);
+        if (!LauncherVisible && window != null)
+            window.SetActive(false);
     }
 
     public void Damage()

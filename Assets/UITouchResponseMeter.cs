@@ -14,6 +14,13 @@ using UnityEngine.UI;
 
 public sealed class UITouchResponseMeter : MonoBehaviour, IPointerDownHandler
 {
+    public static bool OverlayVisible { get; private set; } = true;
+
+    public static void SetOverlayVisible(bool visible)
+    {
+        OverlayVisible = visible;
+    }
+
     private static UITouchResponseMeter host;
 
     private const double LimitMs = 100.0;
@@ -325,7 +332,7 @@ public sealed class UITouchResponseMeter : MonoBehaviour, IPointerDownHandler
     private void OnGUI()
     {
         // Only the persistent host displays the overlay.
-        if (this != host)
+        if (this != host || !OverlayVisible)
             return;
 
         float scale = Mathf.Max(

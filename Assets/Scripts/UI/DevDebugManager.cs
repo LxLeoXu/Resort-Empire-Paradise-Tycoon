@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class DevDebugManager : MonoBehaviour
 {
-    [Header("Dve zaškrtávacie políčka (Editor aj APK)")]
-    [Tooltip("Zobrazí presúvateľné okno na ovládanie ukladania (Save ZAP/VYP a Zmazať Save).")]
+    [Header("Testovacie panely a overlaye (Inspector)")]
+    [Tooltip("Zobrazí presúvateľné okno na ovládanie ukladania (Save ZAP/VYP a Zmazať Save) vpravo dole.")]
     [SerializeField] private bool showPersistenceDebug = true;
 
     [Tooltip("Zobrazí presúvateľný ladiaci panel pre vlny, TimeScale a živú spokojnosť.")]
     [SerializeField] private bool showWaveTuningDebug = true;
 
+    [Tooltip("Zobrazí tlačidlo „Test uloženia“ (SaveRecoveryTestPanel).")]
+    [SerializeField] private bool showSaveRecoveryTest = true;
+
+    [Tooltip("Zobrazí horný overlay „UI RESPONSE TEST (ENGINE)“ (UITouchResponseMeter).")]
+    [SerializeField] private bool showUiResponseTest = true;
+
     // Presúvateľné okná
-    private Rect persistenceRect = new Rect(Screen.width - 290, 300, 270, 130);
+    private Rect persistenceRect = new Rect(Screen.width - 290, Screen.height - 150, 270, 130);
     private Rect tuningButtonRect = new Rect(25, Screen.height - 85, 180, 65);
     private Rect tuningWindowRect = new Rect(25, 30, 850, 720);
     private Rect liveSatisfactionRect = new Rect(Screen.width / 2f - 160, 20, 320, 95);
@@ -29,6 +35,7 @@ public class DevDebugManager : MonoBehaviour
     private float patienceFloorAfter = 10f;
     private float unitFloor = 0.0f;
     private float waveFloor = 0.40f;
+    private float qualityBonusScale = 1.0f;
     private float arrivalDuration = 90f;
 
     // Rýchlosť, Vlna a Škálovanie
@@ -46,14 +53,35 @@ public class DevDebugManager : MonoBehaviour
     private WaveManager manager;
     private WaveNeedsPanel needsPanel;
 
+    private void Awake()
+    {
+        SyncExternalOverlays();
+    }
+
+    private void OnValidate()
+    {
+        SyncExternalOverlays();
+    }
+
     private void Start()
     {
-        persistenceRect = new Rect(Screen.width - 290, 300, 270, 130);
+        persistenceRect = new Rect(Mathf.Max(15, Screen.width - 290), Mathf.Max(15, Screen.height - 150), 270, 130);
         tuningButtonRect = new Rect(25, Screen.height - 85, 180, 65);
         tuningWindowRect = new Rect(30, 30, Mathf.Min(850, Screen.width * 0.8f), Screen.height * 0.90f);
         liveSatisfactionRect = new Rect((Screen.width - 320) / 2f, 15, 320, 95);
 
+        SyncExternalOverlays();
         ReadInitialValues();
+    }
+
+    private void SyncExternalOverlays()
+    {
+#if UNITY_EDITOR || SAVE_RECOVERY_TEST
+        SaveRecoveryTestPanel.SetLauncherVisible(showSaveRecoveryTest);
+#endif
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        UITouchResponseMeter.SetOverlayVisible(showUiResponseTest);
+#endif
     }
 
     private void Update()
@@ -110,6 +138,7 @@ public class DevDebugManager : MonoBehaviour
             patienceFloorAfter = tracker.patienceFloorAfter;
             unitFloor = tracker.unitFloor;
             waveFloor = tracker.waveFloor;
+            qualityBonusScale = tracker.qualityBonusScale;
         }
 
         manager = FindFirstObjectByType<WaveManager>();
@@ -148,6 +177,7 @@ public class DevDebugManager : MonoBehaviour
             tracker.patienceFloorAfter = patienceFloorAfter;
             tracker.unitFloor = unitFloor;
             tracker.waveFloor = waveFloor;
+            tracker.qualityBonusScale = qualityBonusScale;
         }
 
         if (manager == null) manager = FindFirstObjectByType<WaveManager>();
@@ -323,6 +353,7 @@ public class DevDebugManager : MonoBehaviour
         DrawHoldRow("Drop to Min Patience After (s)", "patFloor", () => patienceFloorAfter, v => patienceFloorAfter = v, 0.5f, 1f);
         DrawHoldRow("Min Guest Floor", "unitFloor", () => unitFloor, v => unitFloor = v, 0.01f, 0f);
         DrawHoldRow("Min Wave Floor", "waveFloor", () => waveFloor, v => waveFloor = v, 0.01f, 0f);
+        DrawHoldRow("Quality Bonus Scale (Lv4+)", "qualScale", () => qualityBonusScale, v => qualityBonusScale = v, 0.10f, 0f);
         GUILayout.Space(12);
 
         DrawHoldRow("Wave Arrival Duration (s)", "arrDur", () => arrivalDuration, v => arrivalDuration = v, 1.0f, 1f);
@@ -339,6 +370,7 @@ public class DevDebugManager : MonoBehaviour
             patienceFloorAfter = 10f;
             unitFloor = 0.0f;
             waveFloor = 0.40f;
+            qualityBonusScale = 1.0f;
             arrivalDuration = 90f;
             timeScale = 1f;
             waveScaleMultiplier = 1.0f;
@@ -365,29 +397,30 @@ public class DevDebugManager : MonoBehaviour
         {
             var info = s.GetComponentInChildren<BuildingInfo>(true);
             if (info != null && !info.isBuilt) continue;
+            if (s.MaxWorkers <= 0) continue;
 
             string bName = info != null && !string.IsNullOrEmpty(info.buildingName) ? info.buildingName : s.Need.ToString();
-            bool hasWorker = s.HasWorker;
+            int lvl = info != null ? info.currentLevel : 1;
+            string color = s.HasWorker ? "green" : "red";
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label($"{bName}: {(hasWorker ? "<color=green>WORKER (1)</color>" : "<color=red>NO WORKER (0)</color>")}", GUILayout.Width(360));
+            GUILayout.Label($"{bName} (Lv.{lvl}): <color={color}>{s.Workers}/{s.MaxWorkers}</color>", GUILayout.Width(360));
 
-            if (hasWorker)
+            GUI.enabled = s.Workers > 0;
+            GUI.color = new Color(1f, 0.6f, 0.6f);
+            if (GUILayout.Button("-", GUILayout.Width(62), GUILayout.Height(42)))
             {
-                GUI.color = new Color(1f, 0.6f, 0.6f);
-                if (GUILayout.Button("Remove", GUILayout.Width(130), GUILayout.Height(42)))
-                {
-                    s.SetWorkers(0);
-                }
+                s.SetWorkers(s.Workers - 1);
             }
-            else
+
+            GUI.enabled = s.Workers < s.MaxWorkers;
+            GUI.color = new Color(0.6f, 1f, 0.6f);
+            if (GUILayout.Button("+", GUILayout.Width(62), GUILayout.Height(42)))
             {
-                GUI.color = new Color(0.6f, 1f, 0.6f);
-                if (GUILayout.Button("Assign", GUILayout.Width(130), GUILayout.Height(42)))
-                {
-                    s.SetWorkers(1);
-                }
+                s.SetWorkers(s.Workers + 1);
             }
+
+            GUI.enabled = true;
             GUI.color = Color.white;
             GUILayout.EndHorizontal();
         }
