@@ -67,6 +67,158 @@ MonoBehaviour:
     m_Key: s9_btn_already_built
     m_Metadata:
       m_Items: []
+  - m_Id: 8884259719741440
+    m_Key: WaveFeedback_Positive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8884266468376576
+    m_Key: WaveFeedback_Improvement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8884269475692544
+    m_Key: WaveFeedback_Smooth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8884271480569856
+    m_Key: WaveFeedback_NoData
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932894400512
+    m_Key: s5_upgrade_available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480896
+    m_Key: s5_no_upgrade_needed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480897
+    m_Key: s5_no_upgrade_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480898
+    m_Key: s5_max_level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480899
+    m_Key: s5_max_level_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480900
+    m_Key: s5_continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480901
+    m_Key: s5_later
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480902
+    m_Key: s5_upgrade_now
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480903
+    m_Key: s5_upgrade_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480904
+    m_Key: s5_capacity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480905
+    m_Key: s5_quality
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480906
+    m_Key: s5_basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480907
+    m_Key: s5_improved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480908
+    m_Key: s5_premium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480909
+    m_Key: s5_resort_gain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480910
+    m_Key: s5_missing_coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480911
+    m_Key: need_Rooms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480912
+    m_Key: need_Drinks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480913
+    m_Key: need_Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480914
+    m_Key: need_Relax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480915
+    m_Key: need_OceanView
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10214932982480916
+    m_Key: need_None
+    m_Metadata:
+      m_Items: []
+        - m_Id: 10923083912183808
+    m_Key: WaveCoins_Breakdown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10923086386823168
+    m_Key: WaveCoins_Saved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082817972883456
+    m_Key: vip_board_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082867260149760
+    m_Key: vip_btn_serve_all
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082867851546624
+    m_Key: vip_ready_to_serve
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082868489080832
+    m_Key: vip_state_missing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082869126615040
+    m_Key: vip_state_ready
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082869764149248
+    m_Key: vip_state_in_progress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082870405877760
+    m_Key: vip_state_completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082871144075264
+    m_Key: vip_tag_bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082871710306304
+    m_Key: vip_btn_fix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082872381394944
+    m_Key: vip_not_enough_materials
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -18399,6 +18399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1ef3ec058d2b84bb105cbff1dfc329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
+  saveKey: reception
   buildingName: Reception
   buildingIcon: {fileID: 0}
   isBuilt: 1
@@ -19940,6 +19941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1ef3ec058d2b84bb105cbff1dfc329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  saveKey: 
   buildingName: 
   buildingIcon: {fileID: 0}
   isBuilt: 1

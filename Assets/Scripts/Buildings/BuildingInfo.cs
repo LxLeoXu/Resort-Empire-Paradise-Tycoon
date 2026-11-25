@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class BuildingInfo : MonoBehaviour
 {
+    [Tooltip("Stable save identity. Keep unchanged when renaming or moving the building.")]
+    [SerializeField] private string saveKey;
+    public string SaveKey => saveKey;
     [Header("Building Information")]
     public string buildingName;
     public Sprite buildingIcon; // Ikona pre UI okno
@@ -10,7 +13,7 @@ public class BuildingInfo : MonoBehaviour
     public bool isBuilt = true;
 
     [Header("Level & Capacity (Prototype: Lv 1-3)")]
-    [Range(1, 3)] public int currentLevel = 1;
+    [Range(1, MaxLevel)] public int currentLevel = 1;
     public const int MaxLevel = 3;
 
     [Header("Need")]

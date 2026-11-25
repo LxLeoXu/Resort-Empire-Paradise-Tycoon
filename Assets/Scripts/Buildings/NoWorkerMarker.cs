@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(BuildingService))]
@@ -6,6 +7,7 @@ public sealed class NoWorkerMarker : MonoBehaviour
 {
     [Tooltip("Objekt značky „bez obsluhy“ (Status_NoWorker). Je zapnutý, len kým postavená budova nemá pracovníka.")]
     [SerializeField] private Transform marker;
+    [SerializeField] private TMP_Text recoveringText;
 
     [Header("Animácia")]
     [Tooltip("Ako dlho značka po zobrazení dorastá do plnej veľkosti (sekundy).")]
@@ -63,13 +65,27 @@ public sealed class NoWorkerMarker : MonoBehaviour
     private void Refresh()
     {
         bool show = !service.HasWorker && (info == null || info.isBuilt);
-        if (marker.gameObject.activeSelf == show) return;
 
-        marker.gameObject.SetActive(show);
-        if (!show) return;
+        if (marker.gameObject.activeSelf != show)
+        {
+            marker.gameObject.SetActive(show);
 
-        shownAt = Time.unscaledTime;
-        Animate();
+            if (show)
+            {
+                shownAt = Time.unscaledTime;
+                Animate();
+            }
+        }
+
+        bool recovering = service.HasWorker && service.IsRecovering;
+
+        if (recoveringText != null)
+        {
+            recoveringText.gameObject.SetActive(recovering);
+
+            if (recovering)
+                recoveringText.text = "RECOVERING";
+        }
     }
 
     private void Animate()

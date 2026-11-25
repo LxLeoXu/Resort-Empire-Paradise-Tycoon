@@ -1,0 +1,4603 @@
+fileFormatVersion: 2
+guid: b591a3ed230c1ff4ebd9d4fafcf6d65d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4938442133753031335
+    second: PoolSite_Shadow5_0
+  - first:
+      213: -57693723391638353
+    second: PoolSite_Shadow5_1
+  - first:
+      213: 5278573966700206569
+    second: PoolSite_Shadow5_2
+  - first:
+      213: 6933000134649840186
+    second: PoolSite_Shadow5_3
+  - first:
+      213: 4407875841171917450
+    second: PoolSite_Shadow5_4
+  - first:
+      213: 1282614920878646211
+    second: PoolSite_Shadow5_5
+  - first:
+      213: 6351567530033674292
+    second: PoolSite_Shadow5_6
+  - first:
+      213: 5361588299776514473
+    second: PoolSite_Shadow5_7
+  - first:
+      213: -7358819582182790405
+    second: PoolSite_Shadow5_8
+  - first:
+      213: 4024263918678284355
+    second: PoolSite_Shadow5_9
+  - first:
+      213: -7155940517930772709
+    second: PoolSite_Shadow5_10
+  - first:
+      213: 3788028112505020562
+    second: PoolSite_Shadow5_11
+  - first:
+      213: 2877155705926736557
+    second: PoolSite_Shadow5_12
+  - first:
+      213: 5303794653632838240
+    second: PoolSite_Shadow5_13
+  - first:
+      213: 4285777808625760989
+    second: PoolSite_Shadow5_14
+  - first:
+      213: -446883429539821002
+    second: PoolSite_Shadow5_15
+  - first:
+      213: -4817359059791754735
+    second: PoolSite_Shadow5_16
+  - first:
+      213: -8014741237604267271
+    second: PoolSite_Shadow5_17
+  - first:
+      213: 6100823174821728560
+    second: PoolSite_Shadow5_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 1
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0, y: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_000
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 418
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350af92c48a0e5b419b2f7aa078dbd60
+      internalID: 236337598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_001
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 418
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07e9abb6baaa864489bbfef9c78baaed
+      internalID: 452495207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_002
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 418
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8001e3718bb77418c6724c86d99c7c
+      internalID: 1309809750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_003
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 418
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6fedc5f176871b459015b05172abdfe
+      internalID: -1680050984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_004
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 418
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c24a47e93327854aa318c4fe0125b82
+      internalID: -1326456087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_005
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 418
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8023611c8f9b7dc429a20d0715e229dd
+      internalID: -2034509173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_006
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 418
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b357e5ebe77ce5f4bbfb19d6dae9e600
+      internalID: 1987586067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_007
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 418
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad328482b996a24480194edd8bf7ad1
+      internalID: -474663258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_008
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 418
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6654ba0fcc9f54e4e8fbd7059f413aa0
+      internalID: -1037007459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_009
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 418
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f574c81b4ee04488e38c3836d0ade7
+      internalID: 798137375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_010
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 396
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541aed55a7681194b9ea8a4a5e790875
+      internalID: 1343622705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_011
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 396
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b7c1c7af2f37274cb4cb8cd2ff53aca
+      internalID: 782249681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_012
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 396
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8efade726ebe91544817c31ee782972f
+      internalID: 1152724692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_013
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 396
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 168575c805351f44499ac999997710d0
+      internalID: -892842576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_014
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 396
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 100af943e4927f942ae00b511425b6b2
+      internalID: 1982512064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_015
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 396
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee4afe6454706d844bc7447778a475b7
+      internalID: -2040743904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_016
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 396
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf9287362351b741b658d612721c093
+      internalID: -456005326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_017
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 396
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a932ad2f09f5d544781c068714eae9ed
+      internalID: -2018908680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_018
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 396
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d152a5973bca1b4ba432310c3d9496c
+      internalID: -581415786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_019
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 396
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 952bbba01fed15a4092d695fbf1bb897
+      internalID: 744563103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_020
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 374
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9c4bc21da1f444e980776c98827e88
+      internalID: 1546873874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_021
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 374
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 860bbd78e442ce9419984d09c05a33c4
+      internalID: 773051871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_022
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 374
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d29108585c22d47429ee9ca3f862be66
+      internalID: 556031801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_023
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 374
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c7a2a3881eada4abfbd223d376957c
+      internalID: 132652005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_024
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 374
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97dd115f2ab26a24d9fe64e9d1502ed3
+      internalID: 1165063059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_025
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 374
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef964137e92d54244a69c9e26efe1e3b
+      internalID: -810840982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_026
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 374
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d93d98d14bc2cc47adbc70c2f9a1fc4
+      internalID: -1691791369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_027
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 374
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 564f0fa50ec498c4585101297b5afa79
+      internalID: -947133153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_028
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 374
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ab0e370c9f3aa4fa0550859b95753c
+      internalID: 748698004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_029
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 374
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d74a5771d9e6f714ca2991a34c481b2c
+      internalID: 129057852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_030
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d12eb61a2983632459a21cf83a434d5b
+      internalID: 1441660561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_031
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 352
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 122d0ad4a33123c4496e61698afb0c40
+      internalID: 17951515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_032
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 352
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50759319fe609d4fa7926c59c090d5f
+      internalID: 40144196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_033
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 352
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 536fd1a3675163245a6bb03941725589
+      internalID: 1055394994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_034
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 352
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3ac23a7ad3d0640aea23d984b91b2d
+      internalID: 1125463434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_035
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 352
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e8f9938495bb8b4198550c690480a47
+      internalID: -2079768253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_036
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 352
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fffdd97e450e3f342bc85815f67ad4dc
+      internalID: -852333862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_037
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 352
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9472d7eca263f6e4c956ff8b64a64ed5
+      internalID: -1357368699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_038
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 352
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4d0e4cf3bda4f349bb547cffda4fca3
+      internalID: 2005254251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_039
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 352
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac77078bcd45e604d861b08b29155392
+      internalID: 390389533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_040
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 330
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185ce69357358d34897bb09525c8f757
+      internalID: 1662208466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_041
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 330
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5417a7edc267bc4bbcc6ab2266ab15c
+      internalID: -1596792453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_042
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 330
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3de3952fe702b74aa4898d84c918dc3
+      internalID: -1540360832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_043
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 330
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30c9058ffcccb74682ab640f5f7995a
+      internalID: 2085701837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_044
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 330
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a2abb3493b3dde43813f98d81b08ca3
+      internalID: 2115788227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_045
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 330
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44374973c46d654383a1f83d3bc934c
+      internalID: 1464795703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_046
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 330
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48ca38dece3f7e0479b7671f62404cfd
+      internalID: -1203209595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_047
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 330
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f0d8009c179cf44693fedc71410b000
+      internalID: 2033687927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_048
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 330
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b78a02079a6d9f45b152c6e52a8cb99
+      internalID: -1283850034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_049
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 330
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fcf2cbf6f14d434293a585ef088bb41
+      internalID: 2011248698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_050
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 308
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354cdb1944fbe23459973cad5d75d5ef
+      internalID: -1118184561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_051
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 308
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7de15ff1995a07f41bb75a1f365baad9
+      internalID: 260738652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_052
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 308
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83ba571e47c4a22409ccb6b0f1b9da9c
+      internalID: 1783889955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_053
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 308
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e2d0b4a5e0d274d8caf4bf73bc39b6
+      internalID: -1377121290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_054
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 308
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e63def3a3e58a3498bd2419dba65ed9
+      internalID: -1490641772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_055
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 308
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 854a3a0a3b8780a42974c7128cdefb05
+      internalID: 503556337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_056
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 308
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d627602e43e9bc44798b7a7dd57ced20
+      internalID: 191475691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_057
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 308
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed57830ed8273094fa715523b486f53f
+      internalID: 936608427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_058
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 308
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f571f469b9ae0438e6e7fa36fd203a
+      internalID: 1831564361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_059
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 308
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07a3de1f3d6da74588b6e1e2b014f4c
+      internalID: 644329027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_060
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 286
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2857df470d2d4ba4695e904e73a25c7e
+      internalID: 976584563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_061
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 286
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec4477c39c541b241a666cc1a745fcc6
+      internalID: 1224865296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_062
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 286
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f38bef1496eb14e8baf0f402c414e6
+      internalID: 154619752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_063
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 286
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ce3f0e4f55eeb409818d24abfc7c5c
+      internalID: -1317596744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_064
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 286
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13771f2370310a149a9493efe3257b2d
+      internalID: 19382497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_065
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 286
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87d60af002d8d204c9f46c8f4fc6fba8
+      internalID: 896236672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_066
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 286
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bae9f80277f7174793ee83892f5f7af
+      internalID: 71921386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_067
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 286
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0140987d6c3bc25428416721cf7d21a5
+      internalID: -757454576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_068
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 286
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c86c2f3e52bef4aa7e5a15f142fb05
+      internalID: -1884122287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_069
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 286
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c118dec90016b5479646830aae40cd6
+      internalID: 93242072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_070
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 264
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a343615f2d34b143a7c51f120a90506
+      internalID: -1744921107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_071
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 264
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef6d57db53de4a4fae55c147a4070e0
+      internalID: -1140469733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_072
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 264
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a37d46db9d320644e9c2e23f31e65673
+      internalID: 72582894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_073
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 264
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48cff700d6f78694c8f56779453d324e
+      internalID: 752878241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_074
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 264
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d474c4c76ad5148bbd06cd9b2365f3
+      internalID: 211621750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_075
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 264
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e324d479787f2724d9f3b19191486a61
+      internalID: -734787735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_076
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 264
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dae2bd6b6380ab46bd9fde699c7d439
+      internalID: 140043092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_077
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 264
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a3ecf4455a0104188acad8566d536f
+      internalID: -1680108429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_078
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 264
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7c154a2897f8842a4915bb4b593866
+      internalID: 58869564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_079
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 264
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e2d785029bd7ce4080b2954f8a2bb0c
+      internalID: 730533712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_080
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 242
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 910f351594f04ba4dbd3a6c845ab4624
+      internalID: 1871231737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_081
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 242
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 790f4940daae3004d953e4b0934b1ff3
+      internalID: 829453966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_082
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 242
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3903199c27410a42861b574b6ea7fa4
+      internalID: -1776765642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_083
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 242
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 380388c923b1c7243bc359b4ace58aa0
+      internalID: -434348432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_084
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 242
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db93bf65187c3b8428022ea6a7f8efee
+      internalID: -2067025272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_085
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 242
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c5e6680fe5e43c4391eb6ea3900735b
+      internalID: 366464812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_086
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 242
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 797898b966a35ac4faaa59191ca7c89d
+      internalID: 1866500559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_087
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 242
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dd6033d16a410145a14656ba58eb7a5
+      internalID: 1586521028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_088
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 242
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b1f6e01ae97cf94491d4d8323440562
+      internalID: 1131230004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_089
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 242
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af8056f12011864785e6663eb6b07a1
+      internalID: -579514581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_090
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ec8c5dbc0af0d488f95aa7d790d212
+      internalID: -297424219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_091
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 220
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74c27fa82db91849a9550b71e020daf
+      internalID: 1322683771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_092
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 220
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e5c2b114ed220244ba8289b065c50dd
+      internalID: -1451229078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_093
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 220
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb85e056a70c441439d9d9e7eddd974a
+      internalID: -1935004691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_094
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 220
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3374e0508787424eae8885515d9cb06
+      internalID: 338274228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_095
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 220
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16259b36cc441914c8b83c457d5b2055
+      internalID: -1676241670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_096
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 220
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02c90657090996e48908ef87027451ea
+      internalID: -381945368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_097
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 220
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b1a761ad9951f4cb8a978e86a11554
+      internalID: -1160494120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_098
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 220
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 143f3ee5eba5228449ead36a1a3b0769
+      internalID: 1367283910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_099
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 220
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a8502f43519eca46996e719255163cc
+      internalID: 1696704059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 198
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a154f839ddef544810da26a7227609
+      internalID: -1000934777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_101
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 198
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37feabf1edd77c44d91e8506cdf30d47
+      internalID: -665829612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_102
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 198
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c6496c1761c9d418ffa8fd6e12a6b8
+      internalID: 1932062479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_103
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 198
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c333c73fde205f46880b2048f6067d3
+      internalID: 1774214121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_104
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 198
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a89d17cf2505e4c886dc300fbd65cf
+      internalID: 1235683903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_105
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 198
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb130fd61f2ed974a8bdf494caf142f9
+      internalID: -1759912165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_106
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 198
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689050b5beaf28242ba66119757275e7
+      internalID: -764321952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_107
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 198
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b13ada569fda3994cb174a325e48df93
+      internalID: -1263002161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_108
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 198
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fee314ecaea7a204a9e9914336112188
+      internalID: -1973972736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_109
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 198
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44ea2c2520d4a0d4e8bb48af7d0b7fea
+      internalID: -263676825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_110
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4173b86079c297489c22a795bd8543c
+      internalID: 1099385484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_111
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 176
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267e3a9c923cda84d8341451b3748641
+      internalID: 923868233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_112
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 176
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d328e24e77812ee43b837dd94ba5e1d8
+      internalID: -1569059243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_113
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 176
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b8402925532274c8c5780147860f9a
+      internalID: 84958390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_114
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 176
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e694717acc7c7004099dbedff4448827
+      internalID: -2143088299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_115
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 176
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e5ccdcdd1af0444ca06f739e9add365
+      internalID: -389119062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_116
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 176
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd534f629b5f0bf48bc729c5a9983852
+      internalID: 476304066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_117
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 176
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8defd6510d2017d46a746fe5b021e1b6
+      internalID: 379789021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_118
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 176
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5628f85294961f144bfb600c3e930dbf
+      internalID: -379144017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_119
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 176
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df5b98bcfd3a094d8266b661d9a5c6e
+      internalID: -277041959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 154
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac6a79ec675681344a0120fe2a5c7c9f
+      internalID: -255707230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_121
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 154
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8b3819c7b68cf04a9a736ca3e664272
+      internalID: 1164129465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_122
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 154
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5cfc04577a4cab4d93c1c372dc87eb9
+      internalID: 875302119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_123
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 154
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08cb05ea5eaa8c8448d3f563f1d637d6
+      internalID: -712293506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_124
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 154
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec0479832dacf649a2e2414c31b7f8b
+      internalID: 1744098217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_125
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 154
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d5b8bc4362aacd46853a8815d1be23c
+      internalID: -552170170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_126
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 154
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610099a2fa740204693df91972fcdd45
+      internalID: 597590856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_127
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 154
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5de462b99efb4094396a8d8f511728e0
+      internalID: 1952877018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_128
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 154
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cea6aab6e2e8c7a43ba80b6fa30f6705
+      internalID: 1321873151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_129
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 154
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe927f2074be9a04da37be8dcfdab51f
+      internalID: 1297941401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_130
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 132
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb038689f66c2494db2c053df2ec3e31
+      internalID: 2111837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_131
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 132
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ada3bce49aab5468a81a46863b4703
+      internalID: 1012014934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_132
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 132
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a89824d58f6c444a70240a08549da0
+      internalID: -1769435634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_133
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 132
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f58b955d8e6cd664fa1570115bf79177
+      internalID: 243336357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_134
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 132
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77957c977bb3de94796d0aafd13c2fd1
+      internalID: -386692542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_135
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 132
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f197ec51da6fc4cb3f21c8c32189b1
+      internalID: 248667322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_136
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 132
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d63c2a60da302d4a8eaf9cfc47a87cd
+      internalID: -2030546880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_137
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 132
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce10e573aed5fc44599b318ab2b0d215
+      internalID: 2093293732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_138
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 132
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd76ec5ff15c6d4bac68a46f70b07fd
+      internalID: 1011957840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_139
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 132
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bfee6383b4344d4e84679039994bdeb
+      internalID: 1116512994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_140
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b11ba75ab6e3b4f4c92c361a5597ffcb
+      internalID: -703709427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_141
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 110
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40af357a2086160498c9878a11dc6e91
+      internalID: -210991782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_142
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 110
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217b99e66ddcb8247b4ee31a9fb555c6
+      internalID: 366064134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_143
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 110
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed2ead1c2073e7e4cad00f9791a6ae68
+      internalID: -136657951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_144
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 110
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 168820bddc530444996456571c5ca190
+      internalID: 1606118948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_145
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 110
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5540b00aab7152d49bc3579709764853
+      internalID: 1912589774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_146
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 110
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31b9162babb860c4b8d5365586ba8029
+      internalID: 1927644050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_147
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 110
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d976358ffddfb14aa5135fe4f1745ed
+      internalID: -515513947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_148
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 110
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d103c2c2029ca48bb2ad2b5c89262c
+      internalID: 63098143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_149
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 110
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b2e4112b1107e4c8e908a48b6f9342
+      internalID: -1740371004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_150
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9d48e111db59b4da9f0cdd58427781
+      internalID: -1677088136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_151
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 88
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f3faac23d2bd3f49ab087cdea9c8610
+      internalID: -1064746555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_152
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 88
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e09c88f928662514084dd46c957036b0
+      internalID: 1926703245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_153
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 88
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d9ed5e221d5d94798be6221a2ca4d6
+      internalID: -568527689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_154
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 88
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f97c10e352c85a245a9fae6b76000249
+      internalID: 1160958520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_155
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 88
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0a39805190ccd4394aaa9732c20ed6
+      internalID: 133395334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_156
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 88
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02388feedb5cf7243962b136c5147556
+      internalID: -1788310978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_157
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 88
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d25c9f77b662ca641924d8cc9807f94b
+      internalID: 215072422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_158
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 88
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d756dafcf4a14b34fbdec607a4c2de0c
+      internalID: 1141477479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_159
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 88
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ace2b20e723c0c4b920e38a9982c813
+      internalID: -1913182852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_160
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 66
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab28a178cf61d654b89b55c2dc112547
+      internalID: 1048527828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_161
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 66
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a42c20ddd43af847a41fa9b6dbfbac6
+      internalID: -1822761223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_162
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 66
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db4c76c3d47bda40b1dd33578fbaab6
+      internalID: 1746197897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_163
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 66
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb8c978878a9bd4797af9c347d6e0ac
+      internalID: -389485815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_164
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 66
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a5b1c54c098da479fcc5645dd93a58
+      internalID: -48854110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_165
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 66
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da92fa14f42f6b64888ad52b5a5de0d4
+      internalID: 242265771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_166
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 66
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b370217156bd0eb48abd27be99f59ef7
+      internalID: 780581419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_167
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 66
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274f8360a4ea258468b39187c5d24545
+      internalID: -1348756206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_168
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 66
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9667413e8918448990b4521056aa3c
+      internalID: 1940085771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_169
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 66
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c07731a6ff516e4c851dbcd28d00a36
+      internalID: -952046909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_170
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 44
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e98fcea433f133e4e95fb66f63fb773b
+      internalID: 1535048533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_171
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 44
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d912fbc49a03c74e82057ad2f3fab7a
+      internalID: -786516815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_172
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 44
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e2c2e0dd6df0784585d442f726c0951
+      internalID: -1621321317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_173
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 44
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5d75405412ba94f9dffa3989b92be6
+      internalID: 261351770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_174
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 44
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e880b299f01be40a21931ae408c15c
+      internalID: -2014261890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_175
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 44
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b1c6bd3ed33d7a4b9bfc96537d185d2
+      internalID: -302087092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_176
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 44
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cfd91fe0ca8a814a8bc1777381c0bb6
+      internalID: -1687041384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_177
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 44
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c430751077c00c4a846a27107b4a492
+      internalID: 1093893503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_178
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 44
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b657a09c475cf040894d0c7c20731e4
+      internalID: 2144123290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_179
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 44
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51cc74cec0f2e0f4495470b7236ccffe
+      internalID: -981609285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_180
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 22
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f42c2602173ab804c8f8bdd5772f8e6b
+      internalID: -726094215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_181
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 22
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f6c87f7b398b4f4c86800ad8cd78517
+      internalID: 1206168722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_182
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 22
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef65c6ede240864c9758b297f899ec3
+      internalID: -1673151814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_183
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 22
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27e82c5c8a196e448a0578e0eaf45f30
+      internalID: -1974335868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_184
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 22
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e45af1c847f29c4bb82b756378e69a2
+      internalID: 1657048545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_185
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 22
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4716328ba27944fabd2ef86da0673f
+      internalID: 697861069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_186
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 22
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed86e3383d38348479dafdf547b95a9d
+      internalID: -1321898566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_187
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 22
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56f029d99986e2044a6f448132708ff4
+      internalID: 674573423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_188
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 22
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0459bc8fad2c0fb4b876e7f72eae44be
+      internalID: 882586599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_189
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 22
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a161bd53470214ba6821189ee73724
+      internalID: -82321211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_190
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ece8c135d56cb44fafa661a23bd11d3
+      internalID: 763432300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoolSite_Shadow5_191
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09547da761ac70b43ad0d775fc665005
+      internalID: 974588422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e969e634259e8784691f7b510b4aec6e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PoolSite_Shadow5_000: 236337598
+      PoolSite_Shadow5_001: 452495207
+      PoolSite_Shadow5_002: 1309809750
+      PoolSite_Shadow5_003: -1680050984
+      PoolSite_Shadow5_004: -1326456087
+      PoolSite_Shadow5_005: -2034509173
+      PoolSite_Shadow5_006: 1987586067
+      PoolSite_Shadow5_007: -474663258
+      PoolSite_Shadow5_008: -1037007459
+      PoolSite_Shadow5_009: 798137375
+      PoolSite_Shadow5_010: 1343622705
+      PoolSite_Shadow5_011: 782249681
+      PoolSite_Shadow5_012: 1152724692
+      PoolSite_Shadow5_013: -892842576
+      PoolSite_Shadow5_014: 1982512064
+      PoolSite_Shadow5_015: -2040743904
+      PoolSite_Shadow5_016: -456005326
+      PoolSite_Shadow5_017: -2018908680
+      PoolSite_Shadow5_018: -581415786
+      PoolSite_Shadow5_019: 744563103
+      PoolSite_Shadow5_020: 1546873874
+      PoolSite_Shadow5_021: 773051871
+      PoolSite_Shadow5_022: 556031801
+      PoolSite_Shadow5_023: 132652005
+      PoolSite_Shadow5_024: 1165063059
+      PoolSite_Shadow5_025: -810840982
+      PoolSite_Shadow5_026: -1691791369
+      PoolSite_Shadow5_027: -947133153
+      PoolSite_Shadow5_028: 748698004
+      PoolSite_Shadow5_029: 129057852
+      PoolSite_Shadow5_030: 1441660561
+      PoolSite_Shadow5_031: 17951515
+      PoolSite_Shadow5_032: 40144196
+      PoolSite_Shadow5_033: 1055394994
+      PoolSite_Shadow5_034: 1125463434
+      PoolSite_Shadow5_035: -2079768253
+      PoolSite_Shadow5_036: -852333862
+      PoolSite_Shadow5_037: -1357368699
+      PoolSite_Shadow5_038: 2005254251
+      PoolSite_Shadow5_039: 390389533
+      PoolSite_Shadow5_040: 1662208466
+      PoolSite_Shadow5_041: -1596792453
+      PoolSite_Shadow5_042: -1540360832
+      PoolSite_Shadow5_043: 2085701837
+      PoolSite_Shadow5_044: 2115788227
+      PoolSite_Shadow5_045: 1464795703
+      PoolSite_Shadow5_046: -1203209595
+      PoolSite_Shadow5_047: 2033687927
+      PoolSite_Shadow5_048: -1283850034
+      PoolSite_Shadow5_049: 2011248698
+      PoolSite_Shadow5_050: -1118184561
+      PoolSite_Shadow5_051: 260738652
+      PoolSite_Shadow5_052: 1783889955
+      PoolSite_Shadow5_053: -1377121290
+      PoolSite_Shadow5_054: -1490641772
+      PoolSite_Shadow5_055: 503556337
+      PoolSite_Shadow5_056: 191475691
+      PoolSite_Shadow5_057: 936608427
+      PoolSite_Shadow5_058: 1831564361
+      PoolSite_Shadow5_059: 644329027
+      PoolSite_Shadow5_060: 976584563
+      PoolSite_Shadow5_061: 1224865296
+      PoolSite_Shadow5_062: 154619752
+      PoolSite_Shadow5_063: -1317596744
+      PoolSite_Shadow5_064: 19382497
+      PoolSite_Shadow5_065: 896236672
+      PoolSite_Shadow5_066: 71921386
+      PoolSite_Shadow5_067: -757454576
+      PoolSite_Shadow5_068: -1884122287
+      PoolSite_Shadow5_069: 93242072
+      PoolSite_Shadow5_070: -1744921107
+      PoolSite_Shadow5_071: -1140469733
+      PoolSite_Shadow5_072: 72582894
+      PoolSite_Shadow5_073: 752878241
+      PoolSite_Shadow5_074: 211621750
+      PoolSite_Shadow5_075: -734787735
+      PoolSite_Shadow5_076: 140043092
+      PoolSite_Shadow5_077: -1680108429
+      PoolSite_Shadow5_078: 58869564
+      PoolSite_Shadow5_079: 730533712
+      PoolSite_Shadow5_080: 1871231737
+      PoolSite_Shadow5_081: 829453966
+      PoolSite_Shadow5_082: -1776765642
+      PoolSite_Shadow5_083: -434348432
+      PoolSite_Shadow5_084: -2067025272
+      PoolSite_Shadow5_085: 366464812
+      PoolSite_Shadow5_086: 1866500559
+      PoolSite_Shadow5_087: 1586521028
+      PoolSite_Shadow5_088: 1131230004
+      PoolSite_Shadow5_089: -579514581
+      PoolSite_Shadow5_090: -297424219
+      PoolSite_Shadow5_091: 1322683771
+      PoolSite_Shadow5_092: -1451229078
+      PoolSite_Shadow5_093: -1935004691
+      PoolSite_Shadow5_094: 338274228
+      PoolSite_Shadow5_095: -1676241670
+      PoolSite_Shadow5_096: -381945368
+      PoolSite_Shadow5_097: -1160494120
+      PoolSite_Shadow5_098: 1367283910
+      PoolSite_Shadow5_099: 1696704059
+      PoolSite_Shadow5_100: -1000934777
+      PoolSite_Shadow5_101: -665829612
+      PoolSite_Shadow5_102: 1932062479
+      PoolSite_Shadow5_103: 1774214121
+      PoolSite_Shadow5_104: 1235683903
+      PoolSite_Shadow5_105: -1759912165
+      PoolSite_Shadow5_106: -764321952
+      PoolSite_Shadow5_107: -1263002161
+      PoolSite_Shadow5_108: -1973972736
+      PoolSite_Shadow5_109: -263676825
+      PoolSite_Shadow5_110: 1099385484
+      PoolSite_Shadow5_111: 923868233
+      PoolSite_Shadow5_112: -1569059243
+      PoolSite_Shadow5_113: 84958390
+      PoolSite_Shadow5_114: -2143088299
+      PoolSite_Shadow5_115: -389119062
+      PoolSite_Shadow5_116: 476304066
+      PoolSite_Shadow5_117: 379789021
+      PoolSite_Shadow5_118: -379144017
+      PoolSite_Shadow5_119: -277041959
+      PoolSite_Shadow5_120: -255707230
+      PoolSite_Shadow5_121: 1164129465
+      PoolSite_Shadow5_122: 875302119
+      PoolSite_Shadow5_123: -712293506
+      PoolSite_Shadow5_124: 1744098217
+      PoolSite_Shadow5_125: -552170170
+      PoolSite_Shadow5_126: 597590856
+      PoolSite_Shadow5_127: 1952877018
+      PoolSite_Shadow5_128: 1321873151
+      PoolSite_Shadow5_129: 1297941401
+      PoolSite_Shadow5_130: 2111837
+      PoolSite_Shadow5_131: 1012014934
+      PoolSite_Shadow5_132: -1769435634
+      PoolSite_Shadow5_133: 243336357
+      PoolSite_Shadow5_134: -386692542
+      PoolSite_Shadow5_135: 248667322
+      PoolSite_Shadow5_136: -2030546880
+      PoolSite_Shadow5_137: 2093293732
+      PoolSite_Shadow5_138: 1011957840
+      PoolSite_Shadow5_139: 1116512994
+      PoolSite_Shadow5_140: -703709427
+      PoolSite_Shadow5_141: -210991782
+      PoolSite_Shadow5_142: 366064134
+      PoolSite_Shadow5_143: -136657951
+      PoolSite_Shadow5_144: 1606118948
+      PoolSite_Shadow5_145: 1912589774
+      PoolSite_Shadow5_146: 1927644050
+      PoolSite_Shadow5_147: -515513947
+      PoolSite_Shadow5_148: 63098143
+      PoolSite_Shadow5_149: -1740371004
+      PoolSite_Shadow5_150: -1677088136
+      PoolSite_Shadow5_151: -1064746555
+      PoolSite_Shadow5_152: 1926703245
+      PoolSite_Shadow5_153: -568527689
+      PoolSite_Shadow5_154: 1160958520
+      PoolSite_Shadow5_155: 133395334
+      PoolSite_Shadow5_156: -1788310978
+      PoolSite_Shadow5_157: 215072422
+      PoolSite_Shadow5_158: 1141477479
+      PoolSite_Shadow5_159: -1913182852
+      PoolSite_Shadow5_160: 1048527828
+      PoolSite_Shadow5_161: -1822761223
+      PoolSite_Shadow5_162: 1746197897
+      PoolSite_Shadow5_163: -389485815
+      PoolSite_Shadow5_164: -48854110
+      PoolSite_Shadow5_165: 242265771
+      PoolSite_Shadow5_166: 780581419
+      PoolSite_Shadow5_167: -1348756206
+      PoolSite_Shadow5_168: 1940085771
+      PoolSite_Shadow5_169: -952046909
+      PoolSite_Shadow5_170: 1535048533
+      PoolSite_Shadow5_171: -786516815
+      PoolSite_Shadow5_172: -1621321317
+      PoolSite_Shadow5_173: 261351770
+      PoolSite_Shadow5_174: -2014261890
+      PoolSite_Shadow5_175: -302087092
+      PoolSite_Shadow5_176: -1687041384
+      PoolSite_Shadow5_177: 1093893503
+      PoolSite_Shadow5_178: 2144123290
+      PoolSite_Shadow5_179: -981609285
+      PoolSite_Shadow5_180: -726094215
+      PoolSite_Shadow5_181: 1206168722
+      PoolSite_Shadow5_182: -1673151814
+      PoolSite_Shadow5_183: -1974335868
+      PoolSite_Shadow5_184: 1657048545
+      PoolSite_Shadow5_185: 697861069
+      PoolSite_Shadow5_186: -1321898566
+      PoolSite_Shadow5_187: 674573423
+      PoolSite_Shadow5_188: 882586599
+      PoolSite_Shadow5_189: -82321211
+      PoolSite_Shadow5_190: 763432300
+      PoolSite_Shadow5_191: 974588422
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

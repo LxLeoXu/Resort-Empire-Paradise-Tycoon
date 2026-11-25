@@ -19,6 +19,14 @@ public class NeedCardUI : MonoBehaviour
     [SerializeField] private GameObject warningBox;
     [SerializeField] private TextMeshProUGUI warningText;
 
+    [Header("Dobieha (RECOVERING)")]
+    [Tooltip("Rodičovský objekt RECOVERING boxu (ikona + text). Vypnutý, kým budova nedobieha.")]
+    [SerializeField] private GameObject recoveringBox;
+    [Tooltip("Image s ikonou Status_CatchingUp.png (voliteľné, môže byť nastavená priamo v prefabe).")]
+    [SerializeField] private Image recoveringIcon;
+    [SerializeField] private TextMeshProUGUI recoveringText;
+    [SerializeField] private Color recoveringColor = new Color(0.95f, 0.65f, 0.1f);
+
     [Header("Dynamická výška karty")]
     [SerializeField] private float normalHeight = 100f;
     [SerializeField] private float warningHeight = 160f;
@@ -27,8 +35,20 @@ public class NeedCardUI : MonoBehaviour
     [SerializeField] private Color normalColor = Color.black;
     [SerializeField] private Color bottleneckColor = new Color(0.9f, 0.2f, 0.2f);
 
+    [Header("Speed Up")]
+    [Tooltip("Tlačidlo Speed Up ⚡3. Ukáže sa len pri preťaženej budove, ktorá ešte nemala zrýchlenie v tejto vlne.")]
+    [SerializeField] private Button speedUpButton;
+    [Tooltip("Hláška pri < 3 energiách (nesmie byť dieťaťom tlačidla). Vypína sa sama.")]
+    [SerializeField] private TextMeshProUGUI speedUpHint;
+    [SerializeField] private string speedUpHintMessage = "Not enough energy.";
+    [SerializeField] private float speedUpHintSeconds = 2.5f;
+
     private Button cardButton;
     private LayoutElement layoutElement;
+    private BuildingService service;
+    private bool warning;
+    private bool recovering;
+    private float hintUntil;
 
     private void Awake()
     {
@@ -40,15 +60,72 @@ public class NeedCardUI : MonoBehaviour
 
         layoutElement = GetComponent<LayoutElement>();
         SetCardHeight(normalHeight);
+
+        if (recoveringBox != null)
+            recoveringBox.SetActive(false);
+
+        if (speedUpButton != null)
+        {
+            speedUpButton.onClick.AddListener(OnSpeedUpClicked);
+            speedUpButton.gameObject.SetActive(false);
+        }
+        if (speedUpHint != null)
+        {
+            speedUpHint.text = speedUpHintMessage;
+            speedUpHint.gameObject.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (speedUpButton != null)
+        {
+            BuildingService s = warning ? FindService() : null;
+            bool show = s != null && s.CanBoost;
+            if (speedUpButton.gameObject.activeSelf != show) speedUpButton.gameObject.SetActive(show);
+        }
+        if (speedUpHint != null)
+        {
+            bool showHint = Time.unscaledTime < hintUntil;
+            if (speedUpHint.gameObject.activeSelf != showHint) speedUpHint.gameObject.SetActive(showHint);
+        }
+    }
+
+    private BuildingService FindService()
+    {
+        if (service != null) return service;
+        foreach (BuildingService s in FindObjectsByType<BuildingService>(FindObjectsSortMode.None))
+        {
+            if (s.Need != needType) continue;
+            service = s;
+            break;
+        }
+        return service;
+    }
+
+    private void OnSpeedUpClicked()
+    {
+        BuildingService s = FindService();
+        if (s == null || !s.CanBoost) return;
+
+        ResourceManager resources = ResourceManager.Instance;
+        if (resources == null || !resources.HasEnough(ResourceType.Energy, BuildingService.BoostEnergyCost))
+        {
+            hintUntil = Time.unscaledTime + speedUpHintSeconds;   // tap costs nothing, just explains where energy comes from
+            return;
+        }
+        s.TryBoost();
     }
 
     public void Setup(NeedType type, string displayName, Sprite icon)
     {
         needType = type;
+        service = null;
         if (titleText != null) titleText.text = displayName;
         if (iconImage != null && icon != null) iconImage.sprite = icon;
 
         SetWarning(false, string.Empty);
+        SetRecovering(false);
         UpdateProgress(0, 0);
         SetWorkerPresent(false);
     }
@@ -69,6 +146,8 @@ public class NeedCardUI : MonoBehaviour
 
     public void SetWarning(bool isBottleneck, string message = "")
     {
+        warning = isBottleneck;
+
         if (warningBox != null)
             warningBox.SetActive(isBottleneck);
 
@@ -76,9 +155,31 @@ public class NeedCardUI : MonoBehaviour
             warningText.text = message;
 
         if (countText != null)
-            countText.color = isBottleneck ? bottleneckColor : normalColor;
+            countText.color = isBottleneck ? bottleneckColor : (recovering ? recoveringColor : normalColor);
 
-        SetCardHeight(isBottleneck ? warningHeight : normalHeight);
+        RefreshHeight();
+    }
+
+    // RECOVERING: rad je nad prahom, ale zmenšuje sa. Ikona Status_CatchingUp + "... is catching up".
+    public void SetRecovering(bool isRecovering, string message = "")
+    {
+        recovering = isRecovering;
+
+        if (recoveringBox != null)
+            recoveringBox.SetActive(isRecovering);
+
+        if (recoveringText != null && isRecovering)
+            recoveringText.text = message;
+
+        if (countText != null && !warning)
+            countText.color = isRecovering ? recoveringColor : normalColor;
+
+        RefreshHeight();
+    }
+
+    private void RefreshHeight()
+    {
+        SetCardHeight(warning || recovering ? warningHeight : normalHeight);
     }
 
     private void SetCardHeight(float height)

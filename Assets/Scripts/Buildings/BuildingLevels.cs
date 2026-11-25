@@ -54,6 +54,7 @@ public class BuildingLevels : MonoBehaviour
     }
 
     private void Update() => Refresh();
+    public void RefreshAfterLoad() { shown = 0; Refresh(); }
 
     private void Refresh()
     {

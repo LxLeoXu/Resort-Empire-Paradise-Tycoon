@@ -36,6 +36,7 @@ public class WaveNeedsPanel : MonoBehaviour
         public int servedCount;
         public float timeAboveThreshold;
         public bool isWarningActive;
+        public bool isRecovering;
     }
 
     private readonly Dictionary<NeedType, NeedState> states = new();
@@ -56,8 +57,9 @@ public class WaveNeedsPanel : MonoBehaviour
     private bool waitingForClaim;
     private bool? buildingSpotsVisible;
 
-    private const int BottleneckThreshold = 4;
-    private const float BottleneckHysteresis = 3.0f;
+    [Header("Tuning Bottlenecku (Čas čakania)")]
+    public float warningWaitTimeThreshold = 3.0f;
+    public float warningDelay = 1.5f;
 
     private void Awake()
     {
@@ -94,6 +96,7 @@ public class WaveNeedsPanel : MonoBehaviour
         {
             waveManager.Session.WaveStarted -= OnWaveStarted;
             waveManager.Session.WaveStarted += OnWaveStarted;
+            waveManager.Session.StateRestored += OnStateRestored;
 
             waveManager.Session.WaveEnded -= OnWaveEnded;
             waveManager.Session.WaveEnded += OnWaveEnded;
@@ -150,6 +153,7 @@ public class WaveNeedsPanel : MonoBehaviour
         if (waveManager != null && waveManager.Session != null)
         {
             waveManager.Session.WaveStarted -= OnWaveStarted;
+            waveManager.Session.StateRestored -= OnStateRestored;
             waveManager.Session.WaveEnded -= OnWaveEnded;
             waveManager.Session.NeedArrived -= OnNeedArrived;
             waveManager.Session.NeedServed -= OnNeedServed;
@@ -176,38 +180,23 @@ public class WaveNeedsPanel : MonoBehaviour
             NeedState state = kvp.Value;
 
             NeedCardUI card = GetCard(type);
-
             if (card == null || !card.gameObject.activeSelf)
                 continue;
 
-            // Zachovavame kolegov skutocny pocet cakajucich.
-            int queue = waveManager.Session.GetQueueCount(type);
+            // BOTTLENECK a RECOVERING sa nikdy nezobrazia naraz.
+            bool bottleneck = waveManager.Session.IsBottleneck(type);
+            bool recovering = !bottleneck && waveManager.Session.IsRecovering(type);
 
-            if (queue > BottleneckThreshold)
+            if (bottleneck != state.isWarningActive)
             {
-                state.timeAboveThreshold += Time.deltaTime;
-
-                if (state.timeAboveThreshold >= BottleneckHysteresis &&
-                    !state.isWarningActive)
-                {
-                    state.isWarningActive = true;
-
-                    string buildingName = GetBuildingDisplayName(type);
-
-                    card.SetWarning(
-                        true,
-                        $"{buildingName} Queue Growing");
-                }
+                state.isWarningActive = bottleneck;
+                card.SetWarning(bottleneck, bottleneck ? $"{GetBuildingDisplayName(type)} Waiting Too Long" : null);
             }
-            else
-            {
-                state.timeAboveThreshold = 0f;
 
-                if (state.isWarningActive)
-                {
-                    state.isWarningActive = false;
-                    card.SetWarning(false);
-                }
+            if (recovering != state.isRecovering)
+            {
+                state.isRecovering = recovering;
+                card.SetRecovering(recovering, recovering ? $"{GetBuildingDisplayName(type)} is catching up" : null);
             }
         }
     }
@@ -228,6 +217,43 @@ public class WaveNeedsPanel : MonoBehaviour
     // =====================================
     // ZACIATOK VLNY
     // =====================================
+
+    private void OnStateRestored()
+    {
+        var session = waveManager.Session;
+        if (session.State != WaveState.Running)
+        {
+            if (session.State == WaveState.Result &&
+                claimRewards != null &&
+                claimRewards.HasPendingReward)
+            {
+                OnWaveEnded(session.WaveNumber);
+            }
+            else
+            {
+                waitingForClaim = false;
+                SetPanelVisible(false);
+                SetBuildingSpotsVisible(true);
+            }
+            return;
+        }
+
+        OnWaveStarted(session.WaveNumber);
+        totalServedNeeds = session.ServedCount;
+        foreach (var entry in states)
+        {
+            entry.Value.servedCount = session.GetServedCount(entry.Key);
+            entry.Value.arrivedCount = entry.Value.servedCount;
+            foreach (var need in session.PendingNeeds) if (need.Type == entry.Key) entry.Value.arrivedCount++;
+            if (entry.Value.arrivedCount > entry.Value.totalNeeded)
+            {
+                totalWaveNeeds += entry.Value.arrivedCount - entry.Value.totalNeeded;
+                entry.Value.totalNeeded = entry.Value.arrivedCount;
+            }
+            GetCard(entry.Key)?.UpdateProgress(entry.Value.servedCount, entry.Value.totalNeeded);
+        }
+        UpdateGuestsBadge();
+    }
 
     private void OnWaveStarted(int waveNumber)
     {
@@ -283,13 +309,15 @@ public class WaveNeedsPanel : MonoBehaviour
                     arrivedCount = 0,
                     servedCount = 0,
                     timeAboveThreshold = 0f,
-                    isWarningActive = false
+                    isWarningActive = false,
+                    isRecovering = false
                 };
 
                 totalWaveNeeds += countForThisWave;
 
                 card.UpdateProgress(0, countForThisWave);
                 card.SetWarning(false);
+                card.SetRecovering(false);
 
                 bool hasWorker = builtNeeds[card.needType];
 
@@ -379,6 +407,14 @@ public class WaveNeedsPanel : MonoBehaviour
         if (states.TryGetValue(need.Type, out var state))
         {
             state.arrivedCount++;
+
+            // SCRUM-22: a sudden rush brings more guests than the wave table says.
+            if (state.arrivedCount > state.totalNeeded)
+            {
+                totalWaveNeeds += state.arrivedCount - state.totalNeeded;
+                state.totalNeeded = state.arrivedCount;
+                UpdateGuestsBadge();
+            }
 
             NeedCardUI card = GetCard(need.Type);
 
@@ -556,10 +592,6 @@ public class WaveNeedsPanel : MonoBehaviour
             }
         }
     }
-
-    // =====================================
-    // TESTOVANIE
-    // =====================================
 
     [ContextMenu("Test Simulate Serving 1 Food")]
     public void TestServeFood()

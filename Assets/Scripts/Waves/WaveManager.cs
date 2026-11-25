@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public sealed class WaveManager : MonoBehaviour
+public sealed partial class WaveManager : MonoBehaviour
 {
     [SerializeField] private WaveCatalog catalog;
     [Min(0.01f)][SerializeField] private float arrivalDuration = 90f;
@@ -21,12 +21,15 @@ public sealed class WaveManager : MonoBehaviour
 
     [Tooltip("TEST KRITÉRIA: Zaškrtni, ak testuješ neskorú kúpu bazéna (Relax debutuje až v tejto testovanej vlne).")]
     [SerializeField] private bool testLatePoolDebut = false;
+    [Header("Dynamické škálovanie (Tuning)")]
+    public float waveScaleMultiplier = 1.0f;
 
     // Sledovanie debutov
     private bool hasRelaxDebuted = false;
     private bool hasOceanViewDebuted = false;
 
     private WaveDefinition lastExecutedWave = null;
+    private WaveNeedsPanel bottleneckPanel;
 
     public WaveSession Session { get; private set; }
     public GuestWavePresentation Guests { get; private set; }
@@ -49,6 +52,8 @@ public sealed class WaveManager : MonoBehaviour
         Session = new WaveSession(catalog);
         Session.WaveEnded += OnWaveFinishedInternal;
         Guests = GetComponent<GuestWavePresentation>();
+        GamePersistence.Ensure(this);
+        SatisfactionTracker.EnsureExists();
 
         // Inicializácia testovacej vlny hneď pri štarte hry
         if (useTestWave)
@@ -61,18 +66,30 @@ public sealed class WaveManager : MonoBehaviour
 
     private void Update()
     {
+        if (Time.deltaTime <= 0 || GamePersistence.IsRestoring) return;
         if (Session == null) return;
         if (Guests != null && Guests.enabled)
         {
             if (!Guests.BoatDocked) return;
             Session.HoldArrivalsOpen = !Guests.AllGuestsDisembarked;
         }
+        if (Session.State == WaveState.Running)
+        {
+            if (bottleneckPanel == null) bottleneckPanel = FindFirstObjectByType<WaveNeedsPanel>(FindObjectsInactive.Include);
+            foreach (var service in FindObjectsByType<BuildingService>(FindObjectsSortMode.None))
+                Session.UpdateBottleneck(service.Need, service.MaxWaitTime, service.QueueCount, Time.deltaTime,
+                    bottleneckPanel != null ? bottleneckPanel.warningWaitTimeThreshold : 3f,
+                    bottleneckPanel != null ? bottleneckPanel.warningDelay : 1.5f);
+        }
         Session.Tick(Time.deltaTime);
     }
 
     public void StartWave()
     {
+        if (GamePersistence.IsRestoring || GamePersistence.IsPaused) return;
         if (Session == null || Session.State == WaveState.Running) return;
+        if (Session.State == WaveState.Result &&
+            FindFirstObjectByType<WaveS4Connector>()?.ShowUnclaimedResult() == true) return;
         if (Guests != null && Guests.enabled && Guests.TripInProgress) return;
 
         int waveIndex = Session.WaveNumber;
@@ -86,7 +103,21 @@ public sealed class WaveManager : MonoBehaviour
         HashSet<NeedType> availableNeeds = GetBuiltBuildingNeeds();
 
         WaveDefinition waveToRun = CalculateAdaptedWave(waveIndex, availableNeeds, logDetails: true);
+
+        // Automatický násobič: 1. a 2. vlna 1.5x, každá ďalšia +0.25x (vynásobený prípadným tuningom)
+        float currentMult = GetWaveMultiplier(waveIndex + 1) * waveScaleMultiplier;
+
+        int sGuests = Mathf.Max(1, Mathf.RoundToInt(waveToRun.guests * currentMult));
+        int sRooms = waveToRun.rooms > 0 ? Mathf.Max(1, Mathf.RoundToInt(waveToRun.rooms * currentMult)) : 0;
+        int sDrinks = waveToRun.drinks > 0 ? Mathf.Max(1, Mathf.RoundToInt(waveToRun.drinks * currentMult)) : 0;
+        int sFood = waveToRun.food > 0 ? Mathf.Max(1, Mathf.RoundToInt(waveToRun.food * currentMult)) : 0;
+        int sRelax = waveToRun.relax > 0 ? Mathf.Max(1, Mathf.RoundToInt(waveToRun.relax * currentMult)) : 0;
+        int sOcean = waveToRun.oceanView > 0 ? Mathf.Max(1, Mathf.RoundToInt(waveToRun.oceanView * currentMult)) : 0;
+
+        waveToRun = new WaveDefinition(sGuests, sRooms, sDrinks, sFood, sRelax, sOcean);
         lastExecutedWave = waveToRun;
+
+        Debug.Log($"<color=cyan>[ŠTART VLNY {waveIndex + 1}]</color> Násobič vlny: {currentMult:0.00}× | Hostia: {waveToRun.guests} | Izby: {waveToRun.rooms}, Drinky: {waveToRun.drinks}, Jedlo: {waveToRun.food}");
 
         Session.StartWave(arrivalDuration, availableNeeds, waveToRun);
     }
@@ -254,5 +285,13 @@ public sealed class WaveManager : MonoBehaviour
     private void OnDestroy()
     {
         if (Session != null) Session.WaveEnded -= OnWaveFinishedInternal;
+    }
+    /// <summary>
+    /// Vráti násobič vlny: 1. a 2. vlna = 1.5x, každá ďalšia +0.25x
+    /// </summary>
+    public float GetWaveMultiplier(int waveNum)
+    {
+        if (waveNum <= 2) return 1.50f;
+        return 1.50f + (waveNum - 2) * 0.25f;
     }
 }

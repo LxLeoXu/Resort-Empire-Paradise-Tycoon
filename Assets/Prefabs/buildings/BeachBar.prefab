@@ -2080,6 +2080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1ef3ec058d2b84bb105cbff1dfc329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
+  saveKey: bar
   buildingName: BeachBar
   buildingIcon: {fileID: 0}
   isBuilt: 1
@@ -2104,9 +2105,12 @@ MonoBehaviour:
   - 1.5
   - 2
   workerVisual: {fileID: 0}
+  boostMultiplier: 2
+  boostDuration: 15
   serviceApproach: []
   queueStep: {x: -0.28, y: 0}
   queueRowStep: {x: 0, y: -0.24}
+  recoveryDuration: 8
   logEvents: 0
 --- !u!114 &7873263070581251106
 MonoBehaviour:
@@ -2169,6 +2173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoWorkerMarker
   marker: {fileID: 7932305016491892869}
+  recoveringText: {fileID: 0}
   popDuration: 0.25
   popStartScale: 0.6
   bobHeight: 0.025
@@ -5732,6 +5737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1ef3ec058d2b84bb105cbff1dfc329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
+  saveKey: 
   buildingName: Beach Bar
   buildingIcon: {fileID: 0}
   isBuilt: 1

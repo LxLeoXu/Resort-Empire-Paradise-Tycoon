@@ -719,6 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1ef3ec058d2b84bb105cbff1dfc329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  saveKey: 
   buildingName: 
   buildingIcon: {fileID: 0}
   isBuilt: 1
@@ -1064,8 +1065,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1ef3ec058d2b84bb105cbff1dfc329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfo
+  saveKey: bungalows
   buildingName: Bungalow
-  buildingIcon: {fileID: 0}
+  buildingIcon: {fileID: 21300000, guid: ca12448970229c745acbd930c9b04154, type: 3}
   isBuilt: 1
   currentLevel: 1
   offeredNeed: 5
@@ -1088,6 +1090,8 @@ MonoBehaviour:
   - 1.5
   - 2
   workerVisual: {fileID: 0}
+  boostMultiplier: 2
+  boostDuration: 15
   serviceApproach: []
   queueStep: {x: -0.24, y: -0.12}
   queueRowStep: {x: 0.15, y: -0.28}
@@ -1747,6 +1751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8499560491292717511}
   - component: {fileID: 1324976424609369189}
+  - component: {fileID: 9216371471547821087}
   m_Layer: 0
   m_Name: SelectionArea
   m_TagString: Untagged
@@ -1815,6 +1820,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.67, y: 3.11}
   m_EdgeRadius: 0
+--- !u!114 &9216371471547821087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4358096689256643459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12c35c5741dff8438adab37f2a34279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingClickHandler
 --- !u!1 &4909927679287958260
 GameObject:
   m_ObjectHideFlags: 0

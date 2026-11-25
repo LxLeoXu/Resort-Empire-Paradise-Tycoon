@@ -11,16 +11,25 @@ public readonly struct WaveNeed
     public NeedType Type { get; }
     public double ArrivalTime { get; }
 
-    public WaveNeed(int id, int waveNumber, NeedType type, double arrivalTime)
+    // SCRUM-474: VIP host
+    public bool IsVip { get; }
+
+    public WaveNeed(
+        int id,
+        int waveNumber,
+        NeedType type,
+        double arrivalTime,
+        bool isVip = false)
     {
         Id = id;
         WaveNumber = waveNumber;
         Type = type;
         ArrivalTime = arrivalTime;
+        IsVip = isVip;
     }
 }
 
-public sealed class WaveSession
+public sealed partial class WaveSession
 {
     private static readonly NeedType[] Types =
         { NeedType.Rooms, NeedType.Drinks, NeedType.Food, NeedType.Relax, NeedType.OceanView };
@@ -46,12 +55,19 @@ public sealed class WaveSession
     public int InTransitCount => inTransit.Count;
     public int InServiceCount => inService.Count;
     public int ServedCount { get; private set; }
+    // SCRUM-474: Pocet uspesne obsluzenych VIP hosti
+public int VipServedCount { get; private set; }
+
+    // Docasne pravidlo pre testovanie: kazdy piaty host je VIP
+    public int VipEveryNthGuest { get; set; } = 5;
     public int ScheduledCount => arrivals.Count;
     public bool HoldArrivalsOpen { get; set; }
     public IEnumerable<WaveNeed> PendingNeeds => pending.Values;
     public WaveDefinition CurrentWave { get; private set; }
 
     public event Action<WaveNeed> NeedServed;
+    // SCRUM-474: Uspesne obsluzenie VIP potreby
+    public event Action<WaveNeed> VipNeedServed;
     public event Action StateChanged;
     public event Action<int> WaveStarted;
     public event Action<WaveNeed> NeedArrived;
@@ -98,6 +114,10 @@ public sealed class WaveSession
         inService.Clear();
         inTransit.Clear();
         ServedCount = 0;
+        ResetQueueWaitStatistics();
+        bottlenecks.Clear();
+        VipServedCount = 0;
+        servedByType.Clear();
         guestReturnPending = false;
         State = WaveState.Running;
         StateChanged?.Invoke();
@@ -173,9 +193,22 @@ public sealed class WaveSession
         {
             double due = (EmittedCount + 0.5) * ArrivalDuration / arrivals.Count;
             if (due > Elapsed) break;
-            var need = new WaveNeed(++nextId, WaveNumber, arrivals[EmittedCount++], due);
-            pending.Add(need.Id, need);
-            NeedArrived?.Invoke(need);
+// SCRUM-474: VIP identifikacia pri prichode hosta
+int arrivalIndex = EmittedCount++;
+
+bool isVip = VipEveryNthGuest > 0 &&
+    (arrivalIndex + 1) % VipEveryNthGuest == 0;
+
+var need = new WaveNeed(
+    ++nextId,
+    WaveNumber,
+    arrivals[arrivalIndex],
+    due,
+    isVip
+);
+
+pending.Add(need.Id, need);
+NeedArrived?.Invoke(need);
         }
 
         if (Elapsed >= ArrivalDuration && !HoldArrivalsOpen)
@@ -198,6 +231,21 @@ public sealed class WaveSession
 
     public bool JoinQueue(int id) => State == WaveState.Running && inTransit.Remove(id);
 
+    /// <summary>SCRUM-22: sudden rush. `count` extra needs of one type arrive right now, on top of the schedule.
+    /// They are inserted into the schedule so saving, S2 totals and the wave end all stay consistent.</summary>
+    public int EmitRush(NeedType type, int count)
+    {
+        if (State != WaveState.Running || ArrivalsEnded || count <= 0 || type == NeedType.None) return 0;
+        for (int i = 0; i < count; i++)
+        {
+            arrivals.Insert(EmittedCount, type);
+            var need = new WaveNeed(++nextId, WaveNumber, arrivals[EmittedCount++], Elapsed);
+            pending.Add(need.Id, need);
+            NeedArrived?.Invoke(need);
+        }
+        return count;
+    }
+
     public int GetQueueCount(NeedType type)
     {
         int count = 0;
@@ -206,21 +254,47 @@ public sealed class WaveSession
         return count;
     }
 
-    public bool ResolveNeed(int id)
+public bool ResolveNeed(int id)
+{
+    if (State == WaveState.Running && inService.Remove(id))
     {
-        if (State == WaveState.Running && inService.Remove(id))
+        if (pending.TryGetValue(id, out var need))
         {
-            if (pending.TryGetValue(id, out var need))
+            pending.Remove(id);
+
+            ServedCount++;
+
+            servedByType.TryGetValue(
+                need.Type,
+                out int served
+            );
+
+            servedByType[need.Type] = served + 1;
+
+            // Povodna udalost obsluhy
+            NeedServed?.Invoke(need);
+
+            // SCRUM-474: VIP odmena
+            if (need.IsVip)
             {
-                pending.Remove(id);
-                ServedCount++;
-                NeedServed?.Invoke(need);
-                TryFinishWave();
-                return true;
+                VipServedCount++;
+
+                Debug.Log(
+                    $"[VIP] Host {need.Id} obsluzeny. " +
+                    $"VIP odmeny v tejto vlne: {VipServedCount}"
+                );
+
+                // Ak si uz pridal udalost VipNeedServed,
+                // ponechaj jej vyvolanie tu.
             }
+
+            TryFinishWave();
+            return true;
         }
-        return false;
     }
+
+    return false;
+}
 
     public void SetGuestReturnPending(bool value)
     {
@@ -233,6 +307,7 @@ public sealed class WaveSession
         if (State != WaveState.Running || !ArrivalsEnded || endingArrivals || guestReturnPending || pending.Count != 0) return;
         State = WaveState.Result;
         int completedWave = WaveNumber;
+        RecommendationReady?.Invoke(GetRecommendedNeed());
         WaveEnded?.Invoke(completedWave);
         StateChanged?.Invoke();
     }

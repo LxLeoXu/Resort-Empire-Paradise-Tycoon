@@ -1,0 +1,5122 @@
+fileFormatVersion: 2
+guid: 6177ed9a8aaa4864282b0f86cf4e0ef8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7348234018089079194
+    second: BungalowSite_Shadow3_0
+  - first:
+      213: 6421314441129427611
+    second: BungalowSite_Shadow3_1
+  - first:
+      213: 6807939644592167639
+    second: BungalowSite_Shadow3_2
+  - first:
+      213: 2086414572910375263
+    second: BungalowSite_Shadow3_3
+  - first:
+      213: 2593424892858712937
+    second: BungalowSite_Shadow3_4
+  - first:
+      213: 1469817427066497871
+    second: BungalowSite_Shadow3_5
+  - first:
+      213: -6745616498534493223
+    second: BungalowSite_Shadow3_6
+  - first:
+      213: -8341225085423001757
+    second: BungalowSite_Shadow3_7
+  - first:
+      213: 1545624901752963442
+    second: BungalowSite_Shadow3_8
+  - first:
+      213: -1494925800474405042
+    second: BungalowSite_Shadow3_9
+  - first:
+      213: 3335746263194663718
+    second: BungalowSite_Shadow3_10
+  - first:
+      213: 6226081783998597333
+    second: BungalowSite_Shadow3_11
+  - first:
+      213: 1641358905262090132
+    second: BungalowSite_Shadow3_12
+  - first:
+      213: -9025358928275897523
+    second: BungalowSite_Shadow3_13
+  - first:
+      213: 8087514329572851677
+    second: BungalowSite_Shadow3_14
+  - first:
+      213: 2824731249643944832
+    second: BungalowSite_Shadow3_15
+  - first:
+      213: -5533079895847873066
+    second: BungalowSite_Shadow3_16
+  - first:
+      213: 3611474118633602030
+    second: BungalowSite_Shadow3_17
+  - first:
+      213: -799165681629573004
+    second: BungalowSite_Shadow3_18
+  - first:
+      213: 4636210707443248443
+    second: BungalowSite_Shadow3_19
+  - first:
+      213: 8259803453686406769
+    second: BungalowSite_Shadow3_20
+  - first:
+      213: -2401052085597790250
+    second: BungalowSite_Shadow3_21
+  - first:
+      213: 3838256063875660628
+    second: BungalowSite_Shadow3_22
+  - first:
+      213: 5837440554436008829
+    second: BungalowSite_Shadow3_23
+  - first:
+      213: -2320189601112649779
+    second: BungalowSite_Shadow3_24
+  - first:
+      213: 4476934474609395451
+    second: BungalowSite_Shadow3_25
+  - first:
+      213: -7892074652711877931
+    second: BungalowSite_Shadow3_26
+  - first:
+      213: -8348012100084342988
+    second: BungalowSite_Shadow3_27
+  - first:
+      213: 4093368768663118588
+    second: BungalowSite_Shadow3_28
+  - first:
+      213: 1804071056812440450
+    second: BungalowSite_Shadow3_29
+  - first:
+      213: 5460184104900357783
+    second: BungalowSite_Shadow3_30
+  - first:
+      213: 444519074320606516
+    second: BungalowSite_Shadow3_31
+  - first:
+      213: 2197997728697425424
+    second: BungalowSite_Shadow3_32
+  - first:
+      213: 8823946004358939063
+    second: BungalowSite_Shadow3_33
+  - first:
+      213: -5666008549799813329
+    second: BungalowSite_Shadow3_34
+  - first:
+      213: -3310016322937038342
+    second: BungalowSite_Shadow3_35
+  - first:
+      213: 6286299593661176547
+    second: BungalowSite_Shadow3_36
+  - first:
+      213: -6646705206947900692
+    second: BungalowSite_Shadow3_37
+  - first:
+      213: 8640095872009389501
+    second: BungalowSite_Shadow3_38
+  - first:
+      213: 7046254931380037604
+    second: BungalowSite_Shadow3_39
+  - first:
+      213: 3604509496481976324
+    second: BungalowSite_Shadow3_40
+  - first:
+      213: -3962957664892616345
+    second: BungalowSite_Shadow3_41
+  - first:
+      213: -4277200111711549241
+    second: BungalowSite_Shadow3_42
+  - first:
+      213: 9106153724292609515
+    second: BungalowSite_Shadow3_43
+  - first:
+      213: 1626858654923122211
+    second: BungalowSite_Shadow3_44
+  - first:
+      213: 4897463548139993948
+    second: BungalowSite_Shadow3_45
+  - first:
+      213: -7906112414436438885
+    second: BungalowSite_Shadow3_46
+  - first:
+      213: 978710332440573319
+    second: BungalowSite_Shadow3_47
+  - first:
+      213: 1519806628277301760
+    second: BungalowSite_Shadow3_48
+  - first:
+      213: -1965069083416084747
+    second: BungalowSite_Shadow3_49
+  - first:
+      213: 2944867078821302791
+    second: BungalowSite_Shadow3_50
+  - first:
+      213: -5597425889146854184
+    second: BungalowSite_Shadow3_51
+  - first:
+      213: -957727133756894394
+    second: BungalowSite_Shadow3_52
+  - first:
+      213: 8641210561056151303
+    second: BungalowSite_Shadow3_53
+  - first:
+      213: 4029456128895534521
+    second: BungalowSite_Shadow3_54
+  - first:
+      213: 4551371731807827443
+    second: BungalowSite_Shadow3_55
+  - first:
+      213: 5350135577689562401
+    second: BungalowSite_Shadow3_56
+  - first:
+      213: -1136790280935489740
+    second: BungalowSite_Shadow3_57
+  - first:
+      213: -4125377334060711326
+    second: BungalowSite_Shadow3_58
+  - first:
+      213: 3257680678899605289
+    second: BungalowSite_Shadow3_59
+  - first:
+      213: 6445426216229674683
+    second: BungalowSite_Shadow3_60
+  - first:
+      213: 3786215456240404885
+    second: BungalowSite_Shadow3_61
+  - first:
+      213: 4117256906807845138
+    second: BungalowSite_Shadow3_62
+  - first:
+      213: 3024031288596723967
+    second: BungalowSite_Shadow3_63
+  - first:
+      213: -4573692416510102311
+    second: BungalowSite_Shadow3_64
+  - first:
+      213: -4537026585561183544
+    second: BungalowSite_Shadow3_65
+  - first:
+      213: -959791893603967274
+    second: BungalowSite_Shadow3_66
+  - first:
+      213: -8170443740248805833
+    second: BungalowSite_Shadow3_67
+  - first:
+      213: -1249041930612328695
+    second: BungalowSite_Shadow3_68
+  - first:
+      213: -1317345045603678399
+    second: BungalowSite_Shadow3_69
+  - first:
+      213: -2292091401097411814
+    second: BungalowSite_Shadow3_70
+  - first:
+      213: 8392393618435176435
+    second: BungalowSite_Shadow3_71
+  - first:
+      213: -3249087690381167816
+    second: BungalowSite_Shadow3_72
+  - first:
+      213: -1352638109997823299
+    second: BungalowSite_Shadow3_73
+  - first:
+      213: -7468727362567475993
+    second: BungalowSite_Shadow3_74
+  - first:
+      213: 4199170648389178825
+    second: BungalowSite_Shadow3_75
+  - first:
+      213: -1029452471390886358
+    second: BungalowSite_Shadow3_76
+  - first:
+      213: 6413717251836004674
+    second: BungalowSite_Shadow3_77
+  - first:
+      213: -6286043770985749347
+    second: BungalowSite_Shadow3_78
+  - first:
+      213: 7442116958544091362
+    second: BungalowSite_Shadow3_79
+  - first:
+      213: -8353591809723453675
+    second: BungalowSite_Shadow3_80
+  - first:
+      213: 1340939900549364480
+    second: BungalowSite_Shadow3_81
+  - first:
+      213: -8506521368630734696
+    second: BungalowSite_Shadow3_82
+  - first:
+      213: -9018755221432126921
+    second: BungalowSite_Shadow3_83
+  - first:
+      213: 1771129093390510706
+    second: BungalowSite_Shadow3_84
+  - first:
+      213: -5563547492271589046
+    second: BungalowSite_Shadow3_85
+  - first:
+      213: 7340843315402144426
+    second: BungalowSite_Shadow3_86
+  - first:
+      213: -3957437285707426775
+    second: BungalowSite_Shadow3_87
+  - first:
+      213: 2179697075701047186
+    second: BungalowSite_Shadow3_88
+  - first:
+      213: 1599504363203845859
+    second: BungalowSite_Shadow3_89
+  - first:
+      213: -1330881817771933258
+    second: BungalowSite_Shadow3_90
+  - first:
+      213: -151932657751455309
+    second: BungalowSite_Shadow3_91
+  - first:
+      213: 8698711368475125536
+    second: BungalowSite_Shadow3_92
+  - first:
+      213: -6175571842500320762
+    second: BungalowSite_Shadow3_93
+  - first:
+      213: 2374423702133649713
+    second: BungalowSite_Shadow3_94
+  - first:
+      213: -249238433878203600
+    second: BungalowSite_Shadow3_95
+  - first:
+      213: -6980396184505532468
+    second: BungalowSite_Shadow3_96
+  - first:
+      213: 7690167617427875071
+    second: BungalowSite_Shadow3_97
+  - first:
+      213: 3428626552064044032
+    second: BungalowSite_Shadow3_98
+  - first:
+      213: -9130799744912199832
+    second: BungalowSite_Shadow3_99
+  - first:
+      213: 9119736995862917731
+    second: BungalowSite_Shadow3_100
+  - first:
+      213: 3120760119235310296
+    second: BungalowSite_Shadow3_101
+  - first:
+      213: 3395404353932889826
+    second: BungalowSite_Shadow3_102
+  - first:
+      213: -8878450441670161646
+    second: BungalowSite_Shadow3_103
+  - first:
+      213: -6831113690870127262
+    second: BungalowSite_Shadow3_104
+  - first:
+      213: 795290710045837793
+    second: BungalowSite_Shadow3_105
+  - first:
+      213: -3776058546355860609
+    second: BungalowSite_Shadow3_106
+  - first:
+      213: -3480327551103968596
+    second: BungalowSite_Shadow3_107
+  - first:
+      213: -4067044104193216597
+    second: BungalowSite_Shadow3_108
+  - first:
+      213: 8524834503970388693
+    second: BungalowSite_Shadow3_109
+  - first:
+      213: 2015218744582506454
+    second: BungalowSite_Shadow3_110
+  - first:
+      213: 3817027885413239253
+    second: BungalowSite_Shadow3_111
+  - first:
+      213: 787774272633379645
+    second: BungalowSite_Shadow3_112
+  - first:
+      213: -9220700685326480587
+    second: BungalowSite_Shadow3_113
+  - first:
+      213: -3091562937268935440
+    second: BungalowSite_Shadow3_114
+  - first:
+      213: 8153783708939678943
+    second: BungalowSite_Shadow3_115
+  - first:
+      213: -6626049635803753325
+    second: BungalowSite_Shadow3_116
+  - first:
+      213: 140763394037775157
+    second: BungalowSite_Shadow3_117
+  - first:
+      213: -8562765125992156023
+    second: BungalowSite_Shadow3_118
+  - first:
+      213: 8096309845270511749
+    second: BungalowSite_Shadow3_119
+  - first:
+      213: 3547046641500272441
+    second: BungalowSite_Shadow3_120
+  - first:
+      213: 1214998595094806943
+    second: BungalowSite_Shadow3_121
+  - first:
+      213: -4158583013604628015
+    second: BungalowSite_Shadow3_122
+  - first:
+      213: -5144878364882630000
+    second: BungalowSite_Shadow3_123
+  - first:
+      213: 1172526748566200297
+    second: BungalowSite_Shadow3_124
+  - first:
+      213: 172671059977430720
+    second: BungalowSite_Shadow3_125
+  - first:
+      213: 2547346723098173652
+    second: BungalowSite_Shadow3_126
+  - first:
+      213: -4893387889536156230
+    second: BungalowSite_Shadow3_127
+  - first:
+      213: -6624821072176582347
+    second: BungalowSite_Shadow3_128
+  - first:
+      213: -8092036588799446161
+    second: BungalowSite_Shadow3_129
+  - first:
+      213: -3630213372003373905
+    second: BungalowSite_Shadow3_130
+  - first:
+      213: -3608096014147953650
+    second: BungalowSite_Shadow3_131
+  - first:
+      213: 1440909840226603688
+    second: BungalowSite_Shadow3_132
+  - first:
+      213: 1102158437018177785
+    second: BungalowSite_Shadow3_133
+  - first:
+      213: 8743347629100167195
+    second: BungalowSite_Shadow3_134
+  - first:
+      213: 1586484336052836225
+    second: BungalowSite_Shadow3_135
+  - first:
+      213: 3894770007498367344
+    second: BungalowSite_Shadow3_136
+  - first:
+      213: -1953284363749698592
+    second: BungalowSite_Shadow3_137
+  - first:
+      213: -6405229413572650516
+    second: BungalowSite_Shadow3_138
+  - first:
+      213: -55692187217918760
+    second: BungalowSite_Shadow3_139
+  - first:
+      213: -8137562413512004829
+    second: BungalowSite_Shadow3_140
+  - first:
+      213: 6009628918451521026
+    second: BungalowSite_Shadow3_141
+  - first:
+      213: 1343839326735578328
+    second: BungalowSite_Shadow3_142
+  - first:
+      213: -422161083720381775
+    second: BungalowSite_Shadow3_143
+  - first:
+      213: -327940877197010593
+    second: BungalowSite_Shadow3_144
+  - first:
+      213: -8434541765353377264
+    second: BungalowSite_Shadow3_145
+  - first:
+      213: -5681146675750926242
+    second: BungalowSite_Shadow3_146
+  - first:
+      213: -812882658910547589
+    second: BungalowSite_Shadow3_147
+  - first:
+      213: 8628162196104593304
+    second: BungalowSite_Shadow3_148
+  - first:
+      213: -506703314874502001
+    second: BungalowSite_Shadow3_149
+  - first:
+      213: 3086575239983507304
+    second: BungalowSite_Shadow3_150
+  - first:
+      213: -7049734463047233926
+    second: BungalowSite_Shadow3_151
+  - first:
+      213: 688414569281354560
+    second: BungalowSite_Shadow3_152
+  - first:
+      213: 6382976980781287167
+    second: BungalowSite_Shadow3_153
+  - first:
+      213: -3419199117547135880
+    second: BungalowSite_Shadow3_154
+  - first:
+      213: -1460061262783246248
+    second: BungalowSite_Shadow3_155
+  - first:
+      213: 4900443584506042506
+    second: BungalowSite_Shadow3_156
+  - first:
+      213: -7214672020449535386
+    second: BungalowSite_Shadow3_157
+  - first:
+      213: -6613034783883124004
+    second: BungalowSite_Shadow3_158
+  - first:
+      213: -6788919117145210318
+    second: BungalowSite_Shadow3_159
+  - first:
+      213: -2052322594489215130
+    second: BungalowSite_Shadow3_160
+  - first:
+      213: 2077805066152259048
+    second: BungalowSite_Shadow3_161
+  - first:
+      213: -9185368043747766594
+    second: BungalowSite_Shadow3_162
+  - first:
+      213: -2900478349394455866
+    second: BungalowSite_Shadow3_163
+  - first:
+      213: -2860430682315214759
+    second: BungalowSite_Shadow3_164
+  - first:
+      213: 3144265069240338078
+    second: BungalowSite_Shadow3_165
+  - first:
+      213: -6418654523360258605
+    second: BungalowSite_Shadow3_166
+  - first:
+      213: -2772164188572020266
+    second: BungalowSite_Shadow3_167
+  - first:
+      213: 3726828181763033809
+    second: BungalowSite_Shadow3_168
+  - first:
+      213: 4430750472230800267
+    second: BungalowSite_Shadow3_169
+  - first:
+      213: 1545648517494269509
+    second: BungalowSite_Shadow3_170
+  - first:
+      213: 166374238633250791
+    second: BungalowSite_Shadow3_171
+  - first:
+      213: 7935917528068829349
+    second: BungalowSite_Shadow3_172
+  - first:
+      213: 960262497858159346
+    second: BungalowSite_Shadow3_173
+  - first:
+      213: -8210410289488931271
+    second: BungalowSite_Shadow3_174
+  - first:
+      213: -8495611651433216473
+    second: BungalowSite_Shadow3_175
+  - first:
+      213: -1317597325006964780
+    second: BungalowSite_Shadow3_176
+  - first:
+      213: 7686556342430821859
+    second: BungalowSite_Shadow3_177
+  - first:
+      213: -3781073960499317207
+    second: BungalowSite_Shadow3_178
+  - first:
+      213: -8988677154749709987
+    second: BungalowSite_Shadow3_179
+  - first:
+      213: 6201405873622403467
+    second: BungalowSite_Shadow3_180
+  - first:
+      213: 4989448181464307566
+    second: BungalowSite_Shadow3_181
+  - first:
+      213: -5947832454362189384
+    second: BungalowSite_Shadow3_182
+  - first:
+      213: 7288938936880868935
+    second: BungalowSite_Shadow3_183
+  - first:
+      213: -4445530816102008688
+    second: BungalowSite_Shadow3_184
+  - first:
+      213: 6291882251668146383
+    second: BungalowSite_Shadow3_185
+  - first:
+      213: 2617851816919692481
+    second: BungalowSite_Shadow3_186
+  - first:
+      213: -7709450013723832671
+    second: BungalowSite_Shadow3_187
+  - first:
+      213: 8898635368697669056
+    second: BungalowSite_Shadow3_188
+  - first:
+      213: 4188927781599128459
+    second: BungalowSite_Shadow3_189
+  - first:
+      213: 5178825385868732325
+    second: BungalowSite_Shadow3_190
+  - first:
+      213: 8722535262555063302
+    second: BungalowSite_Shadow3_191
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 1
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0, y: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_100
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 192
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362b563ba70df8e70800000000000000
+      internalID: 9119736995862917731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_101
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 192
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d2f9304bca2f4b20800000000000000
+      internalID: 3120760119235310296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_102
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 192
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee0cf03546ee1f20800000000000000
+      internalID: 3395404353932889826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_103
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 192
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b07540d5869c480800000000000000
+      internalID: -8878450441670161646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_104
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 192
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 265e06b7a420331a0800000000000000
+      internalID: -6831113690870127262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_105
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 192
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e94379efa0790b00800000000000000
+      internalID: 795290710045837793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_106
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 192
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7b816d22ceb89bc0800000000000000
+      internalID: -3776058546355860609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_107
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 192
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caa5176288463bfc0800000000000000
+      internalID: -3480327551103968596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_108
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 192
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baf67b37fe4fe87c0800000000000000
+      internalID: -4067044104193216597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_109
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 192
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5daf52a90db4e4670800000000000000
+      internalID: 8524834503970388693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_110
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 168
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d78c8765ce77fb10800000000000000
+      internalID: 2015218744582506454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_111
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 168
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d901d763aec8f430800000000000000
+      internalID: 3817027885413239253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_112
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 168
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3b1183f68cbeea00800000000000000
+      internalID: 787774272633379645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_113
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 168
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53b0aee749d790080800000000000000
+      internalID: -9220700685326480587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_114
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 168
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f4625b63ef8815d0800000000000000
+      internalID: -3091562937268935440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_115
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 168
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd477ba251f082170800000000000000
+      internalID: 8153783708939678943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_116
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 168
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3949fc966fa8b04a0800000000000000
+      internalID: -6626049635803753325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_117
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 168
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53bfff2af8714f100800000000000000
+      internalID: 140763394037775157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_118
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 168
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98472224c72fa2980800000000000000
+      internalID: -8562765125992156023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_119
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 168
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 580c8de78eedb5070800000000000000
+      internalID: 8096309845270511749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_120
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 168
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 937bd5c9024a93130800000000000000
+      internalID: 3547046641500272441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_121
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f91893fe8ca8cd010800000000000000
+      internalID: 1214998595094806943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_122
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 144
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d96f1148ceb946c0800000000000000
+      internalID: -4158583013604628015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_123
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 144
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09a0498c268b998b0800000000000000
+      internalID: -5144878364882630000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_124
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 144
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef9ee19dd6a54010800000000000000
+      internalID: 1172526748566200297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_125
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 144
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c6e1f80a63756200800000000000000
+      internalID: 172671059977430720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_126
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 144
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d0a506295ef95320800000000000000
+      internalID: 2547346723098173652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_127
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 144
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abdbff704a1371cb0800000000000000
+      internalID: -4893387889536156230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_128
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 144
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 531746ca558ef04a0800000000000000
+      internalID: -6624821072176582347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_129
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 144
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f63352f889f43bf80800000000000000
+      internalID: -8092036588799446161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_130
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 144
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: facaddefb24ee9dc0800000000000000
+      internalID: -3630213372003373905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_131
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 144
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0c5539aac77dedc0800000000000000
+      internalID: -3608096014147953650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_132
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a2521c8dd32ff310800000000000000
+      internalID: 1440909840226603688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_133
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 120
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f01bac4247ab4f00800000000000000
+      internalID: 1102158437018177785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_134
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 120
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b10f44c285c965970800000000000000
+      internalID: 8743347629100167195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_135
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 120
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 187962c1913540610800000000000000
+      internalID: 1586484336052836225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_136
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 120
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07129cabfa00d0630800000000000000
+      internalID: 3894770007498367344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_137
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 120
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e3df59583a84e4e0800000000000000
+      internalID: -1953284363749698592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_138
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 120
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce95e13e8cd0c17a0800000000000000
+      internalID: -6405229413572650516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_139
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 120
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d48c1430442a3ff0800000000000000
+      internalID: -55692187217918760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_140
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 120
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32beb0d7912911f80800000000000000
+      internalID: -8137562413512004829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_141
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 120
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 206c73439ad766350800000000000000
+      internalID: 6009628918451521026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_142
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 120
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d436496fb646a210800000000000000
+      internalID: 1343839326735578328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_143
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ba4ad62bbe242af0800000000000000
+      internalID: -422161083720381775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_144
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 96
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f59975b728be27bf0800000000000000
+      internalID: -327940877197010593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_145
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 96
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0127ae8d3fc72fa80800000000000000
+      internalID: -8434541765353377264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_146
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 96
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5889fac2338821b0800000000000000
+      internalID: -5681146675750926242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_147
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 96
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b71df8f478f08b4f0800000000000000
+      internalID: -812882658910547589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_148
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 96
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89fb44badc36db770800000000000000
+      internalID: 8628162196104593304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_149
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 96
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f84746e0504d7f8f0800000000000000
+      internalID: -506703314874502001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_150
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 96
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867abbfc3d7b5da20800000000000000
+      internalID: 3086575239983507304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_151
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 96
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e8d316bdf4a2e90800000000000000
+      internalID: -7049734463047233926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_152
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 96
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04bf734476dbd8900800000000000000
+      internalID: 688414569281354560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_153
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 96
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff6c6fcdeb3e49850800000000000000
+      internalID: 6382976980781287167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_154
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 72
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87c164ea4809c80d0800000000000000
+      internalID: -3419199117547135880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_155
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 72
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8501f796402dcbbe0800000000000000
+      internalID: -1460061262783246248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_156
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 72
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a881358f97fd10440800000000000000
+      internalID: 4900443584506042506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_157
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 72
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66ad72ab50650eb90800000000000000
+      internalID: -7214672020449535386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_158
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 72
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd22853c6e7c934a0800000000000000
+      internalID: -6613034783883124004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_159
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 72
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23283bd380ae8c1a0800000000000000
+      internalID: -6788919117145210318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_160
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 72
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66756f6597fa483e0800000000000000
+      internalID: -2052322594489215130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_161
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 72
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ed2380f2b8d5dc10800000000000000
+      internalID: 2077805066152259048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_162
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 72
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe803d2e64078080800000000000000
+      internalID: -9185368043747766594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_163
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 72
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2d1a10f4e6fb7d0800000000000000
+      internalID: -2900478349394455866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_164
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 72
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95039fb1375bd48d0800000000000000
+      internalID: -2860430682315214759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_165
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e964db3eb6ca2ab20800000000000000
+      internalID: 3144265069240338078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_166
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 48
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d5582fe7bb5ce6a0800000000000000
+      internalID: -6418654523360258605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_167
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 48
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d11b19ab5b4789d0800000000000000
+      internalID: -2772164188572020266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_168
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 48
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1da86e85c7a58b330800000000000000
+      internalID: 3726828181763033809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_169
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 48
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b06b154103d7d30800000000000000
+      internalID: 4430750472230800267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_170
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 48
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 546ead0332f337510800000000000000
+      internalID: 1545648517494269509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_171
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 48
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7efc2811d741f4200800000000000000
+      internalID: 166374238633250791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_172
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 48
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a0b65b02fa022e60800000000000000
+      internalID: 7935917528068829349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_173
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 48
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f207f377a9835d00800000000000000
+      internalID: 960262497858159346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_174
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 48
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 936dcc2a753ce0e80800000000000000
+      internalID: -8210410289488931271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_175
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 48
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72647a6f636891a80800000000000000
+      internalID: -8495611651433216473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_176
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d774fdb634f6bde0800000000000000
+      internalID: -1317597325006964780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_177
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 24
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed6d90b4422caa60800000000000000
+      internalID: 7686556342430821859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_178
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 24
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92675f2144de68bc0800000000000000
+      internalID: -3781073960499317207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_179
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 24
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d51897670cdc14380800000000000000
+      internalID: -8988677154749709987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_180
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 24
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b89c84d19c1df0650800000000000000
+      internalID: 6201405873622403467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_181
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 24
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6716619fa41e3540800000000000000
+      internalID: 4989448181464307566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_182
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 24
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b1b33e45ed057da0800000000000000
+      internalID: -5947832454362189384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_183
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 24
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e2c4a3853872560800000000000000
+      internalID: 7288938936880868935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_184
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 24
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 098ff24b64d4e42c0800000000000000
+      internalID: -4445530816102008688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_185
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 24
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc8c3437291415750800000000000000
+      internalID: 6291882251668146383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_186
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 24
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c4fb168b5a745420800000000000000
+      internalID: 2617851816919692481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_187
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ae4c561f08820590800000000000000
+      internalID: -7709450013723832671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_188
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 0
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c5a3f888bd4e7b70800000000000000
+      internalID: 8898635368697669056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_189
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 0
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b2bfb9f9f022a30800000000000000
+      internalID: 4188927781599128459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_190
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a72b76ff32eed740800000000000000
+      internalID: 5178825385868732325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_191
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 604c9697b9bac0970800000000000000
+      internalID: 8722535262555063302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_000
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 408
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 516063f246448fd4eb19204552c16227
+      internalID: 288885414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_001
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 408
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 295eca446aa17e949a24129de2c2cc48
+      internalID: 1244614367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_002
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 408
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82aa6d4d505d9754d92308dfc5971d67
+      internalID: 999218040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_003
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 408
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dec4a41766cd56044a58387e18595e53
+      internalID: -1563633830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_004
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 408
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d30b9552740d3794aa4fc525b9982a46
+      internalID: 326796903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_005
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 408
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a5c2e2ea4699140bea9672e2fc95a6
+      internalID: 602421083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_006
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 408
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb2bda40dc43744409bf6cc65606b566
+      internalID: -1185093833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_007
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 408
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 139deb15442611c47b1f3ff50355379b
+      internalID: 2003521818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_008
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 408
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62037e5a3e387684f9727dd2b0b5953d
+      internalID: 338299701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_009
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 408
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d58d3639ec6a5fd4b9e168c8484fdb65
+      internalID: 1938643668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_010
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 408
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66922e4dae4aef14f94cbae0e887f36c
+      internalID: 677827425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_011
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46f991dc7995c834fb50666352b9d154
+      internalID: 1511602589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_012
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 384
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d1f4b91947fd53498c212bc0ce36c16
+      internalID: -1269106012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_013
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 384
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 199ce71b4e6ba8748b2f3d55c01d19d0
+      internalID: 1282313909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_014
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 384
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b269d7fbfab473d45b5020df5d9fb256
+      internalID: 413713252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_015
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 384
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 042040747bae9b3498e6a4944d4c6e54
+      internalID: -386303666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_016
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 384
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb23622a0d3316844b2d85a81228b30c
+      internalID: 1861760995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_017
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 384
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 899ca30bc2e176a4abecd99c5b5912d2
+      internalID: 1572205715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_018
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 384
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 711ac2f0fd9a7994388e99d19d8b05ef
+      internalID: -2140915870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_019
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 384
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ff25a62768a9c4b817da067f180b6e
+      internalID: 572247952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_020
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 384
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 627241f4182153d41be37c09b59f411c
+      internalID: 177331761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_021
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 384
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342de03513e046941a1bdaedad40f733
+      internalID: 77095721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_022
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0450013a9b41a418b7544fe1f65421
+      internalID: -1258443352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_023
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 360
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69692199ef40b3346b21958f3723532e
+      internalID: -1357274323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_024
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 360
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c755540808573a45a5f09ac472807f1
+      internalID: -1198483491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_025
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 360
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6093fedb9ddccd41a04312feafbe103
+      internalID: -2080085434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_026
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 360
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fc214c2324e0424d8ae9137625d2825
+      internalID: -1411919124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_027
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 360
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d24fd4c858c2e9409aa9219e7374412
+      internalID: 920819250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_028
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 360
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b5be6621afaa54ea8b5d2478293047
+      internalID: -1778748516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_029
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 360
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d25b273ebd0fbaa4c9e232504993d262
+      internalID: -179640214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_030
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 360
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d5f1fe88ca30fc468e97aafd1a403eb
+      internalID: 626936741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_031
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 360
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a7be6cb3dd9d74fa574b03393fe379
+      internalID: 1761869783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_032
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 360
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb29ab39f20d529479d654042146249b
+      internalID: 677521709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_033
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 336
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbc3a4a8070eb0f4c9b246516b7fb535
+      internalID: -666172797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_034
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 336
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d06a9707dd65544ba671ca988eb6f12
+      internalID: -1577740473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_035
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 336
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed80c94a139f4ea479cba179c1e78a34
+      internalID: -402020752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_036
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 336
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bafd11bbd4272d04297414bcf7fff825
+      internalID: 1473788983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_037
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 336
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde24905be5d2674c9bb42e0843d0338
+      internalID: -1174045066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_038
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 336
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa7cf7a043b8d3a45bb247dfc341dbfc
+      internalID: 1667325434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_039
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 336
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78bf8ada780dd3b43a93cdef1839c941
+      internalID: 869763650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_040
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 336
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737c7d67b5c227d4994b4c1affb1772d
+      internalID: 129088202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_041
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 336
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fecc632db498ee4d9f49af0ed46f5a0
+      internalID: 1550693906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_042
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 336
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd9f09df4cc9a2244b78a4ae0fdfb50e
+      internalID: 1602650083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_043
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 336
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749249a5dd6c03a4295a16721b45ce4a
+      internalID: 852105821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_044
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 312
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f96123b6ae5044b9968ac59d1107f8
+      internalID: -923259039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_045
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 312
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d937e2345bd24bf47932deaaf383158d
+      internalID: 1054656240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_046
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 312
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f887fc2993941c419287d0240a7a3e5
+      internalID: 1442067461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_047
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 312
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6509a1345f08fe5499dc4caaaba7cc35
+      internalID: 1863761796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_048
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 312
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09d7e1c71d48af740bb54310b3641af1
+      internalID: -1321947614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_049
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 312
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4582563e000d9a4dad2046eed2b11c2
+      internalID: -775400955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_050
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 312
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a0ff6d40d2695c4bb460cddfe17d2ff
+      internalID: 1498790122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_051
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 312
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58cef012f6c29394a9d8e201781688ea
+      internalID: -700631589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_052
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 312
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f28b5badbd559a4a95c00e13c047f53
+      internalID: -557133551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_053
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 312
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f7685e8f26cce349ab046b0db6ad49a
+      internalID: -818627115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_054
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 312
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d684a060a4c8e284095f5aa52eefea5a
+      internalID: -258476183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_055
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a477257a27050d74aa31f8ffa61a80ef
+      internalID: -1549538056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_056
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 288
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4281205aed8ae614d92da277b441bf46
+      internalID: -385721256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_057
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 288
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac6286a33de9e9140bf0368cb8c53cff
+      internalID: 65058690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_058
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 288
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d98877f1e6393b4e83c86647977946c
+      internalID: 1726750669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_059
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 288
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac37d35a8004b54459b8de82124db6a4
+      internalID: -15716406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_060
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 288
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e593c59677a94a48aa42a76e11af438
+      internalID: -52949592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_061
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 288
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ee3493e448088b4787bfb8ee4f23f6f
+      internalID: -1685592093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_062
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 288
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c190d15336654de478ab192adb79f676
+      internalID: 275514697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_063
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 288
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b73b9182b6814240acddb7dcf1bf680
+      internalID: -1169991836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_064
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 288
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f230d402d28d34780439b636328a65
+      internalID: -1645123885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_065
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 288
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a72430deed894e948a80db87c7bc35fe
+      internalID: -906981064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_066
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 264
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 230b43e843bcfd24eb3bf918af124c17
+      internalID: -1311575614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_067
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 264
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e94219ba75f76a4393ad1d3ff16e060
+      internalID: -1577194318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_068
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 264
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 124e0a65e7323e440897b557c9f9521b
+      internalID: 497140183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_069
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 264
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f51cd5725b12344abea469a8d31093
+      internalID: -1519669729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_070
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 264
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 158bf251024f14746b80f917b1be6c1d
+      internalID: 1146374776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_071
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 264
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea5c478b0118914696fee46a16d6cab
+      internalID: -17169445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_072
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 264
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be3d7df88a430d84ea6872866fa39329
+      internalID: 35188167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_073
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 264
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c18b5ea1c67a5b3458db0297e5237be5
+      internalID: -1125740257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_074
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 264
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530ec1b15fe6b694f98ef47df13c210a
+      internalID: -1369571344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_075
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 264
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc9548d13106dc34ebf4408b5f509968
+      internalID: -706733921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_076
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 264
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4487465eec9a6f4aa2d5dc8d5edddbe
+      internalID: -1843276922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_077
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c696424efe7d994e8e2d12ab84d5fd1
+      internalID: 101880424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_078
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 240
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db9569b0d4554c4f9e38103b93102d7
+      internalID: -1358108943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_079
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 240
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e37c1151508abf64fa836e553f705d7e
+      internalID: -643121349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_080
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 240
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0af181db18a0b443ae3bba3da3211c3
+      internalID: -625651370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_081
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 240
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f92e58c17a4f43945b54e869c21da163
+      internalID: 2116892273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_082
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 240
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e2e4174f59119c4980b7881b20f93d9
+      internalID: -878258717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_083
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 240
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f8bd1fe5078c74d9049bcfa9301b7b
+      internalID: 19114211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_084
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 240
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dca41406b6ffad144a2fa0b8a9ea1238
+      internalID: -411930180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_085
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 240
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d611ef39b615194ea235b3f3f01f46b
+      internalID: -1493145525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_086
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 240
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd2c0a289cbc9b44b030903674309f3
+      internalID: 1299075684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_087
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 240
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e13be2deea063246980340c98e2b824
+      internalID: 907360408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_088
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 216
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fcb91e9d95e53c469d7fa6d228d0f8b
+      internalID: 1271589706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_089
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 216
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56464c09755ca6d4892b985b88d1b6e4
+      internalID: -113439450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_090
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 216
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c54dd26218966b4e888e14969e230d0
+      internalID: -1001148436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_091
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 216
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c079d19fd869d4ca5294e97ebf5009
+      internalID: 1146528210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_092
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 216
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3977874e7df58cf4c9bb166574b2e9c6
+      internalID: 1141458251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_093
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 216
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f982e02d63b069a4d91a2c8c233ef5f7
+      internalID: 251510398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_094
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 216
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1904d392f4b507047b1ba1f4ab94d57c
+      internalID: -1900450045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_095
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 216
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43cd312f02738384ea00dadfa8d93a60
+      internalID: -374498600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_096
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 216
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c6fe249de6df7f48a52bbfb74a25d88
+      internalID: -1240046929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_097
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 216
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e6fa3c8b0de4d4b89dddc2cf432949
+      internalID: 1449047592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_098
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 216
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 215ea40d93c138c4da374d27c4bace27
+      internalID: 556194206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BungalowSite_Shadow3_099
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 38
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57acc537cd45be04c95af5347a63f457
+      internalID: 2096856822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d5a924c3529eabb4f8bb7778aff83b54
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BungalowSite_Shadow3_000: 288885414
+      BungalowSite_Shadow3_001: 1244614367
+      BungalowSite_Shadow3_002: 999218040
+      BungalowSite_Shadow3_003: -1563633830
+      BungalowSite_Shadow3_004: 326796903
+      BungalowSite_Shadow3_005: 602421083
+      BungalowSite_Shadow3_006: -1185093833
+      BungalowSite_Shadow3_007: 2003521818
+      BungalowSite_Shadow3_008: 338299701
+      BungalowSite_Shadow3_009: 1938643668
+      BungalowSite_Shadow3_010: 677827425
+      BungalowSite_Shadow3_011: 1511602589
+      BungalowSite_Shadow3_012: -1269106012
+      BungalowSite_Shadow3_013: 1282313909
+      BungalowSite_Shadow3_014: 413713252
+      BungalowSite_Shadow3_015: -386303666
+      BungalowSite_Shadow3_016: 1861760995
+      BungalowSite_Shadow3_017: 1572205715
+      BungalowSite_Shadow3_018: -2140915870
+      BungalowSite_Shadow3_019: 572247952
+      BungalowSite_Shadow3_020: 177331761
+      BungalowSite_Shadow3_021: 77095721
+      BungalowSite_Shadow3_022: -1258443352
+      BungalowSite_Shadow3_023: -1357274323
+      BungalowSite_Shadow3_024: -1198483491
+      BungalowSite_Shadow3_025: -2080085434
+      BungalowSite_Shadow3_026: -1411919124
+      BungalowSite_Shadow3_027: 920819250
+      BungalowSite_Shadow3_028: -1778748516
+      BungalowSite_Shadow3_029: -179640214
+      BungalowSite_Shadow3_030: 626936741
+      BungalowSite_Shadow3_031: 1761869783
+      BungalowSite_Shadow3_032: 677521709
+      BungalowSite_Shadow3_033: -666172797
+      BungalowSite_Shadow3_034: -1577740473
+      BungalowSite_Shadow3_035: -402020752
+      BungalowSite_Shadow3_036: 1473788983
+      BungalowSite_Shadow3_037: -1174045066
+      BungalowSite_Shadow3_038: 1667325434
+      BungalowSite_Shadow3_039: 869763650
+      BungalowSite_Shadow3_040: 129088202
+      BungalowSite_Shadow3_041: 1550693906
+      BungalowSite_Shadow3_042: 1602650083
+      BungalowSite_Shadow3_043: 852105821
+      BungalowSite_Shadow3_044: -923259039
+      BungalowSite_Shadow3_045: 1054656240
+      BungalowSite_Shadow3_046: 1442067461
+      BungalowSite_Shadow3_047: 1863761796
+      BungalowSite_Shadow3_048: -1321947614
+      BungalowSite_Shadow3_049: -775400955
+      BungalowSite_Shadow3_050: 1498790122
+      BungalowSite_Shadow3_051: -700631589
+      BungalowSite_Shadow3_052: -557133551
+      BungalowSite_Shadow3_053: -818627115
+      BungalowSite_Shadow3_054: -258476183
+      BungalowSite_Shadow3_055: -1549538056
+      BungalowSite_Shadow3_056: -385721256
+      BungalowSite_Shadow3_057: 65058690
+      BungalowSite_Shadow3_058: 1726750669
+      BungalowSite_Shadow3_059: -15716406
+      BungalowSite_Shadow3_060: -52949592
+      BungalowSite_Shadow3_061: -1685592093
+      BungalowSite_Shadow3_062: 275514697
+      BungalowSite_Shadow3_063: -1169991836
+      BungalowSite_Shadow3_064: -1645123885
+      BungalowSite_Shadow3_065: -906981064
+      BungalowSite_Shadow3_066: -1311575614
+      BungalowSite_Shadow3_067: -1577194318
+      BungalowSite_Shadow3_068: 497140183
+      BungalowSite_Shadow3_069: -1519669729
+      BungalowSite_Shadow3_070: 1146374776
+      BungalowSite_Shadow3_071: -17169445
+      BungalowSite_Shadow3_072: 35188167
+      BungalowSite_Shadow3_073: -1125740257
+      BungalowSite_Shadow3_074: -1369571344
+      BungalowSite_Shadow3_075: -706733921
+      BungalowSite_Shadow3_076: -1843276922
+      BungalowSite_Shadow3_077: 101880424
+      BungalowSite_Shadow3_078: -1358108943
+      BungalowSite_Shadow3_079: -643121349
+      BungalowSite_Shadow3_080: -625651370
+      BungalowSite_Shadow3_081: 2116892273
+      BungalowSite_Shadow3_082: -878258717
+      BungalowSite_Shadow3_083: 19114211
+      BungalowSite_Shadow3_084: -411930180
+      BungalowSite_Shadow3_085: -1493145525
+      BungalowSite_Shadow3_086: 1299075684
+      BungalowSite_Shadow3_087: 907360408
+      BungalowSite_Shadow3_088: 1271589706
+      BungalowSite_Shadow3_089: -113439450
+      BungalowSite_Shadow3_090: -1001148436
+      BungalowSite_Shadow3_091: 1146528210
+      BungalowSite_Shadow3_092: 1141458251
+      BungalowSite_Shadow3_093: 251510398
+      BungalowSite_Shadow3_094: -1900450045
+      BungalowSite_Shadow3_095: -374498600
+      BungalowSite_Shadow3_096: -1240046929
+      BungalowSite_Shadow3_097: 1449047592
+      BungalowSite_Shadow3_098: 556194206
+      BungalowSite_Shadow3_099: 2096856822
+      BungalowSite_Shadow3_100: 9119736995862917731
+      BungalowSite_Shadow3_101: 3120760119235310296
+      BungalowSite_Shadow3_102: 3395404353932889826
+      BungalowSite_Shadow3_103: -8878450441670161646
+      BungalowSite_Shadow3_104: -6831113690870127262
+      BungalowSite_Shadow3_105: 795290710045837793
+      BungalowSite_Shadow3_106: -3776058546355860609
+      BungalowSite_Shadow3_107: -3480327551103968596
+      BungalowSite_Shadow3_108: -4067044104193216597
+      BungalowSite_Shadow3_109: 8524834503970388693
+      BungalowSite_Shadow3_110: 2015218744582506454
+      BungalowSite_Shadow3_111: 3817027885413239253
+      BungalowSite_Shadow3_112: 787774272633379645
+      BungalowSite_Shadow3_113: -9220700685326480587
+      BungalowSite_Shadow3_114: -3091562937268935440
+      BungalowSite_Shadow3_115: 8153783708939678943
+      BungalowSite_Shadow3_116: -6626049635803753325
+      BungalowSite_Shadow3_117: 140763394037775157
+      BungalowSite_Shadow3_118: -8562765125992156023
+      BungalowSite_Shadow3_119: 8096309845270511749
+      BungalowSite_Shadow3_120: 3547046641500272441
+      BungalowSite_Shadow3_121: 1214998595094806943
+      BungalowSite_Shadow3_122: -4158583013604628015
+      BungalowSite_Shadow3_123: -5144878364882630000
+      BungalowSite_Shadow3_124: 1172526748566200297
+      BungalowSite_Shadow3_125: 172671059977430720
+      BungalowSite_Shadow3_126: 2547346723098173652
+      BungalowSite_Shadow3_127: -4893387889536156230
+      BungalowSite_Shadow3_128: -6624821072176582347
+      BungalowSite_Shadow3_129: -8092036588799446161
+      BungalowSite_Shadow3_130: -3630213372003373905
+      BungalowSite_Shadow3_131: -3608096014147953650
+      BungalowSite_Shadow3_132: 1440909840226603688
+      BungalowSite_Shadow3_133: 1102158437018177785
+      BungalowSite_Shadow3_134: 8743347629100167195
+      BungalowSite_Shadow3_135: 1586484336052836225
+      BungalowSite_Shadow3_136: 3894770007498367344
+      BungalowSite_Shadow3_137: -1953284363749698592
+      BungalowSite_Shadow3_138: -6405229413572650516
+      BungalowSite_Shadow3_139: -55692187217918760
+      BungalowSite_Shadow3_140: -8137562413512004829
+      BungalowSite_Shadow3_141: 6009628918451521026
+      BungalowSite_Shadow3_142: 1343839326735578328
+      BungalowSite_Shadow3_143: -422161083720381775
+      BungalowSite_Shadow3_144: -327940877197010593
+      BungalowSite_Shadow3_145: -8434541765353377264
+      BungalowSite_Shadow3_146: -5681146675750926242
+      BungalowSite_Shadow3_147: -812882658910547589
+      BungalowSite_Shadow3_148: 8628162196104593304
+      BungalowSite_Shadow3_149: -506703314874502001
+      BungalowSite_Shadow3_150: 3086575239983507304
+      BungalowSite_Shadow3_151: -7049734463047233926
+      BungalowSite_Shadow3_152: 688414569281354560
+      BungalowSite_Shadow3_153: 6382976980781287167
+      BungalowSite_Shadow3_154: -3419199117547135880
+      BungalowSite_Shadow3_155: -1460061262783246248
+      BungalowSite_Shadow3_156: 4900443584506042506
+      BungalowSite_Shadow3_157: -7214672020449535386
+      BungalowSite_Shadow3_158: -6613034783883124004
+      BungalowSite_Shadow3_159: -6788919117145210318
+      BungalowSite_Shadow3_160: -2052322594489215130
+      BungalowSite_Shadow3_161: 2077805066152259048
+      BungalowSite_Shadow3_162: -9185368043747766594
+      BungalowSite_Shadow3_163: -2900478349394455866
+      BungalowSite_Shadow3_164: -2860430682315214759
+      BungalowSite_Shadow3_165: 3144265069240338078
+      BungalowSite_Shadow3_166: -6418654523360258605
+      BungalowSite_Shadow3_167: -2772164188572020266
+      BungalowSite_Shadow3_168: 3726828181763033809
+      BungalowSite_Shadow3_169: 4430750472230800267
+      BungalowSite_Shadow3_170: 1545648517494269509
+      BungalowSite_Shadow3_171: 166374238633250791
+      BungalowSite_Shadow3_172: 7935917528068829349
+      BungalowSite_Shadow3_173: 960262497858159346
+      BungalowSite_Shadow3_174: -8210410289488931271
+      BungalowSite_Shadow3_175: -8495611651433216473
+      BungalowSite_Shadow3_176: -1317597325006964780
+      BungalowSite_Shadow3_177: 7686556342430821859
+      BungalowSite_Shadow3_178: -3781073960499317207
+      BungalowSite_Shadow3_179: -8988677154749709987
+      BungalowSite_Shadow3_180: 6201405873622403467
+      BungalowSite_Shadow3_181: 4989448181464307566
+      BungalowSite_Shadow3_182: -5947832454362189384
+      BungalowSite_Shadow3_183: 7288938936880868935
+      BungalowSite_Shadow3_184: -4445530816102008688
+      BungalowSite_Shadow3_185: 6291882251668146383
+      BungalowSite_Shadow3_186: 2617851816919692481
+      BungalowSite_Shadow3_187: -7709450013723832671
+      BungalowSite_Shadow3_188: 8898635368697669056
+      BungalowSite_Shadow3_189: 4188927781599128459
+      BungalowSite_Shadow3_190: 5178825385868732325
+      BungalowSite_Shadow3_191: 8722535262555063302
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d8075bd3d8ea3498a6b1185fc369f7, type: 3}
+  m_Name: TravelBlogger
+  m_EditorClassIdentifier: Assembly-CSharp::VipGuestDefinition
+  guestId: travel-blogger
+  displayName: Travel Blogger
+  portrait: {fileID: 21300000, guid: 6f44464bb3691a64a8691ccabcf320f0, type: 3}
+  requirements:
+  - id: welcome-basket
+    description: Sunset coctail
+    bonus: 0
+    materials: 10
+    needType: 3
+    locationName: 
+    icon: {fileID: 0}
+    startsReady: 0
+    serveDurationSeconds: 12
+  - id: room-preparation
+    description: Pool day
+    bonus: 0
+    materials: 15
+    needType: 4
+    locationName: 
+    icon: {fileID: 0}
+    startsReady: 0
+    serveDurationSeconds: 12
+  - id: photo-spot
+    description: Seafood dinner
+    bonus: 0
+    materials: 20
+    needType: 2
+    locationName: 
+    icon: {fileID: 0}
+    startsReady: 0
+    serveDurationSeconds: 12
+  - id: local-souvenirs
+    description: Local souvenirs
+    bonus: 1
+    materials: 10
+    needType: 4
+    locationName: 
+    icon: {fileID: 0}
+    startsReady: 0
+    serveDurationSeconds: 12
+  rewards:
+  - resource: 0
+    amount: 300
+  - resource: 2
+    amount: 10
+  bonusRewards:
+  - resource: 0
+    amount: 100

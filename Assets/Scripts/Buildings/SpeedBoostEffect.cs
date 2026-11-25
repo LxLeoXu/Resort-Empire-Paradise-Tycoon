@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [DisallowMultipleComponent]
-public sealed class SpeedBoostEffect : MonoBehaviour
+public sealed partial class SpeedBoostEffect : MonoBehaviour
 {
     [Tooltip("Objekt efektu (svetové plátno nad strechou). Je zapnutý, len kým zrýchlenie beží.")]
     [SerializeField] private RectTransform effect;
