@@ -5,6 +5,8 @@ using UnityEngine;
 [Serializable]
 public sealed class GameState
 {
+    private static int MostWorkerSlots => BuildingInfo.DefaultWorkerSlotsForLevel(BuildingInfo.MaxLevel);
+
     public string format = "ParadiseTycoon2D";
     public int version = 2;
     public float timeScale = 1f;
@@ -57,9 +59,9 @@ public sealed class GameState
         {
             if (w == null || w.stars < 0 || w.stars > 5) return false;
             if (string.IsNullOrEmpty(w.buildingId)) continue;
-            if (!buildingLevels.TryGetValue(w.buildingId, out int level)) return false;
+            if (!buildingLevels.ContainsKey(w.buildingId)) return false;
             assigned.TryGetValue(w.buildingId, out int count);
-            if (count >= BuildingInfo.DefaultWorkerSlotsForLevel(level)) return false;
+            if (count >= MostWorkerSlots) return false;
             assigned[w.buildingId] = count + 1;
         }
         var keys = new HashSet<string>();
@@ -131,9 +133,9 @@ public sealed class GameState
         {
             if (w == null || w.stars < 0 || w.stars > 5) return false;
             if (string.IsNullOrEmpty(w.buildingId)) continue;
-            if (!buildingLevels.TryGetValue(w.buildingId, out int level)) return false;
+            if (!buildingLevels.ContainsKey(w.buildingId)) return false;
             assigned.TryGetValue(w.buildingId, out int count);
-            if (count >= BuildingInfo.DefaultWorkerSlotsForLevel(level)) return false;
+            if (count >= MostWorkerSlots) return false;
             assigned[w.buildingId] = count + 1;
         }
         if (wave.state == WaveState.Running && (wave.number == 0 || wave.duration <= 0 || wave.definition == null)) return false;
