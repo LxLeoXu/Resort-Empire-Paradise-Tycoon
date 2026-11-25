@@ -40,6 +40,7 @@ public class S7_VipRequestBoardUI : MonoBehaviour
     [SerializeField] private Sprite oceanViewIcon;
 
     private VipGuestController controller;
+    private WorkerRoster subscribedRoster;
     private float errorMessageUntil = -1f;
     private string errorMessage = "";
 
@@ -56,12 +57,22 @@ public class S7_VipRequestBoardUI : MonoBehaviour
     {
         if (ResourceManager.Instance != null)
             ResourceManager.Instance.OnResourceChanged += OnResourceChanged;
+
+        subscribedRoster = WorkerRoster.Instance;
+        if (subscribedRoster != null)
+            subscribedRoster.SpecialistsChanged += Refresh;
     }
 
     private void OnDisable()
     {
         if (ResourceManager.Instance != null)
             ResourceManager.Instance.OnResourceChanged -= OnResourceChanged;
+
+        if (subscribedRoster != null)
+        {
+            subscribedRoster.SpecialistsChanged -= Refresh;
+            subscribedRoster = null;
+        }
     }
 
     private void OnDestroy()
@@ -171,6 +182,8 @@ public class S7_VipRequestBoardUI : MonoBehaviour
             if (state == VipRequirementState.Ready) readyCount++;
 
             Sprite icon = req.icon != null ? req.icon : GetNeedSprite(req.needType);
+            bool isRoleMissing = !controller.IsRoleAvailable(req);
+            int starCap = controller.GetRequirementStarCap(req);
 
             rows[i].Bind(
                 req,
@@ -179,6 +192,8 @@ public class S7_VipRequestBoardUI : MonoBehaviour
                 playerMaterials,
                 controller.GetRemainingSeconds(req.id),
                 controller.GetTotalDuration(req.id),
+                isRoleMissing,
+                starCap,
                 HandleFixClicked);
 
             if (i < miniStatusIcons.Length && miniStatusIcons[i] != null)

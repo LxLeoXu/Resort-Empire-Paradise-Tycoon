@@ -20,6 +20,8 @@ MonoBehaviour:
     description: Sunset coctail
     bonus: 0
     materials: 10
+    requiredRole: 1
+    missingRoleStarCap: 0
     needType: 3
     locationName: 
     icon: {fileID: 0}
@@ -29,6 +31,8 @@ MonoBehaviour:
     description: Pool day
     bonus: 0
     materials: 15
+    requiredRole: 20
+    missingRoleStarCap: 0
     needType: 4
     locationName: 
     icon: {fileID: 0}
@@ -38,6 +42,8 @@ MonoBehaviour:
     description: Seafood dinner
     bonus: 0
     materials: 20
+    requiredRole: 0
+    missingRoleStarCap: 0
     needType: 2
     locationName: 
     icon: {fileID: 0}
@@ -47,6 +53,8 @@ MonoBehaviour:
     description: Local souvenirs
     bonus: 1
     materials: 10
+    requiredRole: 2
+    missingRoleStarCap: 0
     needType: 4
     locationName: 
     icon: {fileID: 0}

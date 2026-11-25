@@ -35,6 +35,14 @@ public class UpgradeModalUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI missingCoinsText;
     [SerializeField] private TextMeshProUGUI missingMaterialsText;
 
+    [Header("VIP Špecialisti v S5 (Voliteľné tlačidlá)")]
+    [SerializeField] private Button hireButlerButton;
+    [SerializeField] private TextMeshProUGUI hireButlerLabel;
+    [SerializeField] private TextMeshProUGUI hireButlerCostText;
+    [SerializeField] private Button hireCaptainButton;
+    [SerializeField] private TextMeshProUGUI hireCaptainLabel;
+    [SerializeField] private TextMeshProUGUI hireCaptainCostText;
+
     [Header("Buttons")]
     [SerializeField] private Button upgradeButton;
     [SerializeField] private Button laterButton;
@@ -59,6 +67,7 @@ public class UpgradeModalUI : MonoBehaviour
 
     private bool purchaseInProgress, purchaseCompleted;
     private ResourceManager observedResources;
+    private WorkerRoster observedRoster;
     private ModalWindow modalWindow;
     private BuildingInfo targetBuilding;
     public BuildingInfo TargetBuilding => targetBuilding;
@@ -74,6 +83,12 @@ public class UpgradeModalUI : MonoBehaviour
 
         if (upgradeButton != null)
             upgradeButton.onClick.AddListener(OnUpgradeClicked);
+
+        if (hireButlerButton != null)
+            hireButlerButton.onClick.AddListener(OnHireButlerClicked);
+
+        if (hireCaptainButton != null)
+            hireCaptainButton.onClick.AddListener(OnHireCaptainClicked);
 
         FindReferencesIfMissing();
     }
@@ -142,13 +157,19 @@ public class UpgradeModalUI : MonoBehaviour
         LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         observedResources = ResourceManager.Instance;
         if (observedResources != null) observedResources.OnResourceChanged += OnResourceChanged;
+        observedRoster = WorkerRoster.Instance;
+        if (observedRoster != null) observedRoster.SpecialistsChanged += RefreshSpecialistButtons;
         RefreshAffordability();
+        RefreshSpecialistButtons();
     }
 
     private void OnResourceChanged(ResourceType type, int amount)
     {
         if (type == ResourceType.Coins || type == ResourceType.Materials)
+        {
             RefreshAffordability();
+            if (type == ResourceType.Coins) RefreshSpecialistButtons();
+        }
     }
 
     private void OnDisable()
@@ -156,6 +177,8 @@ public class UpgradeModalUI : MonoBehaviour
         LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
         if (observedResources != null) observedResources.OnResourceChanged -= OnResourceChanged;
         observedResources = null;
+        if (observedRoster != null) observedRoster.SpecialistsChanged -= RefreshSpecialistButtons;
+        observedRoster = null;
         targetBuilding = null;
         if (spotToOpenAfterClose != null)
         {
@@ -245,6 +268,8 @@ public class UpgradeModalUI : MonoBehaviour
 
     private void RefreshContent()
     {
+        RefreshSpecialistButtons();
+
         var building = targetBuilding;
         bool offerUpgrade = building != null && building.CanUpgrade;
         string bName = building == null ? null : string.IsNullOrEmpty(building.buildingName) ? building.gameObject.name : building.buildingName;
@@ -326,6 +351,57 @@ public class UpgradeModalUI : MonoBehaviour
         if (resortValueText != null) resortValueText.text = Text("s5_resort_gain", gain);
 
         RefreshAffordability();
+    }
+
+    // =====================================================
+    // NAJATIE ŠPECIALISTU PRE TLAČIDLO V S5
+    // =====================================================
+
+    public bool TryHireSpecialist(VipRequiredRole role)
+    {
+        var roster = observedRoster != null ? observedRoster : WorkerRoster.Instance;
+        if (roster == null || !roster.TryHireSpecialist(role))
+            return false;
+
+        RefreshAffordability();
+        RefreshSpecialistButtons();
+        return true;
+    }
+
+    public void OnHireButlerClicked() => TryHireSpecialist(VipRequiredRole.Butler);
+    public void OnHireCaptainClicked() => TryHireSpecialist(VipRequiredRole.Captain);
+
+    private void RefreshSpecialistButtons()
+    {
+        var roster = observedRoster != null ? observedRoster : WorkerRoster.Instance;
+        if (roster == null) return;
+
+        RefreshSingleSpecialistButton(roster, VipRequiredRole.Butler, hireButlerButton, hireButlerLabel, hireButlerCostText);
+        RefreshSingleSpecialistButton(roster, VipRequiredRole.Captain, hireCaptainButton, hireCaptainLabel, hireCaptainCostText);
+    }
+
+    private static void RefreshSingleSpecialistButton(
+        WorkerRoster roster,
+        VipRequiredRole role,
+        Button button,
+        TextMeshProUGUI label,
+        TextMeshProUGUI costLabel)
+    {
+        if (button == null && label == null && costLabel == null) return;
+
+        bool hired = roster.HasSpecialist(role);
+        bool canHire = roster.CanHireSpecialist(role);
+        string name = roster.GetSpecialistName(role);
+        int cost = roster.GetSpecialistHireCost(role);
+
+        if (button != null)
+            button.interactable = !hired && canHire;
+
+        if (label != null)
+            label.text = hired ? $"{name} (Hired)" : $"Hire {name}";
+
+        if (costLabel != null)
+            costLabel.text = hired ? "HIRED" : $"{cost}";
     }
 
     private static string FormatQualityTier(int level, float qualityBonus)

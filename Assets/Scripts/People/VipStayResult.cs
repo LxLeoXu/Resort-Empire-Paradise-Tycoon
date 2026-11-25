@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public sealed class VipStayResult
@@ -10,9 +11,7 @@ public sealed class VipStayResult
     public List<string> requirements = new();
     public WaveRewardsData rewards;
 
-    // Provisional team-leader approval: 0/1/2/3 required -> 1/2/3/4 stars;
-    // all three required plus the bonus -> 5 stars. Energy is never consulted.
-    public static VipStayResult Create(VipGuestDefinition definition, ICollection<string> fulfilled, bool accepted)
+    public static VipStayResult Create(VipGuestDefinition definition, ICollection<string> fulfilled, bool accepted, int maxStarsCap = 5)
     {
         if (definition == null || !definition.IsValid() || fulfilled == null)
             throw new ArgumentException("Invalid VIP result inputs.");
@@ -24,8 +23,9 @@ public sealed class VipStayResult
             if (requirement.bonus) result.bonusCompleted = done;
             else if (done) result.requiredCompleted++;
         }
-        result.perfectStay = result.requiredCompleted == 3 && result.bonusCompleted;
-        result.stars = result.perfectStay ? 5 : result.requiredCompleted + 1;
+        int uncappedStars = (result.requiredCompleted == 3 && result.bonusCompleted) ? 5 : result.requiredCompleted + 1;
+        result.stars = Mathf.Min(uncappedStars, Mathf.Clamp(maxStarsCap, 1, 5));
+        result.perfectStay = result.requiredCompleted == 3 && result.bonusCompleted && result.stars == 5;
         if (accepted)
         {
             if (result.requiredCompleted != 3) throw new InvalidOperationException("Required VIP requests are incomplete.");
@@ -51,7 +51,8 @@ public sealed class VipStayResult
         }
     }
     public bool IsValid() => !string.IsNullOrWhiteSpace(guestName) && requiredCompleted >= 0 && requiredCompleted <= 3 &&
-        perfectStay == (requiredCompleted == 3 && bonusCompleted) && stars == (perfectStay ? 5 : requiredCompleted + 1) &&
+        stars >= 1 && stars <= 5 &&
+        (!perfectStay || (requiredCompleted == 3 && bonusCompleted && stars == 5)) &&
         requirements != null && requirements.Count == 4 && requirements.TrueForAll(s => !string.IsNullOrWhiteSpace(s)) &&
         rewards != null && rewards.IsValid() && rewards.gems == 0 && !rewards.firstFiveStarBonus;
 }
