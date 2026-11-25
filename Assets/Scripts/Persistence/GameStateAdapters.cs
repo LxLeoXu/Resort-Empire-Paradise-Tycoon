@@ -161,25 +161,60 @@ public sealed partial class WorkerRoster
     public List<WorkerSave> CaptureState(Dictionary<BuildingService, string> buildings)
     {
         var result = new List<WorkerSave>();
-        foreach (var w in workers) result.Add(new WorkerSave { name = w.displayName, stars = w.stars,
-            buildingId = w.building != null && buildings.TryGetValue(w.building, out var id) ? id : null });
+        foreach (var w in workers)
+            result.Add(new WorkerSave
+            {
+                buildingId = w.building != null && buildings.TryGetValue(w.building, out var id) ? id : null
+            });
         return result;
     }
+
     public void RestoreState(List<WorkerSave> data, Dictionary<string, BuildingService> buildings)
     {
         foreach (var b in buildings.Values) b.SetWorkers(0);
         workers.Clear();
-        foreach (var saved in data)
+
+        var unassigned = new List<Worker>();
+        if (data != null)
         {
-            var w = new Worker(saved.name, saved.stars); workers.Add(w);
-            if (!string.IsNullOrEmpty(saved.buildingId) &&
-                buildings.TryGetValue(saved.buildingId, out var target) &&
-                CountIn(target) < GetMaxWorkersFor(target))
+            foreach (var saved in data)
             {
-                w.building = target;
-                target.SetWorkers(CountIn(target));
+                if (saved == null) continue;
+                var w = new Worker();
+                workers.Add(w);
+
+                if (!string.IsNullOrEmpty(saved.buildingId) &&
+                    buildings.TryGetValue(saved.buildingId, out var target) &&
+                    CountIn(target) < GetMaxWorkersFor(target))
+                {
+                    w.building = target;
+                    target.SetWorkers(CountIn(target));
+                }
+                else
+                {
+                    unassigned.Add(w);
+                }
             }
         }
+
+        // Staré savy mohli mať voľných pracovníkov bez budovy -> pridelíme ich do voľných slotov.
+        if (unassigned.Count > 0)
+        {
+            var ordered = GetOrderedBuildings(buildings.Values);
+            foreach (var w in unassigned)
+            {
+                foreach (var candidate in ordered)
+                {
+                    if (CountIn(candidate) < GetMaxWorkersFor(candidate))
+                    {
+                        w.building = candidate;
+                        candidate.SetWorkers(CountIn(candidate));
+                        break;
+                    }
+                }
+            }
+        }
+
         Changed?.Invoke();
     }
 }

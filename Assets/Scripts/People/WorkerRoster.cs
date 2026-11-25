@@ -7,16 +7,8 @@ public sealed partial class WorkerRoster : MonoBehaviour, IGameSaveParticipant
     [Serializable]
     public sealed class Worker
     {
-        public string displayName;
-        [Range(0, 5)] public int stars;
         [NonSerialized] public BuildingService building;
         public bool IsFree => building == null;
-
-        public Worker(string displayName, int stars)
-        {
-            this.displayName = displayName;
-            this.stars = stars;
-        }
     }
 
     [Serializable]
@@ -36,8 +28,8 @@ public sealed partial class WorkerRoster : MonoBehaviour, IGameSaveParticipant
 
     [SerializeField] private List<Worker> workers = new()
     {
-        new Worker("Chef Marco", 4),
-        new Worker("Chef Lina", 2)
+        new Worker(),
+        new Worker()
     };
 
     [Header("VIP Špecialisti (bez budovy, vo vlnách nerobia nič)")]
@@ -68,6 +60,17 @@ public sealed partial class WorkerRoster : MonoBehaviour, IGameSaveParticipant
     public IReadOnlyList<SpecialistData> Specialists => specialists;
     public string SaveKey => "specialists.v1";
 
+    public int FreeCount
+    {
+        get
+        {
+            int n = 0;
+            foreach (var w in workers)
+                if (w != null && w.IsFree) n++;
+            return n;
+        }
+    }
+
     public event Action Changed;
     public event Action<Worker, BuildingService, BuildingService> WorkerMoved;
     public event Action SpecialistsChanged;
@@ -84,6 +87,11 @@ public sealed partial class WorkerRoster : MonoBehaviour, IGameSaveParticipant
         }
         instance = this;
         EnsureDefaultSpecialists();
+    }
+
+    private void Start()
+    {
+        AssignFreeWorkersToBuiltBuildings();
     }
 
     private void OnDestroy()
@@ -113,7 +121,7 @@ public sealed partial class WorkerRoster : MonoBehaviour, IGameSaveParticipant
     {
         int n = 0;
         foreach (var w in workers)
-            if (w.building == building) n++;
+            if (w != null && w.building == building) n++;
         return n;
     }
 
@@ -122,6 +130,39 @@ public sealed partial class WorkerRoster : MonoBehaviour, IGameSaveParticipant
         building != null &&
         worker.building != building &&
         CountIn(building) < GetMaxWorkersFor(building);
+
+    public bool CanMoveOne(BuildingService from, BuildingService to) =>
+        from != null &&
+        to != null &&
+        from != to &&
+        CountIn(from) > 0 &&
+        CountIn(to) < GetMaxWorkersFor(to);
+
+    public bool MoveOneWorker(BuildingService from, BuildingService to)
+    {
+        if (!CanMoveOne(from, to)) return false;
+
+        foreach (var w in workers)
+        {
+            if (w != null && w.building == from)
+                return Assign(w, to);
+        }
+
+        return false;
+    }
+
+    public bool AssignFreeWorker(BuildingService to)
+    {
+        if (to == null || CountIn(to) >= GetMaxWorkersFor(to)) return false;
+
+        foreach (var w in workers)
+        {
+            if (w != null && w.IsFree)
+                return Assign(w, to);
+        }
+
+        return false;
+    }
 
     public bool Assign(Worker worker, BuildingService building)
     {
@@ -172,16 +213,77 @@ public sealed partial class WorkerRoster : MonoBehaviour, IGameSaveParticipant
         if (building == null || CountIn(building) >= GetMaxWorkersFor(building))
             return false;
 
-        Worker worker = new Worker("Chef " + (workers.Count + 1), 1);
-
+        Worker worker = new Worker { building = building };
         workers.Add(worker);
-        worker.building = building;
 
         building.SetWorkers(CountIn(building));
         Changed?.Invoke();
 
         return true;
     }
+
+    private void AssignFreeWorkersToBuiltBuildings()
+    {
+        if (FreeCount == 0) return;
+
+        var built = GetOrderedBuildings(FindObjectsByType<BuildingService>(FindObjectsSortMode.None));
+        bool anyAssigned = false;
+
+        foreach (var w in workers)
+        {
+            if (w == null || !w.IsFree) continue;
+            foreach (var b in built)
+            {
+                if (CountIn(b) < GetMaxWorkersFor(b))
+                {
+                    w.building = b;
+                    b.SetWorkers(CountIn(b));
+                    anyAssigned = true;
+                    break;
+                }
+            }
+        }
+
+        if (anyAssigned)
+            Changed?.Invoke();
+    }
+
+    public static List<BuildingService> GetOrderedBuildings(IEnumerable<BuildingService> source)
+    {
+        var result = new List<BuildingService>();
+        if (source == null) return result;
+
+        foreach (var s in source)
+        {
+            if (s == null) continue;
+            var info = s.GetComponentInChildren<BuildingInfo>(true);
+            if (info == null || !info.isBuilt || info.IsSpa || s.MaxWorkers <= 0) continue;
+            result.Add(s);
+        }
+
+        result.Sort((a, b) => GetNeedSortOrder(a.Need).CompareTo(GetNeedSortOrder(b.Need)));
+        return result;
+    }
+
+    public static int GetNeedSortOrder(NeedType need) => need switch
+    {
+        NeedType.Rooms => 0,
+        NeedType.Food => 1,
+        NeedType.Drinks => 2,
+        NeedType.Relax => 3,
+        NeedType.OceanView => 4,
+        _ => 5
+    };
+
+    public static VipRequiredRole GetManagerRoleForNeed(NeedType need) => need switch
+    {
+        NeedType.Rooms => VipRequiredRole.Receptionist,
+        NeedType.Food => VipRequiredRole.Chef,
+        NeedType.Drinks => VipRequiredRole.Bartender,
+        NeedType.Relax => VipRequiredRole.Lifeguard,
+        NeedType.OceanView => VipRequiredRole.Bellhop,
+        _ => VipRequiredRole.None
+    };
 
     // =====================================================
     // VIP ŠPECIALISTI (BUTLER / CAPTAIN) & JEDNOTNÉ ROLE
@@ -276,7 +378,6 @@ public sealed partial class WorkerRoster : MonoBehaviour, IGameSaveParticipant
     public bool TryHireButler() => TryHireSpecialist(VipRequiredRole.Butler);
     public bool TryHireCaptain() => TryHireSpecialist(VipRequiredRole.Captain);
 
-    // Void verzie vhodné aj na priame napojenie v Unity Inspector Button.onClick
     public void HireButler() => TryHireButler();
     public void HireCaptain() => TryHireCaptain();
 

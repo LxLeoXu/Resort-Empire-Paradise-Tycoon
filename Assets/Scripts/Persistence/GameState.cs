@@ -5,8 +5,6 @@ using UnityEngine;
 [Serializable]
 public sealed class GameState
 {
-    private static int MostWorkerSlots => BuildingInfo.DefaultWorkerSlotsForLevel(BuildingInfo.MaxLevel);
-
     public string format = "ParadiseTycoon2D";
     public int version = 2;
     public float timeScale = 1f;
@@ -57,11 +55,11 @@ public sealed class GameState
         var assigned = new Dictionary<string, int>();
         foreach (var w in workers)
         {
-            if (w == null || w.stars < 0 || w.stars > 5) return false;
+            if (w == null) return false;
             if (string.IsNullOrEmpty(w.buildingId)) continue;
-            if (!buildingLevels.ContainsKey(w.buildingId)) return false;
+            if (!buildingLevels.TryGetValue(w.buildingId, out int level)) return false;
             assigned.TryGetValue(w.buildingId, out int count);
-            if (count >= MostWorkerSlots) return false;
+            if (count >= BuildingInfo.DefaultWorkerSlotsForLevel(level)) return false;
             assigned[w.buildingId] = count + 1;
         }
         var keys = new HashSet<string>();
@@ -131,11 +129,11 @@ public sealed class GameState
         if (placed.Count != ids.Count) return false;
         foreach (var w in workers)
         {
-            if (w == null || w.stars < 0 || w.stars > 5) return false;
+            if (w == null) return false;
             if (string.IsNullOrEmpty(w.buildingId)) continue;
-            if (!buildingLevels.ContainsKey(w.buildingId)) return false;
+            if (!buildingLevels.TryGetValue(w.buildingId, out int level)) return false;
             assigned.TryGetValue(w.buildingId, out int count);
-            if (count >= MostWorkerSlots) return false;
+            if (count >= BuildingInfo.DefaultWorkerSlotsForLevel(level)) return false;
             assigned[w.buildingId] = count + 1;
         }
         if (wave.state == WaveState.Running && (wave.number == 0 || wave.duration <= 0 || wave.definition == null)) return false;
@@ -214,7 +212,7 @@ public sealed class QueueWaitSave
     public BoostSave boost;
     public bool boostUsed;
 }
-[Serializable] public sealed class WorkerSave { public string name, buildingId; public int stars; }
+[Serializable] public sealed class WorkerSave { public string buildingId; }
 [Serializable] public sealed class WaveSave
 {
     public WaveState state; public int number, nextId, emitted, served;
