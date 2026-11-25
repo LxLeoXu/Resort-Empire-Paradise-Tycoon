@@ -694,6 +694,7 @@ GameObject:
   - component: {fileID: 797032501754929474}
   - component: {fileID: 8836532034859433292}
   - component: {fileID: 3339682517176638006}
+  - component: {fileID: -6675625966070650592}
   m_Layer: 5
   m_Name: Overlay
   m_TagString: Untagged
@@ -814,6 +815,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &-6675625966070650592
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4556963181276074655}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5547373207406274079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,8 +1690,8 @@ MonoBehaviour:
   cardsContainer: {fileID: 810340294850281576}
   cardTemplate: {fileID: 6298700635705737550}
   closeAfterMove: 0
-  windowRect: {fileID: 0}
-  overlayGroup: {fileID: 0}
+  windowRect: {fileID: 7749680579024565952}
+  overlayGroup: {fileID: -6675625966070650592}
   animDuration: 0.26
 --- !u!1 &7344106934011809332
 GameObject:
