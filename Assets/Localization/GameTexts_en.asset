@@ -280,6 +280,62 @@ MonoBehaviour:
     m_Localized: We are waiting for an ocean view.
     m_Metadata:
       m_Items: []
+  - m_Id: 13500242537431040
+    m_Localized: Receptionist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374080
+    m_Localized: Chef
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374081
+    m_Localized: Bartender
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374082
+    m_Localized: Lifeguard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374083
+    m_Localized: Bellhop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374084
+    m_Localized: "Hire {0} (\xD7{1:0.##}) \u2022 {2} coins"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374085
+    m_Localized: "{0} (\xD7{1:0.##}) \u2022 Hired"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374086
+    m_Localized: Reception
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374087
+    m_Localized: Restaurant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374088
+    m_Localized: Beach Bar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374089
+    m_Localized: Pool
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374090
+    m_Localized: Bungalows
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374091
+    m_Localized: '{0} Waiting Too Long'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374092
+    m_Localized: '{0} is catching up'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -121,8 +121,7 @@ public class WorkerAssignUI : MonoBehaviour
         var offer = building != null ? building.ManagerOffer : null;
         hireManagerButton.gameObject.SetActive(offer != null);
         if (offer == null) return;
-        string role = $"{offer.displayName} (×{offer.speedMultiplier:0.##})";
-        managerLabel.text = building.HasManager ? $"{role} • Hired" : $"Hire {role} • {offer.coinPrice} coins";
+        managerLabel.text = offer.GetHireLabel(building.HasManager);
         hireManagerButton.interactable = !building.HasManager && ResourceManager.Instance != null &&
             ResourceManager.Instance.HasEnough(ResourceType.Coins, offer.coinPrice);
     }

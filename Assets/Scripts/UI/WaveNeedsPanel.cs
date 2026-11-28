@@ -201,7 +201,10 @@ public class WaveNeedsPanel : MonoBehaviour
                 building.Seats > 0 && building.OccupiedSeats == building.Seats);
             if (status == state.status) continue;
             state.status = status;
-            card.ShowStatus(status, GetBuildingDisplayName(type));
+            string buildingName = status == NeedCardStatus.Bottleneck || status == NeedCardStatus.Recovering
+                ? LocalizationSettings.StringDatabase.GetLocalizedString("GameTexts", $"building_{type}")
+                : string.Empty;
+            card.ShowStatus(status, buildingName);
         }
 
         SetComplaint(waveManager.Session.GetMostDelayedNeed(warningWaitTimeThreshold, currentQueueOnly: true));
@@ -552,17 +555,6 @@ public class WaveNeedsPanel : MonoBehaviour
         return needCards.Find(
             c => c != null && c.needType == type);
     }
-
-    private string GetBuildingDisplayName(NeedType type)
-        => type switch
-        {
-            NeedType.Rooms => "Reception",
-            NeedType.Food => "Restaurant",
-            NeedType.Drinks => "Beach Bar",
-            NeedType.Relax => "Pool",
-            NeedType.OceanView => "Bungalows",
-            _ => "Building"
-        };
 
     // =====================================
     // ZOBRAZENIE S2

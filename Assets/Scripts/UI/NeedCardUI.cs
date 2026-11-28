@@ -175,19 +175,19 @@ public class NeedCardUI : MonoBehaviour
             {
                 NeedCardStatus.Full => Localize("s2_full"),
                 NeedCardStatus.NoWorker => Localize("s2_no_worker"),
-                _ => $"{buildingName} Waiting Too Long"
+                _ => Localize("s2_waiting_too_long", buildingName)
             };
         }
         if ((recovering || satisfied) && recoveringText != null)
         {
             recoveringText.color = color;
-            recoveringText.text = satisfied ? Localize("s2_satisfied") : $"{buildingName} is catching up";
+            recoveringText.text = satisfied ? Localize("s2_satisfied") : Localize("s2_catching_up", buildingName);
         }
         SetCardHeight(status == NeedCardStatus.Ok ? normalHeight : warningHeight);
     }
 
-    private static string Localize(string key)
-        => LocalizationSettings.StringDatabase.GetLocalizedString("GameTexts", key);
+    private static string Localize(string key, params object[] args)
+        => LocalizationSettings.StringDatabase.GetLocalizedString("GameTexts", key, args);
 
     private void SetCardHeight(float height)
     {

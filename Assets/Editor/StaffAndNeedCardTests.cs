@@ -27,7 +27,15 @@ public static class StaffAndNeedCardTests
         var managers = Resources.Load<ManagerCatalog>("ManagerCatalog");
         var names = new[] { "Receptionist", "Chef", "Bartender", "Lifeguard", "Bellhop" };
         for (int i = 0; i < names.Length; i++)
-            Check(managers.ForBuilding((NeedType)(i + 1))?.displayName == names[i], names[i]);
+        {
+            var offer = managers.ForBuilding((NeedType)(i + 1));
+            Check(offer?.displayName == names[i], names[i]);
+            var english = LocalizationSettings.StringDatabase.GetTable("GameTexts");
+            Check(english.GetEntry(offer.displayName) != null &&
+                english.GetEntry($"building_{offer.buildingNeed}") != null, "Role and building keys");
+            Check(offer.GetHireLabel(false).Contains(names[i]) && offer.GetHireLabel(false).Contains(offer.coinPrice.ToString()) &&
+                offer.GetHireLabel(true).Contains(names[i]) && !offer.GetHireLabel(true).Contains("{"), "Localized manager labels");
+        }
         Check(managers.ForBuilding(NeedType.None) == null, "No offer for Spa");
 
         var staffPanel = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Panels/S3_AssignStaff.prefab");
@@ -128,6 +136,7 @@ public static class StaffAndNeedCardTests
                 card.ShowStatus(NeedCardStatus.Full, "Building");
                 Check(warning.color != noWorker && warning.text == table.GetEntry("s2_full").LocalizedValue, "Full badge");
                 card.ShowStatus(NeedCardStatus.Recovering, "Building");
+                Check(recovery.text.Contains("Building") && !recovery.text.Contains("{"), "Recovery includes building name");
                 Color recovering = recovery.color;
                 card.ShowStatus(NeedCardStatus.Satisfied, "Building");
                 Check(recovery.color != recovering && recovery.text == "SATISFIED" &&
