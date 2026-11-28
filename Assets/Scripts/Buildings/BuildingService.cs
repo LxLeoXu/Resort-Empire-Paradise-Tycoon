@@ -66,6 +66,25 @@ public sealed partial class BuildingService : MonoBehaviour
     public int ApproachingCount => approaching.Count;
     public int Workers => workers;
     public bool HasWorker => workers > 0;
+    public ManagerCatalog.Entry ManagerOffer { get; private set; }
+    public bool HasManager { get; private set; }
+
+    public bool TryHireManager()
+    {
+        if (GamePersistence.IsRestoring || HasManager || info == null || !info.isBuilt ||
+            ManagerOffer == null || ResourceManager.Instance == null) return false;
+
+        HasManager = true;
+        if (!ResourceManager.Instance.SpendResource(ResourceType.Coins, ManagerOffer.coinPrice))
+        {
+            HasManager = false;
+            return false;
+        }
+        Changed?.Invoke();
+        return true;
+    }
+
+    internal void RestoreManager(bool hired) => HasManager = hired && ManagerOffer != null;
     public bool IsBoosted => speedBoost != null && speedBoost.IsPlaying;
     public bool BoostUsedThisWave => boostUsedThisWave;
 
@@ -92,7 +111,8 @@ public sealed partial class BuildingService : MonoBehaviour
             float baseSpeed = workers <= 0 || speedByWorkers == null || speedByWorkers.Length == 0
                 ? noWorkerSpeed : speedByWorkers[Mathf.Min(workers, speedByWorkers.Length) - 1];
 
-            return Mathf.Max(0.05f, baseSpeed * (IsBoosted ? boostMultiplier : 1f));
+            float staffSpeed = Mathf.Max(0.05f, baseSpeed * (IsBoosted ? boostMultiplier : 1f));
+            return HasManager ? staffSpeed * ManagerOffer.speedMultiplier : staffSpeed;
         }
     }
 
@@ -175,6 +195,8 @@ public sealed partial class BuildingService : MonoBehaviour
     private void Awake()
     {
         info = GetComponentInChildren<BuildingInfo>(true);
+        if (info != null && !info.IsSpa)
+            ManagerOffer = Resources.Load<ManagerCatalog>("ManagerCatalog")?.ForBuilding(info.offeredNeed);
         places = GetComponentInChildren<GuestPlaces>(true);
         speedBoost = GetComponent<SpeedBoostEffect>();
 

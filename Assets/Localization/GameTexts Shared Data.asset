@@ -243,6 +243,94 @@ MonoBehaviour:
     m_Key: s5_upgrade_description_slots
     m_Metadata:
       m_Items: []
+  - m_Id: 12059148557579200
+    m_Key: s2_satisfied
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579201
+    m_Key: s2_full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579202
+    m_Key: s2_no_worker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579203
+    m_Key: s2_complaint_Rooms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579204
+    m_Key: s2_complaint_Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579205
+    m_Key: s2_complaint_Drinks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579206
+    m_Key: s2_complaint_Relax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579207
+    m_Key: s2_complaint_OceanView
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242537431040
+    m_Key: Receptionist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374080
+    m_Key: Chef
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374081
+    m_Key: Bartender
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374082
+    m_Key: Lifeguard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374083
+    m_Key: Bellhop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374084
+    m_Key: s3_manager_hire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374085
+    m_Key: s3_manager_hired
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374086
+    m_Key: building_Rooms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374087
+    m_Key: building_Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374088
+    m_Key: building_Drinks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374089
+    m_Key: building_Relax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374090
+    m_Key: building_OceanView
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374091
+    m_Key: s2_waiting_too_long
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13500242579374092
+    m_Key: s2_catching_up
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

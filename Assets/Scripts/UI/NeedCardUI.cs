@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 
 [RequireComponent(typeof(LayoutElement))]
 public class NeedCardUI : MonoBehaviour
@@ -47,11 +48,15 @@ public class NeedCardUI : MonoBehaviour
     private LayoutElement layoutElement;
     private BuildingService service;
     private bool warning;
-    private bool recovering;
+    private static readonly Color SatisfiedColor = new Color32(21, 121, 74, 255);
+    private static readonly Color FullColor = new Color32(149, 83, 16, 255);
+    private Image warningIcon;
     private float hintUntil;
 
     private void Awake()
     {
+        if (warningBox != null)
+            warningIcon = warningBox.transform.Find("Icon")?.GetComponent<Image>();
         cardButton = GetComponent<Button>();
         if (cardButton != null)
         {
@@ -124,8 +129,7 @@ public class NeedCardUI : MonoBehaviour
         if (titleText != null) titleText.text = displayName;
         if (iconImage != null && icon != null) iconImage.sprite = icon;
 
-        SetWarning(false, string.Empty);
-        SetRecovering(false);
+        ShowStatus(NeedCardStatus.Ok, string.Empty);
         UpdateProgress(0, 0);
         SetWorkerPresent(false);
     }
@@ -144,43 +148,46 @@ public class NeedCardUI : MonoBehaviour
         }
     }
 
-    public void SetWarning(bool isBottleneck, string message = "")
+    public void ShowStatus(NeedCardStatus status, string buildingName)
     {
-        warning = isBottleneck;
+        bool full = status == NeedCardStatus.Full;
+        bool satisfied = status == NeedCardStatus.Satisfied;
+        bool recovering = status == NeedCardStatus.Recovering;
+        warning = full || status == NeedCardStatus.NoWorker || status == NeedCardStatus.Bottleneck;
+        Color color = status switch
+        {
+            NeedCardStatus.Full => FullColor,
+            NeedCardStatus.Satisfied => SatisfiedColor,
+            NeedCardStatus.Recovering => recoveringColor,
+            NeedCardStatus.Ok => normalColor,
+            _ => bottleneckColor
+        };
+        if (warningBox != null) warningBox.SetActive(warning);
+        if (recoveringBox != null) recoveringBox.SetActive(recovering || satisfied);
+        if (warningIcon != null) warningIcon.gameObject.SetActive(!full);
+        if (recoveringIcon != null) recoveringIcon.gameObject.SetActive(recovering);
+        if (countText != null) countText.color = color;
 
-        if (warningBox != null)
-            warningBox.SetActive(isBottleneck);
-
-        if (warningText != null && isBottleneck)
-            warningText.text = message;
-
-        if (countText != null)
-            countText.color = isBottleneck ? bottleneckColor : (recovering ? recoveringColor : normalColor);
-
-        RefreshHeight();
+        if (warning && warningText != null)
+        {
+            warningText.color = color;
+            warningText.text = status switch
+            {
+                NeedCardStatus.Full => Localize("s2_full"),
+                NeedCardStatus.NoWorker => Localize("s2_no_worker"),
+                _ => Localize("s2_waiting_too_long", buildingName)
+            };
+        }
+        if ((recovering || satisfied) && recoveringText != null)
+        {
+            recoveringText.color = color;
+            recoveringText.text = satisfied ? Localize("s2_satisfied") : Localize("s2_catching_up", buildingName);
+        }
+        SetCardHeight(status == NeedCardStatus.Ok ? normalHeight : warningHeight);
     }
 
-    // RECOVERING: rad je nad prahom, ale zmenšuje sa. Ikona Status_CatchingUp + "... is catching up".
-    public void SetRecovering(bool isRecovering, string message = "")
-    {
-        recovering = isRecovering;
-
-        if (recoveringBox != null)
-            recoveringBox.SetActive(isRecovering);
-
-        if (recoveringText != null && isRecovering)
-            recoveringText.text = message;
-
-        if (countText != null && !warning)
-            countText.color = isRecovering ? recoveringColor : normalColor;
-
-        RefreshHeight();
-    }
-
-    private void RefreshHeight()
-    {
-        SetCardHeight(warning || recovering ? warningHeight : normalHeight);
-    }
+    private static string Localize(string key, params object[] args)
+        => LocalizationSettings.StringDatabase.GetLocalizedString("GameTexts", key, args);
 
     private void SetCardHeight(float height)
     {

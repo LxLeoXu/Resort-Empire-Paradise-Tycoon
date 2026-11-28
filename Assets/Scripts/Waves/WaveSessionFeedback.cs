@@ -151,7 +151,7 @@ public NeedType GetBestServedNeedType()
     return bestType;
 }
 // SCRUM-395: Budova s najdlhsim problemovym cakanim
-public NeedType GetMostDelayedNeed(float thresholdSeconds)
+public NeedType GetMostDelayedNeed(float thresholdSeconds, bool currentQueueOnly = false)
 {
     NeedType worstType = NeedType.None;
 
@@ -159,20 +159,13 @@ public NeedType GetMostDelayedNeed(float thresholdSeconds)
     thresholdSeconds = Mathf.Max(0f, thresholdSeconds);
     float longestWait = -1f;
 
-    NeedType[] types =
+    foreach (NeedType type in Types)
     {
-        NeedType.Rooms,
-        NeedType.Drinks,
-        NeedType.Food,
-        NeedType.Relax,
-        NeedType.OceanView
-    };
+        float wait = currentQueueOnly
+            ? (bottlenecks.TryGetValue(type, out var state) ? state.currentWait : 0f)
+            : GetLongestQueueWait(type);
 
-    foreach (NeedType type in types)
-    {
-        float wait = GetLongestQueueWait(type);
-
-        if (GetQueueWaitSampleCount(type) > 0 && wait > 0f && wait >= thresholdSeconds &&
+        if (wait > 0f && wait >= thresholdSeconds &&
             wait > longestWait)
         {
             longestWait = wait;
