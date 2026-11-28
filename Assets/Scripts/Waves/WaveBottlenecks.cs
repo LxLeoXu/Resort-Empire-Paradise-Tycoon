@@ -2,12 +2,17 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum NeedCardStatus { Ok, Bottleneck, NoWorker, Full, Recovering, Satisfied }
+
 [Serializable]
 public sealed class BottleneckSave
 {
     public NeedType type;
     public float duration, delayElapsed;
     public bool active;
+    [NonSerialized] internal int previousQueueCount;
+    [NonSerialized] internal bool queueGrowing;
+    [NonSerialized] internal float currentWait;
     public static bool AreValid(List<BottleneckSave> data)
     {
         if (data == null) return true; // Legacy saves.
@@ -28,6 +33,23 @@ public sealed partial class WaveSession
     public event Action<NeedType> RecommendationReady;
     public bool IsBottleneck(NeedType type) => bottlenecks.TryGetValue(type, out var value) && value.active;
     public float GetBottleneckDuration(NeedType type) => bottlenecks.TryGetValue(type, out var value) ? value.duration : 0;
+
+    public NeedCardStatus GetCardStatus(NeedType type, bool hasWorker, bool allSeatsOccupied)
+    {
+        if (State != WaveState.Running || type == NeedType.None) return NeedCardStatus.Ok;
+        if (ArrivalsEnded)
+        {
+            bool pendingForType = false;
+            foreach (var need in pending.Values)
+                if (need.Type == type) { pendingForType = true; break; }
+            if (!pendingForType) return NeedCardStatus.Satisfied;
+        }
+        if (IsRecovering(type)) return NeedCardStatus.Recovering;
+        if (!bottlenecks.TryGetValue(type, out var state)) return NeedCardStatus.Ok;
+        if (hasWorker && allSeatsOccupied && state.queueGrowing) return NeedCardStatus.Full;
+        if (!state.active) return NeedCardStatus.Ok;
+        return hasWorker ? NeedCardStatus.Bottleneck : NeedCardStatus.NoWorker;
+    }
 
     // ---- RECOVERING (transient, not saved) ----
     private sealed class RecoveryState
@@ -66,6 +88,10 @@ public sealed partial class WaveSession
         if (State != WaveState.Running || type == NeedType.None || !Enum.IsDefined(typeof(NeedType), type) ||
             !Finite(oldestWait) || !Finite(deltaTime) || !Finite(threshold) || !Finite(delay) || deltaTime <= 0) return;
         if (!bottlenecks.TryGetValue(type, out var state)) bottlenecks[type] = state = new BottleneckSave { type = type };
+        state.currentWait = oldestWait;
+        if (queueCount != state.previousQueueCount)
+            state.queueGrowing = queueCount > state.previousQueueCount;
+        state.previousQueueCount = queueCount;
 
         bool over = oldestWait > 0 && oldestWait >= Mathf.Max(0, threshold);
         var rec = GetRecovery(type);

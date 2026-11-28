@@ -248,6 +248,38 @@ MonoBehaviour:
     m_Localized: Upgrade to add a worker slot and improve quality.
     m_Metadata:
       m_Items: []
+  - m_Id: 12059148557579200
+    m_Localized: SATISFIED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579201
+    m_Localized: Full - upgrade after wave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579202
+    m_Localized: No worker - assign staff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579203
+    m_Localized: Check-in is taking too long.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579204
+    m_Localized: We are still waiting for food.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579205
+    m_Localized: Where are our drinks?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579206
+    m_Localized: The pool line is too long.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12059148557579207
+    m_Localized: We are waiting for an ocean view.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

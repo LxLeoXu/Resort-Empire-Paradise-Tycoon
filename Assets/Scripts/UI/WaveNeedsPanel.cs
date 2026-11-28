@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class WaveNeedsPanel : MonoBehaviour
@@ -10,6 +11,10 @@ public class WaveNeedsPanel : MonoBehaviour
     [Header("Referencie")]
     [SerializeField] private WaveManager waveManager;
     [SerializeField] private TextMeshProUGUI guestsBadgeText;
+
+    [SerializeField] private GameObject complaintRow;
+    private TMP_Text complaintText;
+    private NeedType displayedComplaint;
 
     [Header("S4 - Results Integration")]
     [SerializeField] private ClaimRewards claimRewards;
@@ -34,9 +39,8 @@ public class WaveNeedsPanel : MonoBehaviour
         public int totalNeeded;
         public int arrivedCount;
         public int servedCount;
-        public float timeAboveThreshold;
-        public bool isWarningActive;
-        public bool isRecovering;
+        public BuildingService building;
+        public NeedCardStatus status;
     }
 
     private readonly Dictionary<NeedType, NeedState> states = new();
@@ -75,6 +79,14 @@ public class WaveNeedsPanel : MonoBehaviour
 
         if (claimRewards == null && resultsUI != null)
             claimRewards = resultsUI.GetComponent<ClaimRewards>();
+
+        if (complaintRow == null)
+            complaintRow = transform.Find("ScrollArea/Rows/Complaint")?.gameObject;
+        if (complaintRow != null)
+        {
+            complaintText = complaintRow.GetComponentInChildren<TMP_Text>(true);
+            complaintRow.SetActive(false);
+        }
 
         openedPosition = panelRect.anchoredPosition;
 
@@ -183,22 +195,25 @@ public class WaveNeedsPanel : MonoBehaviour
             if (card == null || !card.gameObject.activeSelf)
                 continue;
 
-            // BOTTLENECK a RECOVERING sa nikdy nezobrazia naraz.
-            bool bottleneck = waveManager.Session.IsBottleneck(type);
-            bool recovering = !bottleneck && waveManager.Session.IsRecovering(type);
-
-            if (bottleneck != state.isWarningActive)
-            {
-                state.isWarningActive = bottleneck;
-                card.SetWarning(bottleneck, bottleneck ? $"{GetBuildingDisplayName(type)} Waiting Too Long" : null);
-            }
-
-            if (recovering != state.isRecovering)
-            {
-                state.isRecovering = recovering;
-                card.SetRecovering(recovering, recovering ? $"{GetBuildingDisplayName(type)} is catching up" : null);
-            }
+            var building = state.building;
+            if (building == null) continue;
+            var status = waveManager.Session.GetCardStatus(type, building.HasWorker,
+                building.Seats > 0 && building.OccupiedSeats == building.Seats);
+            if (status == state.status) continue;
+            state.status = status;
+            card.ShowStatus(status, GetBuildingDisplayName(type));
         }
+
+        SetComplaint(waveManager.Session.GetMostDelayedNeed(warningWaitTimeThreshold, currentQueueOnly: true));
+    }
+
+    private void SetComplaint(NeedType need)
+    {
+        if (need == displayedComplaint || complaintRow == null || complaintText == null) return;
+        displayedComplaint = need;
+        if (need != NeedType.None)
+            complaintText.text = LocalizationSettings.StringDatabase.GetLocalizedString("GameTexts", $"s2_complaint_{need}");
+        complaintRow.SetActive(need != NeedType.None);
     }
 
     // SCRUM-92:
@@ -265,6 +280,7 @@ public class WaveNeedsPanel : MonoBehaviour
         SetBuildingSpotsVisible(false);
 
         states.Clear();
+        SetComplaint(NeedType.None);
 
         totalServedNeeds = 0;
         totalWaveNeeds = 0;
@@ -275,13 +291,13 @@ public class WaveNeedsPanel : MonoBehaviour
         if (toggleTabButton != null) toggleTabButton.gameObject.SetActive(false);
 
         BuildingService[] services = FindObjectsOfType<BuildingService>();
-        Dictionary<NeedType, bool> builtNeeds = new();
+        Dictionary<NeedType, BuildingService> builtNeeds = new();
 
         foreach (var s in services)
         {
             if (s.Need != NeedType.None)
             {
-                builtNeeds[s.Need] = s.HasWorker;
+                builtNeeds[s.Need] = s;
             }
         }
 
@@ -308,18 +324,15 @@ public class WaveNeedsPanel : MonoBehaviour
                     totalNeeded = countForThisWave,
                     arrivedCount = 0,
                     servedCount = 0,
-                    timeAboveThreshold = 0f,
-                    isWarningActive = false,
-                    isRecovering = false
+                    building = builtNeeds[card.needType]
                 };
 
                 totalWaveNeeds += countForThisWave;
 
                 card.UpdateProgress(0, countForThisWave);
-                card.SetWarning(false);
-                card.SetRecovering(false);
+                card.ShowStatus(NeedCardStatus.Ok, string.Empty);
 
-                bool hasWorker = builtNeeds[card.needType];
+                bool hasWorker = builtNeeds[card.needType].HasWorker;
 
                 card.SetWorkerPresent(hasWorker);
             }

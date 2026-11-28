@@ -99,7 +99,7 @@ public sealed partial class BuildingService
 {
     public BuildingSave CaptureState(string id)
     {
-        var data = new BuildingSave { id = id, need = Need, level = info.currentLevel };
+        var data = new BuildingSave { id = id, need = Need, level = info.currentLevel, hasManager = HasManager };
         foreach (var entry in queue) data.queue.Add(new QueueSave { id = entry.need.Id, waited = Mathf.Max(0, Time.time - entry.queuedAt) });
         foreach (var need in approaching) data.approaching.Add(need.Id);
         for (int i = 0; i < seats.Length; i++)

@@ -213,6 +213,7 @@ public sealed class QueueWaitSave
     public List<QueueSave> queue = new(); public List<int> approaching = new(); public List<SeatSave> seats = new();
     public BoostSave boost;
     public bool boostUsed;
+    public bool hasManager;
 }
 [Serializable] public sealed class WorkerSave { public string name, buildingId; public int stars; }
 [Serializable] public sealed class WaveSave

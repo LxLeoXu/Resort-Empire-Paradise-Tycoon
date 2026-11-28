@@ -8,6 +8,8 @@ public class WorkerAssignUI : MonoBehaviour
     [SerializeField] private Button closeButton;
     [SerializeField] private Button backdropButton;
     [SerializeField] private WorkerCardUI[] cards;
+    [SerializeField] private Button hireManagerButton;
+    [SerializeField] private TMP_Text managerLabel;
 
     private BuildingService building;
     private string currentBuildingName = string.Empty;
@@ -17,18 +19,21 @@ public class WorkerAssignUI : MonoBehaviour
     {
         if (closeButton != null) closeButton.onClick.AddListener(Close);
         if (backdropButton != null) backdropButton.onClick.AddListener(Close);
+        if (hireManagerButton != null) hireManagerButton.onClick.AddListener(HireManager);
     }
 
     private void OnEnable()
     {
         roster = WorkerRoster.Instance;
         roster.Changed += Refresh;
+        if (ResourceManager.Instance != null) ResourceManager.Instance.OnResourceChanged += OnResourceChanged;
         Refresh();
     }
 
     private void OnDisable()
     {
         if (roster != null) roster.Changed -= Refresh;
+        if (ResourceManager.Instance != null) ResourceManager.Instance.OnResourceChanged -= OnResourceChanged;
     }
 
     public void Open(BuildingInfo buildingInfo)
@@ -80,6 +85,8 @@ public class WorkerAssignUI : MonoBehaviour
     {
         if (building == null || roster == null) return;
 
+        RefreshManager();
+
         if (titleText != null)
         {
             int assigned = roster.CountIn(building);
@@ -95,5 +102,28 @@ public class WorkerAssignUI : MonoBehaviour
             cards[i].gameObject.SetActive(has);
             if (has) cards[i].Bind(workers[i], building);
         }
+    }
+
+    private void OnResourceChanged(ResourceType type, int amount)
+    {
+        if (type == ResourceType.Coins) RefreshManager();
+    }
+
+    private void HireManager()
+    {
+        building?.TryHireManager();
+        RefreshManager();
+    }
+
+    private void RefreshManager()
+    {
+        if (hireManagerButton == null || managerLabel == null) return;
+        var offer = building != null ? building.ManagerOffer : null;
+        hireManagerButton.gameObject.SetActive(offer != null);
+        if (offer == null) return;
+        string role = $"{offer.displayName} (×{offer.speedMultiplier:0.##})";
+        managerLabel.text = building.HasManager ? $"{role} • Hired" : $"Hire {role} • {offer.coinPrice} coins";
+        hireManagerButton.interactable = !building.HasManager && ResourceManager.Instance != null &&
+            ResourceManager.Instance.HasEnough(ResourceType.Coins, offer.coinPrice);
     }
 }
