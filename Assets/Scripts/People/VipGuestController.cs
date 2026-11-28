@@ -50,6 +50,10 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
     [Range(0, 100)][SerializeField] private int star4Threshold = 70;
     [Range(0, 100)][SerializeField] private int star5Threshold = 90;
 
+    [Header("VIP Strop hviezd pri chýbajúcej role (Inspector)")]
+    [Tooltip("Strop hviezd, keď požiadavke chýba špecialista, manažér alebo Spa (jeden spôsob pre všetky tri).")]
+    [Range(1, 5)][SerializeField] private int missingRoleStarCap = 3;
+
     [Header("S8 Výsledok")]
     [SerializeField] private S4FigmaResultsUI resultsUI;
 
@@ -70,12 +74,14 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
     public int Star3Threshold => star3Threshold;
     public int Star4Threshold => star4Threshold;
     public int Star5Threshold => star5Threshold;
+    public int MissingRoleStarCap => missingRoleStarCap;
 
     public string SaveKey => "vip-guests.v1";
     public string LastError { get; private set; }
 
     private VipVisitSave visit = new();
     private WaveSession session;
+    private WorkerRoster subscribedRoster;
     private bool ready, transaction;
     private float retryAt;
     private float nextRequirementSaveRetryAt;
@@ -103,6 +109,10 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
 
         session.WaveEnded += OnWaveEnded;
 
+        subscribedRoster = WorkerRoster.Instance;
+        if (subscribedRoster != null)
+            subscribedRoster.SpecialistsChanged += OnSpecialistsChanged;
+
         ready = true;
 
         if (visit.waiting)
@@ -115,6 +125,15 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
     {
         if (session != null)
             session.WaveEnded -= OnWaveEnded;
+
+        if (subscribedRoster != null)
+            subscribedRoster.SpecialistsChanged -= OnSpecialistsChanged;
+    }
+
+    private void OnSpecialistsChanged()
+    {
+        if (ready && visit.waiting)
+            Changed?.Invoke();
     }
 
     // Android often suspends the process rather than calling OnApplicationQuit.
@@ -196,6 +215,45 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
             nextVipFinishRetryAt = Time.unscaledTime + 2f;
             TryFinishAndOpenS8();
         }
+    }
+
+    public bool IsRoleAvailable(VipRequirement req)
+    {
+        if (req == null || req.requiredRole == VipRequiredRole.None)
+            return true;
+
+        var roster = subscribedRoster != null ? subscribedRoster : WorkerRoster.Instance;
+        return roster != null && roster.IsRoleAvailable(req.requiredRole);
+    }
+
+    public int GetRequirementStarCap(VipRequirement req)
+    {
+        if (req == null || IsRoleAvailable(req))
+            return 5;
+
+        int cap = req.missingRoleStarCap > 0 ? req.missingRoleStarCap : missingRoleStarCap;
+        return Mathf.Clamp(cap, 1, 5);
+    }
+
+    public int GetActiveStayStarCap()
+    {
+        if (definition == null || definition.requirements == null)
+            return 5;
+
+        int lowestCap = 5;
+        foreach (var r in definition.requirements)
+        {
+            if (r == null || r.requiredRole == VipRequiredRole.None)
+                continue;
+
+            bool affectsStay = !r.bonus || GetRequirementState(r) == VipRequirementState.Completed;
+            if (!affectsStay) continue;
+
+            if (!IsRoleAvailable(r))
+                lowestCap = Mathf.Min(lowestCap, GetRequirementStarCap(r));
+        }
+
+        return lowestCap;
     }
 
     public VipRequirementState GetRequirementState(VipRequirement req)
@@ -415,8 +473,10 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
 
             grantedRewards = rewards;
             completedTotal = definition.requirements.Count(r => GetRequirementState(r) == VipRequirementState.Completed);
-            satisfactionPercent = CalculateSatisfactionPercent();
-            stars = CalculateVipStars(satisfactionPercent);
+            int rawSatisfaction = CalculateSatisfactionPercent();
+            int stayCap = GetActiveStayStarCap();
+            stars = Mathf.Min(CalculateVipStars(rawSatisfaction), stayCap);
+            satisfactionPercent = CapSatisfactionForStars(rawSatisfaction, stars);
 
             visit.waiting = false;
             visit.rewarded = true;
@@ -445,8 +505,11 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
         return ok;
     }
 
-    public int CurrentSatisfactionPercent => CalculateSatisfactionPercent();
-    public int CurrentStarRating => CalculateVipStars(CurrentSatisfactionPercent);
+    public int CurrentSatisfactionPercent =>
+        CapSatisfactionForStars(CalculateSatisfactionPercent(), CurrentStarRating);
+
+    public int CurrentStarRating =>
+        Mathf.Min(CalculateVipStars(CalculateSatisfactionPercent()), GetActiveStayStarCap());
 
     public int CalculateSatisfactionPercent()
     {
@@ -489,6 +552,20 @@ public sealed class VipGuestController : MonoBehaviour, IGameSaveParticipant
         if (satisfactionPercent >= star2Threshold) return 2;
         if (satisfactionPercent >= star1Threshold) return 1;
         return 1;
+    }
+
+    private int CapSatisfactionForStars(int rawSatisfaction, int starCap)
+    {
+        int maxAllowed = starCap switch
+        {
+            <= 1 => Mathf.Max(0, star2Threshold - 1),
+            2 => Mathf.Max(0, star3Threshold - 1),
+            3 => Mathf.Max(0, star4Threshold - 1),
+            4 => Mathf.Max(0, star5Threshold - 1),
+            _ => 100
+        };
+
+        return Mathf.Clamp(Mathf.Min(rawSatisfaction, maxAllowed), 0, 100);
     }
 
     // Spätná kompatibilita pre staršie volania

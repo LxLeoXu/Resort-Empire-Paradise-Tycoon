@@ -17,8 +17,7 @@ public class UpgradeModalUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI capacityBefore;
     [SerializeField] private TextMeshProUGUI capacityAfter;
 
-    [Header("Worker Slots (Optional)")]
-    [SerializeField] private TextMeshProUGUI slotsLabel;
+    [Header("Worker Slots")]
     [SerializeField] private TextMeshProUGUI slotsBefore;
     [SerializeField] private TextMeshProUGUI slotsAfter;
 
@@ -29,11 +28,13 @@ public class UpgradeModalUI : MonoBehaviour
 
     [Header("Resources")]
     [SerializeField] private TextMeshProUGUI costText;
-    [SerializeField] private GameObject materialCostGroup;
     [SerializeField] private TextMeshProUGUI materialCostText;
     [SerializeField] private TextMeshProUGUI resortValueText;
     [SerializeField] private TextMeshProUGUI missingCoinsText;
-    [SerializeField] private TextMeshProUGUI missingMaterialsText;
+
+    [Header("VIP Špecialisti")]
+    [SerializeField] private Button hireButlerButton;
+    [SerializeField] private Button hireCaptainButton;
 
     [Header("Buttons")]
     [SerializeField] private Button upgradeButton;
@@ -49,6 +50,7 @@ public class UpgradeModalUI : MonoBehaviour
     private TMP_Text messageLabel, upgradeButtonLabel;
     private Vector2 originalWindowSize, originalHeaderSize, originalButtonMin, originalButtonMax, originalButtonPosition, originalButtonSize, originalButtonPivot;
     private bool[] originalContentVisible;
+    private bool originalButlerVisible, originalSecondRowVisible;
     private Vector3 originalButtonRowScale;
     private float originalLaterFontSize;
 
@@ -59,6 +61,7 @@ public class UpgradeModalUI : MonoBehaviour
 
     private bool purchaseInProgress, purchaseCompleted;
     private ResourceManager observedResources;
+    private WorkerRoster observedRoster;
     private ModalWindow modalWindow;
     private BuildingInfo targetBuilding;
     public BuildingInfo TargetBuilding => targetBuilding;
@@ -75,6 +78,12 @@ public class UpgradeModalUI : MonoBehaviour
         if (upgradeButton != null)
             upgradeButton.onClick.AddListener(OnUpgradeClicked);
 
+        if (hireButlerButton != null)
+            hireButlerButton.onClick.AddListener(OnHireButlerClicked);
+
+        if (hireCaptainButton != null)
+            hireCaptainButton.onClick.AddListener(OnHireCaptainClicked);
+
         FindReferencesIfMissing();
     }
 
@@ -90,6 +99,9 @@ public class UpgradeModalUI : MonoBehaviour
         originalContentVisible = new bool[upgradeOnlyContent != null ? upgradeOnlyContent.Length : 0];
         for (int i = 0; i < originalContentVisible.Length; i++)
             originalContentVisible[i] = upgradeOnlyContent[i] != null && upgradeOnlyContent[i].activeSelf;
+        originalButlerVisible = hireButlerButton != null && hireButlerButton.gameObject.activeSelf;
+        originalSecondRowVisible = hireCaptainButton != null && hireCaptainButton.transform.parent != null &&
+            hireCaptainButton.transform.parent.gameObject.activeSelf;
         if (laterButton == null) return;
         var rect = (RectTransform)laterButton.transform;
         originalButtonRowScale = rect.parent.localScale;
@@ -105,17 +117,22 @@ public class UpgradeModalUI : MonoBehaviour
         if (windowRect != null) windowRect.sizeDelta = hasRecommendation ? originalWindowSize : new Vector2(originalWindowSize.x, 320f);
         for (int i = 0; i < originalContentVisible.Length; i++)
             if (upgradeOnlyContent[i] != null) upgradeOnlyContent[i].SetActive(hasRecommendation && originalContentVisible[i]);
+        if (upgradeButton != null) upgradeButton.gameObject.SetActive(hasRecommendation);
+        if (hireButlerButton != null) hireButlerButton.gameObject.SetActive(hasRecommendation && originalButlerVisible);
+        if (hireCaptainButton != null && hireCaptainButton.transform.parent != null)
+            hireCaptainButton.transform.parent.gameObject.SetActive(hasRecommendation && originalSecondRowVisible);
         if (noUpgradeContent != null) noUpgradeContent.SetActive(!hasRecommendation);
         if (laterButtonLabel != null) laterButtonLabel.fontSize = hasRecommendation ? originalLaterFontSize : 36;
         if (laterButton == null) return;
+        bool singleBottomButton = !hasRecommendation && (hireButlerButton == null || !hireButlerButton.gameObject.activeSelf);
         var rect = (RectTransform)laterButton.transform;
         rect.parent.localScale = hasRecommendation ? originalButtonRowScale : Vector3.one;
-        rect.anchorMin = hasRecommendation ? originalButtonMin : new Vector2(.5f, .5f);
-        rect.anchorMax = hasRecommendation ? originalButtonMax : new Vector2(.5f, .5f);
-        rect.pivot = hasRecommendation ? originalButtonPivot : new Vector2(.5f, .5f);
-        rect.anchoredPosition = hasRecommendation ? originalButtonPosition : Vector2.zero;
-        rect.sizeDelta = hasRecommendation ? originalButtonSize : new Vector2(240, 70);
-        if (!hasRecommendation && windowRect != null)
+        rect.anchorMin = !singleBottomButton ? originalButtonMin : new Vector2(.5f, .5f);
+        rect.anchorMax = !singleBottomButton ? originalButtonMax : new Vector2(.5f, .5f);
+        rect.pivot = !singleBottomButton ? originalButtonPivot : new Vector2(.5f, .5f);
+        rect.anchoredPosition = !singleBottomButton ? originalButtonPosition : Vector2.zero;
+        rect.sizeDelta = !singleBottomButton ? originalButtonSize : new Vector2(240, 70);
+        if (singleBottomButton && windowRect != null)
             rect.position = windowRect.TransformPoint(new Vector3(0, windowRect.rect.yMin + 65, 0));
     }
 
@@ -142,13 +159,19 @@ public class UpgradeModalUI : MonoBehaviour
         LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         observedResources = ResourceManager.Instance;
         if (observedResources != null) observedResources.OnResourceChanged += OnResourceChanged;
+        observedRoster = WorkerRoster.Instance;
+        if (observedRoster != null) observedRoster.SpecialistsChanged += RefreshSpecialistButtons;
         RefreshAffordability();
+        RefreshSpecialistButtons();
     }
 
     private void OnResourceChanged(ResourceType type, int amount)
     {
         if (type == ResourceType.Coins || type == ResourceType.Materials)
+        {
             RefreshAffordability();
+            if (type == ResourceType.Coins) RefreshSpecialistButtons();
+        }
     }
 
     private void OnDisable()
@@ -156,6 +179,8 @@ public class UpgradeModalUI : MonoBehaviour
         LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
         if (observedResources != null) observedResources.OnResourceChanged -= OnResourceChanged;
         observedResources = null;
+        if (observedRoster != null) observedRoster.SpecialistsChanged -= RefreshSpecialistButtons;
+        observedRoster = null;
         targetBuilding = null;
         if (spotToOpenAfterClose != null)
         {
@@ -218,8 +243,8 @@ public class UpgradeModalUI : MonoBehaviour
         purchaseCompleted = false;
         targetBuilding = building;
         SetRecommendationPresentation(building != null && building.CanUpgrade);
-        RefreshContent();
         if (modalWindow != null) modalWindow.Open(); else gameObject.SetActive(true);
+        RefreshContent();
     }
 
     private static string Text(string key, params object[] args) =>
@@ -245,6 +270,8 @@ public class UpgradeModalUI : MonoBehaviour
 
     private void RefreshContent()
     {
+        RefreshSpecialistButtons();
+
         var building = targetBuilding;
         bool offerUpgrade = building != null && building.CanUpgrade;
         string bName = building == null ? null : string.IsNullOrEmpty(building.buildingName) ? building.gameObject.name : building.buildingName;
@@ -257,10 +284,10 @@ public class UpgradeModalUI : MonoBehaviour
             if (messageLabel != null)
                 messageLabel.text = atMax ? Text("s5_max_level_message", bName) : Text("s5_no_upgrade_message");
             if (missingCoinsText != null) missingCoinsText.gameObject.SetActive(false);
-            if (missingMaterialsText != null) missingMaterialsText.gameObject.SetActive(false);
-            if (materialCostGroup != null) materialCostGroup.SetActive(false);
-            else if (materialCostText != null) materialCostText.gameObject.SetActive(false);
+            SetSlotsRowVisible(false);
+            SetMaterialCostVisible(false);
             if (upgradeButton != null) upgradeButton.interactable = false;
+            RebuildRightSideLayouts();
             return;
         }
 
@@ -274,9 +301,10 @@ public class UpgradeModalUI : MonoBehaviour
             : TextWithFallback("s5_upgrade_description_slots", "Upgrade to add a worker slot and improve quality.");
 
         bool slotsIncrease = building.NextWorkerSlots > building.CurrentWorkerSlots;
+        SetSlotsRowVisible(slotsIncrease);
+
         if (slotsBefore != null && slotsAfter != null)
         {
-            if (slotsLabel != null) slotsLabel.text = TextWithFallback("s5_worker_slots", "Worker slots");
             slotsBefore.text = $"{building.CurrentWorkerSlots}";
             slotsAfter.text = $"{building.NextWorkerSlots}";
         }
@@ -298,8 +326,8 @@ public class UpgradeModalUI : MonoBehaviour
         if (capacityAfter != null) capacityAfter.text = $"{building.NextCapacity}";
 
         if (qualityLabel != null) qualityLabel.text = Text("s5_quality", Text("need_" + building.offeredNeed));
-        if (qualityBefore != null) qualityBefore.text = FormatQualityTier(building.currentLevel, building.CurrentQualityBonus);
-        if (qualityAfter != null) qualityAfter.text = FormatQualityTier(building.currentLevel + 1, building.NextQualityBonus);
+        if (qualityBefore != null) qualityBefore.text = FormatQualityTier(building.currentLevel);
+        if (qualityAfter != null) qualityAfter.text = FormatQualityTier(building.currentLevel + 1);
 
         int cost = building.UpgradeCost;
         int materialCost = building.UpgradeMaterialCost;
@@ -309,39 +337,142 @@ public class UpgradeModalUI : MonoBehaviour
         {
             if (costText != null) costText.text = $"{cost}";
             materialCostText.text = $"{materialCost}";
-            if (materialCostGroup != null) materialCostGroup.SetActive(materialCost > 0);
-            else materialCostText.gameObject.SetActive(materialCost > 0);
+            SetMaterialCostVisible(materialCost > 0);
         }
-        else
+        else if (costText != null)
         {
-            if (materialCostGroup != null) materialCostGroup.SetActive(false);
-            if (costText != null)
-            {
-                costText.text = materialCost > 0
-                    ? TextWithFallback("s5_cost_coins_materials", "{0} + {1} Materials", cost, materialCost)
-                    : $"{cost}";
-            }
+            costText.text = materialCost > 0
+                ? TextWithFallback("s5_cost_coins_materials", "{0} + {1} Materials", cost, materialCost)
+                : $"{cost}";
         }
 
         if (resortValueText != null) resortValueText.text = Text("s5_resort_gain", gain);
 
         RefreshAffordability();
+        RebuildRightSideLayouts();
     }
 
-    private static string FormatQualityTier(int level, float qualityBonus)
+    private void RebuildRightSideLayouts()
     {
-        string baseTier = level switch
-        {
-            1 => Text("s5_basic"),
-            2 => Text("s5_improved"),
-            _ => Text("s5_premium")
-        };
+        if (!gameObject.activeInHierarchy) return;
 
-        int pct = Mathf.RoundToInt(qualityBonus * 100f);
-        return pct > 0
-            ? TextWithFallback("s5_quality_with_bonus", "{0} (+{1}%)", baseTier, pct)
-            : baseTier;
+        ForceUpdateText(capacityBefore);
+        ForceUpdateText(capacityAfter);
+        ForceUpdateText(qualityBefore);
+        ForceUpdateText(qualityAfter);
+        ForceUpdateText(slotsBefore);
+        ForceUpdateText(slotsAfter);
+
+        Canvas.ForceUpdateCanvases();
+        RebuildParentLayout(capacityBefore);
+        RebuildParentLayout(qualityBefore);
+        RebuildParentLayout(slotsBefore);
+
+        if (windowRect != null)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(windowRect);
     }
+
+    private static void ForceUpdateText(TMP_Text text)
+    {
+        if (text != null && text.gameObject.activeInHierarchy)
+            text.ForceMeshUpdate();
+    }
+
+    private static void RebuildParentLayout(TMP_Text childText)
+    {
+        if (childText == null || !childText.gameObject.activeInHierarchy) return;
+        var parent = childText.transform.parent as RectTransform;
+        if (parent != null)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(parent);
+    }
+
+    private void SetSlotsRowVisible(bool visible)
+    {
+        if (slotsBefore == null) return;
+        Transform row = slotsBefore.transform.parent != null ? slotsBefore.transform.parent.parent : null;
+        if (row != null) row.gameObject.SetActive(visible);
+    }
+
+    private void SetMaterialCostVisible(bool visible)
+    {
+        if (materialCostText == null) return;
+        Transform leftSide = materialCostText.transform.parent;
+        if (leftSide == null)
+        {
+            materialCostText.gameObject.SetActive(visible);
+            return;
+        }
+
+        // Skryjeme len grafiku v LeftSide, aby RightSide (+100 Resort Value) ostalo pevne vpravo.
+        foreach (var graphic in leftSide.GetComponentsInChildren<Graphic>(true))
+            graphic.enabled = visible;
+    }
+
+    // =====================================================
+    // NAJATIE ŠPECIALISTU PRE TLAČIDLÁ V S5
+    // =====================================================
+
+    public bool TryHireSpecialist(VipRequiredRole role)
+    {
+        var roster = observedRoster != null ? observedRoster : WorkerRoster.Instance;
+        if (roster == null || !roster.TryHireSpecialist(role))
+            return false;
+
+        RefreshAffordability();
+        RefreshSpecialistButtons();
+        return true;
+    }
+
+    public void OnHireButlerClicked() => TryHireSpecialist(VipRequiredRole.Butler);
+    public void OnHireCaptainClicked() => TryHireSpecialist(VipRequiredRole.Captain);
+
+    private void RefreshSpecialistButtons()
+    {
+        var roster = observedRoster != null ? observedRoster : WorkerRoster.Instance;
+        if (roster == null) return;
+
+        RefreshSingleSpecialistButton(roster, VipRequiredRole.Butler, hireButlerButton);
+        RefreshSingleSpecialistButton(roster, VipRequiredRole.Captain, hireCaptainButton);
+    }
+
+    private static void RefreshSingleSpecialistButton(WorkerRoster roster, VipRequiredRole role, Button button)
+    {
+        if (button == null) return;
+
+        bool hired = roster.HasSpecialist(role);
+        bool canHire = roster.CanHireSpecialist(role);
+        string name = roster.GetSpecialistName(role);
+        int cost = roster.GetSpecialistHireCost(role);
+
+        button.interactable = !hired && canHire;
+
+        TMP_Text costLabel = null;
+        TMP_Text titleLabel = null;
+        foreach (var tmp in button.GetComponentsInChildren<TMP_Text>(true))
+        {
+            if (tmp.gameObject.name == "Text") costLabel = tmp;
+            else if (titleLabel == null) titleLabel = tmp;
+        }
+
+        Transform coinIcon = button.transform.Find("CoinsIcon");
+        if (coinIcon != null)
+            coinIcon.gameObject.SetActive(!hired);
+
+        if (titleLabel != null)
+            titleLabel.text = hired ? name.ToUpperInvariant() : $"HIRE {name.ToUpperInvariant()}";
+
+        if (costLabel != null)
+            costLabel.text = hired ? "HIRED" : $"{cost}";
+    }
+
+    private static string FormatQualityTier(int level) => level switch
+    {
+        1 => Text("s5_basic"),
+        2 => Text("s5_improved"),
+        3 => Text("s5_premium"),
+        4 => TextWithFallback("s5_luxurious", "Luxurious"),
+        _ => TextWithFallback("s5_royal", "Royal")
+    };
 
     private void RefreshAffordability()
     {
@@ -368,37 +499,25 @@ public class UpgradeModalUI : MonoBehaviour
                 targetBuilding.CanUpgrade && (cost > 0 || materialCost > 0) && canAfford;
         }
 
+        if (missingCoinsText == null) return;
+
         bool canShowMissing = resources != null && targetBuilding.CanUpgrade;
-        string missingMaterialsLabel = missingMaterials > 0
-            ? TextWithFallback("s5_missing_materials", "Missing: {0} Materials", missingMaterials)
-            : string.Empty;
+        bool showCoins = canShowMissing && missingCoins > 0;
+        bool showMats = canShowMissing && missingMaterials > 0;
+        missingCoinsText.gameObject.SetActive(showCoins || showMats);
 
-        if (missingMaterialsText != null)
+        if (showCoins && showMats)
         {
-            bool showCoins = canShowMissing && missingCoins > 0;
-            bool showMats = canShowMissing && missingMaterials > 0;
-
-            if (missingCoinsText != null)
-            {
-                missingCoinsText.gameObject.SetActive(showCoins);
-                if (showCoins) missingCoinsText.text = Text("s5_missing_coins", missingCoins);
-            }
-
-            missingMaterialsText.gameObject.SetActive(showMats);
-            if (showMats) missingMaterialsText.text = missingMaterialsLabel;
+            string missingMatText = TextWithFallback("s5_missing_materials", "Missing: {0} Materials", missingMaterials);
+            missingCoinsText.text = $"{Text("s5_missing_coins", missingCoins)}\n{missingMatText}";
         }
-        else if (missingCoinsText != null)
+        else if (showCoins)
         {
-            bool showCoins = canShowMissing && missingCoins > 0;
-            bool showMats = canShowMissing && missingMaterials > 0;
-            missingCoinsText.gameObject.SetActive(showCoins || showMats);
-
-            if (showCoins && showMats)
-                missingCoinsText.text = $"{Text("s5_missing_coins", missingCoins)}\n{missingMaterialsLabel}";
-            else if (showCoins)
-                missingCoinsText.text = Text("s5_missing_coins", missingCoins);
-            else if (showMats)
-                missingCoinsText.text = missingMaterialsLabel;
+            missingCoinsText.text = Text("s5_missing_coins", missingCoins);
+        }
+        else if (showMats)
+        {
+            missingCoinsText.text = TextWithFallback("s5_missing_materials", "Missing: {0} Materials", missingMaterials);
         }
     }
 

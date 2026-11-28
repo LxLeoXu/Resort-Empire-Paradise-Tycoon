@@ -4,7 +4,6 @@ using UnityEngine;
 /// <summary>
 /// SCRUM-22: in wave 2, around second 45, a sudden rush hits a building with no worker. Shows the "Sudden rush at ...!"
 /// popup (Move Worker here / Speed Up / Ignore). The wave keeps running. Move Worker here costs no energy (SCRUM-88).
-/// Put it on any active object in the scene and assign the references.
 /// </summary>
 [DisallowMultipleComponent]
 public sealed class SuddenRushController : MonoBehaviour, IGameSaveParticipant
@@ -39,19 +38,42 @@ public sealed class SuddenRushController : MonoBehaviour, IGameSaveParticipant
 
     private void Start()
     {
-        if (waveManager == null) waveManager = FindFirstObjectByType<WaveManager>();
-        if (workerAssign == null) workerAssign = FindFirstObjectByType<WorkerAssignUI>(FindObjectsInactive.Include);
+        FindReferencesIfMissing();
+
         if (waveManager == null || waveManager.Session == null || panel == null)
         {
             Debug.LogError("SuddenRushController: missing WaveManager or SuddenRushPanel.", this);
             enabled = false;
             return;
         }
+
         session = waveManager.Session;
         session.WaveStarted += OnWaveStarted;
         session.WaveEnded += OnWaveEnded;
         panel.MoveWorkerChosen += OnMoveWorker;
         panel.UseEnergyChosen += OnUseEnergy;
+    }
+
+    private void FindReferencesIfMissing()
+    {
+        if (waveManager == null) waveManager = FindFirstObjectByType<WaveManager>();
+        if (panel == null) panel = FindFirstObjectByType<SuddenRushPanel>(FindObjectsInactive.Include);
+
+        // Nájde nové okno S32 (aj keď je vypnuté)
+        if (workerAssign == null)
+        {
+            var all = FindObjectsByType<WorkerAssignUI>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            foreach (var ui in all)
+            {
+                if (ui.gameObject.name.Contains("32") || ui.transform.Find("Window/BuildingCards") != null)
+                {
+                    workerAssign = ui;
+                    break;
+                }
+            }
+            if (workerAssign == null && all.Length > 0)
+                workerAssign = all[0];
+        }
     }
 
     private void OnDestroy()
@@ -71,7 +93,7 @@ public sealed class SuddenRushController : MonoBehaviour, IGameSaveParticipant
     private void Update()
     {
         if (rushDone || Time.deltaTime <= 0 || GamePersistence.IsRestoring) return;
-        if (session.State != WaveState.Running || session.WaveNumber != rushWave || session.Elapsed < rushAtSeconds) return;
+        if (session == null || session.State != WaveState.Running || session.WaveNumber != rushWave || session.Elapsed < rushAtSeconds) return;
         TriggerRush();
     }
 
@@ -79,13 +101,13 @@ public sealed class SuddenRushController : MonoBehaviour, IGameSaveParticipant
     {
         rushDone = false;
         target = null;
-        if (panel.IsOpen) panel.Close();
+        if (panel != null && panel.IsOpen) panel.Close();
     }
 
     private void OnWaveEnded(int wave)
     {
         target = null;
-        if (panel.IsOpen) panel.Close();
+        if (panel != null && panel.IsOpen) panel.Close();
     }
 
     private void TriggerRush()
@@ -97,7 +119,7 @@ public sealed class SuddenRushController : MonoBehaviour, IGameSaveParticipant
         panel.Show(DisplayName(target), BuildingService.BoostEnergyCost, target.transform);
     }
 
-    // A built building with nobody working; if every building is staffed, the one with the fewest workers.
+    // Nájde postavenú budovu bez pracovníka (alebo s najmenej pracovníkmi)
     private static BuildingService PickBuilding()
     {
         BuildingService best = null;
@@ -122,14 +144,40 @@ public sealed class SuddenRushController : MonoBehaviour, IGameSaveParticipant
 
     private void OnMoveWorker()
     {
-        panel.Close();
-        if (target == null || workerAssign == null) return;
-        workerAssign.Open(target.GetComponentInChildren<BuildingInfo>(true));
+        if (panel != null) panel.Close();
+
+        // 1. Poistka pre cieľovú budovu (aj pri teste cez ContextMenu)
+        if (target == null)
+            target = PickBuilding();
+
+        // 2. Poistka pre nájdenie S32
+        FindReferencesIfMissing();
+
+        if (workerAssign != null)
+        {
+            BuildingInfo info = target != null ? target.GetComponentInChildren<BuildingInfo>(true) : null;
+            if (info == null && target != null) info = target.GetComponentInParent<BuildingInfo>();
+
+            // Otvorí S32
+            if (info != null)
+                workerAssign.Open(info);
+            else if (target != null)
+                workerAssign.OpenForNeed(target.Need);
+            else
+                workerAssign.Open((BuildingInfo)null);
+
+            Debug.Log($"<color=green>[SUDDEN RUSH]</color> Move Worker otvoril S3 pre {DisplayName(target)}");
+        }
+        else
+        {
+            Debug.LogError("SuddenRushController: S32 (WorkerAssignUI) sa nenašiel v scéne!", this);
+        }
     }
 
     private void OnUseEnergy()
     {
-        // Under 3 energy: nothing is spent and the popup stays open.
-        if (target != null && target.TryBoost()) panel.Close();
+        if (target == null) target = PickBuilding();
+        if (target != null && target.TryBoost() && panel != null)
+            panel.Close();
     }
 }

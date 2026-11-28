@@ -248,6 +248,18 @@ MonoBehaviour:
     m_Localized: Upgrade to add a worker slot and improve quality.
     m_Metadata:
       m_Items: []
+  - m_Id: 12083809735503872
+    m_Localized: "max {0}\u2605 - no {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12427484694925312
+    m_Localized: Luxurious
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12427496036323328
+    m_Localized: Royal
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

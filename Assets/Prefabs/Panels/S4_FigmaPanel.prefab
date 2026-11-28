@@ -5248,8 +5248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClaimRewards
   claimButton: {fileID: 9150531053935496705}
-  upgradeModal: {fileID: 0}
-  s4Root: {fileID: 0}
+  upgradeModal: {fileID: 4198068237831912499, guid: 2811ca0ba07b25c428c88fe35bf682d1, type: 3}
+  s4Root: {fileID: 9083451829043301710}
 --- !u!114 &5617429491955521953
 MonoBehaviour:
   m_ObjectHideFlags: 0

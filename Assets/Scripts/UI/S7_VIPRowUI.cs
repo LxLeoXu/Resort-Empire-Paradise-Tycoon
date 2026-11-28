@@ -22,6 +22,15 @@ public class S7_VIPRowUI : MonoBehaviour
     [Tooltip("Voliteľné: CanvasGroup na ľavej časti pre stlmenie na 0.55 pri DONE.")]
     [SerializeField] private CanvasGroup leftContentCanvasGroup;
 
+    [Header("Strop kvality (MissingRequirement z hierarchie)")]
+    [Tooltip("Sem pretiahni celý rodičovský objekt MissingRequirement (zapne sa len keď rola chýba).")]
+    [SerializeField] private GameObject missingRequirementRoot;
+    [Tooltip("Sem pretiahni vnútorný Text (zobrazí napr. 'No Butler - max 3').")]
+    [SerializeField] private TMP_Text roleCapText;
+    [Tooltip("Voliteľné: vnútorný objekt StarIcon (ak ho máš oddelene ako Image).")]
+    [SerializeField] private GameObject starIconObject;
+    [SerializeField] private Color roleCapColor = new Color(0.9f, 0.25f, 0.25f);
+
     [Header("Stavový štítok (State)")]
     [SerializeField] private Image stateBackground;
     [SerializeField] private Image stateIcon;
@@ -70,6 +79,20 @@ public class S7_VIPRowUI : MonoBehaviour
         float totalDurationSec,
         Action<VipRequirement> fixCallback)
     {
+        Bind(req, state, needIconSprite, playerMaterials, remainingSec, totalDurationSec, false, 5, fixCallback);
+    }
+
+    public void Bind(
+        VipRequirement req,
+        VipRequirementState state,
+        Sprite needIconSprite,
+        int playerMaterials,
+        float remainingSec,
+        float totalDurationSec,
+        bool isRoleMissing,
+        int starCap,
+        Action<VipRequirement> fixCallback)
+    {
         currentReq = req;
         onFixClicked = fixCallback;
 
@@ -94,6 +117,33 @@ public class S7_VIPRowUI : MonoBehaviour
 
         if (bonusBadge != null)
             bonusBadge.SetActive(req.bonus);
+
+        // --- Zobrazenie stropu (MissingRequirement) ---
+        bool showCap = isRoleMissing && req.requiredRole != VipRequiredRole.None && starCap < 5;
+
+        if (missingRequirementRoot != null)
+            missingRequirementRoot.SetActive(showCap);
+
+        if (starIconObject != null)
+            starIconObject.SetActive(showCap);
+
+        if (roleCapText != null)
+        {
+            if (missingRequirementRoot == null)
+                roleCapText.gameObject.SetActive(showCap);
+
+            if (showCap)
+            {
+                string roleName = WorkerRoster.GetRoleDisplayName(req.requiredRole);
+                // Ak máš vedľa samostatnú hviezdičku StarIcon, nedávame znak ★ do textu:
+                string textFormat = starIconObject != null
+                    ? GetLocalized("vip_role_cap_no_star", "No {1} - max {0}", starCap, roleName)
+                    : GetLocalized("vip_role_cap", "No {1} - max {0}★", starCap, roleName);
+
+                roleCapText.text = textFormat;
+                roleCapText.color = roleCapColor;
+            }
+        }
 
         // Stlmenie ľavej časti pri stave DONE
         ApplyDoneAlpha(state == VipRequirementState.Completed ? 0.55f : 1f);
@@ -233,13 +283,19 @@ public class S7_VIPRowUI : MonoBehaviour
         _ => "Resort"
     };
 
-    private static string GetLocalized(string key, string fallback)
+    private static string GetLocalized(string key, string fallback, params object[] args)
     {
         try
         {
-            string s = LocalizationSettings.StringDatabase.GetLocalizedString(TableName, key);
-            return string.IsNullOrEmpty(s) ? fallback : s;
+            string s = LocalizationSettings.StringDatabase.GetLocalizedString(TableName, key, args);
+            if (!string.IsNullOrWhiteSpace(s) &&
+                !s.StartsWith("No translation found", StringComparison.OrdinalIgnoreCase))
+            {
+                return s;
+            }
         }
-        catch { return fallback; }
+        catch { }
+
+        return string.Format(fallback, args);
     }
 }

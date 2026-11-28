@@ -2,6 +2,25 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum VipRequiredRole
+{
+    None = 0,
+
+    // Špecialisti (bez budovy)
+    Butler = 1,
+    Captain = 2,
+
+    // Manažéri budov (pripravené pre kolegov)
+    Receptionist = 10,
+    Chef = 11,
+    Bartender = 12,
+    Lifeguard = 13,
+    Bellhop = 14,
+
+    // VIP budova
+    Spa = 20
+}
+
 [Serializable]
 public sealed class VipRequirement
 {
@@ -9,6 +28,13 @@ public sealed class VipRequirement
     public string description;
     public bool bonus;
     [Min(0)] public int materials = 10;
+
+    [Header("Požadovaná rola (VIP pripravenosť)")]
+    [Tooltip("Rola potrebná pre plnú kvalitu (špecialista, manažér alebo Spa). Ak chýba, požiadavka sa dá splniť, ale s nižším stropom hviezd.")]
+    public VipRequiredRole requiredRole = VipRequiredRole.None;
+
+    [Tooltip("Strop hviezd pri chýbajúcej role (0 = použije sa hlavné číslo z VipGuestController, napr. 3★).")]
+    [Range(0, 5)] public int missingRoleStarCap = 0;
 
     [Header("S7 Vizuál a časovanie")]
     public NeedType needType = NeedType.Drinks;
